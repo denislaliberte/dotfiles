@@ -118,7 +118,6 @@ alias vbi="vim +BundleInstall +qall"
 alias veh="sudo vim /etc/hosts"
 
 ##bash option
-cat README.txt
 export PS1='\W \!$ '
 export GREP_OPTIONS="--color=auto"
 force_color_prompt=yes
@@ -135,80 +134,10 @@ shopt -s cmdhist
 HISTCONTROL=ignoredups
 export HISTIGNORE="&:ls:[bf]g:exit"
 
-function up(){
-    pwd;
-    dir=""
-    if [ -z "$1" ]; then
-        dir=..
-    elif [[ $1 =~ ^[0-9]+$ ]]; then
-        x=0
-        while [ $x -lt ${1:-1} ]; do
-            dir=${dir}../
-            x=$(($x+1))
-        done
-    else
-        dir=${PWD%/$1/*}/$1
-    fi
-    cd "$dir";
-    pwd;
-}
 
-ss() {
-    if [[ $# == 0 ]]; then
-       sudo $(history -p '!!')
-    else
-      sudo "$@"
-    fi
-}
-
-function mc() {
-        if [ $# != 1 ]; then
-                echo "Usage: mc <dir>"
-        else
-                mkdir -p $1 && cd $1
-        fi
-}
-
-function cl(){
-        last_dir="$(ls -Frt | grep '/$' | tail -n1)"
-        if [ -d "$last_dir" ]; then
-                cd "$last_dir"
-        fi
-}
-
-function cd()
-{
-  builtin cd "$*" && ls
-}
-
-
-function drushcd()
-{
-   cd ` drush dd "$*"`
-}
-
-function drushpmlgrep()
-{
-  drush pml | grep "$*"
-}
-
-function drushgrep()
-{
-  drush | grep "$*"
-}
-function historygrep()
-{
-  history | grep "$*"
-}
-
-function vimreminder()
-{
-  vim "~/Documents/reminder/$*"
-}
-
-#add to .bash_profile
-# if [ -f ~/.bashrc ]; then
-#    source ~/.bashrc
-# fi
+add to .bash_profile
+ if [ -f ~/.bash_command ]; then
+    source ~/.bash_command
+ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
