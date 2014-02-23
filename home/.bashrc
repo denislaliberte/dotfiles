@@ -1,4 +1,10 @@
+#add command
+ if [ -f ~/.bash_command ]; then
+    source ~/.bash_command
+ fi
+
 #bash
+alias bag="bashaliasgrep"
 alias vbr="vim ~/.bashrc"
 alias vbp="vim ~/.bash_profile"
 alias lr="ls ~/Documents/reminder"
@@ -80,6 +86,11 @@ alias p="pwd"
 
 #homesick
 alias hs="homesick"
+alias hl="homesick list"
+alias hch="homesick cd hs"
+alias hcd="homesick cd"
+alias hp="homesick pull hc"
+alias hP="homesick push hc"
 
 ##http
 alias hc="ifconfig"
@@ -134,10 +145,5 @@ shopt -s cmdhist
 HISTCONTROL=ignoredups
 export HISTIGNORE="&:ls:[bf]g:exit"
 
-
-add to .bash_profile
- if [ -f ~/.bash_command ]; then
-    source ~/.bash_command
- fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
