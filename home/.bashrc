@@ -78,10 +78,13 @@ alias Gconf='git config --global color.ui true;git config --global user.name "De
 
 alias p="pwd"
 
+#homesick
+alias hs="homesick"
+
 ##http
 alias hc="ifconfig"
 alias hr="sudo apachectl restart"
-alias hs="cd ~/Sites"
+alias hcs="cd ~/Sites"
 
 ##python
 alias p="python"
