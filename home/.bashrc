@@ -7,7 +7,6 @@
 alias bag="bashaliasgrep"
 alias vbr="vim ~/.bashrc"
 alias vbp="vim ~/.bash_profile"
-alias lr="ls ~/Documents/reminder"
 alias vr="vimreminder"
 alias c="clear;pwd"
 alias crm="clear;cat ~/README.txt "
@@ -19,6 +18,7 @@ alias doc="cd ~/Documents"
 alias hom="cd ~"
 alias home="cd ~"
 alias hg="historygrep"
+alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
 
 ## behat
 alias bb="bin/behat"
@@ -86,17 +86,20 @@ alias p="pwd"
 
 #homesick
 alias hs="homesick"
-alias hl="homesick list"
-alias hch="homesick cd hs"
+alias hch="homesick cd hc"
 alias hcd="homesick cd"
+alias hd="homesick diff hc"
+alias hl="homesick list"
 alias hp="homesick pull hc"
 alias hP="homesick push hc"
 
 ##http
-alias hc="ifconfig"
+alias hic="ifconfig"
 alias hr="sudo apachectl restart"
 alias hcs="cd ~/Sites"
 
+
+alias ghc="hub create" #git hub create
 ##python
 alias p="python"
 
