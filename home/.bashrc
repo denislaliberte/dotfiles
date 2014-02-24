@@ -14,6 +14,7 @@ alias crm="clear;cat ~/README.txt "
 alias la="ls -a"
 alias ll="ls -l"
 alias lS="clear;pwd;ls *"
+alias lg="lsgrep" #ls grep $*
 alias des="cd ~/Desktop"
 alias doc="cd ~/Documents"
 alias hom="cd ~"
