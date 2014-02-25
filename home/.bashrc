@@ -92,6 +92,11 @@ alias ghc="hub create" #git hub create
 
 alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
 
+
+#goobook google book (gmail)
+alias gbq="goobook query"
+alias gba="goobook add"
+
 alias p="pwd"
 
 ##http
@@ -168,5 +173,8 @@ shopt -s cmdhist
 HISTCONTROL=ignoredups
 export HISTIGNORE="&:ls:[bf]g:exit"
 
+#editing mode
+set editing-mode vi
+set -o vi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
