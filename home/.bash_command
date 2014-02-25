@@ -50,6 +50,14 @@ function drushcd()
    cd ` drush dd "$*"`
 }
 
+
+function lsgrep()
+{
+  ls | grep "$*"
+}
+
+
+
 function drushpmlgrep()
 {
   drush pml | grep "$*"

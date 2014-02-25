@@ -1,23 +1,26 @@
-#add command
+#bash
  if [ -f ~/.bash_command ]; then
     source ~/.bash_command
  fi
 
-#bash
+ #bash
 alias bag="bashaliasgrep"
 alias vbr="vim ~/.bashrc"
 alias vbp="vim ~/.bash_profile"
+alias lr="ls ~/Documents/reminder"
 alias vr="vimreminder"
 alias c="clear;pwd"
 alias crm="clear;cat ~/README.txt "
 alias la="ls -a"
 alias ll="ls -l"
 alias lS="clear;pwd;ls *"
+alias lg="lsgrep" #ls grep $*
 alias des="cd ~/Desktop"
 alias doc="cd ~/Documents"
 alias hom="cd ~"
 alias home="cd ~"
 alias hg="historygrep"
+alias rmr="rm -r"
 alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
 
 ## behat
@@ -33,11 +36,13 @@ alias cmp="composer"
 alias d="drush"
 alias dca="drush cc all"
 alias dcd="drushcd"
+alias ddl="drush dl"
 alias ddm="drush dis -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
 alias ddy="drush dis -y"
 alias dey="drush en -y"
 alias dem="drush en -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
 alias dg="drushgrep"
+alias dpl="drush pml"
 alias dpg="drushpmlgrep"
 alias dsc="drush sql-connect -l"
 alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
@@ -62,11 +67,14 @@ alias ft="f STREAM #TP1"
 ##git
 alias g="git"
 alias ga="git add"
+alias gA="git add -A :/"
+alias gAc="git add -A :/;git commit -m"
 alias gau="git add -u ."
 alias gaU="git add -u :/"
 alias gb="git branch -v"
 alias gc="git checkout "
 alias gcm="git commit -m "
+alias gcr="cd $(git rev-parse --show-cdup)" #git cd root
 alias gd="git diff"
 alias gi="git init"
 alias gl="git log"
@@ -80,10 +88,16 @@ alias Gac="git add -u;git commit -m"
 alias Gcm="git checkout master"
 alias Gds="git diff;git status;git branch -v"
 alias Gpm="git push origin master"
+alias ghc="hub create" #git hub create
 
 alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
 
 alias p="pwd"
+
+##http
+alias hic="ifconfig"
+alias hr="sudo apachectl restart"
+alias hcs="cd ~/Sites"
 
 #homesick
 alias hs="homesick"
@@ -94,13 +108,8 @@ alias hl="homesick list"
 alias hp="homesick pull hc"
 alias hP="homesick push hc"
 
-##http
-alias hic="ifconfig"
-alias hr="sudo apachectl restart"
-alias hcs="cd ~/Sites"
 
 
-alias ghc="hub create" #git hub create
 ##python
 alias p="python"
 
@@ -132,7 +141,17 @@ alias vrm="vim ~/README.txt"
 alias vbi="vim +BundleInstall +qall"
 alias veh="sudo vim /etc/hosts"
 
+#wp : wordpress cli 
+alias wpa="wp plugin activate"
+alias wpd="wp plugin deactivate"
+alias wpp="wp plugin"
+alias wps="wp plugin search"
+alias wpl="wp plugin list"
+alias wpa="wp plugin activate"
+
+
 ##bash option
+cat README.txt
 export PS1='\W \!$ '
 export GREP_OPTIONS="--color=auto"
 force_color_prompt=yes
