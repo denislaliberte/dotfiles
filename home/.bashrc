@@ -10,7 +10,6 @@ alias vbp="vim ~/.bash_profile"
 alias lr="ls ~/Documents/reminder"
 alias vr="vimreminder"
 alias c="clear;pwd"
-alias crm="clear;cat ~/README.txt "
 alias la="ls -a"
 alias ll="ls -l"
 alias lS="clear;pwd;ls *"
@@ -49,20 +48,21 @@ alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debu
 alias dvg="drush vget"
 alias dvs="drush vset"
 
-##f
-alias f="fbcmd"
-alias fa2="f STREAM fl_10151548377785299 new"
-alias fa="f STREAM fl_213506995298"
-alias fan="f STREAM fl_213506995298 new"
-alias fc="f COMMENT"
-alias ff="f SFILTERS"
-alias fI="f INBOX"
-alias fn="f NOTIFY"
-alias fm="f MSG"
-alias fS="f STATUS"
-alias fs="f STREAM"
-alias fsn="f STREAM new"
-alias ft="f STREAM #TP1"
+##fb 
+alias fb="fbcmd"
+alias fa2="fbcmd STREAM fl_10151548377785299 new"
+alias fa="fbcmd STREAM fl_213506995298"
+alias fan="fbcmd STREAM fl_213506995298 new"
+alias fc="fbcmd COMMENT"
+alias fe="fbcmd EVENTS"
+alias ff="fbcmd SFILTERS"
+alias fI="fbcmd INBOX"
+alias fn="fbcmd NOTIFY"
+alias fm="fbcmd MSG"
+alias fS="fbcmd STATUS"
+alias fs="fbcmd STREAM"
+alias fsn="fbcmd STREAM new"
+alias ft="fbcmd STREAM #TP1"
 
 ##git
 alias g="git"
@@ -74,7 +74,7 @@ alias gaU="git add -u :/"
 alias gb="git branch -v"
 alias gc="git checkout "
 alias gcm="git commit -m "
-alias gcr="cd $(git rev-parse --show-cdup)" #git cd root
+alias gcr="cd $(git rev-parse --show-cdup)" 
 alias gd="git diff"
 alias gi="git init"
 alias gl="git log"
@@ -156,7 +156,6 @@ alias wpa="wp plugin activate"
 
 
 ##bash option
-cat README.txt
 export PS1='\W \!$ '
 export GREP_OPTIONS="--color=auto"
 force_color_prompt=yes
