@@ -1,10 +1,15 @@
-#bash
+# alias bash #
+
+## include bash command ##
  if [ -f ~/.bash_command ]; then
     source ~/.bash_command
  fi
 
- #bash
+
+## alias bash ##
 alias bag="bashaliasgrep"
+alias mkd="mkdir"
+alias p="pwd"
 alias vbr="vim ~/.bashrc"
 alias vbp="vim ~/.bash_profile"
 alias lr="ls ~/Documents/reminder"
@@ -22,16 +27,20 @@ alias hg="historygrep"
 alias rmr="rm -r"
 alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
 
-## behat
+## behat ##
+### BDD for PHP ###
 alias bb="bin/behat"
 
-##brew
+## homebrew ##
+### The missing package manager for OS X ###
 alias b="brew"
 
-#composer
+## composer ##
+### Dependency Manager for PHP ###
 alias cmp="composer"
 
-##drush
+## drush ## 
+### A command line shell and scripting interface for Drupal. ###
 alias d="drush"
 alias dca="drush cc all"
 alias dcd="drushcd"
@@ -48,7 +57,8 @@ alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debu
 alias dvg="drush vget"
 alias dvs="drush vset"
 
-##fb 
+## fbcmd  ##
+### A facebook command line interface ###
 alias fb="fbcmd"
 alias fa2="fbcmd STREAM fl_10151548377785299 new"
 alias fa="fbcmd STREAM fl_213506995298"
@@ -64,7 +74,8 @@ alias fs="fbcmd STREAM"
 alias fsn="fbcmd STREAM new"
 alias ft="fbcmd STREAM #TP1"
 
-##git
+## git ##
+### fast version control ###
 alias g="git"
 alias ga="git add"
 alias gA="git add -A :/"
@@ -73,6 +84,7 @@ alias gau="git add -u ."
 alias gaU="git add -u :/"
 alias gb="git branch -v"
 alias gc="git checkout "
+alias gcl="git clone "
 alias gcm="git commit -m "
 alias gcr="cd $(git rev-parse --show-cdup)" 
 alias gd="git diff"
@@ -80,6 +92,7 @@ alias gi="git init"
 alias gl="git log"
 alias gp="git pull"
 alias gP="git push"
+alias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
 alias gm="git merge"
 alias gr="git remote -v"
 alias gs="git status"
@@ -93,18 +106,19 @@ alias ghc="hub create" #git hub create
 alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
 
 
-#goobook google book (gmail)
+## goobook ##
+### google book - gmail ###
 alias gbq="goobook query"
 alias gba="goobook add"
 
-alias p="pwd"
 
-##http
+## http ##
 alias hic="ifconfig"
 alias hr="sudo apachectl restart"
 alias hcs="cd ~/Sites"
 
-#homesick
+## homesick ##
+###  Your home directory is your castle. Don't leave your dotfiles behind ###
 alias hs="homesick"
 alias hch="homesick cd hc"
 alias hcd="homesick cd"
@@ -113,7 +127,10 @@ alias hl="homesick list"
 alias hp="homesick pull hc"
 alias hP="homesick push hc"
 
-
+## jekyll ##
+### Transform your plain text into static websites and blogs. ###
+alias j="jekyll"
+alias js="jekyll server"
 
 ##python
 alias p="python"
