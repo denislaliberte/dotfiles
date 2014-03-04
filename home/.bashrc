@@ -5,7 +5,6 @@
     source ~/.bash_command
  fi
 
-
 ## alias bash ##
 alias bag="bashaliasgrep"
 alias mkd="mkdir"
@@ -34,6 +33,13 @@ alias bb="bin/behat"
 ## homebrew ##
 ### The missing package manager for OS X ###
 alias b="brew"
+alias bt="brew tap"
+alias bi="brew install"
+alias bl="brew list"
+alias bs="brew search"
+alias bu="brew update"
+alias bud="brew update;brew doctor"
+alias bd="brew doctor"
 
 ## composer ##
 ### Dependency Manager for PHP ###
@@ -108,12 +114,10 @@ alias ghc="hub create" #git hub create
 
 alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
 
-
 ## goobook ##
 ### google book - gmail ###
 alias gbq="goobook query"
 alias gba="goobook add"
-
 
 ## http ##
 alias hic="ifconfig"
@@ -139,8 +143,14 @@ alias js="jekyll server"
 alias p="python"
 
 ##ruby
-rvm use 1.9
+#rvm use 1.9
 alias r="rails"
+
+## rvm ##
+### Ruby Version Manage ###
+alias rgl="rvm gemset list"
+alias rgc="rvm gemset create"
+alias rgu="rvm gemset use"
 alias rr="rake routes"
 alias rdm="rake db:migrate;rake db:migrate RAILS_ENV=test"
 alias rgm="rails generate migration"
@@ -173,7 +183,6 @@ alias wpp="wp plugin"
 alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
-
 
 ##bash option
 export PS1='\W \!$ '
