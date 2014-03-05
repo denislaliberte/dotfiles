@@ -5,7 +5,6 @@
     source ~/.bash_command
  fi
 
-
 ## alias bash ##
 alias bag="bashaliasgrep"
 alias mkd="mkdir"
@@ -24,7 +23,7 @@ alias doc="cd ~/Documents"
 alias hom="cd ~"
 alias home="cd ~"
 alias hg="historygrep"
-alias rmr="rm -r"
+alias rmr="sudo rm -r"
 alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
 
 ## behat ##
@@ -34,6 +33,13 @@ alias bb="bin/behat"
 ## homebrew ##
 ### The missing package manager for OS X ###
 alias b="brew"
+alias bt="brew tap"
+alias bi="brew install"
+alias bl="brew list"
+alias bs="brew search"
+alias bu="brew update"
+alias bud="brew update;brew doctor"
+alias bd="brew doctor"
 
 ## composer ##
 ### Dependency Manager for PHP ###
@@ -45,15 +51,18 @@ alias d="drush"
 alias dca="drush cc all"
 alias dcd="drushcd"
 alias ddl="drush dl"
+alias ddr="drush devel-reinstall -y"
 alias ddm="drush dis -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
 alias ddy="drush dis -y"
 alias dey="drush en -y"
 alias dem="drush en -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
 alias dg="drushgrep"
+alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
 alias dpl="drush pml"
 alias dpg="drushpmlgrep"
 alias dsc="drush sql-connect -l"
-alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
+alias dui="drush user-information"
+alias dup="drush user-password"
 alias dvg="drush vget"
 alias dvs="drush vset"
 
@@ -105,12 +114,10 @@ alias ghc="hub create" #git hub create
 
 alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
 
-
 ## goobook ##
 ### google book - gmail ###
 alias gbq="goobook query"
 alias gba="goobook add"
-
 
 ## http ##
 alias hic="ifconfig"
@@ -137,8 +144,14 @@ alias jsd="jekyll server --drafts"
 alias p="python"
 
 ##ruby
-rvm use 1.9
+#rvm use 1.9
 alias r="rails"
+
+## rvm ##
+### Ruby Version Manage ###
+alias rgl="rvm gemset list"
+alias rgc="rvm gemset create"
+alias rgu="rvm gemset use"
 alias rr="rake routes"
 alias rdm="rake db:migrate;rake db:migrate RAILS_ENV=test"
 alias rgm="rails generate migration"
@@ -171,7 +184,6 @@ alias wpp="wp plugin"
 alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
-
 
 ##bash option
 export PS1='\W \!$ '
