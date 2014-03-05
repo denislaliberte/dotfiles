@@ -131,6 +131,7 @@ alias hP="homesick push hc"
 ### Transform your plain text into static websites and blogs. ###
 alias j="jekyll"
 alias js="jekyll server"
+alias jsd="jekyll server --drafts"
 
 ##python
 alias p="python"
