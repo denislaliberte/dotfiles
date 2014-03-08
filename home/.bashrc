@@ -29,6 +29,7 @@ alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | so
 ## behat ##
 ### BDD for PHP ###
 alias bb="bin/behat"
+alias bdl="bb -dl"
 
 ## homebrew ##
 ### The missing package manager for OS X ###
@@ -57,6 +58,7 @@ alias ddy="drush dis -y"
 alias dey="drush en -y"
 alias dem="drush en -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
 alias dg="drushgrep"
+alias dgc="drush generate-content"
 alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
 alias dpl="drush pml"
 alias dpg="drushpmlgrep"
@@ -92,6 +94,9 @@ alias gAc="git add -A :/;git commit -m"
 alias gau="git add -u ."
 alias gaU="git add -u :/"
 alias gb="git branch -v"
+alias gbd="git branch -D"
+alias gbm="git branch -m"
+alias gbs="git branch --set-upstream-to="
 alias gc="git checkout "
 alias gcl="git clone "
 alias gcm="git commit -m "
@@ -133,6 +138,15 @@ alias hd="homesick diff hc"
 alias hl="homesick list"
 alias hp="homesick pull hc"
 alias hP="homesick push hc"
+
+
+## jenkins ## 
+### An extendable open source continuous integration server ###
+alias jgj="curl http://localhost:8080/jnlpJars/jenkins-cli.jar -o ~/jenkins-cli.jar"
+alias jip="java -jar ~/jenkins-cli.jar -s http://localhost:8080 install-plugin"
+alias jj="java -jar ~/jenkins-cli.jar -s http://localhost:8080"
+alias jsr="java -jar ~/jenkins-cli.jar -s http://localhost:8080 safe-restart"
+
 
 ## jekyll ##
 ### Transform your plain text into static websites and blogs. ###
