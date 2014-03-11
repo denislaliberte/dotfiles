@@ -6,23 +6,28 @@
  fi
 
 ## alias bash ##
+### alias bash meta ###
 alias bag="bashaliasgrep"
-alias mkd="mkdir"
-alias p="pwd"
 alias vbr="vim ~/.bashrc"
-alias vbp="vim ~/.bash_profile"
-alias lr="ls ~/Documents/reminder"
-alias vr="vimreminder"
-alias c="clear;pwd"
+alias hg="historygrep"
+
+### list ###
 alias la="ls -a"
 alias ll="ls -l"
 alias lS="clear;pwd;ls *"
 alias lg="lsgrep" #ls grep $*
+
+### short link ###
 alias des="cd ~/Desktop"
 alias doc="cd ~/Documents"
 alias hom="cd ~"
 alias home="cd ~"
-alias hg="historygrep"
+
+### autre ###
+alias mkd="mkdir"
+alias p="pwd"
+alias vbp="vim ~/.bash_profile"
+alias c="clear;pwd"
 alias rmr="sudo rm -r"
 alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
 
@@ -109,6 +114,7 @@ alias gP="git push"
 alias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
 alias gm="git merge"
 alias gr="git remote -v"
+alias gra="git remote add"
 alias gs="git status"
 ##git commande combinee
 alias Gac="git add -u;git commit -m"
