@@ -34,6 +34,7 @@ alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | so
 ## behat ##
 ### BDD for PHP ###
 alias bb="bin/behat"
+alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
 
 ## homebrew ##
@@ -203,6 +204,9 @@ alias wpp="wp plugin"
 alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
+
+## zip ##
+alias uz="unzip"
 
 ##bash option
 export PS1='\W \!$ '
