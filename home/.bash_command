@@ -41,7 +41,7 @@ function cl(){
 
 function cd()
 {
-  builtin cd "$*" && ls
+  builtin cd "$*" && pwd;ls 
 }
 
 
