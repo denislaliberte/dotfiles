@@ -1,4 +1,4 @@
-# alias bash #
+# aliassbash #
 
 ## include bash command ##
  if [ -f ~/.bash_command ]; then
@@ -31,6 +31,13 @@ alias vbp="vim ~/.bash_profile"
 alias c="clear;pwd"
 alias rmr="sudo rm -r"
 alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
+alias cr7="sudo chmod -R 777"
+
+## apache##
+###  Apache HTTP Server ###
+alias acs="sudo apachectl start"
+alias acr="sudo apachectl restart"
+alias act="apachectl -t"
 
 ## behat ##
 ### BDD for PHP ###
@@ -81,6 +88,11 @@ alias dui="drush user-information"
 alias dup="drush user-password"
 alias dvg="drush vget"
 alias dvs="drush vset"
+
+
+## easy_install ##
+### Easily download, build, install, upgrade, and uninstall Python packages ###
+alias ei="sudo easy_install"
 
 ## fbcmd  ##
 ### A facebook command line interface ###
@@ -140,8 +152,7 @@ alias gbq="goobook query"
 alias gba="goobook add"
 
 ## http ##
-alias hic="ifconfig"
-alias hr="sudo apachectl restart"
+alias ic="ifconfig"
 alias hcs="cd ~/Sites"
 
 ## homesick ##
@@ -167,6 +178,11 @@ alias jsr="java -jar ~/jenkins-cli.jar -s http://localhost:8080 safe-restart"
 ### Transform your plain text into static websites and blogs. ###
 alias j="jekyll"
 alias js="jekyll server"
+
+## pip ##
+### The PyPA recommended tool for installing and managing Python packages. ###
+alias pi="sudo pip install"
+alias ps="pip search"
 
 ##python
 alias p="python"
