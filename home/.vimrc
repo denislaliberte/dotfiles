@@ -46,8 +46,8 @@ endif
 "vundle	    https://github.com/gmarik/vundle
 "filetype off           "require by vundle 
 set rtp+=~/.vim/bundle/vundle/
-call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#helptags()
 call vundle#rc()
 Bundle 'gmarik/vundle'
 

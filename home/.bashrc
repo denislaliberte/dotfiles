@@ -1,4 +1,4 @@
-# alias bash #
+# aliassbash #
 
 ## include bash command ##
  if [ -f ~/.bash_command ]; then
@@ -20,6 +20,7 @@ alias lg="lsgrep" #ls grep $*
 ### short link ###
 alias des="cd ~/Desktop"
 alias doc="cd ~/Documents"
+alias dow="cd ~/Downloads"
 alias hom="cd ~"
 alias home="cd ~"
 
@@ -30,6 +31,13 @@ alias vbp="vim ~/.bash_profile"
 alias c="clear;pwd"
 alias rmr="sudo rm -r"
 alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
+alias cr7="sudo chmod -R 777"
+
+## apache##
+###  Apache HTTP Server ###
+alias acs="sudo apachectl start"
+alias acr="sudo apachectl restart"
+alias act="apachectl -t"
 
 ## behat ##
 ### BDD for PHP ###
@@ -45,6 +53,7 @@ alias bi="brew install"
 alias bl="brew list"
 alias bs="brew search"
 alias bu="brew update"
+alias bU="brew upgrade"
 alias bud="brew update;brew doctor"
 alias bd="brew doctor"
 
@@ -57,12 +66,18 @@ alias cmp="composer"
 alias d="drush"
 alias dca="drush cc all"
 alias dcd="drushcd"
+#à débugger
+alias dcm="cd `drush drupal-directory 'modules'`"
+alias dct="cd `drush drupal-directory 'themes'`"
 alias ddl="drush dl"
 alias ddr="drush devel-reinstall -y"
 alias ddm="drush dis -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
 alias ddy="drush dis -y"
 alias dey="drush en -y"
 alias dem="drush en -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
+alias dfl="drush features-list"
+alias dfr="drush features-revert"
+alias dfra="drush features-revert-all"
 alias dg="drushgrep"
 alias dgc="drush generate-content"
 alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
@@ -73,6 +88,11 @@ alias dui="drush user-information"
 alias dup="drush user-password"
 alias dvg="drush vget"
 alias dvs="drush vset"
+
+
+## easy_install ##
+### Easily download, build, install, upgrade, and uninstall Python packages ###
+alias ei="sudo easy_install"
 
 ## fbcmd  ##
 ### A facebook command line interface ###
@@ -132,8 +152,7 @@ alias gbq="goobook query"
 alias gba="goobook add"
 
 ## http ##
-alias hic="ifconfig"
-alias hr="sudo apachectl restart"
+alias ic="ifconfig"
 alias hcs="cd ~/Sites"
 
 ## homesick ##
@@ -160,6 +179,11 @@ alias jsr="java -jar ~/jenkins-cli.jar -s http://localhost:8080 safe-restart"
 alias j="jekyll"
 alias js="jekyll server"
 alias jsd="jekyll server --drafts"
+
+## pip ##
+### The PyPA recommended tool for installing and managing Python packages. ###
+alias pi="sudo pip install"
+alias ps="pip search"
 
 ##python
 alias p="python"
