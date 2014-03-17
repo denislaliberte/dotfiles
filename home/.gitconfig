@@ -1,0 +1,6 @@
+[user]
+	name = dlaliberte
+[color]
+	ui = true
+[core]
+  excludesfile = ~/.gitignore

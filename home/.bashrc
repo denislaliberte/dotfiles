@@ -180,7 +180,7 @@ alias jsd="jekyll server --drafts"
 ## pip ##
 ### The PyPA recommended tool for installing and managing Python packages. ###
 alias pi="sudo pip install"
-alias ps="pip search"
+alias pis="pip search"
 
 ##python
 alias p="python"
@@ -204,11 +204,12 @@ alias s="subl"
 ##twitter-cli
 alias t2="t timeline -l |grep http | head -2"
 alias t5="t timeline -l |grep http | head -5"
+alias tht="t timeline -l |grep http"
 alias tf="t favorite"
 alias tm="t mentions"
 alias tr="t retweet"
 alias tu="t unfollow"
-alias tw="t stream timeline"
+alias tw="t whois"
 
  #vim 
 alias v="vim"
