@@ -44,6 +44,7 @@ alias act="apachectl -t"
 alias bb="bin/behat"
 alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
+alias bsf="bin/behat --story-syntax --lang=fr"
 
 ## homebrew ##
 ### The missing package manager for OS X ###
@@ -91,6 +92,10 @@ alias dvs="drush vset"
 ## easy_install ##
 ### Easily download, build, install, upgrade, and uninstall Python packages ###
 alias ei="sudo easy_install"
+
+## fabric ##
+### library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks. ###
+alias fl="fab list"
 
 ## fbcmd  ##
 ### A facebook command line interface ###
