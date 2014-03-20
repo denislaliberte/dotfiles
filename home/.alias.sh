@@ -220,4 +220,3 @@ alias wpp="wp plugin"
 alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
->>>>>>> 41821b72251cba7d2c918f1270b98f9089f2f044
