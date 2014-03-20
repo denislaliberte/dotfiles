@@ -10,6 +10,7 @@
 alias bag="bashaliasgrep"
 alias vbr="vim ~/.bashrc"
 alias hg="historygrep"
+alias sb="source ~/.bashrc"
 
 ### list ###
 alias la="ls -a"
@@ -139,6 +140,8 @@ alias gm="git merge"
 alias gr="git remote -v"
 alias gra="git remote add"
 alias gs="git status"
+alias gst="git stash"
+alias gsp="git stash pop"
 ##git commande combinee
 alias Gac="git add -u;git commit -m"
 alias Gcm="git checkout master"
@@ -182,6 +185,10 @@ alias j="jekyll"
 alias js="jekyll server"
 alias jsd="jekyll server --drafts"
 
+
+## npm ##
+alias ni="npm install"
+
 ## pip ##
 ### The PyPA recommended tool for installing and managing Python packages. ###
 alias pi="sudo pip install"
@@ -191,16 +198,23 @@ alias pis="pip search"
 alias p="python"
 
 ##ruby
-#rvm use 1.9
 alias r="rails"
+alias rs="rails server"
 
 ## rvm ##
 ### Ruby Version Manage ###
 alias rgl="rvm gemset list"
 alias rgc="rvm gemset create"
 alias rgu="rvm gemset use"
+alias ru="rvm use"
+alias rl="rvm list"
+
+
+## rake ##
 alias rr="rake routes"
 alias rdm="rake db:migrate;rake db:migrate RAILS_ENV=test"
+
+## ruby ##
 alias rgm="rails generate migration"
 
 ##sublime
