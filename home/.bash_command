@@ -74,7 +74,7 @@ function historygrep()
 
 function bashaliasgrep()
 {
-  cat ~/.bashrc | grep "$*"
+  cat ~/.alias.sh | grep "$*"
 }
 
 function vimreminder()
