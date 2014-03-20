@@ -5,7 +5,6 @@
     source ~/.bash_command
  fi
 
-
 ## include bash command ##
  if [ -f ~/.alias.sh ]; then
     source ~/.alias.sh

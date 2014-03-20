@@ -1,10 +1,4 @@
 
-## alias bash ##
-### alias bash meta ###
-alias bag="bashaliasgrep"
-alias vbr="vim ~/.bashrc"
-alias hg="historygrep"
-
 ### list ###
 alias la="ls -a"
 alias ll="ls -l"
@@ -17,11 +11,6 @@ alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"
 alias hom="cd ~"
 alias home="cd ~"
-
-## shell ##
-alias ces="cat /etc/shells" #list shell
-alias eo="echo $0" #which shell
-alias cs="chsh -s" #change shell
 
 ### autre ###
 alias mkd="mkdir"
@@ -43,6 +32,7 @@ alias act="apachectl -t"
 alias bb="bin/behat"
 alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
+alias bsf="bin/behat --story-syntax --lang=fr"
 
 ## homebrew ##
 ### The missing package manager for OS X ###
@@ -90,6 +80,10 @@ alias dvs="drush vset"
 ## easy_install ##
 ### Easily download, build, install, upgrade, and uninstall Python packages ###
 alias ei="sudo easy_install"
+
+## fabric ##
+### library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks. ###
+alias fl="fab list"
 
 ## fbcmd  ##
 ### A facebook command line interface ###
@@ -179,7 +173,7 @@ alias jsd="jekyll server --drafts"
 ## pip ##
 ### The PyPA recommended tool for installing and managing Python packages. ###
 alias pi="sudo pip install"
-alias ps="pip search"
+alias pis="pip search"
 
 ##python
 alias p="python"
@@ -203,11 +197,12 @@ alias s="subl"
 ##twitter-cli
 alias t2="t timeline -l |grep http | head -2"
 alias t5="t timeline -l |grep http | head -5"
+alias tht="t timeline -l |grep http"
 alias tf="t favorite"
 alias tm="t mentions"
 alias tr="t retweet"
 alias tu="t unfollow"
-alias tw="t stream timeline"
+alias tw="t whois"
 
  #vim 
 alias v="vim"
@@ -225,6 +220,4 @@ alias wpp="wp plugin"
 alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
-
-## zip ##
-alias uz="unzip"
+>>>>>>> 41821b72251cba7d2c918f1270b98f9089f2f044
