@@ -262,4 +262,4 @@ export HISTIGNORE="&:ls:[bf]g:exit"
 set editing-mode vi
 set -o vi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
