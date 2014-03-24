@@ -75,3 +75,4 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dl/.rvm/bin"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+ [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
