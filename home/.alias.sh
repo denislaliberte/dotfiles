@@ -92,22 +92,22 @@ alias ei="sudo easy_install"
 ### library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks. ###
 alias fl="fab list"
 
-## fbcmd  ##
-### A facebook command line interface ###
-alias fb="fbcmd"
-alias fa2="fbcmd STREAM fl_10151548377785299 new"
-alias fa="fbcmd STREAM fl_213506995298"
-alias fan="fbcmd STREAM fl_213506995298 new"
-alias fc="fbcmd COMMENT"
-alias fe="fbcmd EVENTS"
-alias ff="fbcmd SFILTERS"
-alias fI="fbcmd INBOX"
-alias fn="fbcmd NOTIFY"
-alias fm="fbcmd MSG"
-alias fS="fbcmd STATUS"
-alias fs="fbcmd STREAM"
-alias fsn="fbcmd STREAM new"
-alias ft="fbcmd STREAM #TP1"
+### fbcmd  ##
+#### A facebook command line interface ###
+#alias fb="fbcmd"
+#alias fa2="fbcmd STREAM fl_10151548377785299 new"
+#alias fa="fbcmd STREAM fl_213506995298"
+#alias fan="fbcmd STREAM fl_213506995298 new"
+#alias fc="fbcmd COMMENT"
+#alias fe="fbcmd EVENTS"
+#alias ff="fbcmd SFILTERS"
+#alias fI="fbcmd INBOX"
+#alias fn="fbcmd NOTIFY"
+#alias fm="fbcmd MSG"
+#alias fS="fbcmd STATUS"
+#alias fs="fbcmd STREAM"
+#alias fsn="fbcmd STREAM new"
+#alias ft="fbcmd STREAM #TP1"
 
 ## git ##
 ### fast version control ###
