@@ -227,6 +227,10 @@ alias rgm="rails generate migration"
 ##sublime
 alias s="subl"
 
+
+## todotxt
+alias td=~/Dropbox/todo/todo.sh
+
 ##twitter-cli
 alias t2="t timeline -l |grep http | head -2"
 alias t5="t timeline -l |grep http | head -5"
@@ -254,7 +258,5 @@ alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
 
-alias prot="cd ~/Sites/protectron/protectron.local.tp1.ca/sites/all/modules"
-alias iavm="cd ~/Sites/iavm/iavm.local.tp1.ca/sites/all/modules"
-alias ssta="ssh root@stage-php54.tp1.ca"
-alias sjen="ssh root@jenkins.tp1.ca"
+alias prot="cd ~/Sites/protectron/protectron.local.tp1.ca/sites/all/modules/tp1_project"
+alias iavm="cd ~/Sites/iavm/iavm.local.tp1.ca/sites/all/modules/tp1_project"
