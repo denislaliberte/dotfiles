@@ -81,3 +81,4 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dl/.rvm/bin"
 bindkey -v
 
 
+export PATH=/usr/local/bin:$PATH
