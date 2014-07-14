@@ -60,7 +60,7 @@ source $ZSH/oh-my-zsh.sh
     source ~/.bash_command
  fi
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dl/.rvm/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/dl/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
