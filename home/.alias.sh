@@ -1,13 +1,12 @@
-
 ## alias bash ##
 ### alias bash meta ###
-alias bag="bashaliasgrep"
 alias ag="bashaliasgrep" #alias grep
 alias vbr="vim ~/.bashrc"
 alias vas="vim ~/.alias.sh"
 alias sas="source ~/.alias.sh"
 alias hg="historygrep"
 alias sb="source ~/.bashrc"
+alias sas="source ~/.alias.sh"
 
 ### list ###
 alias la="ls -a"
@@ -187,6 +186,12 @@ alias jsd="jekyll server --drafts"
 ## npm ##
 alias ni="npm install"
 
+## phpspec ##
+alias bp="bin/phpspec"
+alias bpr="bin/phpspec run"
+alias bpd="bin/phpspec desc"
+
+
 ## pip ##
 ### The PyPA recommended tool for installing and managing Python packages. ###
 alias pi="sudo pip install"
@@ -194,6 +199,12 @@ alias pis="pip search"
 
 ##python
 alias p="python"
+
+## proc ##
+alias pro="python proc"
+alias ppu="python proc update"
+
+alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
 
 ##ruby
 alias r="rails"
@@ -217,6 +228,10 @@ alias rgm="rails generate migration"
 
 ##sublime
 alias s="subl"
+
+
+## todotxt
+alias td=~/Dropbox/todo/todo.sh
 
 ##twitter-cli
 alias t2="t timeline -l |grep http | head -2"
@@ -244,3 +259,6 @@ alias wpp="wp plugin"
 alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
+
+alias prot="cd ~/Sites/protectron/protectron.local.tp1.ca/sites/all/modules/tp1_project"
+alias iavm="cd ~/Sites/iavm/iavm.local.tp1.ca/sites/all/modules/tp1_project"
