@@ -1,8 +1,9 @@
 ## alias bash ##
 ### alias bash meta ###
-alias bag="bashaliasgrep"
-alias sag="bashaliasgrep"
+alias ag="bashaliasgrep" #alias grep
+alias vbr="vim ~/.bashrc"
 alias vas="vim ~/.alias.sh"
+alias sas="source ~/.alias.sh"
 alias hg="historygrep"
 alias sb="source ~/.bashrc"
 alias sas="source ~/.alias.sh"
@@ -116,6 +117,7 @@ alias g="git"
 alias ga="git add"
 alias gA="git add -A :/"
 alias gAc="git add -A :/;git commit -m"
+alias gAcn="git add -A :/;git commit -m 'no comments'"
 alias gau="git add -u ."
 alias gaU="git add -u :/"
 alias gb="git branch -v"
