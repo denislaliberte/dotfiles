@@ -152,7 +152,7 @@ git push origin devel;
 git push devel master;
 echo  -- PROC UPDATE DEVEL -- ;
 git checkout master;
-pro update -r devel"
+python proc update -r devel"
 alias gpub="
 echo  -- UPDATE MASTER WITH TP1 GIT ORIGIN -- ;
 git checkout master;
@@ -172,8 +172,8 @@ git push origin STAGE;
 git push STAGE STAGE;
 echo  -- PROC UPDATE STAGE -- ;
 git checkout master;
-pro update -r stage"
-lias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
+python proc update -r stage"
+alias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
 alias gm="git merge"
 alias gr="git remote -v"
 alias gra="git remote add"
