@@ -231,7 +231,7 @@ alias s="subl"
 
 
 ## todotxt
-alias td=~/Dropbox/todo/todo.sh
+alias td=~/todo/todo.sh
 
 ##twitter-cli
 alias t2="t timeline -l |grep http | head -2"
