@@ -132,6 +132,47 @@ alias gi="git init"
 alias gl="git log"
 alias gp="git pull"
 alias gP="git push"
+#refactor gdec and gpub to a function
+alias gdev="
+echo  -- UPDATE MASTER WITH TP1 GIT ORIGIN -- ;
+git checkout master;
+git pull origin master;
+echo  -- UPDATE DEVEL WITH TP1 ORIGIN/DEVEL AND DEVEL/MASTER -- ;
+git checkout devel;
+git pull origin devel;
+git pull devel master;
+echo  -- MERGE MASTER WITH DEVEL AND PUSH TO ORIGIN -- ;
+git checkout master;
+git merge devel;
+git push origin master;
+echo  -- MERGE DEVEL WITH MASTER AND PUSH TO ORIGIN/DEVEL AND DEVEL/DEVEL-- ;
+git checkout devel; 
+git merge master;
+git push origin devel;
+git push devel master;
+echo  -- PROC UPDATE DEVEL -- ;
+git checkout master;
+python proc update -r devel"
+alias gpub="
+echo  -- UPDATE MASTER WITH TP1 GIT ORIGIN -- ;
+git checkout master;
+git pull origin master;
+echo  -- UPDATE STAGE WITH TP1 ORIGIN/STAGE AND STAGE/STAGE -- ;
+git checkout stage;
+git pull origin stage;
+git pull devel master;
+echo  -- MERGE MASTER WITH STAGE AND PUSH TO ORIGIN -- ;
+git checkout master;
+git merge stage;
+git push origin stage;
+echo  -- MERGE STAGE WITH MASTER AND PUSH TO ORIGIN/STAGE AND STAGE/STAGE -- ;
+git checkout stage; 
+git merge master;
+git push origin STAGE;
+git push STAGE STAGE;
+echo  -- PROC UPDATE STAGE -- ;
+git checkout master;
+python proc update -r stage"
 alias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
 alias gm="git merge"
 alias gr="git remote -v"
@@ -185,6 +226,10 @@ alias jsd="jekyll server --drafts"
 
 ## npm ##
 alias ni="npm install"
+
+## open 
+alias pause="td ls @pause;t5; open  https://delicious.com/denislaliberte/tag_bundle/todo http://getpocket.com/"
+
 
 ## phpspec ##
 alias bp="bin/phpspec"
