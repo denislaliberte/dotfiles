@@ -1,3 +1,5 @@
+// Jquery seems to not working in facebook.
+
 var hide = function(id) {
   var element;
   element = document.getElementById(id);
