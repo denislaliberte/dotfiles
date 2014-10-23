@@ -61,6 +61,7 @@ source $ZSH/oh-my-zsh.sh
  fi
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/dl/.rvm/bin"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -81,4 +82,5 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/dl/.rvm/bin"
 bindkey -v
 
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/texbin:/usr/local/bin:$PATH
+

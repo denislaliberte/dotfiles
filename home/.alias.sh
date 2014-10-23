@@ -50,7 +50,7 @@ alias bt="brew tap"
 alias bi="brew install"
 alias bl="brew list"
 alias bs="brew search"
-alias bu="brew update"
+alias bu="t5;brew update"
 alias bU="brew upgrade"
 alias bud="brew update;brew doctor"
 alias bd="brew doctor"
@@ -62,7 +62,8 @@ alias cmp="composer"
 ## drush ## 
 ### A command line shell and scripting interface for Drupal. ###
 alias d="drush"
-alias dca="drush cc all"
+alias dca="t2;drush cc all"
+alias dt="t2;drush cc all"
 alias dcd="drushcd"
 #à débugger
 alias ddl="drush dl"
@@ -131,7 +132,7 @@ alias gd="git diff"
 alias gi="git init"
 alias gl="git log"
 alias gp="git pull"
-alias gP="git push"
+alias gP="t2;git push"
 #refactor gdec and gpub to a function
 alias gdev="
 echo  -- UPDATE MASTER WITH TP1 GIT ORIGIN -- ;
@@ -152,6 +153,7 @@ git push origin devel;
 git push devel master;
 echo  -- PROC UPDATE DEVEL -- ;
 git checkout master;
+t5;
 python proc update -r devel"
 alias gpub="
 echo  -- UPDATE MASTER WITH TP1 GIT ORIGIN -- ;
@@ -168,10 +170,11 @@ git push origin stage;
 echo  -- MERGE STAGE WITH MASTER AND PUSH TO ORIGIN/STAGE AND STAGE/STAGE -- ;
 git checkout stage; 
 git merge master;
-git push origin STAGE;
-git push STAGE STAGE;
+git push origin stage;
+git push stage stage;
 echo  -- PROC UPDATE STAGE -- ;
 git checkout master;
+t5;
 python proc update -r stage"
 alias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
 alias gm="git merge"
@@ -228,7 +231,7 @@ alias jsd="jekyll server --drafts"
 alias ni="npm install"
 
 ## open 
-alias pause="td ls @pause;t5; open  https://delicious.com/denislaliberte/tag_bundle/todo http://getpocket.com/"
+alias pause="td ls @pause;t5; open http://facebook.com http://twitter.com  https://delicious.com/denislaliberte/tag_bundle/todo http://getpocket.com/"
 
 
 ## phpspec ##
@@ -246,7 +249,8 @@ alias pis="pip search"
 alias p="python"
 
 ## proc ##
-alias pro="python proc"
+alias pro="t2;python proc"
+alias pt="t5;python proc"
 alias ppu="python proc update"
 
 alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
@@ -307,3 +311,4 @@ alias wpa="wp plugin activate"
 
 alias prot="cd ~/Sites/protectron/protectron.local.tp1.ca/sites/all/modules/tp1_project"
 alias iavm="cd ~/Sites/iavm/iavm.local.tp1.ca/sites/all/modules/tp1_project"
+alias sting="cd ~/Sites/sting/stingray.local.tp1.ca/sites/all/modules/custom"
