@@ -1,4 +1,5 @@
 #!/bin/bash
+brew install caskroom/cask/brew-cask
 brew cask install firefox
 #brew cask install thunderbird
 #brew cask install chrome
