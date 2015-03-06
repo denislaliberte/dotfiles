@@ -7,6 +7,7 @@ alias sas="source ~/.alias.sh"
 alias hg="historygrep"
 alias sb="source ~/.bashrc"
 alias sas="source ~/.alias.sh"
+alias pw="openssl rand -base64 32| cut -c1-12"
 
 ### list ###
 alias la="ls -a"
@@ -46,14 +47,20 @@ alias bsf="bin/behat --story-syntax --lang=fr"
 ## homebrew ##
 ### The missing package manager for OS X ###
 alias b="brew"
+alias bc="brew cask"
+alias bcs="brew cask search"
+alias bci="brew cask install"
 alias bt="brew tap"
 alias bi="brew install"
 alias bl="brew list"
 alias bs="brew search"
-alias bu="t5;brew update"
+alias bu="brew update"
 alias bU="brew upgrade"
 alias bud="brew update;brew doctor"
 alias bd="brew doctor"
+
+## httpd Apache ##
+alias hcf="echo 'Httpd Config File ...  httpd -V |grep SERVER_CONFIG_FILE' ;httpd -V |grep SERVER_CONFIG_FILE"
 
 ## composer ##
 ### Dependency Manager for PHP ###
@@ -62,8 +69,8 @@ alias cmp="composer"
 ## drush ## 
 ### A command line shell and scripting interface for Drupal. ###
 alias d="drush"
-alias dca="t2;drush cc all"
-alias dt="t2;drush cc all"
+alias dca="drush cc all"
+alias dt="drush cc all"
 alias dcd="drushcd"
 #à débugger
 alias ddl="drush dl"
@@ -83,6 +90,7 @@ alias dpg="drushpmlgrep"
 alias dsc="drush sql-connect -l"
 alias dui="drush user-information"
 alias dup="drush user-password"
+alias duy="drush updb -y"
 alias dvg="drush vget"
 alias dvs="drush vset"
 
@@ -132,7 +140,7 @@ alias gd="git diff"
 alias gi="git init"
 alias gl="git log"
 alias gp="git pull"
-alias gP="t2;git push"
+alias gP="git push"
 #refactor gdec and gpub to a function
 alias gdev="
 echo  -- UPDATE MASTER WITH TP1 GIT ORIGIN -- ;
@@ -153,7 +161,7 @@ git push origin devel;
 git push devel master;
 echo  -- PROC UPDATE DEVEL -- ;
 git checkout master;
-t5;
+
 python proc update -r devel"
 alias gpub="
 echo  -- UPDATE MASTER WITH TP1 GIT ORIGIN -- ;
@@ -174,7 +182,7 @@ git push origin stage;
 git push stage stage;
 echo  -- PROC UPDATE STAGE -- ;
 git checkout master;
-t5;
+
 python proc update -r stage"
 alias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
 alias gm="git merge"
@@ -231,7 +239,7 @@ alias jsd="jekyll server --drafts"
 alias ni="npm install"
 
 ## open 
-alias pause="td ls @pause;t5; open http://facebook.com http://twitter.com  https://delicious.com/denislaliberte/tag_bundle/todo http://getpocket.com/"
+alias pause="td ls @pause; open http://facebook.com https://delicious.com/denislaliberte  http://readruler.com/ http://getpocket.com/a/queue/grid/5%20minutes/"
 
 
 ## phpspec ##
@@ -249,8 +257,8 @@ alias pis="pip search"
 alias p="python"
 
 ## proc ##
-alias pro="t2;python proc"
-alias pt="t5;python proc"
+alias pro="python proc"
+alias pt="python proc"
 alias ppu="python proc update"
 
 alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
@@ -258,6 +266,8 @@ alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
 ##ruby
 alias r="rails"
 alias rs="rails server"
+alias rsp="rails server -p"
+alias rgm="rails generate migration"
 
 ## rvm ##
 ### Ruby Version Manage ###
@@ -270,7 +280,9 @@ alias rl="rvm list"
 
 ## rake ##
 alias rr="rake routes"
-alias rdm="rake db:migrate;rake db:migrate RAILS_ENV=test"
+alias rdd="rake db:drop"
+alias rdc="rake db:create"
+alias rdm="rake db:migrate"
 
 ## ruby ##
 alias rgm="rails generate migration"
@@ -285,6 +297,7 @@ alias td=~/todo/todo.sh
 ##twitter-cli
 alias t2="t timeline -l |grep http | head -2"
 alias t5="t timeline -l |grep http | head -5"
+alias t15="t timeline -l |grep http | head -15 | tail -10"
 alias tht="t timeline -l |grep http"
 alias tf="t favorite"
 alias tm="t mentions"
@@ -309,6 +322,3 @@ alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
 
-alias prot="cd ~/Sites/protectron/protectron.local.tp1.ca/sites/all/modules/tp1_project"
-alias iavm="cd ~/Sites/iavm/iavm.local.tp1.ca/sites/all/modules/tp1_project"
-alias sting="cd ~/Sites/sting/stingray.local.tp1.ca/sites/all/modules/custom"

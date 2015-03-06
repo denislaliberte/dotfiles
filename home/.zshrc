@@ -60,7 +60,10 @@ source $ZSH/oh-my-zsh.sh
     source ~/.bash_command
  fi
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/dl/.rvm/bin"
+ if [ -f ~/.shortcut.sh ]; then
+    source ~/.shortcut.sh
+ fi
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -83,4 +86,11 @@ bindkey -v
 
 
 export PATH=/usr/texbin:/usr/local/bin:$PATH
+
+# pip should only run if there is a virtualenv currently activated
+#export PIP_REQUIRE_VIRTUALENV=true
+# cache pip-installed packages to avoid re-downloading
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
+
 
