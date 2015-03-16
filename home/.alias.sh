@@ -253,6 +253,8 @@ alias bpd="bin/phpspec desc"
 alias pi="sudo pip install"
 alias pis="pip search"
 
+alias pgs="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+
 ##python
 alias p="python"
 
