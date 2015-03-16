@@ -63,7 +63,7 @@ source $ZSH/oh-my-zsh.sh
  if [ -f ~/.shortcut.sh ]; then
     source ~/.shortcut.sh
  fi
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
