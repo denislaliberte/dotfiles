@@ -134,6 +134,7 @@ alias gbd="git branch -D"
 alias gbm="git branch -m"
 alias gbs="git branch --set-upstream-to="
 alias gc="git checkout "
+alias gcb="git checkout -b"
 alias gcl="git clone "
 alias gcm="git commit -m "
 alias gd="git diff"
@@ -235,6 +236,9 @@ alias js="jekyll server"
 alias jsd="jekyll server --drafts"
 
 
+## mysql ##
+alias mup="mysql -u root -p -h 127.0.0.1"
+
 ## npm ##
 alias ni="npm install"
 
@@ -323,4 +327,5 @@ alias wpp="wp plugin"
 alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
+
 
