@@ -1,6 +1,6 @@
 [user]
 	name = Denis Laliberté
-	email = denis@tp1.ca
+	email = denis.laliberte@gmail.com
 [color]
 	ui = true
 [core]
@@ -12,3 +12,7 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true

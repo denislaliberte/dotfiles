@@ -7,4 +7,7 @@ brew cask install firefox
 brew cask install alfred
 brew cask install atom
 brew cask install sequel-pro
+brew cask install github
+brew cask install virtualbox
+brew cask install vagrant
 #brew cask install pgadmin3

@@ -17,3 +17,4 @@ brew install zsh
 brew install leiningen
 brew install mysql
 brew install node
+brew install browser

@@ -1,11 +1,10 @@
-## alias bash ##
-### alias bash meta ###
+### alias meta ###
+alias asdf="cat ~/.alias.sh |head -10"
 alias ag="bashaliasgrep" #alias grep
-alias vbr="vim ~/.bashrc"
+alias vz="vim ~/.zshrc"
 alias vas="vim ~/.alias.sh"
 alias sas="source ~/.alias.sh"
 alias hg="historygrep"
-alias sb="source ~/.bashrc"
 alias sas="source ~/.alias.sh"
 alias pw="openssl rand -base64 32| cut -c1-12"
 
@@ -30,6 +29,7 @@ alias c="clear;pwd"
 alias rmr="sudo rm -r"
 alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
 alias cr7="sudo chmod -R 777"
+alias ppc="pwd| pbcopy"
 
 ## apache##
 ###  Apache HTTP Server ###
@@ -43,6 +43,9 @@ alias bb="bin/behat"
 alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
 alias bsf="bin/behat --story-syntax --lang=fr"
+
+## cucumber ##
+alias bec="bundle exec cucumber"
 
 ## homebrew ##
 ### The missing package manager for OS X ###
@@ -102,23 +105,6 @@ alias ei="sudo easy_install"
 ## fabric ##
 ### library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks. ###
 alias fl="fab list"
-
-### fbcmd  ##
-#### A facebook command line interface ###
-#alias fb="fbcmd"
-#alias fa2="fbcmd STREAM fl_10151548377785299 new"
-#alias fa="fbcmd STREAM fl_213506995298"
-#alias fan="fbcmd STREAM fl_213506995298 new"
-#alias fc="fbcmd COMMENT"
-#alias fe="fbcmd EVENTS"
-#alias ff="fbcmd SFILTERS"
-#alias fI="fbcmd INBOX"
-#alias fn="fbcmd NOTIFY"
-#alias fm="fbcmd MSG"
-#alias fS="fbcmd STATUS"
-#alias fs="fbcmd STREAM"
-#alias fsn="fbcmd STREAM new"
-#alias ft="fbcmd STREAM #TP1"
 
 ## git ##
 ### fast version control ###
@@ -262,6 +248,10 @@ alias pt="python proc"
 alias ppu="python proc update"
 
 alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
+
+##rspec
+alias ber="bundle exec rspec"
+
 
 ##ruby
 alias r="rails"
