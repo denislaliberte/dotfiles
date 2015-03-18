@@ -18,3 +18,5 @@ brew install leiningen
 brew install mysql
 brew install node
 brew install browser
+brew install go
+brew install mercurial

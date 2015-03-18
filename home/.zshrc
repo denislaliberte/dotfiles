@@ -93,4 +93,6 @@ export PATH=/usr/texbin:/usr/local/bin:$PATH
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
