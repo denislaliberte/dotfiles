@@ -2,6 +2,7 @@
 #ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew doctor
+brew install zsh
 brew install homebrew/php/php54
 brew install redis
 brew install postgresql8
