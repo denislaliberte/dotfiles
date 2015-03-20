@@ -1,3 +1,5 @@
+echo "execute .zshrc"
+
 # Path to your oh-my-zsh configuration.
 ZSH=/Users/dl/.oh-my-zsh
 
@@ -45,7 +47,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx web-search )
+plugins=(gitfast rvm osx web-search history)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,6 +57,7 @@ source $ZSH/oh-my-zsh.sh
  if [ -f ~/.alias.sh ]; then
     source ~/.alias.sh
  fi
+
 #shell alias
  if [ -f ~/.bash_command ]; then
     source ~/.bash_command
@@ -63,9 +66,17 @@ source $ZSH/oh-my-zsh.sh
  if [ -f ~/.shortcut.sh ]; then
     source ~/.shortcut.sh
  fi
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+
+ if [ -f ~/.profile ]; then
+    source ~/.profile
+ fi
+
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="$PATH/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -79,11 +90,8 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
- [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
 
 bindkey -v
-
 
 export PATH=/usr/texbin:/usr/local/bin:$PATH
 
@@ -92,9 +100,6 @@ export PATH=/usr/texbin:/usr/local/bin:$PATH
 # cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
-
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
