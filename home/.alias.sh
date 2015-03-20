@@ -1,11 +1,12 @@
+echo "execute .alias.sh"
 ### alias meta ###
 alias asdf="cat ~/.alias.sh |head -10"
 alias ag="bashaliasgrep" #alias grep
 alias vz="vim ~/.zshrc"
 alias vas="vim ~/.alias.sh"
 alias sas="source ~/.alias.sh"
-alias hg="historygrep"
-alias sas="source ~/.alias.sh"
+alias sz="source ~/.zshrc"
+alias hg="echo 'hs' && hs"
 alias pw="openssl rand -base64 32| cut -c1-12"
 
 ### list ###
@@ -201,7 +202,6 @@ alias hcs="cd ~/Sites"
 
 ## homesick ##
 ###  Your home directory is your castle. Don't leave your dotfiles behind ###
-alias hs="homesick"
 alias hch="homesick cd hc"
 alias hcd="homesick cd"
 alias hd="homesick diff hc"
