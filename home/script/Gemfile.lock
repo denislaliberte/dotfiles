@@ -26,6 +26,9 @@ GEM
     consular (1.0.3)
       activesupport
       thor
+    consular-iterm (1.0.2)
+      consular
+      rb-appscript
     diff-lcs (1.2.5)
     equalizer (0.0.9)
     execjs (2.4.0)
@@ -102,6 +105,7 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
     rainbow (2.0.0)
+    rb-appscript (0.6.1)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -152,6 +156,7 @@ PLATFORMS
 
 DEPENDENCIES
   consular
+  consular-iterm
   git-up
   homesick
   jekyll
