@@ -7,4 +7,4 @@ gem 'git-up'
 gem 'rubocop'
 gem 'rubocop-rspec'
 gem 'consular'
-
+gem 'consular-iterm'
