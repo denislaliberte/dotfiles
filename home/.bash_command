@@ -45,12 +45,6 @@ function cd()
 }
 
 
-function drushcd()
-{
-   cd ` drush dd "$*"`
-}
-
-
 function lsgrep()
 {
   ls | grep "$*"
@@ -67,17 +61,8 @@ function drushgrep()
 {
   drush | grep "$*"
 }
-function historygrep()
-{
-  history | grep "$*"
-}
 
 function bashaliasgrep()
 {
   cat ~/.alias.sh | grep "$*"
-}
-
-function vimreminder()
-{
-  vim "~/Documents/reminder/$*"
 }
