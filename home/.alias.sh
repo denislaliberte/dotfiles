@@ -208,6 +208,7 @@ alias hd="homesick diff hc"
 alias hl="homesick list"
 alias hp="homesick pull hc"
 alias hP="homesick push hc"
+alias hst="homesick track"
 
 
 ## jenkins ## 
@@ -270,11 +271,11 @@ alias rgm="rails generate migration"
 
 ## rvm ##
 ### Ruby Version Manage ###
-alias rgl="rvm gemset list"
+alias rgl="gemsets"
 alias rgc="rvm gemset create"
 alias rgu="rvm gemset use"
 alias ru="rvm use"
-alias rl="rvm list"
+alias rl="rubies"
 
 
 ## rake ##
@@ -321,4 +322,7 @@ alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
 
+# zsh
+alias zg="ls ~/.oh-my-zsh/plugins/ |grep"
+alias zc="cd ~/.oh-my-zsh/plugins/"
 

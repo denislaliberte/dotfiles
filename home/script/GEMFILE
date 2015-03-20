@@ -6,4 +6,5 @@ gem 'lunchy'
 gem 'git-up'
 gem 'rubocop'
 gem 'rubocop-rspec'
+gem 'consular'
 

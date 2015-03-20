@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git osx web-search )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,3 +96,5 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
