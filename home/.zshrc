@@ -1,4 +1,3 @@
-echo "execute .zshrc"
 
 # Path to your oh-my-zsh configuration.
 ZSH=/Users/dl/.oh-my-zsh

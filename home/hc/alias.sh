@@ -1,4 +1,4 @@
-echo "execute alias.sh"
+echo "~/hc/alias.sh $ asdf"
 ### alias meta ###
 alias asdf="cat ~/hc/alias.sh |head -10"
 alias ag="bashaliasgrep" #alias grep
