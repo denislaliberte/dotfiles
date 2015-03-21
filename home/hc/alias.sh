@@ -1,0 +1,1 @@
+/Users/dl/.homesick/repos/hc/home/.alias.sh

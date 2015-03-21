@@ -54,21 +54,21 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 #shell alias
- if [ -f ~/.alias.sh ]; then
-    source ~/.alias.sh
+ if [ -f ~/hc/alias.sh ]; then
+    source ~/hc/alias.sh
  fi
 
 #shell alias
- if [ -f ~/.bash_command ]; then
-    source ~/.bash_command
+ if [ -f ~/hc/bash_command ]; then
+    source ~/hc/bash_command.sh
  fi
 
- if [ -f ~/.shortcut.sh ]; then
-    source ~/.shortcut.sh
+ if [ -f ~/hc/shortcut.sh ]; then
+    source ~/hc/shortcut.sh
  fi
 
- if [ -f ~/.profile ]; then
-    source ~/.profile
+ if [ -f ~/hc/profile ]; then
+    source ~/hc/profile
  fi
 
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
