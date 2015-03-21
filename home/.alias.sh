@@ -202,6 +202,7 @@ alias hcs="cd ~/Sites"
 
 ## homesick ##
 ###  Your home directory is your castle. Don't leave your dotfiles behind ###
+alias hlh="homesick link hc"
 alias hch="homesick cd hc"
 alias hcd="homesick cd"
 alias hd="homesick diff hc"
