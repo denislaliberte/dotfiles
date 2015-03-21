@@ -1,7 +1,10 @@
 run "open https://github.com/rspec/rspec-core/issues"
 run "cd ~/Sites/opensource/rspec-dev/repos/rspec-core"
+run "rvm use rvm use ruby-2.2.0@rspec"
+
 tab "test" do
   run "cd ~/Sites/opensource/rspec-dev/repos/rspec-core"
+  run "rvm use rvm use ruby-2.2.0@rspec"
   run "bundle exec rspec"
   pane "cd ~/Sites/opensource/rspec-dev/repos/rspec-core"
 end

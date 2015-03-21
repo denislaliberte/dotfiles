@@ -4,8 +4,8 @@ alias asdf="cat ~/.alias.sh |head -10"
 alias ag="bashaliasgrep" #alias grep
 alias vz="vim ~/.zshrc"
 alias vas="vim ~/.alias.sh"
-alias sas="source ~/.alias.sh"
-alias sz="source ~/.zshrc"
+alias sas="src"
+alias zs="src"
 alias hg="echo 'hs' && hs"
 alias pw="openssl rand -base64 32| cut -c1-12"
 
@@ -28,7 +28,6 @@ alias p="pwd"
 alias vbp="vim ~/.bash_profile"
 alias c="clear;pwd"
 alias rmr="sudo rm -r"
-alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
 alias cr7="sudo chmod -R 777"
 alias ppc="pwd| pbcopy"
 
@@ -275,8 +274,9 @@ alias rgm="rails generate migration"
 alias rgl="gemsets"
 alias rgc="rvm gemset create"
 alias rgu="rvm gemset use"
+alias rgl="gemsets" #rvm gemset list
 alias ru="rvm use"
-alias rl="rubies"
+alias rl="rubies" #rvm list
 
 
 ## rake ##

@@ -6,5 +6,5 @@
 # here.
 Consular.configure do |c|
    c.global_path    = '~/script/consular'
-  # c.default_editor = 'vim'
+   c.default_editor = 'vim'
 end
