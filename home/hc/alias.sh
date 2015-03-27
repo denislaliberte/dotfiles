@@ -44,6 +44,9 @@ alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
 alias bsf="bin/behat --story-syntax --lang=fr"
 
+## dropbox 
+alias mydrop="HOME=$HOME/Dropbox-personal /Applications/Dropbox.app/Contents/MacOS/Dropbox &"
+
 ## cucumber ##
 alias bec="bundle exec cucumber"
 
@@ -93,6 +96,7 @@ alias dpg="drushpmlgrep"
 alias dsc="drush sql-connect -l"
 alias dui="drush user-information"
 alias dup="drush user-password"
+alias duu="drush uli --uri="
 alias duy="drush updb -y"
 alias dvg="drush vget"
 alias dvs="drush vset"

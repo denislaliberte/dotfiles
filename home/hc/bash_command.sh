@@ -64,5 +64,5 @@ function drushgrep()
 
 function bashaliasgrep()
 {
-  cat ~/.alias.sh | grep "$*"
+  cat ~/hc/alias.sh | grep "$*"
 }

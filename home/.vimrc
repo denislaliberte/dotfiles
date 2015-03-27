@@ -48,8 +48,8 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 "call pathogen#infect()
 "call pathogen#helptags()
-call vundle#rc()
-Bundle 'gmarik/vundle'
+"call vundle#rc()
+"Bundle 'gmarik/vundle'
 
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -72,9 +72,9 @@ filetype plugin on    " Enable filetype-specific plugins
 "Bundle 'tomtom/tcomment_vim'
 "Bundle 'kchmck/vim-coffee-script'
 
-Bundle 'donnut/vim-php54-syntax'
-Bundle 'beberlei/vim-php-refactor'
-Bundle 'austintaylor/vim-commaobject'
+"Bundle 'donnut/vim-php54-syntax'
+"Bundle 'beberlei/vim-php-refactor'
+"Bundle 'austintaylor/vim-commaobject'
 
 
 "rspec

@@ -1,0 +1,14 @@
+run "open https://sites.google.com/a/tp1.ca/osiris/"
+#run "open https://stage-php54.tp1.ca"
+run "cd ~/Sites"
+run "vim ~/hc/consular/new.term"
+pane "ssh root@stage-php54.tp1.ca"
+
+tab 'project' do
+  run "cd ~/Sites/"
+# add gitolight admin
+#  run "open https://stage-php54.tp1.ca"
+#  run "atom ."
+end
+
+
