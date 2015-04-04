@@ -1,15 +1,18 @@
 #!/bin/bash
 brew install caskroom/cask/brew-cask
-brew cask install firefox
-#brew cask install thunderbird
+#brew cask install firefox
+brew cask install thunderbird
 #brew cask install chrome
 #brew cask install iterm
-brew cask install alfred
+#brew cask install alfred
 brew cask install atom
-brew cask install sequel-pro
+#brew cask install sequel-pro
 brew cask install github
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install postgres
-#brew cask install jing
-#brew cask install pgadmin3
+brew cask install jing
+brew cask install pgadmin3
+brew cask install bettertouchtool
+brew cask install 1password
+brew cash install day-o

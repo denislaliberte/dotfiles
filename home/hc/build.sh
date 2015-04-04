@@ -1,4 +1,5 @@
-#!/bin/bash
- ./brew.sh      
- ./cask.sh
- bundle install
+t clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim#!/bin/bash
+gem install homesick
+homesick clone https://github.com/denislaliberte/hc.git
+homesick link hc
+cd ~/hc
