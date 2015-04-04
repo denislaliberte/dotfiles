@@ -58,7 +58,7 @@ source $ZSH/oh-my-zsh.sh
  fi
 
 #shell alias
- if [ -f ~/hc/bash_command ]; then
+ if [ -f ~/hc/bash_command.sh ]; then
     source ~/hc/bash_command.sh
  fi
 
