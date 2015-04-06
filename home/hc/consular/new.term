@@ -1,7 +1,8 @@
-run "open https://sites.google.com/a/tp1.ca/osiris/"
-#run "open https://stage-php54.tp1.ca"
-run "cd ~/Sites"
-run "vim ~/hc/consular/new.term"
+run "clear"
+run "open https://sites.google.com/a/tp1.ca/osiris/wiki-clients/svy-r/cage-o-jeu"
+run "open https://cage-o-jeu.stage.tp1.ca"
+run "cd ~/Sites/MOJ"
+run "vim ~/hc/consular/new.term -o ~/gitolite-admin/conf/gitolite.conf"
 pane "ssh root@stage-php54.tp1.ca"
 
 tab 'project' do

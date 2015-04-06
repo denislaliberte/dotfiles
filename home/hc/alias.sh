@@ -44,6 +44,10 @@ alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
 alias bsf="bin/behat --story-syntax --lang=fr"
 
+## consular ##
+alias ce="consular edit"
+alias cs="consular start"
+
 ## dropbox 
 alias mydrop="HOME=$HOME/Dropbox-personal /Applications/Dropbox.app/Contents/MacOS/Dropbox &"
 
@@ -275,12 +279,11 @@ alias rgm="rails generate migration"
 
 ## rvm ##
 ### Ruby Version Manage ###
-alias rgl="gemsets"
+alias rgl="rvm gemset list" #gemsets
 alias rgc="rvm gemset create"
 alias rgu="rvm gemset use"
-alias rgl="gemsets" #rvm gemset list
 alias ru="rvm use"
-alias rl="rubies" #rvm list
+alias rl="rvm list" # rubies
 
 
 ## rake ##
