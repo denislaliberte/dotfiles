@@ -1,7 +1,7 @@
 echo "~/hc/alias.sh $ asdf"
 ### alias meta ###
 alias asdf="cat ~/hc/alias.sh |head -10"
-alias ag="bashaliasgrep" #alias grep
+alias ag="shellaliasgrep" #alias grep
 alias vz="vim ~/.zshrc"
 alias vas="vim ~/hc/alias.sh"
 alias sas="src"
@@ -284,6 +284,7 @@ alias rgc="rvm gemset create"
 alias rgu="rvm gemset use"
 alias ru="rvm use"
 alias rl="rvm list" # rubies
+alias rudev="rvm use ruby-2.2.0@dev"
 
 
 ## rake ##
