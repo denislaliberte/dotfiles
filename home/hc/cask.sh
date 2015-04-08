@@ -19,3 +19,4 @@ brew cash install day-o
 brew cash install cheatsheet
 #brew cask install ksdiff
 brew cask install diffmerge
+brew cask install karabiner
