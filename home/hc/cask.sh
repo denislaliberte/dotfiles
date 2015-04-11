@@ -16,3 +16,4 @@ brew cask install pgadmin3
 brew cask install bettertouchtool
 brew cask install 1password
 brew cash install day-o
+brew cask install epic

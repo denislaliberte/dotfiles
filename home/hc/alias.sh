@@ -278,10 +278,10 @@ alias rgm="rails generate migration"
 alias rgl="gemsets"
 alias rgc="rvm gemset create"
 alias rgu="rvm gemset use"
-alias rgl="gemsets" #rvm gemset list
+alias rgl="rvm gemset list" #gemsets
 alias ru="rvm use"
 alias rudev="rvm use ruby-2.2.0@dev"
-alias rl="rubies" #rvm list
+alias rl="rvm list" #rubies
 
 
 ## rake ##
