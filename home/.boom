@@ -1,0 +1,18 @@
+{
+  "lists": [
+    {
+      "url": [
+        {
+          "test": "http://test.com/a"
+        }
+      ]
+    },
+    {
+      "todo": [
+        {
+          "todotxt": "evaluate devtodo todorxt and boom"
+        }
+      ]
+    }
+  ]
+}

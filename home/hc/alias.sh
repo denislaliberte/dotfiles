@@ -44,6 +44,10 @@ alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
 alias bsf="bin/behat --story-syntax --lang=fr"
 
+## consular ##
+alias ce="consular edit"
+alias cs="consular start"
+
 ## dropbox 
 alias mydrop="HOME=$HOME/Dropbox-personal /Applications/Dropbox.app/Contents/MacOS/Dropbox &"
 
@@ -54,7 +58,7 @@ alias bec="bundle exec cucumber"
 ### The missing package manager for OS X ###
 alias b="brew"
 alias bc="brew cask"
-alias bcs="brew cask search"
+bcs () { brew cask search $* ; echo "## brew cask info ##" && brew cask info $1}
 alias bci="brew cask install"
 alias bt="brew tap"
 alias bi="brew install"
@@ -112,6 +116,7 @@ alias fl="fab list"
 
 ## git ##
 ### fast version control ###
+alias gol="cat ~/Sites/gitolite-admin/conf/gitolite.conf | grep"
 alias g="git"
 alias ga="git add"
 alias gA="git add -A :/"
@@ -239,6 +244,7 @@ alias ni="npm install"
 ## open 
 alias pause="td ls @pause; open http://facebook.com https://delicious.com/denislaliberte  http://readruler.com/ http://getpocket.com/a/queue/grid/5%20minutes/"
 
+alias pu="phpunit"
 
 ## phpspec ##
 alias bp="bin/phpspec"
@@ -275,13 +281,12 @@ alias rgm="rails generate migration"
 
 ## rvm ##
 ### Ruby Version Manage ###
-alias rgl="gemsets"
+alias rgl="rvm gemset list" #gemsets
 alias rgc="rvm gemset create"
 alias rgu="rvm gemset use"
-alias rgl="rvm gemset list" #gemsets
 alias ru="rvm use"
+alias rl="rvm list" # rubies
 alias rudev="rvm use ruby-2.2.0@dev"
-alias rl="rvm list" #rubies
 
 
 ## rake ##

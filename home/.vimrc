@@ -1,3 +1,60 @@
+"todo
+"choose a plugin manager vundle or plug
+"evaluate plugins
+"   * Fugitive deep git integration
+"   * PIV PHP editing
+"   *  Tabularize align everything
+"   * [mileszs/ack.vim](https://github.com/mileszs/ack.vim)
+"   * [tpope/vim-unimpaired](https://github.com/tpope/vim-unimpaired)
+"   * [ervandew/supertab](https://github.com/ervandew/supertab)
+"   * [chrisbra/NrrwRgn](https://github.com/chrisbra/NrrwRgn)
+"   * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+"   * [skalnik/vim-vroom](https://github.com/skalnik/vim-vroom)
+"   *
+"   [bronson/vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
+"   * [bling/dotvim](https://github.com/bling/dotvim)
+"   * [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
+"   * [ctrlp.vim ÷ home](http://kien.github.io/ctrlp.vim/)
+"   * [tpope/vim-surround](https://github.com/tpope/vim-surround)
+"   * [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+"   * [scrooloose/syntastic](https://github.com/scrooloose/syntastic)
+"   * [myusuf3/numbers.vim](https://github.com/myusuf3/numbers.vim)
+"   * [Page not found · GitHub](https://github.com/godlygeek/tagbar)
+"   * [Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)
+"   * [Shougo/unite.vim](https://github.com/Shougo/unite.vim)
+"   * [gregsexton/gitv](https://github.com/gregsexton/gitv)
+"   * [roman/golden-ratio](https://github.com/roman/golden-ratio)
+"   * [mbbill/undotree](https://github.com/mbbill/undotree)
+"   *
+"   [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+"   * [bling/vim-bufferline](https://github.com/bling/vim-bufferline)
+
+
+" find more plugin in distribution
+" * [mileszs/ack.vim](https://github.com/mileszs/ack.vim)
+" * [tpope/vim-unimpaired](https://github.com/tpope/vim-unimpaired)
+" * [ervandew/supertab](https://github.com/ervandew/supertab)
+" * [chrisbra/NrrwRgn](https://github.com/chrisbra/NrrwRgn)
+" * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+" * [skalnik/vim-vroom](https://github.com/skalnik/vim-vroom)
+" * [bronson/vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
+" * [bling/dotvim](https://github.com/bling/dotvim)
+" * [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
+" * [ctrlp.vim ÷ home](http://kien.github.io/ctrlp.vim/)
+" * [tpope/vim-surround](https://github.com/tpope/vim-surround)
+" * [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+" * [scrooloose/syntastic](https://github.com/scrooloose/syntastic)
+" * [myusuf3/numbers.vim](https://github.com/myusuf3/numbers.vim)
+" * [Page not found · GitHub](https://github.com/godlygeek/tagbar)
+" * [Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)
+" * [Shougo/unite.vim](https://github.com/Shougo/unite.vim)
+" * [gregsexton/gitv](https://github.com/gregsexton/gitv)
+" * [roman/golden-ratio](https://github.com/roman/golden-ratio)
+" * [mbbill/undotree](https://github.com/mbbill/undotree)
+" * [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+" * [bling/vim-bufferline](https://github.com/bling/vim-bufferline)
+
+
 "general options
 syntax on
 set nocompatible
@@ -36,54 +93,10 @@ if has("autocmd")
   augroup END
 endif
 
-"drupal OmniCompletion  https://drupal.org/node/29325
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"ctags --langmap=php:.engine.inc.module.theme.install.php --php-kinds=cdfi --languages=php --recurse
-":set tags=/path/to/your/ctags
-"to use vim drupal setting only for drupal... add this to bashrc
-"alias vid="vim -u ~/.vimrc-drupal"
-
-"vundle	    https://github.com/gmarik/vundle
-"filetype off           "require by vundle 
-set rtp+=~/.vim/bundle/vundle/
-"call pathogen#infect()
-"call pathogen#helptags()
-"call vundle#rc()
-"Bundle 'gmarik/vundle'
 
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
-"duplicate
-"execute pathogen#infect()
-
-"ruby https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
-"Bundle 'vim-ruby/vim-ruby'
-"rails
-"Bundle 'tpope/vim-rails.git'
-"Bundle 'thoughtbot/vim-rspec'
-"Bundle 'tpope/vim-cucumber'
-
-"Bundle 'tpope/vim-bundler'
-
-
-"Bundle 'tpope/vim-surround'
-"Bundle 'ervandew/supertab'
-"Bundle 'tomtom/tcomment_vim'
-"Bundle 'kchmck/vim-coffee-script'
-
-"Bundle 'donnut/vim-php54-syntax'
-"Bundle 'beberlei/vim-php-refactor'
-"Bundle 'austintaylor/vim-commaobject'
-
-
-"rspec
-"map <Leader>t :call RunCurrentSpecFile()<CR>
-"map <Leader>s :call RunNearestSpec()<CR>
-"map <Leader>l :call RunLastSpec()<CR>
-"map <Leader>a :call RunAllSpecs()<CR>
-
-
 
 
 
@@ -136,3 +149,45 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
+
+
+"====[ VIM-Plug setup ]======
+
+
+"vundle ========= to delete
+"vundle	    https://github.com/gmarik/vundle
+"filetype off           "require by vundle 
+"set rtp+=~/.vim/bundle/vundle/
+"call pathogen#infect()
+"call pathogen#helptags()
+"call vundle#rc()
+"Bundle 'gmarik/vundle'
+
+"duplicate
+"execute pathogen#infect()
+
+"ruby https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
+"Bundle 'vim-ruby/vim-ruby'
+"rails
+"Bundle 'tpope/vim-rails.git'
+"Bundle 'thoughtbot/vim-rspec'
+"Bundle 'tpope/vim-cucumber'
+
+"Bundle 'tpope/vim-bundler'
+
+
+"Bundle 'tpope/vim-surround'
+"Bundle 'ervandew/supertab'
+"Bundle 'tomtom/tcomment_vim'
+"Bundle 'kchmck/vim-coffee-script'
+
+"Bundle 'donnut/vim-php54-syntax'
+"Bundle 'beberlei/vim-php-refactor'
+"Bundle 'austintaylor/vim-commaobject'
+
+
+"rspec
+"map <Leader>t :call RunCurrentSpecFile()<CR>
+"map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
