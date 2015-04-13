@@ -116,6 +116,8 @@ alias fl="fab list"
 
 ## git ##
 ### fast version control ###
+git-diff-name() { git diff $1 --name-only | cat }
+alias gdn="git-diff-name"
 alias gol="cat ~/Sites/gitolite-admin/conf/gitolite.conf | grep"
 alias g="git"
 alias ga="git add"

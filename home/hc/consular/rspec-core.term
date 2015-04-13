@@ -1,18 +1,19 @@
-run "open https://github.com/rspec/rspec-core/issues"
-run "cd ~/Sites/opensource/rspec-dev/repos/rspec-core"
-run "rvm use rvm use ruby-2.2.0@rspec"
-
-tab "test" do
+window do
+  run "open https://github.com/rspec/rspec-core/issues"
   run "cd ~/Sites/opensource/rspec-dev/repos/rspec-core"
-  run "rvm use rvm use ruby-2.2.0@rspec"
-  run "bundle install"
-  run "bundle exec rspec"
-  run "atom ."
-  pane "cd ~/Sites/opensource/rspec-dev/repos/rspec-core"
+  run "rvm use ruby-2.0.0-p353@rspec"
+  
+  tab "test" do
+    run "cd ~/Sites/opensource/rspec-dev/repos/rspec-core"
+    run "rvm use ruby-2.0.0-p353@rspec"
+    run "bundle install"
+    run "bundle exec rspec"
+    run "atom ."
+    pane "cd ~/Sites/opensource/rspec-dev/repos/rspec-core"
+  end
+  
+  tab "note" do
+    run "cd ~/sites/opensource"
+    run "vim note/rspec.md"
+  end
 end
-
-tab "note" do
-  run "cd ~/sites/opensource"
-  run "vim note/rspec.md"
-end
-
