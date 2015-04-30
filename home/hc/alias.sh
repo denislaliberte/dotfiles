@@ -47,6 +47,9 @@ alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
 alias bsf="bin/behat --story-syntax --lang=fr"
 
+## bundler ##
+alias be="bundle exec"
+
 ## consular ##
 alias ce="consular edit"
 alias cs="consular start"
@@ -121,6 +124,7 @@ alias fl="fab list"
 ### fast version control ###
 git-diff-name() { git diff $1 --name-only | cat }
 alias gdn="git-diff-name"
+alias gdnm="git-diff-name master"
 alias gol="cat ~/Sites/gitolite-admin/conf/gitolite.conf | grep"
 alias g="git"
 alias ga="git add"
@@ -140,6 +144,7 @@ alias gcb="git checkout -b"
 alias gcl="git clone "
 alias gcm="git commit -m "
 alias gd="git diff"
+alias gfa="git fetch --all"
 alias gi="git init"
 alias gig="echo 'cp ~/gitignore/'| pbcopy && ls ~/gitignore |grep -i"
 alias gl="git log"
@@ -278,6 +283,8 @@ alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
 
 ##rspec
 alias ber="bundle exec rspec"
+alias berf="bundle exec rspec --fail-fast"
+
 
 
 ##ruby
