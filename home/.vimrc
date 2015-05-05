@@ -109,10 +109,10 @@ call matchadd('ColorColumn', '\%81v', 100)
 
 "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
 
-    exec "set listchars=tab:\uB7\uB7,trail:\uB7,nbsp:~"
-    set list
+    "exec "set listchars=tab:\uB7\uB7,trail:\uB7,nbsp:~"
+    "set list
     "to work with tab terrorists todo switch in a function
-    "set noet ci pi sts=0 sw=4 ts=4
+    set noet ci pi sts=0 sw=4 ts=4
 
 "=====[ Highlight matches when jumping to next ]=============
 " This rewires n and N to do the highlighing...
