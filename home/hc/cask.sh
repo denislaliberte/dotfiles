@@ -1,12 +1,12 @@
 #!/bin/bash
 brew install caskroom/cask/brew-cask
-#brew cask install firefox
+brew cask install firefox
 brew cask install thunderbird
-#brew cask install chrome
-#brew cask install iterm
-#brew cask install alfred
+brew cask install chrome
+brew cask install iterm
+brew cask install alfred
 brew cask install atom
-#brew cask install sequel-pro
+brew cask install sequel-pro
 brew cask install github
 brew cask install virtualbox
 brew cask install vagrant
@@ -17,6 +17,6 @@ brew cask install bettertouchtool
 brew cask install 1password
 brew cash install day-o
 brew cash install cheatsheet
-#brew cask install ksdiff
+brew cask install ksdiff
 brew cask install diffmerge
 brew cask install karabiner

@@ -4,6 +4,7 @@ alias asdf="cat ~/hc/alias.sh |head -10"
 alias ag="shellaliasgrep" #alias grep
 alias vz="vim ~/.zshrc"
 alias vas="vim ~/hc/alias.sh"
+alias vr="vim ~/.vimrc"
 alias sas="src"
 alias zs="src"
 alias hg="echo 'hs' && hs"
@@ -40,6 +41,11 @@ alias acs="sudo apachectl start"
 alias acr="sudo apachectl restart"
 alias act="apachectl -t"
 
+## artisan ##
+alias am="artisan migrate"
+alias amm="artisan migrate:make"
+alias amr="artisan migrate:rollback"
+
 ## behat ##
 ### BDD for PHP ###
 alias bb="bin/behat"
@@ -53,6 +59,7 @@ alias be="bundle exec"
 ## consular ##
 alias ce="consular edit"
 alias cs="consular start"
+alias cls="ls ~/hc/consular"
 
 ## dropbox 
 alias mydrop="HOME=$HOME/Dropbox-personal /Applications/Dropbox.app/Contents/MacOS/Dropbox &"
@@ -257,6 +264,10 @@ alias ni="npm install"
 
 ## open 
 alias pause="td ls @pause; open http://facebook.com https://delicious.com/denislaliberte  http://readruler.com/ http://getpocket.com/a/queue/grid/5%20minutes/"
+
+## php ##
+alias phl="php -l"
+alias pa="php -a"
 
 alias pu="phpunit"
 
