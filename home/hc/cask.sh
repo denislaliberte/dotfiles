@@ -1,4 +1,5 @@
 #!/bin/bash
+#http://caskroom.io/
 brew install caskroom/cask/brew-cask
 brew cask install firefox
 brew cask install thunderbird
