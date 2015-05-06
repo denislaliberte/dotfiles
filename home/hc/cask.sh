@@ -20,3 +20,5 @@ brew cash install cheatsheet
 brew cask install ksdiff
 brew cask install diffmerge
 brew cask install karabiner
+brew cask install phpstorm
+brew cask install dash
