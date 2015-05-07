@@ -89,34 +89,10 @@ alias hcf="echo 'Httpd Config File ...  httpd -V |grep SERVER_CONFIG_FILE' ;http
 ### Dependency Manager for PHP ###
 alias cmp="composer"
 
-## drush ## 
-### A command line shell and scripting interface for Drupal. ###
-alias d="drush"
-alias dca="drush cc all"
-alias dt="drush cc all"
-alias dcd="drushcd"
-#à débugger
-alias ddl="drush dl"
-alias ddr="drush devel-reinstall -y"
-alias ddm="drush dis -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
-alias ddy="drush dis -y"
-alias dey="drush en -y"
-alias dem="drush en -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
-alias dfl="drush features-list"
-alias dfr="drush features-revert"
-alias dfra="drush features-revert-all"
-alias dg="drushgrep"
-alias dgc="drush generate-content"
-alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
-alias dpl="drush pml"
-alias dpg="drushpmlgrep"
-alias dsc="drush sql-connect -l"
-alias dui="drush user-information"
-alias dup="drush user-password"
-alias duu="drush uli --uri="
-alias duy="drush updb -y"
-alias dvg="drush vget"
-alias dvs="drush vset"
+## drush alias $ drushaliasgrep dag  ## 
+ if [ -f ~/hc/alias.sh ]; then
+    source ~/hc/drush.sh
+ fi
 
 
 ## easy_install ##

@@ -24,3 +24,4 @@ brew install zsh
 #brew install mercurial
 brew install mutt
 brew install msmtp
+brew install pass
