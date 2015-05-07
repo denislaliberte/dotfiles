@@ -1,5 +1,7 @@
 # Drush
 ### A command line shell and scripting interface for Drupal. ###
+# http://drushcommands.com/
+# http://www.drush.org/
 
 alias d="drush"
 alias dca="drush cache-clear all" # clear the cache again and again
