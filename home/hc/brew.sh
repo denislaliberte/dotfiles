@@ -22,3 +22,5 @@ brew install node
 brew install zsh
 #brew install go
 #brew install mercurial
+brew install mutt
+brew install msmtp
