@@ -198,8 +198,11 @@ alias Gconf='git config --global color.ui true;git config --global user.name "De
 
 ## goobook ##
 ### google book - gmail ###
-alias gbq="goobook query"
-alias gba="goobook add"
+alias gooq="goobook dquery"
+alias gooa="goobook add"
+alias goor="goobook reload"
+alias gooh="goobook -h"
+alias gooc="goobook config-template > .goobookrc"
 
 ## http ##
 alias ic="ifconfig"
