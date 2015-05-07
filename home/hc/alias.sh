@@ -214,7 +214,7 @@ alias hd="homesick diff hc"
 alias hl="homesick list"
 alias hp="homesick pull hc"
 alias hP="homesick push hc"
-alias hst="homesick track"
+alias hst="homesick track" # track a new file. usage : hst .file hc
 
 
 ## jenkins ## 
