@@ -52,17 +52,8 @@ function lsgrep()
 
 
 
-function drushpmlgrep()
-{
-  drush pml | grep "$*"
-}
-
-function drushgrep()
-{
-  drush | grep "$*"
-}
 
 function shellaliasgrep()
 {
-  cat ~/hc/alias.sh | grep "$*"
+  grep -r "$*" ~/hc
 }

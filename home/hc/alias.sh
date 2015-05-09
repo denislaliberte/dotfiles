@@ -4,10 +4,14 @@ alias asdf="cat ~/hc/alias.sh |head -10"
 alias ag="shellaliasgrep" #alias grep
 alias vz="vim ~/.zshrc"
 alias vas="vim ~/hc/alias.sh"
+alias vr="vim ~/.vimrc"
 alias sas="src"
 alias zs="src"
 alias hg="echo 'hs' && hs"
 alias pw="openssl rand -base64 32| cut -c1-12"
+alias h5="history | tail -5"
+alias h15="history | tail -15"
+alias h33="history | tail -33"
 
 ### list ###
 alias la="ls -a"
@@ -37,6 +41,11 @@ alias acs="sudo apachectl start"
 alias acr="sudo apachectl restart"
 alias act="apachectl -t"
 
+## artisan ##
+alias am="artisan migrate"
+alias amm="artisan migrate:make"
+alias amr="artisan migrate:rollback"
+
 ## behat ##
 ### BDD for PHP ###
 alias bb="bin/behat"
@@ -44,9 +53,13 @@ alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
 alias bsf="bin/behat --story-syntax --lang=fr"
 
+## bundler ##
+alias be="bundle exec"
+
 ## consular ##
 alias ce="consular edit"
 alias cs="consular start"
+alias cls="ls ~/hc/consular"
 
 ## dropbox 
 alias mydrop="HOME=$HOME/Dropbox-personal /Applications/Dropbox.app/Contents/MacOS/Dropbox &"
@@ -76,34 +89,10 @@ alias hcf="echo 'Httpd Config File ...  httpd -V |grep SERVER_CONFIG_FILE' ;http
 ### Dependency Manager for PHP ###
 alias cmp="composer"
 
-## drush ## 
-### A command line shell and scripting interface for Drupal. ###
-alias d="drush"
-alias dca="drush cc all"
-alias dt="drush cc all"
-alias dcd="drushcd"
-#à débugger
-alias ddl="drush dl"
-alias ddr="drush devel-reinstall -y"
-alias ddm="drush dis -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
-alias ddy="drush dis -y"
-alias dey="drush en -y"
-alias dem="drush en -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
-alias dfl="drush features-list"
-alias dfr="drush features-revert"
-alias dfra="drush features-revert-all"
-alias dg="drushgrep"
-alias dgc="drush generate-content"
-alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
-alias dpl="drush pml"
-alias dpg="drushpmlgrep"
-alias dsc="drush sql-connect -l"
-alias dui="drush user-information"
-alias dup="drush user-password"
-alias duu="drush uli --uri="
-alias duy="drush updb -y"
-alias dvg="drush vget"
-alias dvs="drush vset"
+## drush alias $ drushaliasgrep dag  ## 
+ if [ -f ~/hc/alias.sh ]; then
+    source ~/hc/drush.sh
+ fi
 
 
 ## easy_install ##
@@ -118,6 +107,7 @@ alias fl="fab list"
 ### fast version control ###
 git-diff-name() { git diff $1 --name-only | cat }
 alias gdn="git-diff-name"
+alias gdnm="git-diff-name master"
 alias gol="cat ~/Sites/gitolite-admin/conf/gitolite.conf | grep"
 alias g="git"
 alias ga="git add"
@@ -130,18 +120,23 @@ alias gu="git-up"
 alias gb="git branch -v"
 alias gbd="git branch -D"
 alias gbm="git branch -m"
+alias gbnm="git branch --no-merged"
+alias gbanm="git branch --all --no-merged"
 alias gbs="git branch --set-upstream-to="
+alias gbl="git blame"
 alias gc="git checkout "
 alias gcb="git checkout -b"
 alias gcl="git clone "
 alias gcm="git commit -m "
 alias gd="git diff"
+alias gfa="git fetch --all"
 alias gi="git init"
 alias gig="echo 'cp ~/gitignore/'| pbcopy && ls ~/gitignore |grep -i"
 alias gl="git log"
 alias gsw="git-sweep preview && git-sweep"
 alias gp="git pull"
 alias gP="git push"
+alias gre="git reset"
 #refactor gdec and gpub to a function
 alias gdev="
 echo  -- UPDATE MASTER WITH TP1 GIT ORIGIN -- ;
@@ -219,7 +214,7 @@ alias hd="homesick diff hc"
 alias hl="homesick list"
 alias hp="homesick pull hc"
 alias hP="homesick push hc"
-alias hst="homesick track"
+alias hst="homesick track" # track a new file. usage : hst .file hc
 
 
 ## jenkins ## 
@@ -245,6 +240,10 @@ alias ni="npm install"
 
 ## open 
 alias pause="td ls @pause; open http://facebook.com https://delicious.com/denislaliberte  http://readruler.com/ http://getpocket.com/a/queue/grid/5%20minutes/"
+
+## php ##
+alias phl="php -l"
+alias pa="php -a"
 
 alias pu="phpunit"
 
@@ -273,6 +272,8 @@ alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
 
 ##rspec
 alias ber="bundle exec rspec"
+alias berf="bundle exec rspec --fail-fast"
+
 
 
 ##ruby

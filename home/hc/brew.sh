@@ -1,5 +1,6 @@
 #!/bin/bash
 #ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#http://brew.sh/
 brew update
 brew doctor
 brew install browser
@@ -21,3 +22,6 @@ brew install node
 brew install zsh
 #brew install go
 #brew install mercurial
+brew install mutt
+brew install msmtp
+brew install pass

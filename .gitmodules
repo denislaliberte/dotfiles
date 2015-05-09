@@ -1,3 +1,6 @@
 [submodule "home/gitignore"]
 	path = home/gitignore
 	url = git://github.com/github/gitignore.git
+[submodule "dracula-theme"]
+	path = dracula-theme
+	url = https://github.com/zenorocha/dracula-theme.git

@@ -1,5 +1,5 @@
 "todo
-"choose a plugin manager vundle or plug
+"cleanup vundle references and comments
 "evaluate plugins
 "   * Fugitive deep git integration
 "   * PIV PHP editing
@@ -94,6 +94,8 @@ if has("autocmd")
 endif
 
 
+"todo remove
+"https://github.com/junegunn/vim-plug/wiki/faq#migrating-from-other-plugin-managers
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
@@ -154,19 +156,20 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 
 "====[ VIM-Plug setup ]======
+call plug#begin('~/.vim/plugged')
+
+"Plug 'vim-scripts/phpfolding.vim'
+Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+
+call plug#end()
 
 
-"vundle ========= to delete
-"vundle	    https://github.com/gmarik/vundle
-"filetype off           "require by vundle 
-"set rtp+=~/.vim/bundle/vundle/
-"call pathogen#infect()
-"call pathogen#helptags()
-"call vundle#rc()
-"Bundle 'gmarik/vundle'
+"phpfolding
+"map <F5> <Esc>:EnableFastPHPFolds<Cr> 
+"map <F6> <Esc>:EnablePHPFolds<Cr> 
+"map <F7> <Esc>:DisablePHPFolds<Cr> 
 
-"duplicate
-"execute pathogen#infect()
+
 
 "ruby https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
 "Bundle 'vim-ruby/vim-ruby'
