@@ -16,7 +16,7 @@
 "   * [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 "   * [ctrlp.vim ÷ home](http://kien.github.io/ctrlp.vim/)
 "   * [tpope/vim-surround](https://github.com/tpope/vim-surround)
-"   * [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+"   * [scrooloose/nerdcommenrer](https://github.com/scrooloose/nerdcommenter)
 "   * [scrooloose/syntastic](https://github.com/scrooloose/syntastic)
 "   * [myusuf3/numbers.vim](https://github.com/myusuf3/numbers.vim)
 "   * [Page not found · GitHub](https://github.com/godlygeek/tagbar)
@@ -110,7 +110,7 @@ call matchadd('ColorColumn', '\%81v', 100)
     exec "set listchars=tab:\uB7\uB7,trail:\uB7,nbsp:~"
     set list
     "to work with tab terrorists todo switch in a function
-    :set noet ci pi sts=0 sw=4 ts=4
+    ":set noet ci pi sts=0 sw=4 ts=4
 
 "=====[ Highlight matches when jumping to next ]=============
 " This rewires n and N to do the highlighing...
