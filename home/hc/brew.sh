@@ -25,3 +25,5 @@ brew install zsh
 brew install mutt
 brew install msmtp
 brew install pass
+brew install w3m
+brew install pidgin

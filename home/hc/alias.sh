@@ -42,6 +42,7 @@ alias acr="sudo apachectl restart"
 alias act="apachectl -t"
 
 ## artisan ##
+alias ada="artisan dump-autoload"
 alias am="artisan migrate"
 alias amm="artisan migrate:make"
 alias amr="artisan migrate:rollback"
@@ -71,7 +72,7 @@ alias bec="bundle exec cucumber"
 ### The missing package manager for OS X ###
 alias b="brew"
 alias bc="brew cask"
-bcs () { brew cask search $* ; echo "## brew cask info ##" && brew cask info $1}
+bcs () {  echo "## brew search ##" && brew search $1 && echo "##brew cask search ##" && brew cask search $* ; echo "## brew cask info ##" && brew cask info $1 }
 alias bci="brew cask install"
 alias bt="brew tap"
 alias bi="brew install"
@@ -196,6 +197,18 @@ alias ghc="hub create" #git hub create
 
 alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
 
+##google ##
+alias gde="google docs edit --editor vim --title"
+alias gdl="google docs list"
+
+
+## google calendar ##
+alias gcal="gcalcli  --calendar denis@tp1.ca"
+alias cala="gcal --details url add"
+alias calw="gcal calw"
+alias calm="gcal calm"
+
+
 ## goobook ##
 ### google book - gmail ###
 alias gooq="goobook dquery"
@@ -250,6 +263,9 @@ alias pa="php -a"
 
 alias pu="phpunit"
 
+## phpstorm ##
+alias st="pstorm"
+alias st.="pstorm . "
 ## phpspec ##
 alias bp="bin/phpspec"
 alias bpr="bin/phpspec run"

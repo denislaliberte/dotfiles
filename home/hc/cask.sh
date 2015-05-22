@@ -23,3 +23,5 @@ brew cask install diffmerge
 brew cask install karabiner
 brew cask install phpstorm
 brew cask install dash
+brew cask install xquartz
+brew cask install adium
