@@ -17,6 +17,7 @@ brew cask install pgadmin3
 brew cask install bettertouchtool
 brew cask install 1password
 brew cash install day-o
+brew cask install epic
 brew cash install cheatsheet
 brew cask install ksdiff
 brew cask install diffmerge
