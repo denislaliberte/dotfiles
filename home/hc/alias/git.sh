@@ -56,4 +56,5 @@ alias gst="git stash"
 alias gsta="git_stats"
 alias gsw="git-sweep preview && git-sweep"
 alias gu="git-up"
+alias hc="hub clone"
 git-diff-name() { git diff $1 --name-only | cat }
