@@ -4,6 +4,8 @@ alias asdf="cat ~/hc/alias.sh |head -10"
 alias ag="shellaliasgrep" #alias grep
 alias vz="vim ~/.zshrc"
 alias vas="vim ~/hc/alias.sh"
+alias vo="vim -o"
+alias vO="vim -O"
 alias vr="vim ~/.vimrc"
 alias sas="src"
 alias zs="src"
@@ -14,6 +16,7 @@ alias h15="history | tail -15"
 alias h33="history | tail -33"
 
 ### list ###
+alias l="ls"
 alias la="ls -a"
 alias ll="ls -l"
 alias lS="clear;pwd;ls *"
@@ -107,6 +110,7 @@ alias fl="fab list"
 ## git ##
 ### fast version control ###
 git-diff-name() { git diff $1 --name-only | cat }
+alias gf="git flow"
 alias gdn="git-diff-name"
 alias gdnm="git-diff-name master"
 alias g="git"
@@ -151,7 +155,7 @@ git checkout master;
 git merge devel;
 git push origin master;
 echo  -- MERGE DEVEL WITH MASTER AND PUSH TO ORIGIN/DEVEL AND DEVEL/DEVEL-- ;
-git checkout devel; 
+git checkout devel;
 git merge master;
 git push origin devel;
 git push devel master;
@@ -186,6 +190,7 @@ alias gr="git remote -v"
 alias gra="git remote add"
 alias gs="git status"
 alias gst="git stash"
+alias gch="git show"
 alias gsp="git stash pop"
 ##git commande combinee
 alias Gac="git add -u;git commit -m"
@@ -364,3 +369,13 @@ function command_not_found_handler() {
   echo "$1 $2" >> ~/.zsh_hisotry_not_found;
   echo "command not found $1 with arg $2 : >> ~/.zsh_hisotry_not_found";
 }
+function frequent_used_command(){
+  history |awk '{print $2}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
+}
+alias fuc="frequent_used_command"
+
+function frequent_used_command_grep(){
+  history| grep $1 |awk '{print $3}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
+}
+
+alias fucg="frequent_used_command_grep"

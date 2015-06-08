@@ -3,9 +3,8 @@ set imap_pass = 'tp1tp2tp3'
 set from = "Denis Laliberté <denis@tp1.ca>"
 set spoolfile = imaps://imap.gmail.com:993/INBOX
 set folder = imaps://imap.gmail.com:993
-set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
-set record="imaps://imap.gmail.com/[Gmail]/Sent Mail"
-set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+set record="+[Gmail]/Messages\ envoyés"
+set postponed="+[Gmail]/Brouillons"
 set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
 
