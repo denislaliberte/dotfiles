@@ -20,10 +20,13 @@ brew install leiningen
 brew install mysql
 brew install node
 brew install zsh
-#brew install go
+brew install go
 #brew install mercurial
 brew install mutt
 brew install msmtp
 brew install pass
 brew install w3m
 brew install pidgin
+brew install phpmd
+brew install phpcpd
+brew install fpp

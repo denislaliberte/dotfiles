@@ -70,6 +70,10 @@ source $ZSH/oh-my-zsh.sh
     source ~/hc/profile
  fi
 
+ if [ -f ~/.profile ]; then
+    source ~/.profile
+ fi
+
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

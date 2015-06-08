@@ -6,7 +6,7 @@ set folder = imaps://imap.gmail.com:993
 set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
 set record="imaps://imap.gmail.com/[Gmail]/Sent Mail"
 set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
-set message_cachedir=”~/.mutt/cache/bodies”
+set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
 
 auto_view text/html

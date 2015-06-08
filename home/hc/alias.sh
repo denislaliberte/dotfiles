@@ -8,7 +8,7 @@ alias vr="vim ~/.vimrc"
 alias sas="src"
 alias zs="src"
 alias hg="echo 'hs' && hs"
-alias pw="openssl rand -base64 32| cut -c1-12"
+alias pw="openssl rand -base64 32| cut -c1-12" #generate password
 alias h5="history | tail -5"
 alias h15="history | tail -15"
 alias h33="history | tail -33"
@@ -109,7 +109,6 @@ alias fl="fab list"
 git-diff-name() { git diff $1 --name-only | cat }
 alias gdn="git-diff-name"
 alias gdnm="git-diff-name master"
-alias gol="cat ~/Sites/gitolite-admin/conf/gitolite.conf | grep"
 alias g="git"
 alias ga="git add"
 alias gA="git add -A :/"
@@ -263,6 +262,8 @@ alias pa="php -a"
 
 alias pu="phpunit"
 
+alias pf="php-cs-fixer fix --verbose"
+
 ## phpstorm ##
 alias st="pstorm"
 alias st.="pstorm . "
@@ -359,3 +360,7 @@ alias wpa="wp plugin activate"
 alias zg="ls ~/.oh-my-zsh/plugins/ |grep"
 alias zc="cd ~/.oh-my-zsh/plugins/"
 
+function command_not_found_handler() {
+  echo "$1 $2" >> ~/.zsh_hisotry_not_found;
+  echo "command not found $1 with arg $2 : >> ~/.zsh_hisotry_not_found";
+}
