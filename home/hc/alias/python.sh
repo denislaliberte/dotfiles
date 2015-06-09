@@ -7,4 +7,4 @@ alias ei="sudo easy_install"
 alias pi="sudo pip install"
 alias pis="pip search"
 ##python
-alias p="python"
+alias py="python"
