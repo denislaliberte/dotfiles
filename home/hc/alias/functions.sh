@@ -69,5 +69,5 @@ function command_not_found_handler() {
 }
 
 function frequent_used_command(){
-  history |awk '{print $2}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
+  history |awk '{print $2}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -50
 }
