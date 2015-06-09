@@ -1,0 +1,11 @@
+
+alias v="vim"
+alias vO="vim -O"
+alias vo="vim -o"
+alias vvr="vim ~/.vimrc"
+alias vbi="vim +BundleInstall +qall"
+alias vbp="vim ~/.bash_profile"
+alias veh="sudo vim /etc/hosts"
+alias vr="vim ~/.vimrc"
+alias vrm="vim ~/README.txt"
+alias vz="vim ~/.zshrc"

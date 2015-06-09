@@ -71,3 +71,8 @@ function command_not_found_handler() {
 function frequent_used_command(){
   history |awk '{print $2}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -50
 }
+
+function vim_alias(){
+  vim ~/hc/alias/$1.sh
+}
+
