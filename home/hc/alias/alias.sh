@@ -12,6 +12,9 @@ alias pw="openssl rand -base64 32| cut -c1-12" #generate password
 alias h5="history | tail -5"
 alias h15="history | tail -15"
 alias h33="history | tail -33"
+alias fuc="frequent_used_command"
+alias fucg="frequent_used_command_grep"
+alias wh="which"
 
 ### list ###
 alias l="ls"
@@ -281,17 +284,7 @@ alias wpa="wp plugin activate"
 alias zg="ls ~/.oh-my-zsh/plugins/ |grep"
 alias zc="cd ~/.oh-my-zsh/plugins/"
 
-function command_not_found_handler() {
-  echo "$1 $2" >> ~/.zsh_hisotry_not_found;
-  echo "command not found $1 with arg $2 : >> ~/.zsh_hisotry_not_found";
-}
-function frequent_used_command(){
-  history |awk '{print $2}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
-}
-alias fuc="frequent_used_command"
 
-function frequent_used_command_grep(){
-  history| grep $1 |awk '{print $3}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
-}
-
-alias fucg="frequent_used_command_grep"
+ if [ -f ~/hc/alias/shortcut.sh ]; then
+    source ~/hc/alias/shortcut.sh
+ fi
