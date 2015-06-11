@@ -76,3 +76,6 @@ function vim_alias(){
   vim ~/hc/alias/$1.sh
 }
 
+function vim_hc(){
+  vim ~/hc/$1.sh
+}

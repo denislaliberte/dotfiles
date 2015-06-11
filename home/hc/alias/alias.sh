@@ -1,6 +1,7 @@
 #alias vim="echo '####### use v | vo | vO #######' && vim"
 alias ag="shellaliasgrep" #alias grep
 alias va="vim_alias"
+alias vh="vim_hc"
 alias c="clear;pwd"
 alias ch="chmod"
 alias cuj="curl -i -H \"Accept: application/json\" -X"
@@ -15,6 +16,8 @@ alias pw="openssl rand -base64 32| cut -c1-12" #generate password
 alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
 alias rmr="sudo rm -r"
 alias wh="which"
+alias wg="wget"
+alias gR="grep"
 
 alias mu="mutt"
 alias mydrop="HOME=$HOME/Dropbox-personal /Applications/Dropbox.app/Contents/MacOS/Dropbox &"
