@@ -53,13 +53,10 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 #shell alias
- if [ -f ~/hc/alias/alias.sh ]; then
-    source ~/hc/alias/alias.sh
- fi
-
-#shell alias
- if [ -f ~/hc/alias/functions.sh ]; then
-    source ~/hc/alias/functions.sh
+ if [ -d ~/hc/alias ]; then
+   for f in ~/hc/alias/*
+     do source $f
+  done
  fi
 
  if [ -f ~/hc/shortcut.sh ]; then

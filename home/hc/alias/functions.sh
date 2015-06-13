@@ -55,5 +55,27 @@ function lsgrep()
 
 function shellaliasgrep()
 {
-  grep -r "$*" ~/hc
+  grep -r "$*" ~/hc/alias
+}
+
+
+function frequent_used_command_grep(){
+  history| grep $1 |awk '{print $3}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
+}
+
+function command_not_found_handler() {
+  echo "$1 $2" >> ~/.command_not_found;
+  echo "$1 >> ~/.command_not_found";
+}
+
+function frequent_used_command(){
+  history |awk '{print $2}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -50
+}
+
+function vim_alias(){
+  vim ~/hc/alias/$1.sh
+}
+
+function vim_hc(){
+  vim ~/hc/$1.sh
 }

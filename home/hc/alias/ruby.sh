@@ -1,27 +1,20 @@
-
-##ruby
+alias be="bundle exec"
+alias bec="bundle exec cucumber"
+alias ber="bundle exec rspec"
+alias berf="bundle exec rspec --fail-fast"
+alias bun="bundle"
+alias gei="gem install"
 alias r="rails"
+alias rdc="rake db:create"
+alias rdd="rake db:drop"
+alias rdm="rake db:migrate"
+alias rgc="rvm gemset create"
+alias rgl="rvm gemset list" #gemsets
+alias rgm="rails generate migration"
+alias rgu="rvm gemset use"
+alias rl="rvm list" # rubies
+alias rr="rake routes"
 alias rs="rails server"
 alias rsp="rails server -p"
-alias rgm="rails generate migration"
-
-## rvm ##
-### Ruby Version Manage ###
-alias rgl="rvm gemset list" #gemsets
-alias rgc="rvm gemset create"
-alias rgu="rvm gemset use"
 alias ru="rvm use"
-alias rl="rvm list" # rubies
 alias rudev="rvm use ruby-2.2.0@dev"
-
-## rake ##
-alias rr="rake routes"
-alias rdd="rake db:drop"
-alias rdc="rake db:create"
-alias rdm="rake db:migrate"
-
-## rails ##
-alias rgm="rails generate migration"
-
-## gem ##
-alias gei="gem install"
