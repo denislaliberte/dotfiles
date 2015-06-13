@@ -23,8 +23,7 @@ alias pu="phpunit"
 
 alias pf="php-cs-fixer fix --verbose"
 ## phpstorm ##
-alias st="pstorm"
-alias st.="pstorm . "
+alias sto="pstorm . "
 ## phpspec ##
 alias bp="bin/phpspec"
 alias bpr="bin/phpspec run"
