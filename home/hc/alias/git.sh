@@ -13,7 +13,7 @@ alias gP="echo 'Gpm : git push origin master' && git push"
 alias gPd="git push devel"
 alias gPo="git push origin"
 alias gPp="git push prod"
-alias gPs="git push stage"
+alias gPs="git checkout stage && git push origin stage && git push stage stage"
 alias ga="git add"
 alias gaU="git add -u :/"
 alias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
@@ -73,4 +73,5 @@ alias gmps="git checkout stage && git merge prod" # git merge prod in stage
 alias gmsm="git checkout master && git merge stage" # git merge stage in master
 alias gdss="gpp && gps && gmps" # git downstream prod to stage
 alias gdsm="gps && gpm && gmsm" # git downstream stage to master
+alias gri="git rebase -i"
 git-diff-name() { git diff $1 --name-only | cat }
