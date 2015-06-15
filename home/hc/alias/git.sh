@@ -1,6 +1,5 @@
 ## git ##
 ### fast version control ###
-##git commande combinee
 alias Gac="git add -u;git commit -m"
 alias Gcm="git checkout master"
 alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
@@ -38,6 +37,8 @@ alias gdn="git-diff-name"
 alias gdnm="git-diff-name master"
 alias gf="git fetch"
 alias gf="git flow"
+alias gff="git flow feature"
+alias gffs="git flow feature start"
 alias gfa="git fetch --all"
 alias ghc="hub create" #git hub create
 alias gi="git init"
@@ -46,7 +47,7 @@ alias gl="git log"
 alias gm="git merge"
 alias gp="git pull"
 alias gr="git remote -v"
-alias gr="git remote"
+alias grr="git remote remove"
 alias gra="git remote add"
 alias gre="git reset"
 alias gs="git status"
@@ -64,4 +65,12 @@ alias gcd="got cd"
 alias goa="got add"
 alias gos="got status"
 alias gosq="got status -q"
+alias gps="git checkout stage && git pull origin master && git pull origin stage" # git pull stage
+alias gpm="git checkout master && git pull origin master && git pull devel master" # git pull master
+alias gpp="git checkout prod && git pull origin prod" # git pull prod
+alias gmsm="git checkout master && git merge stage" # git merge stage in master
+alias gmps="git checkout stage && git merge prod" # git merge prod in stage
+alias gmsm="git checkout master && git merge stage" # git merge stage in master
+alias gdss="gpp && gps && gmps" # git downstream prod to stage
+alias gdsm="gps && gpm && gmsm" # git downstream stage to master
 git-diff-name() { git diff $1 --name-only | cat }

@@ -21,4 +21,6 @@ alias gR="grep"
 
 alias mu="mutt"
 alias mydrop="HOME=$HOME/Dropbox-personal /Applications/Dropbox.app/Contents/MacOS/Dropbox &"
+alias wmi="ifconfig en0 | grep inet | grep -v inet6" # what my ip address
+alias tr="tree"
 echo "$ ag || va"
