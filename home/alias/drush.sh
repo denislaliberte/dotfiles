@@ -37,7 +37,7 @@ alias dvs="drush variable-set" # set the value of a variable ex dvs file_tempora
 
 function drushaliasgrep()
 {
-  cat ~/hc/drush.sh | grep "$*"
+  cat ~/alias/drush.sh | grep "$*"
 }
 
 function drushpmlgrep()

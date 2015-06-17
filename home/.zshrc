@@ -53,17 +53,22 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 #shell alias
- if [ -d ~/hc/alias ]; then
+ mv ~/alias/readme.md ~/alias_readme.md
+ if [ -d ~/alias ]; then
    for f in ~/alias/*
-     do source $f
+   do
+         source $f
   done
  fi
+ mv ~/alias_readme.md ~/alias/readme.md
 
- if [ -d ~/hc/functions ]; then
+ mv ~/functions/readme.md ~/functions_readme.md
+ if [ -d ~/functions ]; then
    for f in ~/functions/*
      do source $f
   done
  fi
+ mv ~/functions_readme.md ~/functions/readme.md
 
  if [ -f ~/hc/shortcut.sh ]; then
     source ~/hc/shortcut.sh

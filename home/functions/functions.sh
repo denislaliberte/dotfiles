@@ -55,7 +55,7 @@ function lsgrep()
 
 function shellaliasgrep()
 {
-  grep -r "$*" ~/hc/alias
+  grep -r "$*" ~/alias
 }
 
 
@@ -73,10 +73,10 @@ function frequent_used_command(){
 }
 
 function vim_alias(){
-  vim ~/hc/alias/$1.sh
+  vim ~/alias/$1.sh
 }
 
 function vim_hc(){
-  vim ~/hc/$1.sh
+  vim ~/$1.sh
 }
 
