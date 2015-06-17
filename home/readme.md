@@ -2,7 +2,7 @@ Home directory
 ==============
 
 [ alias ](alias/readme.md)
-[ functions ](functions/readme.md
+[ functions ](functions/readme.md)
 [ pm - package manager scripts ](pm/readme.md)
 [ .vimrc ](vim_readme.md)
 [ script ](script/readme.md)
