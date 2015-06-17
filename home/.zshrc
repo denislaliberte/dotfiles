@@ -54,7 +54,13 @@ source $ZSH/oh-my-zsh.sh
 
 #shell alias
  if [ -d ~/hc/alias ]; then
-   for f in ~/hc/alias/*
+   for f in ~/alias/*
+     do source $f
+  done
+ fi
+
+ if [ -d ~/hc/functions ]; then
+   for f in ~/functions/*
      do source $f
   done
  fi

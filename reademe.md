@@ -1,7 +1,17 @@
-dotfiles géré par homesick
+SHELL workbench
+==============
 
-pour installer :
 
+
+
+alias
+-----
+
+vim
+---
+
+Homesick
+--------
 $ gem install homesick
 $ homesick clone DenisLaliberte/homesick_castle
 

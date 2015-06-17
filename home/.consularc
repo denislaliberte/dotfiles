@@ -5,6 +5,6 @@
 # You can set specific Consular configurations
 # here.
 Consular.configure do |c|
-   c.global_path    = '~/hc/consular'
+   c.global_path    = '~/consular'
    c.default_editor = 'vim'
 end
