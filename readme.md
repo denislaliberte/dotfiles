@@ -6,7 +6,7 @@ Vous trouverez ici les fichier de configuration, scripts, et alias qui constitue
 
 Documentation
 ----
-[home](home/readme.md)
+[home](home/)
 
 
 Installation
