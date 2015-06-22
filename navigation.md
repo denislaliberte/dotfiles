@@ -1,4 +1,8 @@
 # Shell workbench
 
-[Home](index.md)
-[Alias](home/alias/readme.md)
+[home]()
+
+  * [Home](home/readme.md)
+  * [Alias](home/alias/readme.md)
+  * [functions](home/functions/readme.md)
+  * [package_manager](home/package_manager/readme.md)

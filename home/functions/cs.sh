@@ -1,6 +1,6 @@
 
 function code_survey(){
-  for i in *.php; do
+  for i in *; do
     echo -n "$i: "
     awk '{ print tolower($0) }' $i  \
       | grep -vE "(\*|#|\/\/)" \
@@ -16,7 +16,7 @@ function code_survey(){
 function code_survey_symbol(){
       #| sed "s/[[:<:]]$1[[:>:]]/X/g" \
       #| sed "s/X/ _$1_ /g" \
-  for i in *.php; do
+  for i in *; do
     echo -n "$i: "
 
     awk '{ print tolower($0) }' $i  \
@@ -39,7 +39,7 @@ function code_survey_symbol(){
 }
 
 function code_survey_symbol_controle(){
-  for i in *.php; do
+  for i in *; do
     echo -n "$i: "
 
     awk '{ print tolower($0) }' $i  \
@@ -92,6 +92,6 @@ function code_survey_function(){
 
 function code_survey_function_comments(){
   grep -l $1 * \
-    | xargs grep -nr --colour=always "class\|function\|\*\|#\|\/\/\|$1" \
+    | xargs grep -nr --colour=never "class\|function\|\*\|#\|\/\/\|$1" \
     | grep -B 3 $1
 }
