@@ -160,6 +160,8 @@ call plug#begin('~/.vim/plugged')
 
 "Plug 'vim-scripts/phpfolding.vim'
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plug 'godlygeek/tabular', {'rtp': 'vim/'}
+Plug 'plasticboy/vim-markdown',  {'rtp': 'vim/'}
 
 call plug#end()
 

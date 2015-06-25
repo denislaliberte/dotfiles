@@ -1,10 +1,10 @@
 
 function code_survey(){
-  for i in *.php; do
+  for i in *; do
     echo -n "$i: "
     awk '{ print tolower($0) }' $i  \
       | grep -vE "(\*|#|\/\/)" \
-      | sed "s/[[:<:]]$1[[:>:]]/X/g" \
+      | sed "s/$1/X/g" \
       | sed 's/[^{};]//g' \
       | sed "s/;/./g" \
       | sed "s/X/_$1_/g" \
@@ -16,7 +16,7 @@ function code_survey(){
 function code_survey_symbol(){
       #| sed "s/[[:<:]]$1[[:>:]]/X/g" \
       #| sed "s/X/ _$1_ /g" \
-  for i in *.php; do
+  for i in *; do
     echo -n "$i: "
 
     awk '{ print tolower($0) }' $i  \
@@ -39,7 +39,7 @@ function code_survey_symbol(){
 }
 
 function code_survey_symbol_controle(){
-  for i in *.php; do
+  for i in *; do
     echo -n "$i: "
 
     awk '{ print tolower($0) }' $i  \

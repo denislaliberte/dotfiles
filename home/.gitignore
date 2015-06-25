@@ -25,3 +25,9 @@ Icon
 
 #intelij
 .idea/
+
+GPATH
+GRTAGS
+GTAGS
+
+drush.sh

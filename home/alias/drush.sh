@@ -7,7 +7,7 @@ alias d="drush"
 alias dca="drush cache-clear all" # clear the cache again and again
 alias dg="drushgrep" # custom function to find a drush command ex :$drush | grep command
 alias dag="drushaliasgrep" # search this file
-alias duu="drush user-login --uri=" # get the reset password link for the user 1 usage: duu http://host.local
+alias duu="drush user-login --uri=" # get the reset password link for the user 1 usage: duu http://host.local uli
 alias duy="drush updatedb -y" # run the hook_update fucntions
 
 ## drush features - Export and import configuration ##
