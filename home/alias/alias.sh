@@ -28,4 +28,6 @@ alias cssc="code_survey_symbol_controle"
 alias scf="code_survey_function"
 alias csfc="code_survey_function_comments"
 function package_log() { echo "$1 $2" >> ~/package_manager/$1.sh && eval "$1 $2" }
+alias ai="awm_install"
+function awm_install() { package_log awm "install $1"}
 echo "$ ag || va"
