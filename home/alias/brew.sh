@@ -3,9 +3,11 @@
 alias b="brew"
 alias bc="brew cask"
 bcs () {  echo "## brew search ##" && brew search $1 && echo "##brew cask search ##" && brew cask search $* ; echo "## brew cask info ##" && brew cask info $1 }
-alias bci="brew cask install"
+alias bci="brew_cask_install"
 alias bt="brew tap"
-alias bi="brew install"
+alias bi="brew_install"
+function brew_install() { package_log brew "install $1" }
+function brew_cask_install() { package_log brew "cask install $1" }
 alias bif="brew info"
 alias bl="brew list"
 alias bs="brew search"

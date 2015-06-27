@@ -44,20 +44,15 @@ function cd()
   builtin cd "$*" && pwd;ls 
 }
 
-
 function lsgrep()
 {
   ls | grep "$*"
 }
 
-
-
-
 function shellaliasgrep()
 {
   grep -r "$*" ~/alias
 }
-
 
 function frequent_used_command_grep(){
   history| grep $1 |awk '{print $3}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
