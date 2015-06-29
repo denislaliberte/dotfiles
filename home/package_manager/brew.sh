@@ -59,3 +59,5 @@ brew cask install xquartz
 brew cask install adium
 brew cask install disk-inventory-x
 brew cask install lighttable
+brew install surfraw
+brew cask install lastpass
