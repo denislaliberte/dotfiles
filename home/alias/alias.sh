@@ -13,7 +13,8 @@ alias mydrop="HOME=$HOME/Dropbox-personal /Applications/Dropbox.app/Contents/Mac
 alias o="open"
 alias p="pwd"
 alias pause="td ls @pause; open http://facebook.com https://delicious.com/denislaliberte  http://readruler.com/ http://getpocket.com/a/queue/grid/5%20minutes/"
-alias asdf="vim ~/.asdf && cat ~/.asdf | shasum | cut -c1-$asdf | pbcopy && rm ~/.asdf"
+alias asdf="vim ~/.asdf && cat ~/.asdf | shasum | cut -c1-$asdf | pbcopy && rm ~/.asdf" #sed 's/^\(.\{3\}\)\(.\{3\}\)\(.\{4\}\)$/\1-\2-\3/ '
+function qwer() { echo "export asdf=" >> ~/.asdf && vim ~/.asdf && source ~/.asdf && rm ~/.asdf }
 alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
 alias rmr="sudo rm -r"
 alias va="vim_alias"
