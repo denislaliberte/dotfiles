@@ -34,5 +34,8 @@ alias ai="awm_install" # alfred workflow manager - awm
 alias aws="awm search"
 alias ainf="awm info"
 alias lpa=lpass
+alias lpp="lpass show -c --password"
+alias lpn="lpass show -c --username"
+alias lplg="lpass ls |grep -i"
 function awm_install() { package_log awm "install $1"}
 echo "$ ag || va"
