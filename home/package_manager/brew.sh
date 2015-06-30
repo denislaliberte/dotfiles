@@ -62,3 +62,4 @@ brew cask install lighttable
 brew install surfraw
 brew cask install lastpass
 brew cask install lastpass
+brew install lastpass-cli
