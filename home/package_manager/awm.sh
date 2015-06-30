@@ -10,3 +10,5 @@ awm install de.gh01.alfred.github
 awm install com.spr.googlebooks
 awm install com.somebits.openclipurl
 awm install com.fniephaus.dropbox
+awm install com.farrell.pkgman.alfredworkflow
+awm install net.deanishe.alfred-stackoverflow

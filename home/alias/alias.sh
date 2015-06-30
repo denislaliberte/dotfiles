@@ -13,12 +13,13 @@ alias mydrop="HOME=$HOME/Dropbox-personal /Applications/Dropbox.app/Contents/Mac
 alias o="open"
 alias p="pwd"
 alias pause="td ls @pause; open http://facebook.com https://delicious.com/denislaliberte  http://readruler.com/ http://getpocket.com/a/queue/grid/5%20minutes/"
-alias asdf="vim ~/.asdf && cat ~/.asdf | shasum | cut -c1-$asdf | pbcopy && rm ~/.asdf" #sed 's/^\(.\{3\}\)\(.\{3\}\)\(.\{4\}\)$/\1-\2-\3/ '
+alias asdf="vim ~/.asdf && cat ~/.asdf | shasum | cut -c1-$asdf | pbcopy && rm ~/.asdf" 
 function qwer() { echo "export asdf=" >> ~/.asdf && vim ~/.asdf && source ~/.asdf && rm ~/.asdf }
 alias pwrd="ping -c 1 yahoo.com |md5 | head -c8; echo"
 alias rmr="sudo rm -r"
 alias va="vim_alias"
 alias vh="vim_hc"
+alias phone="pbpaste | sed 's/^\(.\{3\}\)\(.\{3\}\)\(.\{4\}\)$/\1-\2-\3/ '"
 alias wg="wget"
 alias gR="grep"
 alias wmi="ifconfig en0 | grep inet | grep -v inet6" # what my ip address
