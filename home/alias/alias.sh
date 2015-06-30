@@ -33,5 +33,6 @@ function package_log() { echo "$1 $2" >> ~/package_manager/$1.sh && eval "$1 $2"
 alias ai="awm_install" # alfred workflow manager - awm
 alias aws="awm search"
 alias ainf="awm info"
+alias lpa=lpass
 function awm_install() { package_log awm "install $1"}
 echo "$ ag || va"
