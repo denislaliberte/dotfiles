@@ -1,10 +1,10 @@
 function search_google() { echo "\n  __search_google:__ $1" >> $n && open "https://www.google.com/search?q=$1"}
 alias sg="search_google"
 alias en="echo $n && echo $1 >> $n"
-alias qn="echo $n && echo "\n__question__ : $1" >> $n" # question note
-alias rn="echo $n && echo "\n__réponse__ : $1" >> $n" #  réponse note
-alias tdn="echo $n && echo "\n__todo__ : $1" >> $n" # todo note
-alias fn="echo $n && echo "\n__file__ : $1" >> $n" # todo file
+alias qn="echo $n && echo \"\n__question__ : $1\" >> $n" # question note
+alias rn="echo $n && echo \"\n__réponse__ : $1\" >> $n" #  réponse note
+alias tdn="echo $n && echo \"\n__todo__ : $1\" >> $n" #  réponse note
+alias fn="echo $n && echo \"\n__file__ : $1\" >> $n" # todo file
 alias qg="cat $n |grep -n '__question__\|__réponse__'" # note question réponse grep
 alias tg="cat $n |grep -n '__todo__\|__done__'" # note todo grep
 alias ngg="cat $n |grep -n '__search_google__\|]('" # note google grep
