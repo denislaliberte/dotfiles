@@ -1,0 +1,14 @@
+awm install pocket
+awm install com.fniephaus.pocket
+awm install com.vitorgalvao.alfred.incognitoclone
+awm install com.tumblr.ramiroaraujo.alfred-tmux-workflow
+awm install com.tumblr.ramiroaraujo.alfred-tmux-workflow
+awm install com.fniephaus.gmail
+awm install com.lastobelus.alfred.markdown-note-of-github-repo
+awm install sh.edgar.alfred.GithubRepos
+awm install de.gh01.alfred.github
+awm install com.spr.googlebooks
+awm install com.somebits.openclipurl
+awm install com.fniephaus.dropbox
+awm install com.farrell.pkgman.alfredworkflow
+awm install net.deanishe.alfred-stackoverflow

@@ -93,6 +93,5 @@ function code_survey_function(){
 
 function code_survey_function_comments(){
   grep -l $2 $1/* \
-    | xargs grep -nr --colour=always "class\|function\|\*\|#\|\/\/\|$1" \
-    | grep -B 3 $1
+    | xargs grep -nr --colour=always "class\|function\|\*\|#\|\/\/\|$1"
 }

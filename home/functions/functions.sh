@@ -44,14 +44,10 @@ function cd()
   builtin cd "$*" && pwd;ls 
 }
 
-
 function lsgrep()
 {
   ls | grep "$*"
 }
-
-
-
 
 function shellaliasgrep()
 {
@@ -64,7 +60,6 @@ function history_grep()
   echo "$*" >> ~/.command_not_found;
   fc -l 1 | grep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn} $*
 }
-
 
 function frequent_used_command_grep(){
   history| grep $1 |awk '{print $3}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
