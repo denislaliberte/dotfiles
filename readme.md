@@ -1,8 +1,8 @@
-SHELL workbench
-==============
+Terminal workbench
+==================
 
-Vous trouverez ici les fichier de configuration, scripts, et alias qui constitue mon environnement de travail.
-
+Vous trouverez ici les fichier de configuration, scripts, et alias qui constitue
+mon environnement de travail.
 
 Installation
 --------

@@ -51,7 +51,14 @@ function lsgrep()
 
 function shellaliasgrep()
 {
+  echo "$* >> ~/.command_not_found";
   grep -r "$*" ~/alias
+}
+
+function history_grep()
+{
+  echo "$*" >> ~/.command_not_found;
+  fc -l 1 | grep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn} $*
 }
 
 function frequent_used_command_grep(){
@@ -59,7 +66,7 @@ function frequent_used_command_grep(){
 }
 
 function command_not_found_handler() {
-  echo "$1 $2" >> ~/.command_not_found;
+  echo "$*" >> ~/.command_not_found;
   echo "$1 >> ~/.command_not_found";
 }
 
@@ -75,3 +82,6 @@ function vim_hc(){
   vim ~/$1.sh
 }
 
+function srdb(){
+   ~/script/srdbcli.php -h "127.0.0.1" -u root -p "" -n $1 -s "$2" -r "$3"
+}

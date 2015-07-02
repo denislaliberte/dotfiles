@@ -4,7 +4,7 @@ function code_survey(){
     echo -n "$i: "
     awk '{ print tolower($0) }' $i  \
       | grep -vE "(\*|#|\/\/)" \
-      | sed "s/[[:<:]]$1[[:>:]]/X/g" \
+      | sed "s/$1/X/g" \
       | sed 's/[^{};]//g' \
       | sed "s/;/./g" \
       | sed "s/X/_$1_/g" \
