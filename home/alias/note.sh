@@ -1,5 +1,9 @@
-function search_google() { echo "\n  __search_google:__ $1" >> $n && open "https://www.google.com/search?q=$1"}
+function search_google() { echo "\n  __search_google:__ $1" >> $n && gisele $1 >> $n }
+function search_google_lucky() { echo "\n  __search_google:__ $1" >> $n && open "https://www.google.com/search?q=$1\&btnI"}
+function open_firefox() { echo "\n  __open__ http://$1" >> $n && open -a firefox "http://$1" }
+alias of="open_firefox"
 alias sg="search_google"
+alias sgl="search_google_lucky"
 alias en="echo $n && echo $1 >> $n"
 alias qn="echo $n && echo \"\n__question__ : $1\" >> $n" # question note
 alias rn="echo $n && echo \"\n__réponse__ : $1\" >> $n" #  réponse note
@@ -15,7 +19,7 @@ alias gAc="git add -A :/;git_commit_note $1"
 alias cn="cat $n" # cat note
 alias cng="cat $n |grep -n"
 alias tn="tail $n" #tail note
-alias vn="vim $n" # vim note
+alias vn="vim $n -O" # vim note
 alias n="vim $n" # vim note
 alias vno="vim $n -O" #vim note open
 alias gcm="git_commit_note $1"

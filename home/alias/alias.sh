@@ -1,4 +1,8 @@
 ##commande de bases
+alias gisele="php ~/scripts/gisele.phar -n --max-result=5 --format={counter}\ \[\ {title}\ \]\({link}\) web"
+alias gis="gisele"
+alias s="source"
+alias sz="source ~/.zshrc"
 alias ag="shellaliasgrep" #alias grep
 alias c="clear;pwd"
 alias ch="chmod"
@@ -8,7 +12,6 @@ alias mkdir="echo '###### use mkd #####' && mkdir"
 alias o="open"
 alias open="echo '##### use o #####' && open"
 alias p="pwd"
-alias pwd="echo '##### use p #####' && pwd"
 alias rmr="sudo rm -r"
 alias va="vim_alias"
 alias vh="vim_hc"
@@ -16,6 +19,5 @@ alias wg="wget"
 alias wh="which"
 alias uz="unzip"
 alias e="echo"
-alias echo="echo '##### use e ####' && echo"
 
 echo "$ ag || va"

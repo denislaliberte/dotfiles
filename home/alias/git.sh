@@ -5,6 +5,7 @@ alias Gconf='git config --global color.ui true;git config --global user.name "De
 alias Gds="git diff;git status;git branch -v"
 alias gpM="git push origin master"
 alias Gpm="gpM"
+alias gfc="git add -A :/ && git commit -m 'no comment '" #git fast commit
 alias g="git"
 alias git="echo '##### use g ####' && git"
 alias gA="git add -A :/"

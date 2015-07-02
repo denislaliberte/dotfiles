@@ -63,3 +63,7 @@ brew install surfraw
 brew cask install lastpass
 brew cask install lastpass
 brew install lastpass-cli
+brew install w3m
+brew install googlecl
+brew install googlecl
+brew install surfraw
