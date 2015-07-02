@@ -4,6 +4,7 @@ alias Gcm="git checkout master"
 alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
 alias Gds="git diff;git status;git branch -v"
 alias gpM="git push origin master"
+alias Gpm="gpM"
 alias g="git"
 alias git="echo '##### use g ####' && git"
 alias gA="git add -A :/"
