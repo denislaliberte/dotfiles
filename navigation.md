@@ -1,8 +1,7 @@
-# Shell workbench
+# Terminal workbench
 
 [home]()
 
-  * [Home](home/readme.md)
-  * [Alias](home/alias/readme.md)
-  * [functions](home/functions/readme.md)
-  * [package_manager](home/package_manager/readme.md)
+  * [ Alias ](docs/alias.md)
+  * [ functions ](docs/functions.md)
+  * [ package manager ](docs/package_manager.md)

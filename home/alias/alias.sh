@@ -39,6 +39,8 @@ alias lpp="lpass show -c --password"
 alias lpn="lpass show -c --username"
 alias lplg="lpass ls |grep -i"
 function awm_install() { package_log awm "install $1"}
+function pip_install() { package_log pip "install $1"}
+alias pi="pip_install"
 alias uz="unzip"
 alias e="echo"
 

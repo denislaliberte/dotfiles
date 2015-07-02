@@ -53,22 +53,18 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 #shell alias
- mv ~/alias/readme.md ~/alias_readme.md
  if [ -d ~/alias ]; then
    for f in ~/alias/*
    do
          source $f
   done
  fi
- mv ~/alias_readme.md ~/alias/readme.md
 
- mv ~/functions/readme.md ~/functions_readme.md
  if [ -d ~/functions ]; then
    for f in ~/functions/*
      do source $f
   done
  fi
- mv ~/functions_readme.md ~/functions/readme.md
 
  if [ -f ~/hc/shortcut.sh ]; then
     source ~/hc/shortcut.sh
@@ -114,3 +110,4 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+export CLICOLOR=1
