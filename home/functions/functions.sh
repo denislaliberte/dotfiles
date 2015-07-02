@@ -51,13 +51,11 @@ function lsgrep()
 
 function shellaliasgrep()
 {
-  echo "$* >> ~/.command_not_found";
   grep -r "$*" ~/alias
 }
 
 function history_grep()
 {
-  echo "$*" >> ~/.command_not_found;
   fc -l 1 | grep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn} $*
 }
 

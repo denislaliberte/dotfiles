@@ -1,5 +1,5 @@
-
-alias v="vim"
+alias v="vim -O"
+alias vim="echo '##### use v ####' && vim"
 alias vO="vim -O"
 alias vo="vim -o"
 alias vvr="vim ~/.vimrc"
