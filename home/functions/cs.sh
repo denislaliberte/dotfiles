@@ -1,13 +1,14 @@
-
+#add validation to check if 1 is a directory
+#support empty expression search
 function code_survey(){
-  for i in *; do
+  for i in $1/*; do
     echo -n "$i: "
     awk '{ print tolower($0) }' $i  \
       | grep -vE "(\*|#|\/\/)" \
-      | sed "s/$1/X/g" \
+      | sed "s/$2/X/g" \
       | sed 's/[^{};]//g' \
       | sed "s/;/./g" \
-      | sed "s/X/_$1_/g" \
+      | sed "s/X/_$2_/g" \
       | tr -d '\n'
     echo 
   done
@@ -16,12 +17,12 @@ function code_survey(){
 function code_survey_symbol(){
       #| sed "s/[[:<:]]$1[[:>:]]/X/g" \
       #| sed "s/X/ _$1_ /g" \
-  for i in *; do
+  for i in $1/*; do
     echo -n "$i: "
 
     awk '{ print tolower($0) }' $i  \
       | grep -vE "(\*|#|\/\/)" \
-      | sed "s/[[:<:]]$1[[:>:]]/X/g" \
+      | sed "s/[[:<:]]$2[[:>:]]/X/g" \
       | sed "s/[[:<:]]class[[:>:]]/C/g" \
       | sed "s/[[:<:]]function[[:>:]]/F/g" \
       | sed "s/[[:<:]]interface[[:>:]]/I/g" \
@@ -31,7 +32,7 @@ function code_survey_symbol(){
       | sed "s/F/ F/g" \
       | sed "s/T/ trait/g" \
       | sed "s/I/ interface/g" \
-      | sed "s/X/_$1_/g" \
+      | sed "s/X/_$2_/g" \
       | sed "s/;/./g" \
       | tr -d '\n'
     echo 
@@ -39,14 +40,14 @@ function code_survey_symbol(){
 }
 
 function code_survey_symbol_controle(){
-  for i in *; do
+  for i in $1/*; do
     echo -n "$i: "
 
     awk '{ print tolower($0) }' $i  \
       | grep -vE "(\*|#|\/\/)" \
       | sed 's/\".*\"//' \
       | sed "s/\'.*\'//" \
-      | sed "s/[[:<:]]$1[[:>:]]/X/g" \
+      | sed "s/[[:<:]]$2[[:>:]]/X/g" \
       | sed "s/[[:<:]]class[[:>:]]/C/g" \
       | sed "s/[[:<:]]function[[:>:]]/F/g" \
       | sed "s/[[:<:]]interface[[:>:]]/I/g" \
@@ -78,7 +79,7 @@ function code_survey_symbol_controle(){
       | sed "s/F~/for/g" \
       | sed "s/R;/r/g" \
       | sed "s/R/r/g" \
-      | sed "s/X/_$1_/g" \
+      | sed "s/X/_$2_/g" \
       | sed "s/;/./g" \
       | tr -d '\n'
     echo 
@@ -86,12 +87,12 @@ function code_survey_symbol_controle(){
 }
 
 function code_survey_function(){
-  grep -l $1 * \
+  grep -l $2 $1/* \
     | xargs grep --colour=always "class\|function\|$1"
 }
 
 function code_survey_function_comments(){
-  grep -l $1 * \
+  grep -l $2 $1/* \
     | xargs grep -nr --colour=always "class\|function\|\*\|#\|\/\/\|$1" \
     | grep -B 3 $1
 }
