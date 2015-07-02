@@ -26,3 +26,7 @@ alias ei="sudo easy_install"
 alias pi="sudo pip install"
 alias pis="pip search"
 alias gei="gem install"
+# add alias to go get
+# add alias tu hub clone
+# add set -v to package manager files#echo "## gem install 'git_stats'        ## " && gem install 'git_stats'
+## todo add alias to apm package manager
