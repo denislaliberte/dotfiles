@@ -1,4 +1,3 @@
-
 alias des="cd ~/Desktop"
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"

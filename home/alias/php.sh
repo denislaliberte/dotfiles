@@ -13,9 +13,6 @@ alias bb="bin/behat"
 alias bbe="bin/behat --expand"
 alias bdl="bb -dl"
 alias bsf="bin/behat --story-syntax --lang=fr"
-## composer ##
-### Dependency Manager for PHP ###
-alias cmp="composer"
 
 ## php ##
 alias phl="php -l"
