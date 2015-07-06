@@ -41,7 +41,7 @@ function cl(){
 
 function cd()
 {
-  builtin cd "$*" && pwd;ls 
+  builtin cd "$*" && clear && pwd && ls -1A
 }
 
 function lsgrep()

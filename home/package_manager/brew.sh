@@ -67,3 +67,4 @@ brew install w3m
 brew install googlecl
 brew install googlecl
 brew install surfraw
+brew cask install evernote

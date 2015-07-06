@@ -1,10 +1,12 @@
 ##commande de bases
-alias gisele="php ~/scripts/gisele.phar -n --max-result=5 --format={counter}\ \[\ {title}\ \]\({link}\) web"
 alias gis="gisele"
+alias t3="tree -L 3"
+alias t2="tree -L 2"
 alias s="source"
 alias sz="source ~/.zshrc"
 alias ag="shellaliasgrep" #alias grep
-alias c="clear;pwd"
+alias c="cd"
+alias clr="clear && pwd"
 alias ch="chmod"
 alias ic="ifconfig"
 alias mkd="mkdir"

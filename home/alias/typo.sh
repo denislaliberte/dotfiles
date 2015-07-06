@@ -1,5 +1,4 @@
 alias cim="vim" #typo fréquente
-alias vs="va"
 alias bim="vim" #typo fréquente
 alias sas="src"
 alias fcu="fuc"
@@ -9,10 +8,8 @@ alias hg="history_grep"
 alias gvm="gcm"
 alias count="wc -l"
 alias rsynch="rsync"
-alias vs="sv"
 alias homesic="homesick"
 alias musql="mysql"
-alias fpp="pff"
 alias st,="st."
 alias EXPORT="export"
 alias guc="fuc"
