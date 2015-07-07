@@ -2,6 +2,7 @@
 >
 > For the syntax of this file, please refer to https://www.quixapp.com/syntax/
 >
+#kill-defaults
 
 @Basic commands
 @These are the most basic commands Quix offers, but possibly also the most powerful ones.
