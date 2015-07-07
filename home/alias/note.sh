@@ -29,7 +29,7 @@ alias ngg="cat $n |grep -n '__search_google__\|]('" # note google grep
 alias nga="cat $n |grep -n '^__\|---'" #note grep action
 alias lig="cat $n |grep -n ']('" #note link grep
 function git_commit_note() { git commit -m $1 && echo " \n__git_commit__ : $1 " >> $n}
-function gAc { git add -A :/;git_commit_note " $task $1 " }
+function gac { git add -A :/;git_commit_note " $task $1 " }
 alias cn="cat $n" # cat note
 alias cng="cat $n |grep -n"
 alias tn="tail $n" #tail note

@@ -70,3 +70,4 @@ brew install w3m
 brew install googlecl
 brew install surfraw
 brew cask install evernote
+brew install Caskroom/cask/delicious-library
