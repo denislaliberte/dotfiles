@@ -123,11 +123,11 @@ delibar			Delibar://bpost&!p!&%r&!p!&%t&!p!&%s					Bookmark the current page usi
 shove			shovebox://url?url=%r&title=%t							Catch current page in <a href="http://www.wonderwarp.com/shovebox/">Shovebox</a>
 
 @bookmark
-gr  https://www.goodreads.com/review/list/42039095-denis-lalibert?shelf=to-read goodread
-mint https://wwws.mint.com/ mint
+gr·····https://www.goodreads.com/review/list/42039095-denis-lalibert?shelf=to-read·····goodread
+mint·····https://wwws.mint.com/·····mint
 
-app javascript:(function()%7Bvar%20s%3Ddocument.createElement(%27script%27)%3Bs.src%3D%27https://www.pepperplate.com/b/%3Fu%3D%27%2BencodeURIComponent(%20window.location%20)%2B%27%26a%3D%27%2BMath.random()%3Bdocument.body.appendChild(s)%3B%7D)()%3B add to pepperplate
+app·····javascript:(function()%7Bvar%20s%3Ddocument.createElement(%27script%27)%3Bs.src%3D%27https://www.pepperplate.com/b/%3Fu%3D%27%2BencodeURIComponent(%20window.location%20)%2B%27%26a%3D%27%2BMath.random()%3Bdocument.body.appendChild(s)%3B%7D)()%3B·····add to pepperplate
 
 @chrome
-bk chrome://bookmarks bookmarks
-cex chrome://extensions extensions
+bk·····chrome://bookmarks·····bookmarks
+cex·····chrome://extensions extensions
