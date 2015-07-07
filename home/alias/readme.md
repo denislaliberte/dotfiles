@@ -1,4 +1,0 @@
-Alias
-=====
-
-Alias readme

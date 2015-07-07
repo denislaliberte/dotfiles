@@ -2,6 +2,7 @@
 >
 > For the syntax of this file, please refer to https://www.quixapp.com/syntax/
 >
+#kill-defaults
 
 @Basic commands
 @These are the most basic commands Quix offers, but possibly also the most powerful ones.
@@ -11,9 +12,7 @@ dict	http://www.google.com/dictionary?langpair=en%7Cen&q=%s&hl=en&aq=f	Google Di
 e       mailto:?subject=%t&body=%s%0A%0A%09%r%0A%0A							Email link
 f       http://flickr.com/search/?q=%s										Flickr Search
 fc      http://flickr.com/search/?q=%s&l=comm								Flickr Commercial use CC Search
-find		javascript:s='%s';if(s==''){void(s=prompt('Find%20text:',''));}s='('+s+')';x=new%20RegExp(s,'gi');rn=Math.floor(Math.random()*100);rid='z'%20+%20rn;b%20=%20document.body.innerHTML;b=b.replace(x,'<span%20name='%20+%20rid%20+%20'%20id='%20+%20rid%20+%20'%20style=\'color:#000;background-color:yellow;%20font-weight:bold;\'>$1</span>');void(document.body.innerHTML=b);alert('Found%20'%20+%20document.getElementsByName(rid).length%20+%20'%20matches.');window.scrollTo(0,document.getElementsByName(rid)[0].offsetTop); 	Find in current pagem, usage: 'find test' will highlight all occurrences of 'test' and will take you to the first occurrence. Just 'find' will open a prompt.
 g       http://www.google.com/search?q=%s									Google Search
-gbs     http://blogsearch.google.com/blogsearch?q=%s						Google Blog Search
 imdb    http://www.imdb.com/find?s=all&q=%s									IMDB Search
 img     http://www.google.com/images?q=%s									Google Image Search
 map     http://www.google.com/maps?q=%s										Google Maps
@@ -27,11 +26,8 @@ wa		http://www.wolframalpha.com/input/?i=%s								Wolfram Alpha Search
 
 @Social commands
 @These commands are for dealing with social networks and social sites.
-pb		http://pinboard.in/add?next=same&url=%re&description=%s&title=%t	Bookmark current page with PinBoard
 db	    http://delicious.com/save?url=%r&title=%t&v=5&jump=yes&notes=%s   	Bookmark the current page in Delicious
 fb		http://www.facebook.com/share.php?u=%r&t=%t							Share the current page on Facebook
-gp		https://plus.google.com/share?url=%r								Share the current page on Google+
-ib		http://inbound.org/?url=%r&title=%t									Send current page to <a href="http://inbound.org">Inbound.org</a>.
 li		javascript:(function(){d=document,l=d.location,f='http://www.linkedin.com/shareArticle?mini=true&ro=false&trk=bookmarklet&title='+encodeURIComponent(d.title)+'&url='+encodeURIComponent(l.href),a=function(){if(!window.open(f,'News','width=520,height=570,toolbar=0,location=0,status=0,scrollbars=yes')){l.href=f;}};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0);}else{a();}})()				Share the current page on LinkedIn
 tn	    http://twitter.com/home?status=%s%20%t%20%r							Tweet the current page
 s       http://search.twitter.com/search?q=%s								Twitter Search
@@ -39,10 +35,6 @@ sc		http://sharedcount.com/?url=%r										Open the URLs share count on sharedc
 t       http://twitter.com/%s												Twitter User
 v       http://vimeo.com/videos/search:%s									Vimeo Search
 yt      http://www.youtube.com/results?search_query=%s						YouTube Search
-tumblr	javascript:d=document;w=window;e=w.getSelection;k=d.getSelection;x=d.selection;s=(e?e():(k)?k():(x?x.createRange().text:0));f='http://www.tumblr.com/share';l=d.location,e=encodeURIComponent;p='?v=3&u='+e(l.href)%20+'&t='+e(d.title)%20+'&s='+e(s);u=f+p;try{if(!/^(.*\.)?tumblr[^.]*$/.test(l.host))throw(0);tstbklt();}catch(z){a%20=function(){if(!w.open(u,'t','toolbar=0,resizable=0,status=1,width=450,height=430'))l.href=u;};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();}void(0)						Share on Tumblr
-post	javascript:var%20b=document.body;POSTEROUS___bookmarklet_domain='http://posterous.com';if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.type='text/javascript');void(z.src='http://posterous.com/javascripts/bookmarklet2.js');void(b.appendChild(z));}else{}				Share on Posterous
-su		http://www.stumbleupon.com/submit?url=%r&title=%t					Submit to StumbleUpon.
-buf		script:https://bufferapp.com/js/bookmarklet.v1.js					Buffer to tweet the current page with <a href="http://bufferapp.com">Buffer App</a>.
 
 @WordPress
 @Quix was of course created by <a href="https://yoast.com">Yoast</a>, a WordPress addict, and as such, some WordPress functions are of course needed!
@@ -58,37 +50,22 @@ install javascript:l=window.location.toString();window.location='http://coveredw
 @SEO
 @As an SEO you have dozens of things you can check on a site, Quix aims to make those things simpler by adding a large set of easy to remember and use commands for SEO's.
 archive		http://web.archive.org/web/*/%r											Check archive.org for the current page
-dmoz 		http://search.dmoz.org/cgi-bin/search?search=%d        					Searches DMOZ for the current Domain
-gbd  		http://blogsearch.google.com/blogsearch?num=10&q=link%3A%d  			Search Google Blogsearch for links to the current Domain
-gbu  		http://blogsearch.google.com/blogsearch?num=10&q=link%3A%r  			Search Google Blogsearch for links to the current URL
 gc			http://google.com/search?strip=1&q=cache:%r%20%s    					Google cache for current page
-gi			http://google.com/insights/search/#q=%s&cmpt=q      					Google Insight for the keyword phrase
 gwt  		https://www.google.com/webmasters/tools/dashboard?hl=en&siteUrl=http%3A%2F%2F%d%2F  	Google Webmaster Tools for current domain
 h       	https://www.quixapp.com/headers/?r=%re&s=%s         							Header info for the current URL
-kd			http://tools.davidnaylor.co.uk/keyworddensity/?url=%r&keyword=%s		<a href="http://tools.davidnaylor.co.uk/keyworddensity/">Keyword Density check</a> and way more
 linkcheck  	http://validator.w3.org/checklink?uri=%r              					Check the links on the current URL
-maj			https://www.majesticseo.com/search.php?q=%d								Check strong pages & backlinks for the current domain using <a href="http://www.majesticseo.com/">Majestic SEO</a>
-majp		https://www.majesticseo.com/search.php?q=%r								Check backlinks for the current page using <a href="http://www.majesticseo.com/">Majestic SEO</a>
 mob			https://www.google.com/webmasters/tools/mobile-friendly/?url=%r			Check whether the current page is mobile friendly according to Google
 nofollow	style:https://www.quixapp.com/js/nofollow.css 								Shows all nofollows
 rh		javascript:ReplaceHeadings();function%20ReplaceHeadings(){var%20j;for(i=0;i<6;i++){hx=document.getElementsByTagName("h"+i);len=hx.length;for(j=0;j<len;j++){tmp=hx[j].innerHTML;hx[j].innerHTML='<span%20style="color:#F00;">&lt;H'+i+'&gt;</span>'+tmp+'<span%20style="color:#F00;">&lt;/H'+i+'&gt;</span>';}}} Replaces all headings with &lt;hx&gt;original content&lt;hx&gt; in a HTML document
-seo  		https://www.quixapp.com/seo/?r=%re                     						Does a quick SEO checkup of the current page
-seocss		style:https://www.quixapp.com/js/seo.css								Show heading structure, links and nofollows using CSS.
-seothis     javascript:var%20w=window.open('https://www.quixapp.com/seo/?r=%re');window.open('https://www.quixapp.com/headers/?r=%r&s=%s');window.open('http://google.com/search?q=cache:%r&strip=1');window.open('https://siteexplorer.search.yahoo.com/search?p=%r&bwm=i&bwmo=d&bwmf=u');w.focus(); Open SEO tabs
 snippet		https://developers.google.com/webmasters/structured-data/testing-tool?url=%r		See how this page would render with Google Rich Snippets
 yd			https://siteexplorer.search.yahoo.com/search?p=%d&bwm=i&bwmo=d&bwmf=s	Yahoo Inlinks for current Domain
 yl			https://siteexplorer.search.yahoo.com/search?p=%r&bwm=i&bwmo=d&bwmf=u	Yahoo Inlinks for current Page
 ydir 		http://search.yahoo.com/search/dir?ei=UTF-8&p=%d&h=c   					Searches Yahoo! directory for the current Domain
-kwte		https://adwords.google.com/select/KeywordToolExternal					Go to the AdWords External keyword tool
-kwc			http://google.com/search?q=intitle:%22%s%22%20inanchor:%22%s%22&pws=0			Keyword competition check Google
 
 @Webmaster
 @Webmasters often have dozens of bookmarklets for all sorts of simple checks, Quix replaces a <em>lot</em> of those bookmarklets by giving you simple to remember commands to deal with them.
 csstoggle	javascript:var%20Lt=document.getElementsByTagName('LINK');for(var%20x=0,ss=[];Lt[x];x++){var%20rel=Lt[x].rel;if(typeof(rel)=='string'&&rel.toLowerCase().indexOf('style')+1){ss[ss.length]=Lt[x];}}for(var%20x=0;ss[x];x++){ss[x].disabled=!ss[x].disabled;} 	Toggle css on and off
 fblint      https://developers.facebook.com/tools/debug/og/object?q=%re				Gives feedback from Facebook about your markup.
-firebug		javascript:firebug=document.createElement('script');firebug.setAttribute('src','http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js');document.body.appendChild(firebug);(function(){if(window.firebug.version){firebug.init();}else{setTimeout(arguments.callee);}})();void(firebug);  Loads <a href="http://getfirebug.com/lite.html">Firebug lite</a>.
-gzip		http://checkgzipcompression.com/?url=%re		Checks whether GZip is enabled for the current page.
-font 		javascript:(function()%20{if(typeof%20jQuery=='undefined'){var%20jqit=document.createElement('script');jqit.type='text/javascript';jqit.src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';document.getElementsByTagName('head')[0].appendChild(jqit);}%20_my_script=document.createElement('script');_my_script.type='text/javascript';_my_script.src='http://font-friend.googlecode.com/svn/trunk/font-friend.js';document.getElementsByTagName('head')[0].appendChild(_my_script);})(); Font overlay with <a href="http://somadesign.ca/projects/fontfriend/">FontFriend</a>
 host	    https://www.quixapp.com/host/%d/%s											Host info for the current domain.
 html5		http://html5.validator.nu/?doc=%r										HTML5 validate the current page.
 jquery		http://api.jquery.com/%s/												Check jQuery API documentation.
@@ -115,7 +92,6 @@ blocks		style:https://www.quixapp.com/js/blocks.css								Show blocks of conten
 @In a meta sort of way, Quix provides some commands that should help you to debug Quix.
 help		https://www.quixapp.com/help/#%s                           							Help file
 quix		https://www.quixapp.com/%s/															Takes you to the specified Quix page
-yoast   	https://www.google.com/search?q=%s%20site:yoast.com&btnI=I%27m+Feeling+Lucky 	Lucky search on Yoast
 resize		https://www.quixapp.com/resize/?s=%s													Resize image / video while maintaining aspect ratio
 
 @Analytics
@@ -145,3 +121,12 @@ tt				tweetie:%su%20%t%20%r									Tweet the current page with <a href="http://
 snap			littlesnapper://snap/%r									Snap the current page in <a href="http://www.realmacsoftware.com/littlesnapper/">LittleSnapper</a>
 delibar			Delibar://bpost&!p!&%r&!p!&%t&!p!&%s					Bookmark the current page using <a href="http://www.delibarapp.com/">Delibar</a>
 shove			shovebox://url?url=%r&title=%t							Catch current page in <a href="http://www.wonderwarp.com/shovebox/">Shovebox</a>
+
+@bookmark
+gr			https://www.goodreads.com/review/list/42039095-denis-lalibert?shelf=to-read			goodread
+mint			https://wwws.mint.com/			mint
+app			javascript:(function()%7Bvar%20s%3Ddocument.createElement(%27script%27)%3Bs.src%3D%27https://www.pepperplate.com/b/%3Fu%3D%27%2BencodeURIComponent(%20window.location%20)%2B%27%26a%3D%27%2BMath.random()%3Bdocument.body.appendChild(s)%3B%7D)()%3B			add to pepperplate
+
+@chrome
+bk			chrome://bookmarks			bookmarks
+cex			chrome://extensions			 extensions

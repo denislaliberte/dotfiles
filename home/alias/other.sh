@@ -11,3 +11,6 @@ alias lpa=lpass
 alias lpp="lpass show -c --password"
 alias lpn="lpass show -c --username"
 alias lplg="lpass ls |grep -i"
+alias quix="cat ~/scripts/quix.txt |grep"
+alias qx="quix"
+alias vqx="vim ~/scripts/quix.txt"
