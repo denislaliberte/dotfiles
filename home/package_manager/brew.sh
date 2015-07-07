@@ -66,3 +66,7 @@ brew install lastpass-cli
 brew cask install dash
 brew cask install atext
 brew cask install tunnelbear
+brew install w3m
+brew install googlecl
+brew install surfraw
+brew cask install evernote
