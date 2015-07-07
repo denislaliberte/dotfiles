@@ -63,3 +63,6 @@ brew install surfraw
 brew cask install lastpass
 brew cask install lastpass
 brew install lastpass-cli
+brew cask install dash
+brew cask install atext
+brew cask install tunnelbear
