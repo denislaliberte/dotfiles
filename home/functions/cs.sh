@@ -86,12 +86,5 @@ function code_survey_symbol_controle(){
   done
 }
 
-function code_survey_function(){
-  grep -l $2 $1/* \
-    | xargs grep --colour=always "class\|function\|$1"
-}
-
-function code_survey_function_comments(){
-  grep -l $2 $1/* \
-    | xargs grep -nr --colour=always "class\|function\|\*\|#\|\/\/\|$1"
-}
+function code_survey_function(){ grep -rl $2 $1 | xargs grep -nr --colour=always "class\|function\|$2" }
+function code_survey_function_comments(){ grep -rl $2 $1  | xargs grep -nr --colour=always "class\|function\|\*\|#\|\/\/\|$2" }

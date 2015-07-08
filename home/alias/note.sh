@@ -5,14 +5,14 @@ function search_google_log() {
   echo "~/search/$1.txt $2" >> $n
   echo $2 | sed  s/\ /\|/g | egrep -f /dev/stdin  ~/search/$1.txt >> $n
   echo $2 >> ~/search/$1.txt
-  search_google "$1 $2 $3"
 }
-function vim_search() { vim ~/search/$1.txt }
+function vim_search() { vim -O $n ~/search/$1.txt }
 alias vs="vim_search"
 alias gisele="php ~/scripts/gisele.phar -n --max-result=5 --format={counter}\ \[\ {title}\ \]\({link}\) web"
 function sgp() {search_google_log "php" $1 " site:http://php.net " && search_google_log "php" $1 "site:http://stackoverflow.com" }
+function search_google_js() {search_google_log "js" $1 && search_google "js $1 site:https://developer.mozilla.org " && search_google "js $1 site:http://stackoverflow.com" }
+alias sgj="search_google_js"
 function sgd() {search_google_log "drupal" $1 }
-alias sgj="search_google_log js"
 alias sgjq="search_google_log jquery"
 alias sgl="search_google_log log"
 alias of="open_firefox"
@@ -41,20 +41,20 @@ alias av="echo \"export $1\=$2 \" >> $var" #add variable
 alias cv="cat $var"
 alias vv="vim $var"
 alias cvg="cat $var |grep"
-alias sv="source ../__shelf/var.sh && source ~/.zshrc"
-alias vv="vim ../__shelf/var.sh"
+alias sv="source ../var.sh && source ~/.zshrc"
+alias vv="vim ../var.sh"
 
 function gcmn(){git commit -m $1 && en $1 }
 function gAmn(){ git add -A :/ && git commit -m $1 && en "__git_commit__ : -m $1" }
 
 function file_map(){
-find * -name "*.md" | awk 'function folder(file) {
+find * -mindepth 1 -maxdepth 2 -name "*.md" | awk 'function folder(file) {
 n = split(file, a, "/")
 return a[1] }
 function basename(file) {
 sub(".*/", "", file)
 return file }
-{printf "[ %s | %s ]( %s ) \n", folder($1), basename($1), $1 }'
+{printf "[ %s | %s ]( %s ) \n", basename($1), folder($1), $1 }'
 }
 alias fm="file_map"
 function folder_map(){ls -d1 */ | awk '{printf "  * [ %s ]( %sreadme.md ) \n", $1, $1 }'}
