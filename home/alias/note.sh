@@ -8,10 +8,13 @@ function search_google_log() {
 }
 function vim_search() { vim -O $n ~/search/$1.txt }
 alias vs="vim_search"
-alias gisele="php ~/scripts/gisele.phar -n --max-result=5 --format={counter}\ \[\ {title}\ \]\({link}\) web"
-function sgp() {search_google_log "php" $1 " site:http://php.net " && search_google_log "php" $1 "site:http://stackoverflow.com" }
+alias gisele="php ~/scripts/gisele.phar -n --max-result=3 --format={counter}\ \[\ {title}\ \]\({link}\) web"
+function search_google_php() {search_google_log "php" $1  && search_google "$1  site:http://php.net " && search_google "php $1 site:http://stackoverflow.com" }
+alias sgp="search_google_php"
 function search_google_js() {search_google_log "js" $1 && search_google "js $1 site:https://developer.mozilla.org " && search_google "js $1 site:http://stackoverflow.com" }
 alias sgj="search_google_js"
+function search_google_wp() {search_google_log "wp" $1 && search_google "wordpress $1" && search_google "wordpress $1 site:stackexchange.com" }
+alias sgw="search_google_wp"
 function sgd() {search_google_log "drupal" $1 }
 alias sgjq="search_google_log jquery"
 alias sgl="search_google_log log"
@@ -38,7 +41,7 @@ alias n="vim $n" # vim note
 alias vno="vim $n -O" #vim note open
 alias gcm="git_commit_note $1"
 alias av="echo \"export $1\=$2 \" >> $var" #add variable
-alias cv="cat $var"
+alias cv="cat ../var.sh"
 alias vv="vim $var"
 alias cvg="cat $var |grep"
 alias sv="source ../var.sh && source ~/.zshrc"

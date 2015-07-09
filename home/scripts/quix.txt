@@ -28,7 +28,7 @@ wa		http://www.wolframalpha.com/input/?i=%s								Wolfram Alpha Search
 @These commands are for dealing with social networks and social sites.
 db	    http://delicious.com/save?url=%r&title=%t&v=5&jump=yes&notes=%s   	Bookmark the current page in Delicious
 fb		http://www.facebook.com/share.php?u=%r&t=%t							Share the current page on Facebook
-li		javascript:(function(){d=document,l=d.location,f='http://www.linkedin.com/shareArticle?mini=true&ro=false&trk=bookmarklet&title='+encodeURIComponent(d.title)+'&url='+encodeURIComponent(l.href),a=function(){if(!window.open(f,'News','width=520,height=570,toolbar=0,location=0,status=0,scrollbars=yes')){l.href=f;}};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0);}else{a();}})()				Share the current page on LinkedIn
+lik		javascript:(function(){d=document,l=d.location,f='http://www.linkedin.com/shareArticle?mini=true&ro=false&trk=bookmarklet&title='+encodeURIComponent(d.title)+'&url='+encodeURIComponent(l.href),a=function(){if(!window.open(f,'News','width=520,height=570,toolbar=0,location=0,status=0,scrollbars=yes')){l.href=f;}};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0);}else{a();}})()				Share the current page on LinkedIn
 tn	    http://twitter.com/home?status=%s%20%t%20%r							Tweet the current page
 s       http://search.twitter.com/search?q=%s								Twitter Search
 sc		http://sharedcount.com/?url=%r										Open the URLs share count on sharedcount.com
@@ -129,7 +129,8 @@ cal			https://www.google.com/calendar/b/1/render			google callendar
 app			javascript:(function()%7Bvar%20s%3Ddocument.createElement(%27script%27)%3Bs.src%3D%27https://www.pepperplate.com/b/%3Fu%3D%27%2BencodeURIComponent(%20window.location%20)%2B%27%26a%3D%27%2BMath.random()%3Bdocument.body.appendChild(s)%3B%7D)()%3B			add to pepperplate
 tjs		https://touspourun.atlassian.net/secure/RapidBoard.jspa?rapidView=213&quickFilter=560		board
 task			https://tp1.timetask.com/			time task
-lik			http://linkedin.com/wvmx/profile		linkedin
+li			http://linkedin.com/wvmx/profile		linkedin
+stage	javascript:r="%r";document.location=r.replace("local","stage");	go to stage (todo)
 
 @chrome
 bk			chrome://bookmarks			bookmarks
