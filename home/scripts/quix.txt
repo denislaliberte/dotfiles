@@ -131,6 +131,7 @@ tjs		https://touspourun.atlassian.net/secure/RapidBoard.jspa?rapidView=213&quick
 task			https://tp1.timetask.com/			time task
 li			http://linkedin.com/wvmx/profile		linkedin
 stage	javascript:r="%r";document.location=r.replace("local","stage");	go to stage (todo)
+local	javascript:r="%r";document.location=r.replace("stage","local");	go to local (todo)
 
 @chrome
 bk			chrome://bookmarks			bookmarks
