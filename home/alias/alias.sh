@@ -1,5 +1,6 @@
 ##commande de bases
 alias gis="gisele"
+alias cpr="cp -r"
 alias t3="tree -L 3"
 alias t2="tree -L 2"
 alias s="source"
@@ -22,4 +23,4 @@ alias wh="which"
 alias uz="unzip"
 alias e="echo"
 
-echo "$ ag || va"
+#echo "$ ag || va"

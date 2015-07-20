@@ -5,3 +5,5 @@ pip install gcalcli
 pip install parsedatetime
 pip install pyline
 pip install pyp
+sudp pip install ipython
+sudp pip install ipython[notebook]

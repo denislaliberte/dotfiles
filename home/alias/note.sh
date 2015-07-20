@@ -1,4 +1,5 @@
-function search_google() { echo "\n  __search_google:__ $1" >> $n && gisele $1 >> $n  && tail -10 $n}
+echo "note : $note var : $var"
+function search_google() { echo "\n  __search_google:__ $1" >> $n && gisele $1 >> $n }
 function search_google_lucky() { echo "\n  __search_google:__ $1" >> $n && open "https://www.google.com/search?q=$1\&btnI"}
 function open_firefox() { echo "\n  __open__ http://$1" >> $n && open -a firefox "http://$1" }
 function search_google_log() {
@@ -11,27 +12,36 @@ alias vs="vim_search"
 alias gisele="php ~/scripts/gisele.phar -n --max-result=3 --format={counter}\ \[\ {title}\ \]\({link}\) web"
 function search_google_php() {search_google_log "php" $1  && search_google "$1  site:http://php.net " && search_google "php $1 site:http://stackoverflow.com" }
 alias sgp="search_google_php"
-function search_google_js() {search_google_log "js" $1 && search_google "js $1 site:https://developer.mozilla.org " && search_google "js $1 site:http://stackoverflow.com" }
+function search_google_js() {search_google_log "js" $1 && search_google "js $1 site:https://developer.mozilla.org " && search_google "js $1 site:http://stackoverflow.com" && search_google "javascript $1" && vim_search js }
 alias sgj="search_google_js"
 function search_google_wp() {search_google_log "wp" $1 && search_google "wordpress $1" && search_google "wordpress $1 site:stackexchange.com" }
 alias sgw="search_google_wp"
-function sgd() {search_google_log "drupal" $1 }
-alias sgjq="search_google_log jquery"
+function search_google_git() {search_google_log "git" $1 && search_google "git $1" && search_google "git $1 site:stackoverflow.com" && vim_search git }
+alias sgg="search_google_git"
+alias sgd="search_google_drupal"
+function search_google_jquery() { search_google_log jquery $1 && search_google " $1 site:https://jquery.com/" && search_google " jquery $1" && search_google "jquery $1 site:http://stackoverflow.com" && vim_search jquery }
+function search_google_drupal() { search_google_log drupal $1 && search_google " $1 site:https://drupal.org/" && search_google " drupal $1" && search_google "drupal $1 site:http://http://drupal.stackexchange.com/" && vim_search drupal }
+alias sgjq="search_google_jquery"
 alias sgl="search_google_log log"
 alias of="open_firefox"
 alias sg="search_google"
 alias sgl="search_google_lucky"
-alias en="echo $n && echo $1 >> $n"
-alias qn="echo $n && echo \"\n__question__ : $1\" >> $n" # question note
-alias rn="echo $n && echo \"\n__réponse__ : $1\" >> $n" #  réponse note
-alias tdn="echo $n && echo \"\n__todo__ : $1\" >> $n" #  réponse note
-alias fn="echo $n && echo \"\n__file__ : $1\" >> $n" # todo file
-alias qg="cat $n |grep -n '__question__\|__réponse__'" # note question réponse grep
-alias tg="cat $n |grep -n '__todo__\|__done__\|__git_commit__\|---'" # note todo grep
-alias ngg="cat $n |grep -n '__search_google__\|]('" # note google grep
-alias nga="cat $n |grep -n '^__\|---'" #note grep action
-alias lig="cat $n |grep -n ']('" #note link grep
-function git_commit_note() { git commit -m $1 && echo " \n__git_commit__ : $1 " >> $n}
+alias en="echo $note && echo $1 >> $note"
+alias qn="echo $note && echo \"\n__question__ : $1\" >> $note"
+alias rn="echo $note && echo \"\n__réponse__ : $1\" >> $note"
+alias tdn="echo $note && echo \"\n__todo__ : $1\" >> $note"
+alias fn="echo $note && echo \"\n__file__ : $1\" >> $note"
+alias qg="cat $note |grep -n '__question__\|__réponse__'"
+alias tg="cat $note |grep -n '__todo__\|__done__\|__git_commit__\|---'" 
+alias ngg="cat $note |grep -n '__search_google__\|]('"
+alias nga="cat $note |grep -n '^__\|---'" 
+alias lig="cat $note |grep -n ']('" 
+function git_commit_note() { 
+  git commit -m $1;
+  git show HEAD --name-only | grep -v "^Date\|^Author\|^$" >> $note;
+  vim $note
+}
+alias gdno="git diff |grep \"^+\|^- \|++\" >> $note && vim $note"
 function gac { git add -A :/;git_commit_note " $task $1 " }
 alias cn="cat $n" # cat note
 alias cng="cat $n |grep -n"
@@ -43,8 +53,8 @@ alias gcm="git_commit_note $1"
 alias av="echo \"export $1\=$2 \" >> $var" #add variable
 alias cv="cat ../var.sh"
 alias vv="vim $var"
-alias cvg="cat $var |grep"
-alias sv="source ../var.sh && source ~/.zshrc"
+alias vg="cat $var |grep"
+alias sv="source ../var.sh && source ~/alias/note.sh source && ~/alias/mysql.sh"
 alias vv="vim ../var.sh"
 
 function gcmn(){git commit -m $1 && en $1 }

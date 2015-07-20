@@ -72,3 +72,5 @@ brew install surfraw
 brew cask install evernote
 brew install Caskroom/cask/delicious-library
 brew install links
+brew cask install Caskroom/cask/spotify
+brew install reattach-to-user-namespace

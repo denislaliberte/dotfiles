@@ -1,7 +1,6 @@
 alias v="vim -O"
 alias vim="echo '##### use v ####' && vim"
-alias vO="vim -O"
-alias vo="vim -o"
+alias vo="vim -O"
 alias vvr="vim ~/.vimrc"
 alias vbi="vim +BundleInstall +qall"
 alias vbp="vim ~/.bash_profile"

@@ -23,9 +23,11 @@ alias ni="npm_install"
 function npm_install() { package_log npm "-g install $1"}
 alias cmp="composer"
 alias ei="sudo easy_install"
-alias pi="sudo pip install"
+function pip_install() { echo "sudp pip install $1" >> ~/package_manager/pip.sh && eval "sudo pip install $1" }
+alias pi="pip_install"
 alias pis="pip search"
-alias gei="gem install"
+function my_gem_install { package_log gem "install $1"}
+alias mgi="my_gem_install"
 # add alias to go get
 # add alias tu hub clone
 # add set -v to package manager files#echo "## gem install 'git_stats'        ## " && gem install 'git_stats'
