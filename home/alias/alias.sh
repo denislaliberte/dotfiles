@@ -22,5 +22,6 @@ alias wg="wget"
 alias wh="which"
 alias uz="unzip"
 alias e="echo"
+alias fd="find"
 
 #echo "$ ag || va"

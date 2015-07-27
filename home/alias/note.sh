@@ -10,11 +10,11 @@ function search_google_log() {
 function vim_search() { vim -O $n ~/search/$1.txt }
 alias vs="vim_search"
 alias gisele="php ~/scripts/gisele.phar -n --max-result=3 --format={counter}\ \[\ {title}\ \]\({link}\) web"
-function search_google_php() {search_google_log "php" $1  && search_google "$1  site:http://php.net " && search_google "php $1 site:http://stackoverflow.com" }
+function search_google_php() {search_google_log "php" $1  && search_google "$1  site:http://php.net " && search_google "php $1 site:http://stackoverflow.com" && vim_search php }
 alias sgp="search_google_php"
 function search_google_js() {search_google_log "js" $1 && search_google "js $1 site:https://developer.mozilla.org " && search_google "js $1 site:http://stackoverflow.com" && search_google "javascript $1" && vim_search js }
 alias sgj="search_google_js"
-function search_google_wp() {search_google_log "wp" $1 && search_google "wordpress $1" && search_google "wordpress $1 site:stackexchange.com" }
+function search_google_wp() {search_google_log "wp" $1 && search_google "wordpress $1" && search_google "wordpress $1 site:stackexchange.com" && vim_search wp }
 alias sgw="search_google_wp"
 function search_google_git() {search_google_log "git" $1 && search_google "git $1" && search_google "git $1 site:stackoverflow.com" && vim_search git }
 alias sgg="search_google_git"
@@ -43,14 +43,17 @@ function git_commit_note() {
 }
 alias gdno="git diff |grep \"^+\|^- \|++\" >> $note && vim $note"
 function gac { git add -A :/;git_commit_note " $task $1 " }
-alias cn="cat $n" # cat note
-alias cng="cat $n |grep -n"
-alias tn="tail $n" #tail note
-alias vn="vim $n -O" # vim note
-alias n="vim $n" # vim note
-alias vno="vim $n -O" #vim note open
+alias cn="cat $note" 
+alias cng="cat $note |grep -n"
+alias tn="tail $note"
+alias vn="vim $note -O"
+alias n="vim $note"
+alias vno="vim $note -O"
 alias gcm="git_commit_note $1"
-alias av="echo \"export $1\=$2 \" >> $var" #add variable
+function add_variable(){ echo "export $1=$2 " >> $var }
+#function add_project_alias(){ if [ `alias | grep $1 | wc -l` == 0 ] ; then echo "alias $1='$2' " >> $var ; fi }
+#alias apa="add_project_alias"
+alias av="add_variable"
 alias cv="cat ../var.sh"
 alias vv="vim $var"
 alias vg="cat $var |grep"
@@ -72,3 +75,8 @@ return file }
 alias fm="file_map"
 function folder_map(){ls -d1 */ | awk '{printf "  * [ %s ]( %sreadme.md ) \n", $1, $1 }'}
 alias fom="folder_map"
+alias gn="vim /Users/TP1/notes/git.md"
+alias mn="vim /Users/TP1/notes/mysql.md"
+alias nn="vim /Users/TP1/notes/note.md"
+alias vvn="vim /Users/TP1/notes/vim.md"
+alias pmn="vim /Users/TP1/notes/package_manager.md"

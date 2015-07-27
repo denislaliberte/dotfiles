@@ -38,6 +38,8 @@ alias wps="wp plugin search"
 alias wpl="wp plugin list"
 alias wpa="wp plugin activate"
 
+alias wef="wp eval-file"
+
 alias wpc="cd wp-content"
 alias wpt="cd wp-content/themes"
 alias wpp="cd wp-content/plugins"

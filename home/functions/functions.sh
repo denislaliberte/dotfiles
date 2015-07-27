@@ -1,4 +1,4 @@
-function up(){
+hunction up(){
     pwd;
     dir=""
     if [ -z "$1" ]; then
@@ -60,16 +60,17 @@ function history_grep()
 }
 
 function frequent_used_command_grep(){
-  history| grep $1 |awk '{print $3}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
+history| grep $1 |awk '{print $3}' | awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30
 }
 
 function command_not_found_handler() {
+  echo "$1 >> ~/.command_not_found && grep -c $1 ~/.command_not_found";
+  grep -c $1 ~/.command_not_found
   echo "$*" >> ~/.command_not_found;
-  echo "$1 >> ~/.command_not_found";
 }
 
 function frequent_used_command(){
-  history |awk '{print $2}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -50
+  history |awk '{print $2}'| pyp "len(p) > 2" | awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -100 | pyp "int(w[0]) > 30"
 }
 
 function vim_alias(){
