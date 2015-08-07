@@ -38,18 +38,22 @@ function gac { git add -A :/;git_commit_note " $task $1 " }
 alias cn="cat $note" 
 alias cng="cat $note |grep -n"
 alias tn="tail $note"
-export tn="tee -a $note"
+alias ta="tee -a $note"
 alias vn="vim $note -O"
+alias vng="vn $(g ls-files -m)"
 alias n="vim $note"
 alias vno="vim $note -O"
 alias gcm="git_commit_note $1"
-function add_variable(){ echo "export $1=$2 " |tee -a $var }
+function add_variable(){ echo "export $1=\"$2\" # $task " |tee -a $var }
 #function add_project_alias(){ if [ `alias | grep $1 | wc -l` == 0 ] ; then echo "alias $1='$2' " >> $var ; fi }
 #alias apa="add_project_alias"
 alias av="add_variable"
+function add_alias(){ echo "alias $1=\"$2\" # $task" |tee -a $var }
+alias aa="add_alias"
 alias cv="cat ../var.sh"
 alias vv="vim -O ../var.sh $note "
 alias vg="cat $var |grep"
+alias vgt="grep $task $var"
 alias sv="source ../var.sh && source ~/alias/note.sh source && ~/alias/mysql.sh"
 function file_map(){ find * -mindepth 1 -maxdepth 2 -name "*.md" | awk 'function folder(file) { n = split(file, a, "/") return a[1] } function basename(file) { sub(".*/", "", file) return file } {printf "[ %s | %s ]( %s ) \n", basename($1), folder($1), $1 }' } 
 alias fm="file_map"
