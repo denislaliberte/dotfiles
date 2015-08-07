@@ -76,6 +76,7 @@ alias gdsm="gps && gpm && gmsm" # git downstream stage to master
 alias gri="git rebase -i"
 alias gbn="git rev-parse --abbrev-ref HEAD" # git branch name
 alias glm="git ls-files -m"
+alias glf="git log --follow -p"
 export gm="master"
 export gs="stage"
 export gom="origin master"
