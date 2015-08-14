@@ -79,9 +79,6 @@ alias glm="git ls-files -m"
 alias glf="git log --follow -p"
 export gm="master"
 export gs="stage"
-export om="origin master"
-export gop="origin prod"
-export gos="origin stage"
-export gss="stage stage"
 export o="origin"
+export m='master'
 git-diff-name() { git diff $1 --name-only | cat }

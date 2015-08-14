@@ -12,7 +12,7 @@ alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
 alias lig="cat $note |grep -n ']('" 
 function git_commit_note() { git commit -m $1 && git show HEAD --name-only | grep -v "^Date\|^Author\|^$" >> $note && vim $note }
-alias gdno="git diff |grep \"^+\|^- \|++\" | tee -a $note && vim $note"
+alias gdno="git diff |grep \"^+\|^- \|++\" | tee -a $note"
 function gac { git add -A :/;git_commit_note " $task $1 " }
 alias cn="cat $note" 
 alias cng="cat $note |grep -n"
@@ -36,7 +36,7 @@ alias vgt="grep $task $var"
 alias sv="source ../var.sh && source ~/alias/note.sh source && ~/alias/mysql.sh"
 function file_map(){ find * -mindepth 1 -maxdepth 2 -name "*.md" | awk 'function folder(file) { n = split(file, a, "/") return a[1] } function basename(file) { sub(".*/", "", file) return file } {printf "[ %s | %s ]( %s ) \n", basename($1), folder($1), $1 }' } 
 alias fm="file_map"
-function folder_map(){ls -d1 */ | awk '{printf "  * [ %s ]( %sreadme.md ) \n", $1, $1 }'}
+function folder_map(){ ls -d1 */ | awk '{printf "  * [ %s ]( %sreadme.md ) \n", $1, $1 }' }
 alias fom="folder_map"
 alias gn="vim /Users/TP1/notes/git.md"
 alias mn="vim /Users/TP1/notes/mysql.md"
