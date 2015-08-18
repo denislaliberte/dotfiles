@@ -15,6 +15,7 @@ task_shelf="$project_directory/$month/$date_start--$task"
 branche="features/$task_name"
 project_directory="$(pwd)/.."
 note="$project_directory/$month/$date_start--$task_name.md"
+task_url=https://touspourun.atlassian.net/browse/$task
 
 
 echo "Create task variables $task $description"
@@ -24,15 +25,15 @@ export task=$task
 export task_name=$task_name
 export date_start=$date_start
 export branche=$branche
-export branche=$b
+export b=$branche
 export month=$month
 export shelf=$shelf
 export task_shelf=$task_shelf
 export note=$note
 export s=$task_shelf
 export n=$note
-export task_url=https://touspourun.atlassian.net/browse/$task
-export tu=https://touspourun.atlassian.net/browse/$task
+export task_url=$task_url
+export tu=$task_url
 " >> ../var.sh
 
 if [ ! -d $shelf ]; then
@@ -48,6 +49,18 @@ echo "# $task $description $date_start
 shelf : $task_shelf
 
 ## 1 analyse
+
+### 1.0 estimation
+
+  #### steps
+
+  - analyse
+  - ...
+  - déploiement
+
+  __worst case__
+  __best case__
+
 
 ### 1.1 Description jira
 

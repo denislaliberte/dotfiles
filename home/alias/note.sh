@@ -11,7 +11,7 @@ alias tg="cat $note |grep -n '__todo__\|__done__\|__git_commit__\|---'"
 alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
 alias lig="cat $note |grep -n ']('" 
-function git_commit_note() { git commit -m $1 && git show HEAD --name-only | grep -v "^Date\|^Author\|^$" >> $note && vim $note }
+function git_commit_note() { git commit -m $1 && git log -1 --format='### git commit [ %h ] : %s  %ad' | grep -v "^Date\|^Author\|^$" >> $note && vim $note }
 alias gdno="git diff |grep \"^+\|^- \|++\" | tee -a $note"
 function gac { git add -A :/;git_commit_note " $task $1 " }
 alias cn="cat $note" 
