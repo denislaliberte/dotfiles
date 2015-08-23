@@ -76,3 +76,4 @@ brew cask install Caskroom/cask/spotify
 brew install reattach-to-user-namespace
 brew cask install Caskroom/cask/vagrant
 brew install phpunit
+brew cask install vlc

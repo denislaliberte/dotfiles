@@ -46,7 +46,7 @@ function cd()
 
 function lsgrep()
 {
-  ls | grep "$*"
+  ls $2 | grep "$1"
 }
 
 function shellaliasgrep()
