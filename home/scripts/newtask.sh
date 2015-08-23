@@ -1,8 +1,13 @@
 #!/bin/bash
 
 if [ "x$1" == "x" ] || [ "x$2" == "x" ]; then
-        echo "Usage: ${0} task description"
-        exit 0
+  echo "Usage: ${0} task description"
+  exit 0
+fi
+
+if [ ! -f ../var.sh ]; then
+  echo "no var file found... be sure you are in a projet directory and the parent contain a var file"
+  exit 0
 fi
 
 date_start=$(date +%Y-%m-%d)
@@ -10,13 +15,17 @@ month=$(date +%m)
 task=$1
 description=$2
 task_name=$task-$(echo $description | sed 's/ /-/g')
+project_directory="$(pwd)/.."
 shelf="$project_directory/$month"
 task_shelf="$project_directory/$month/$date_start--$task"
 branche="features/$task_name"
-project_directory="$(pwd)/.."
 note="$project_directory/$month/$date_start--$task_name.md"
 task_url=https://touspourun.atlassian.net/browse/$task
 
+if [ -f $note ]; then
+  echo "note file already exist : $note"
+  exit 0
+fi
 
 echo "Create task variables $task $description"
 echo "
@@ -41,7 +50,7 @@ if [ ! -d $shelf ]; then
   mkdir $shelf 
 fi
 
-if [ ! -f $shelf ]; then
+if [ ! -f $note ]; then
 echo "create project template "
 echo "# $task $description $date_start
 
