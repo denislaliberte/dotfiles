@@ -35,4 +35,4 @@ alias gst="git stash"
 alias glm="git ls-files -m"
 export o="origin"
 export m='master'
-export s="stage"
+export st="stage"

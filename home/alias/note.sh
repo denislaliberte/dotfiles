@@ -43,3 +43,4 @@ alias mn="vim /Users/TP1/notes/mysql.md"
 alias nn="vim /Users/TP1/notes/note.md"
 alias vvn="vim /Users/TP1/notes/vim.md"
 alias pmn="vim /Users/TP1/notes/package_manager.md"
+function daily() { date=$(date +%Y-%m-%d); month=$(date +%m); vim -O /Users/TP1/Sites/$month/$date--daily.md /Users/TP1/Sites/$month/index.md $1 }

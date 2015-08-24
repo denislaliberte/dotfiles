@@ -52,27 +52,22 @@ shelf : $task_shelf
 
 ### 1.0 estimation
 
-  #### steps
-
-  - analyse
-  - ...
-  - déploiement
-
-  __worst case__
-  __best case__
-
+  tache              | optimiste | pessimiste | rééel | différence
+  ------------------:|----------:|-----------:|------:|----------
+  analyse            |           |            |       |
+  développement      |           |            |       |
+  déploiement        |           |            |       |
+  total              |           |            |       |
 
 ### 1.1 Description jira
 
-### 1.2 Captures d'écran / vidéo / étape de reproduction
+### 1.2 Email / IM / autres communication
 
-### 1.3 Email / IM / autres communication
+### 1.3 Captures d'écran / vidéo / étape de reproduction
 
 ### 1.4 html / fichier
 
 ### 1.5 information git
-
-### 1.6 estimation
 
 
 ## X
