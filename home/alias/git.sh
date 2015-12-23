@@ -53,3 +53,5 @@ alias gri="git rebase -i"
 alias gbn="git rev-parse --abbrev-ref HEAD" # git branch name
 alias glf="git log --follow -p"
 git-diff-name() { git diff $1 --name-only | cat }
+alias glps="git log --format='%h %an -- %s' prod..stage"
+alias glsh="git log --format='%h %an -- %s'" # git log short

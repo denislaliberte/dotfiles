@@ -4,7 +4,7 @@ alias gcl="git clone "
 alias gp="git pull"
 alias gpu="git push"
 
-alias gs="git status"
+alias gs="git status -sb"
 alias ga="git add"
 alias gfc="git add -A :/ && git commit -m 'no comment '" #git fast commit
 

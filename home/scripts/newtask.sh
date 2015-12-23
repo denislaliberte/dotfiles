@@ -1,25 +1,35 @@
 #!/bin/bash
+dir=$(basename $PWD)
 
 if [ "x$1" == "x" ] || [ "x$2" == "x" ]; then
   echo "Usage: ${0} task description"
   exit 0
 fi
 
-if [ ! -f ../var.sh ]; then
-  echo "no var file found... be sure you are in a projet directory and the parent contain a var file"
+if [ "x$CLIENT" == "x" ]; then
+  echo "CLIENT variable need to be defined"
   exit 0
 fi
 
+project_directory="$HOME/Sites/notes.dl.tp1.ca/project/$dir"
+var=$project_directory/var.sh
+if [ ! -f $var ]; then
+  echo "no var file found $var be sure you are in a projet directory and the parent contain a var file"
+  exit 0
+fi
+
+source $project_directory/var.sh
+
 date_start=$(date +%Y-%m-%d)
 month=$(date +%m)
+year=$(date +%Y)
 task=$1
 description=$2
 task_name=$task-$(echo $description | sed 's/ /-/g')
-project_directory="$(pwd)/.."
-shelf="$project_directory/$month"
-task_shelf="$project_directory/$month/$date_start--$task"
+shelf="$project_directory/$year/$month/"
+task_shelf="$project_directory/$year/$month/$date_start--$task"
 branche="features/$task_name"
-note="$project_directory/$month/$date_start--$task_name.md"
+note="$project_directory/$year/$month/$date_start--$task_name.md"
 task_url=https://touspourun.atlassian.net/browse/$task
 
 if [ -f $note ]; then
@@ -43,11 +53,11 @@ export s=$task_shelf
 export n=$note
 export task_url=$task_url
 export tu=$task_url
-" >> ../var.sh
+" >> $var
 
 if [ ! -d $shelf ]; then
   echo "create directory $shelf"
-  mkdir $shelf 
+  mkdir -p $shelf 
 fi
 
 if [ ! -f $note ]; then
@@ -55,7 +65,7 @@ echo "create project template "
 echo "# $task $description $date_start
 
 [ url jira ]($task_url)
-shelf : $task_shelf
+<!-- shelf : $task_shelf -->
 
 ## 1 analyse
 
@@ -68,30 +78,10 @@ shelf : $task_shelf
   déploiement        |           |            |       |
   total              |           |            |       |
 
-### 1.1 Description jira
-
-### 1.2 Email / IM / autres communication
-
-### 1.3 Captures d'écran / vidéo / étape de reproduction
-
-### 1.4 html / fichier
-
-### 1.5 information git
+### 1.1 analyse
 
 
-## X
-__question__ X
-__todo__ X
-
-
-## X finalisation
-
-git rebase
-resume doc
-deploy
-
-
-#### push lines ####
+<!-- ########### push lines ######### -->
 
   " > $note
 fi
@@ -105,6 +95,6 @@ echo "git checkout on $branche"
 
 git checkout $main_branch && git checkout -b $branche
 
-source ../var.sh
+source $var
 source ~/alias/mysql.sh
 source ~/alias/note.sh

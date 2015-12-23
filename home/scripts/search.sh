@@ -17,3 +17,5 @@ mysql -e "show databases;" |grep -i $1
 echo "Found $(cat $VHOST_CONF |grep -i $1 |wc -l) in apache conf"
 cat $VHOST_CONF |grep -i $1
 
+echo "Found $(cat /etc/hosts |grep -i $1 |wc -l) in apache conf"
+cat /etc/hosts |grep -i $1
