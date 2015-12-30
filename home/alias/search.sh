@@ -1,8 +1,9 @@
-function search_google() { echo "\n  __search_google:__ $1" |tee -a $n && gisele $1 | tee -a $n }
+export notes_folder=$HOME/Sites/notes.local/
+function search_google() { echo "\n  __search_google:__ $@" |tee -a $n && gisele $@ | tee -a $n }
 function search_google_lucky() { echo "\n  __search_google:__ $1" |tee -a $n && open "https://www.google.com/search?q=$1\&btnI"}
-function search_google_log() { echo "~/search/$1.csv $2" |tee -a $n && echo $2 | sed  s/\ /\|/g | egrep -f /dev/stdin  ~/search/$1.csv | tee -a $n && echo $2 | tee -a ~/search/$1.csv }
-function search_google_php() {search_google_log "php" $1  && search_google "$1  site:http://php.net " && search_google "php $1 site:http://stackoverflow.com" && search_google "php $1" && vim_search php }
-function vim_search() { vim -O $n ~/search/$1.csv }
+function search_google_log() { echo "$notes_folder/tech/$1.md $@" |tee -a $n && echo "${@:2}" | sed  s/\ /\|/g | egrep -f /dev/stdin  $notes_folder/tech/$1.md | tee -a $n && echo $@ | tee -a $notes_folder/tech/$1.md }
+function search_google_php() {search_google_log "php" $@  && search_google "$@  site:http://php.net " && search_google "$@ site:http://stackoverflow.com" && search_google $@ && vim_search php }
+function vim_search() { vim -O $n $notes_folder/tech/$1.md }
 alias vs="vim_search"
 alias gisele="php ~/scripts/gisele.phar -n --max-result=3 --format={counter}\ \[\ {title}\ \]\({link}\) web"
 alias sgp="search_google_php"
@@ -20,6 +21,6 @@ function search_google_mysql() { search_google_log mysql $1 && search_google " $
 alias sgm="search_google_mysql"
 function search_google_phpunit() { search_google_log phpunit $1 && search_google " $1 site:phpunit.de" && search_google " phpunit $1" && search_google "phpunit $1 site:stackoverflow.com" && vim_search phpunit }
 alias sgpu="search_google_phpunit"
-alias sgl="search_google_log log"
+function sgl(){ search_google_log $1 && search_google $@ &&  vim_search $1 }
 alias sg="search_google"
-alias sgl="search_google_lucky"
+alias glucky="search_google_lucky"

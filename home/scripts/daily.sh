@@ -1,14 +1,15 @@
 #!/bin/bash
 
-date=$(date +%Y-week-%V)
 month=$(date +%m)
 year=$(date +%Y)
-shelf=/Users/TP1/Sites/notes.dl.tp1.ca/$year/$month
-file=$shelf/$date--daily.md
+export mf=$notes_folder/$year/$month # month folder
+date=$(date +%Y-week-%V )
+export daily=$mf/$date--daily.md
+export daily_log=$mf/$date--daily-log.md
 
-if [ ! -d $shelf ]; then
-  echo "create directory $shelf"
-  mkdir -p $shelf 
+if [ ! -d $mf ]; then
+  echo "create directory $mf"
+  mkdir -p $mf 
 fi
 
 echo "
@@ -33,12 +34,16 @@ time  | temps | timetask | tache
 
 ### timetask
 
-#### file log
 
-hour | task | note  | files
+" >> $daily
+gcalcli  --calendar denis@tp1.ca agenda today | tee -a $daily
 
-" >> $file
-gcalcli  --calendar denis@tp1.ca agenda today | tee -a $file
+if [ ! -f $daily_log ]; then
+  echo "
+time  | task | application | folder/file/note
+------|------|-------------|---------------
+  " >> $daily_log
+fi
 
-#open 'https://www.rescuetime.com'
-#open 'https://pomotodo.com/'
+
+
