@@ -20,8 +20,9 @@ alias tg="cat $note |grep -n '__todo__\|__done__\|__git_commit__\|---'"
 alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
 alias lig="cat $note |grep -n ']('" 
-alias vn=vim_note
-function vim_note() { line_note=$(wc -l $n | awk {'print $1'})  &&  echo "$(date +'%A | %H:%M') | $task | vim | $note $@" >>  $daily_log  &&  echo "$(date +'%Y-%m-%d--%H-%M') | $line_note | $@" >> $note_log  &&  vim $note $note_log -O $@ }
+function vn(){vim_note $@  && vim $note $note_log -O $@}
+function vim_note() { line_note=$(wc -l $n | awk {'print $1'})  &&  echo "$(date +'%A | %H:%M') | $task | vim | $note $@" >>  $daily_log  &&  echo "$(date +'%Y-%m-%d--%H-%M') | $line_note | $@" >> $note_log }
+function v(){vim_note $@  && vim -O $@}
 function git_commit_note() { git commit -m $1 && git log -1 --format="$(date +'%Y-%m-%d--%H-%M') | $task | git |  %h  %s" >> $note  &&  git log -1 --format="$(date +'%A | %H:%M') | $task | git |  %h  %s" >> $daily_log  &&  vim $note }
 function daily() { arg=$(echo " $(pwd) $@" |sed 's/.Users.TP1.Sites.notes.local.//g'  | sed 's/.Users.TP1/\~/g'); echo "$(date +'%A | %H:%M') | $task | daily note | $arg" >>  $daily_log  &&  vim -O $daily $daily_log $note  $1 }
 alias gdno="git diff |grep \"^+\|^- \|++\" | tee -a $note"

@@ -23,5 +23,9 @@ alias uz="unzip"
 alias e="echo"
 alias fd="find"
 function hosts(){ sudo echo " 127.0.0.1 $1" >> /etc/hosts }
+export www=~/Sites/
+export w=~/Sites/
+export gol=$w/tp1/tp1-gitolite-admin/conf/gitolite.conf
+export gg=~/.gitgot
 
 #echo "$ ag || va"
