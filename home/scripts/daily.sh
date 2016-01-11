@@ -49,5 +49,5 @@ time  | task | application | folder/file/note
 fi
 
 
- got status 2>&1 | tee  -a $mf/$date-got.md
  got do --tag=ninja -e "git fetch origin && git fetch stage && git log --format='%h %an -- %s' remotes/origin/prod..remotes/stage/stage" 2>&1 | tee  -a $mf/$date-got.md
+ got status -C 2>&1 | tee  -a $mf/$date-got.md
