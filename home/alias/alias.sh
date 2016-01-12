@@ -25,6 +25,7 @@ alias fd="find"
 function hosts(){ sudo echo " 127.0.0.1 $1" >> /etc/hosts }
 export www=~/Sites/
 export w=~/Sites/
+export etc=~/Sites/_etc
 export gol=$w/tp1/tp1-gitolite-admin/conf/gitolite.conf
 export gg=~/.gitgot
 

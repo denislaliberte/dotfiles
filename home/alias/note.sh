@@ -11,10 +11,11 @@ export daily_log=$mf/$date--daily-log.md
 function open_firefox() { echo "\n  __open__ http://$1" |tee -a $n && open -a firefox "http://$1" }
 alias of="open_firefox"
 function en(){ echo $note && echo "\n  $* " | tee -a  $note }
-function tdn(){ echo $note && echo "\n __todo__    |  $*  | **status**  | **détails**   " | tee -a  $note }
-function qn(){ echo $note && echo "\n __question__ |  $*  | **réponse**  | **détails**    " | tee -a  $note }
-function resume(){grep -n '_question_\|_todo_\|_git_commit_'  $note | sed 's/: / | /g' | sed 's/__/**/g' }
-function resume_note(){grep -n '_question_\|_todo_\|_git_commit_'  $note | sed 's/: / | /g' | sed 's/__/**/g' | tee -a $note_log}
+function line_note() {wc -l $note  | awk {'print $1'} }
+function date_note(){date +'%Y-%m-%d %H:%M'}
+function tdn(){ echo $note && echo "__todo__    |  $*  | **status**  | **détails**   " | tee -a  $note }
+function qn(){ echo $note && echo "__question__ |  $*  | **réponse**  | **détails**    " | tee -a  $note }
+function resume(){ echo '#  | type     | question             | status | détail \n---|----------|----------------------|--------|------' | tee $s/resume.md  && grep '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | tee -a $s/resume.md}
 alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
 alias lig="cat $note |grep -n ']('" 
