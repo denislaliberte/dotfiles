@@ -15,7 +15,8 @@ function line_note() {wc -l $note  | awk {'print $1'} }
 function date_note(){date +'%Y-%m-%d %H:%M'}
 function tdn(){ echo $note && echo "__todo__    |  $*  | **status**  | **détails**   " | tee -a  $note }
 function qn(){ echo $note && echo "__question__ |  $*  | **réponse**  | **détails**    " | tee -a  $note }
-function resume(){ echo '#  | type     | question             | status | détail \n---|----------|----------------------|--------|------' | tee $s/resume.md  && grep '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | tee -a $s/resume.md}
+function hn(){ echo $note && history |tail -1 | tee -a  $note }
+function resume(){ echo '#  | type     | question             | status | détail \n---|----------|----------------------|--------|------' | tee $s/resume.md  && grep '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | tee -a $s/resume.md && echo '\n\n## todo ## \n\n' &&  grep \*  $s/resume.md}
 alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
 alias lig="cat $note |grep -n ']('" 

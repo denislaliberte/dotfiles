@@ -46,6 +46,7 @@ export task_shelf=$task_shelf
 export note=$note
 export note_log=$note_log
 export s=$task_shelf
+export r=$task_shelf/resume.md
 export n=$note
 export task_url=$task_url
 export tu=$task_url
