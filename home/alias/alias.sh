@@ -22,6 +22,7 @@ alias wh="which"
 alias uz="unzip"
 alias e="echo"
 alias fd="find"
+alias tw="tee >(wc -l)"
 function hosts(){ sudo echo " 127.0.0.1 $1" >> /etc/hosts }
 export www=~/Sites/
 export w=~/Sites/

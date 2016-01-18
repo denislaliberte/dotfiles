@@ -16,7 +16,9 @@ function date_note(){date +'%Y-%m-%d %H:%M'}
 function tdn(){ echo $note && echo "__todo__    |  $*  | **status**  | **détails**   " | tee -a  $note }
 function qn(){ echo $note && echo "__question__ |  $*  | **réponse**  | **détails**    " | tee -a  $note }
 function hn(){ echo $note && history |tail -1 | tee -a  $note }
-function resume(){ echo '#  | type     | in             | out | comentaire \n---|----------|----------------------|--------|------' | tee $s/resume.md  && grep -n '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | sed 's/:  / |  /g'| tee -a $s/resume.md && echo '\n\n## todo ## \n\n' &&  grep \*  $s/resume.md | grep -v 'plus tard'}
+function resume_header() { echo '#  | type     | in             | out | comentaire \n---|----------|----------------------|--------|------' }
+function resume(){  resume_header | tee $s/resume.md  && grep -n '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | sed 's/:  / |  /g'| tee -a $s/resume.md }
+function todo(){ resume | grep 'plus tard' && echo '\n\n todo \n' ; resume_header && grep \*  $s/resume.md | grep -v 'plus tard'}
 alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
 alias lig="cat $note |grep -n ']('" 
@@ -25,6 +27,7 @@ function vim_note() { line_note=$(wc -l $n | awk {'print $1'})  &&  echo "$(date
 function v(){vim_note $@  && vim -O $@}
 function git_commit_note() { git commit -m $1 && git log -1 --format="$(date +'%Y-%m-%d--%H-%M') | $task | git |  %h  %s" >> $note  &&  git log -1 --format="$(date +'%A | %H:%M') | $task | git |  %h  %s" >> $daily_log  &&  vim $note }
 function daily() { arg=$(echo " $(pwd) $@" |sed 's/.Users.TP1.Sites.notes.local.//g'  | sed 's/.Users.TP1/\~/g'); echo "$(date +'%A | %H:%M') | $task | daily note | $arg" >>  $daily_log  &&  vim -O $daily $daily_log  $@ }
+function tolog(){  grep -n '^0\|^## ' $daily }
 alias gdno="git diff |grep \"^+\|^- \|++\" | tee -a $note"
 function gac { git add -A :/;git_commit_note " $task $1 " }
 alias cn="cat $note" 
