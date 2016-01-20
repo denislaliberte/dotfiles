@@ -18,7 +18,7 @@ function qn(){ echo $note && echo "__question__ |  $*  | **réponse**  | **déta
 function hn(){ echo $note && history |tail -1 | tee -a  $note }
 function resume_header() { echo '#  | type     | in             | out | comentaire \n---|----------|----------------------|--------|------' }
 function resume(){  resume_header | tee $s/resume.md  && grep -n '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | sed 's/:  / |  /g'| tee -a $s/resume.md }
-function todo(){ resume | grep 'plus tard' && echo '\n\n todo \n' ; resume_header && grep \*  $s/resume.md | grep -v 'plus tard'}
+function todo(){ clear && resume | grep 'plus tard' && echo '\n\n todo \n' ; resume_header && grep \*  $s/resume.md | grep -v 'plus tard'}
 alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
 alias lig="cat $note |grep -n ']('" 
