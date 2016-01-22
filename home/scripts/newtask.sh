@@ -64,21 +64,6 @@ echo "# $task $description $date_start
 [ url jira ]($task_url)
 <!-- shelf : $task_shelf -->
 
-## 1 analyse
-
-### 1.0 estimation
-
-  tache              | optimiste | pessimiste | rééel | différence
-  ------------------:|----------:|-----------:|------:|----------
-  analyse            |           |            |       |
-  développement      |           |            |       |
-  déploiement        |           |            |       |
-  total              |           |            |       |
-
-### 1.1 analyse
-
-
-<!-- ########### push lines ######### -->
 
   " > $note
 fi

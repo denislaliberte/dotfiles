@@ -26,7 +26,7 @@ function vn(){vim_note $@  && vim $note -O $@}
 function vim_note() { line_note=$(wc -l $n | awk {'print $1'})  &&  echo "$(date +'%A | %H:%M') | $task | vim | $note $@" >>  $daily_log  &&  echo "$(date +'%Y-%m-%d--%H-%M') | $line_note | $@" >> $note_log }
 function v(){vim_note $@  && vim -O $@}
 function git_commit_note() { git commit -m $1 && git log -1 --format="$(date +'%Y-%m-%d--%H-%M') | $task | git |  %h  %s" >> $note  &&  git log -1 --format="$(date +'%A | %H:%M') | $task | git |  %h  %s" >> $daily_log  &&  vim $note }
-function daily() { arg=$(echo " $(pwd) $@" |sed 's/.Users.TP1.Sites.notes.local.//g'  | sed 's/.Users.TP1/\~/g'); echo "$(date +'%A | %H:%M') | $task | daily note | $arg" >>  $daily_log  &&  vim -O $daily $daily_log  $@ }
+function daily() { arg=$(echo " $(pwd) $@" |sed 's/.Users.TP1.Sites.notes.local.//g'  | sed 's/.Users.TP1/\~/g'); echo "$(date +'%A | %H:%M') | $task | daily note | $arg" >>  $daily_log  &&  vim -O $daily $@ }
 function tolog(){  grep -n '^0\|^## ' $daily }
 alias gdno="git diff |grep \"^+\|^- \|++\" | tee -a $note"
 function gac { git add -A :/;git_commit_note " $task $1 " }
