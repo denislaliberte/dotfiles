@@ -4,6 +4,7 @@
 # http://www.drush.org/
 
 alias d="drush"
+alias drupal="drush"
 alias dca="drush cache-clear all" # clear the cache again and again
 alias dg="drushgrep" # custom function to find a drush command ex :$drush | grep command
 alias dag="drushaliasgrep" # search this file
