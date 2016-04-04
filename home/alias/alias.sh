@@ -31,3 +31,10 @@ export gol=$w/tp1/tp1-gitolite-admin/conf/gitolite.conf
 export gg=~/.gitgot
 
 #echo "$ ag || va"
+alias k="keep"
+function keep() { tee  ~/.keep | tee >(wc -l) | head -40}
+alias vk="vim -O ~/.keep"
+alias kp="keep_print"
+function keep_print() { cat ~/.keep }
+alias kf='keep_files'
+function keep_files() { cat ~/.keep | awk -F ':' '{print $1}' |sort |uniq }

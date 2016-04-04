@@ -28,16 +28,8 @@ Autres taches |
 
 ### log
 
-time  | temps | timetask | tache
-------|-------|----------|------------------------
-9:00  |       |          |
-
-### timetask
-log  | temps | timetask | tache
-------|-------|----------|------------------------
-      |       |          |
-
-
+# | date       | time  | b | tmp | timetask | tache
+--|------------|-------|---|-----|----------|------------------------
 " >> $daily
 gcalcli  --calendar denis@tp1.ca agenda today | tee -a $daily
 
