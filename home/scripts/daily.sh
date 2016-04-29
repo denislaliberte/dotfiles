@@ -36,7 +36,7 @@ time  | temps | timetask | tache
 
 
 " >> $daily
-gcalcli  --calendar denis@tp1.ca agenda today | tee -a $daily
+#gcalcli  --calendar denis@tp1.ca agenda today | tee -a $daily
 
 if [ ! -f $daily_log ]; then
   echo "
