@@ -46,6 +46,7 @@ export task_shelf=$task_shelf
 export note=$note
 export note_log=$note_log
 export s=$task_shelf
+export r=$task_shelf/resume.md
 export n=$note
 export task_url=$task_url
 export tu=$task_url
@@ -63,21 +64,6 @@ echo "# $task $description $date_start
 [ url jira ]($task_url)
 <!-- shelf : $task_shelf -->
 
-## 1 analyse
-
-### 1.0 estimation
-
-  tache              | optimiste | pessimiste | rééel | différence
-  ------------------:|----------:|-----------:|------:|----------
-  analyse            |           |            |       |
-  développement      |           |            |       |
-  déploiement        |           |            |       |
-  total              |           |            |       |
-
-### 1.1 analyse
-
-
-<!-- ########### push lines ######### -->
 
   " > $note
 fi

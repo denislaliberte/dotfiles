@@ -1,4 +1,3 @@
-alias v="vim -O"
 alias vim="echo '##### use v ####' && vim"
 alias vo="vim -O"
 alias vvr="vim ~/.vimrc"
