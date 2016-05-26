@@ -115,9 +115,6 @@ fi
 
 export WORKON_HOME=$HOME/Envs
 source /usr/local/bin/virtualenvwrapper.sh
-export ws="/home/dlaliber/_workspace"
-
-source '/home/dlaliber/.homesick/repos/homeshick/homeshick.sh'
 
 ## include bash command ##
  if [ -f ~/.bash_command ]; then

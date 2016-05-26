@@ -85,18 +85,6 @@ export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 bindkey -v
 
@@ -111,3 +99,6 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 export CLICOLOR=1
+export ws="/home/dlaliberte/_workspace"
+
+source '/home/dlaliberte/.homesick/repos/homeshick/homeshick.sh'
