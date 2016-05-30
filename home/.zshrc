@@ -102,3 +102,6 @@ export CLICOLOR=1
 export ws="/home/dlaliberte/_workspace"
 
 source '/home/dlaliberte/.homesick/repos/homeshick/homeshick.sh'
+export WORKON_ROME=~/Envs
+source /usr/local/bin/virtualenvwrapper.sh
+source /home/dlaliberte/.homesick/repos/homeshick/homeshick.sh
