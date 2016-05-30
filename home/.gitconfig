@@ -1,11 +1,12 @@
 [user]
-	email = denis.laliberte@garda.com
-	name = dlaliber
+	name = Denis Laliberte
+	email = '(none)'
 [color]
 	ui = true
 [core]
 	excludesfile = ~/.gitignore
-	autocrlf = false
+	autocrlf = input
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

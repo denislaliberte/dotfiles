@@ -78,6 +78,10 @@ source $ZSH/oh-my-zsh.sh
     source ~/.profile
  fi
 
+ if [ -f ~/.note.sh ]; then
+    source ~/.note.sh
+ fi
+
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -97,8 +101,13 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/ansible-desktop
 
 export CLICOLOR=1
 export ws="/home/dlaliberte/_workspace"
 
 source '/home/dlaliberte/.homesick/repos/homeshick/homeshick.sh'
+export WORKON_ROME=~/Envs
+source /usr/local/bin/virtualenvwrapper.sh
+source /home/dlaliberte/.homesick/repos/homeshick/homeshick.sh
+source $HOME/note.sh

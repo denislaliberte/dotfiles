@@ -4,3 +4,6 @@ GPATH
 GRTAGS
 GTAGS
 drush.sh
+*.k
+*.ignore
+*_local.py
