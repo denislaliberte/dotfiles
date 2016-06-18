@@ -1,8 +1,12 @@
+[user]
+	name = Denis Laliberte
+	email = '(none)'
 [color]
 	ui = true
 [core]
 	excludesfile = ~/.gitignore
-	autocrlf = input
+	autocrlf = false
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -30,6 +34,3 @@
 	required = true
 [push]
 	default = matching
-[user]
-    name = Denis Laliberte
-    email = "(none)"

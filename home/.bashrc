@@ -1,4 +1,120 @@
-# aliassbash #
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+export WORKON_HOME=$HOME/Envs
+source /usr/local/bin/virtualenvwrapper.sh
 
 ## include bash command ##
  if [ -f ~/.bash_command ]; then
@@ -10,256 +126,12 @@
     source ~/.alias.sh
  fi
 
-#
-### alias bash ##
-#### alias bash meta ###
-#alias bag="bashaliasgrep"
-#alias vbr="vim ~/.bashrc"
-#alias hg="historygrep"
-#
-#### list ###
-#alias la="ls -a"
-#alias ll="ls -l"
-#alias lS="clear;pwd;ls *"
-#alias lg="lsgrep" #ls grep $*
-#
-#### short link ###
-#alias des="cd ~/Desktop"
-#alias doc="cd ~/Documents"
-#alias dow="cd ~/Downloads"
-#alias hom="cd ~"
-#alias home="cd ~"
-#
-### shell ##
-#alias ces="cat /etc/shells" #list shell
-#alias eo="echo $0" #which shell
-#alias cs="chsh -s" #change shell
-#
-#### autre ###
-#alias mkd="mkdir"
-#alias p="pwd"
-#alias vbp="vim ~/.bash_profile"
-#alias c="clear;pwd"
-#alias rmr="sudo rm -r"
-#alias hstat="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
-#alias cr7="sudo chmod -R 777"
-#
-### apache##
-####  Apache HTTP Server ###
-#alias acs="sudo apachectl start"
-#alias acr="sudo apachectl restart"
-#alias act="apachectl -t"
-#
-### behat ##
-#### BDD for PHP ###
-#alias bb="bin/behat"
-#alias bbe="bin/behat --expand"
-#alias bdl="bb -dl"
-#
-### homebrew ##
-#### The missing package manager for OS X ###
-#alias b="brew"
-#alias bt="brew tap"
-#alias bi="brew install"
-#alias bl="brew list"
-#alias bs="brew search"
-#alias bu="brew update"
-#alias bU="brew upgrade"
-#alias bud="brew update;brew doctor"
-#alias bd="brew doctor"
-#
-### composer ##
-#### Dependency Manager for PHP ###
-#alias cmp="composer"
-#
-### drush ## 
-#### A command line shell and scripting interface for Drupal. ###
-#alias d="drush"
-#alias dca="drush cc all"
-#alias dcd="drushcd"
-##à débugger
-#alias ddl="drush dl"
-#alias ddr="drush devel-reinstall -y"
-#alias ddm="drush dis -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
-#alias ddy="drush dis -y"
-#alias dey="drush en -y"
-#alias dem="drush en -y devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
-#alias dfl="drush features-list"
-#alias dfr="drush features-revert"
-#alias dfra="drush features-revert-all"
-#alias dg="drushgrep"
-#alias dgc="drush generate-content"
-#alias dlm="drush dl devel_themer devel_image_provider masquerade coder cron_debug search_krumo"
-#alias dpl="drush pml"
-#alias dpg="drushpmlgrep"
-#alias dsc="drush sql-connect -l"
-#alias dui="drush user-information"
-#alias dup="drush user-password"
-#alias dvg="drush vget"
-#alias dvs="drush vset"
-#
-#
-### easy_install ##
-#### Easily download, build, install, upgrade, and uninstall Python packages ###
-#alias ei="sudo easy_install"
-#
-### fbcmd  ##
-#### A facebook command line interface ###
-#alias fb="fbcmd"
-#alias fa2="fbcmd STREAM fl_10151548377785299 new"
-#alias fa="fbcmd STREAM fl_213506995298"
-#alias fan="fbcmd STREAM fl_213506995298 new"
-#alias fc="fbcmd COMMENT"
-#alias fe="fbcmd EVENTS"
-#alias ff="fbcmd SFILTERS"
-#alias fI="fbcmd INBOX"
-#alias fn="fbcmd NOTIFY"
-#alias fm="fbcmd MSG"
-#alias fS="fbcmd STATUS"
-#alias fs="fbcmd STREAM"
-#alias fsn="fbcmd STREAM new"
-#alias ft="fbcmd STREAM #TP1"
-#
-### git ##
-#### fast version control ###
-#alias g="git"
-#alias ga="git add"
-#alias gA="git add -A :/"
-#alias gAc="git add -A :/;git commit -m"
-#alias gau="git add -u ."
-#alias gaU="git add -u :/"
-#alias gb="git branch -v"
-#alias gbd="git branch -D"
-#alias gbm="git branch -m"
-#alias gbs="git branch --set-upstream-to="
-#alias gc="git checkout "
-#alias gcl="git clone "
-#alias gcm="git commit -m "
-#alias gd="git diff"
-#alias gi="git init"
-#alias gl="git log"
-#alias gp="git pull"
-#alias gP="git push"
-#alias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
-#alias gm="git merge"
-#alias gr="git remote -v"
-#alias gra="git remote add"
-#alias gs="git status"
-###git commande combinee
-#alias Gac="git add -u;git commit -m"
-#alias Gcm="git checkout master"
-#alias Gds="git diff;git status;git branch -v"
-#alias Gpm="git push origin master"
-#alias ghc="hub create" #git hub create
-#
-#alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
-#
-### goobook ##
-#### google book - gmail ###
-#alias gbq="goobook query"
-#alias gba="goobook add"
-#
-### http ##
-#alias ic="ifconfig"
-#alias hcs="cd ~/Sites"
-#
-### homesick ##
-####  Your home directory is your castle. Don't leave your dotfiles behind ###
-#alias hs="homesick"
-#alias hch="homesick cd hc"
-#alias hcd="homesick cd"
-#alias hd="homesick diff hc"
-#alias hl="homesick list"
-#alias hp="homesick pull hc"
-#alias hP="homesick push hc"
-#
-#
-### jenkins ## 
-#### An extendable open source continuous integration server ###
-#alias jgj="curl http://localhost:8080/jnlpJars/jenkins-cli.jar -o ~/jenkins-cli.jar"
-#alias jip="java -jar ~/jenkins-cli.jar -s http://localhost:8080 install-plugin"
-#alias jj="java -jar ~/jenkins-cli.jar -s http://localhost:8080"
-#alias jsr="java -jar ~/jenkins-cli.jar -s http://localhost:8080 safe-restart"
-#
-#
-### jekyll ##
-#### Transform your plain text into static websites and blogs. ###
-#alias j="jekyll"
-#alias js="jekyll server"
-#alias jsd="jekyll server --drafts"
-#
-### pip ##
-#### The PyPA recommended tool for installing and managing Python packages. ###
-#alias pi="sudo pip install"
-#alias ps="pip search"
-#
-###python
-#alias p="python"
-#
-###ruby
-##rvm use 1.9
-#alias r="rails"
-#
-### rvm ##
-#### Ruby Version Manage ###
-#alias rgl="rvm gemset list"
-#alias rgc="rvm gemset create"
-#alias rgu="rvm gemset use"
-#alias rr="rake routes"
-#alias rdm="rake db:migrate;rake db:migrate RAILS_ENV=test"
-#alias rgm="rails generate migration"
-#
-###sublime
-#alias s="subl"
-#
-###twitter-cli
-#alias t2="t timeline -l |grep http | head -2"
-#alias t5="t timeline -l |grep http | head -5"
-#alias tf="t favorite"
-#alias tm="t mentions"
-#alias tr="t retweet"
-#alias tu="t unfollow"
-#alias tw="t stream timeline"
-#
-# #vim 
-#alias v="vim"
-#alias bim="vim" #typo fréquente
-#alias cim="vim" #typo fréquente
-#alias vvr="vim ~/.vimrc"
-#alias vrm="vim ~/README.txt"
-#alias vbi="vim +BundleInstall +qall"
-#alias veh="sudo vim /etc/hosts"
-#
-##wp : wordpress cli 
-#alias wpa="wp plugin activate"
-#alias wpd="wp plugin deactivate"
-#alias wpp="wp plugin"
-#alias wps="wp plugin search"
-#alias wpl="wp plugin list"
-#alias wpa="wp plugin activate"
-#
-### zip ##
-#alias uz="unzip"
 
 ##bash option
-export PS1='\W \!$ '
 export GREP_OPTIONS="--color=auto"
-force_color_prompt=yes
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-
-  #bash history
-export HISTFILESIZE=20000
-export HISTSIZE=10000
-shopt -s histappend
-    # Combine multiline commands into one in history
-shopt -s cmdhist
-    # Ignore duplicates, ls without options and builtin commands
-HISTCONTROL=ignoredups
-export HISTIGNORE="&:ls:[bf]g:exit"
 
 #editing mode
 set editing-mode vi
 set -o vi
-
-PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
