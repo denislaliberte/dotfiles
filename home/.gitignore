@@ -4,3 +4,5 @@ GPATH
 GRTAGS
 GTAGS
 drush.sh
+gitignore-*
+*.ignore
