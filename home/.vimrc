@@ -58,6 +58,16 @@ Plug 'scrooloose/syntastic'
 Plug 'plasticboy/vim-markdown',  {'rtp': 'vim/'}
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'elzr/vim-json'
+Plug 'itspriddle/vim-jquery'
+Plug 'tpope/vim-bundler'
+Plug 'vim-ruby/vim-ruby'
+Plug 'ingydotnet/yaml-vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -71,3 +81,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"utilssnip config
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"

@@ -101,7 +101,7 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/ansible-desktop
+source $HOME/ansible-desktop/.env
 
 export CLICOLOR=1
 export ws="$HOME/_workspace"
@@ -110,4 +110,5 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 export WORKON_ROME=~/Envs
 source /usr/local/bin/virtualenvwrapper.sh
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-#source $HOME/note.sh
+source $HOME/note.sh
+source /home/dlaliberte/.homesick/repos/homeshick/homeshick.sh
