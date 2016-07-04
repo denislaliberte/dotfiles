@@ -51,7 +51,7 @@ function lsgrep()
 
 function shellaliasgrep()
 {
-  grep -r "$*" ~/alias
+  grep -ni "$*" ~/alias/*
 }
 
 function history_grep()

@@ -1,4 +1,4 @@
-alias vim="echo '##### use v ####' && vim"
+alias v='vim -O'
 alias vo="vim -O"
 alias vvr="vim ~/.vimrc"
 alias vbi="vim +BundleInstall +qall"

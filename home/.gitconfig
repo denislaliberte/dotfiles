@@ -1,36 +1,33 @@
 [user]
-	name = Denis Laliberte
-	email = '(none)'
+  name = Denis Laliberte
+  email = '(none)'
 [color]
-	ui = true
+  ui = true
 [core]
-	excludesfile = ~/.gitignore
-	autocrlf = false
-	editor = vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  excludesfile = ~/.gitignore
+  autocrlf = false
+  editor = vim
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
 [git-up "fetch"]
-	all = true
-[merge]
-	tool = diffmerge
-[mergetool "diffmerge"]
-	cmd = diffmerge --merge\n--result=$MERGED $LOCAL $BASE $REMOTE
-	trustExitCode = true
+  all = true
 [diff]
-	tool = diffmerge
-[difftool "diffmerge"]
-	cmd = diffmerge $LOCAL $REMOTE
+  tool = kdiff3
+[merge]
+  tool = kdiff3
+[difftool]
+  prompt = false
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
 [push]
-	default = matching
+  default = matching
+[mergetool "kdiff3"]
+  path = /usr/bin/kdiff3
+  trustExitCode = false
+[difftool "kdiff3"]
+  path = /usr/bin/kdiff3
+  trustExitCode = false

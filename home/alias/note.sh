@@ -1,4 +1,3 @@
-project_directory="$notes_folder/projects/$(git_root)"
 export notes_folder=$HOME/Sites/notes.local/
 month=$(date +%m)
 year=$(date +%Y)

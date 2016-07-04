@@ -64,10 +64,16 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 Plug 'itspriddle/vim-jquery'
 Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'vim-ruby/vim-ruby'
 Plug 'ingydotnet/yaml-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'sheerun/vim-polyglot'
+Plug 'bigfish/vim-js-context-coloring'
+Plug 'Valloric/YouCompleteMe'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -81,9 +87,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"let g:syntastic_mode_map = {'mode': 'passive'}
 
 "utilssnip config
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+
