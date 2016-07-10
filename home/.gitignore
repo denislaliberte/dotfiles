@@ -7,3 +7,4 @@ drush.sh
 gitignore-*
 *.ignore
 *_local.py
+*.swp
