@@ -37,6 +37,7 @@ source $ZSH/oh-my-zsh.sh
  fi
 
 export PATH="/usr/local/rvm/bin:$PATH" # Add RVM to PATH for scripting
+
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export PATH="$PATH/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -65,3 +66,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source $HOME/note.sh
 source /home/dlaliberte/.homesick/repos/homeshick/homeshick.sh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

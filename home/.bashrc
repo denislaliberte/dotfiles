@@ -135,3 +135,5 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 #editing mode
 set editing-mode vi
 set -o vi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
