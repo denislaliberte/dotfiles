@@ -24,7 +24,6 @@ function gac { git add -A :/;git_commit_note " $task $1 " }
 alias cn="cat $note" 
 alias cng="cat $note |grep -n"
 alias vng="vn $(g ls-files -m)"
-alias n="vim $note"
 alias gcm="git_commit_note $1"
 alias cv="cat $var"
 alias vg="cat $var |grep"

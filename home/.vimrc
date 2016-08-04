@@ -98,3 +98,6 @@ let g:UltiSnipsEditSplit="vertical"
 autocmd BufEnter *.md set spell
 
 let g:languagetool_jar='/home/dlaliberte/.vim/LanguageTool-3.4/languagetool-commandline.jar'
+
+"macro
+let @x='$xj'
