@@ -5,6 +5,7 @@ GRTAGS
 GTAGS
 drush.sh
 gitignore-*
-*.ignore*
+*.ignore
+*ignore.*
 *_local.py
 *toto*

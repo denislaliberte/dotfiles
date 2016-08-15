@@ -101,3 +101,4 @@ let g:languagetool_jar='/home/dlaliberte/.vim/LanguageTool-3.4/languagetool-comm
 
 "macro
 let @x='$xj'
+let @u='_3wliun'
