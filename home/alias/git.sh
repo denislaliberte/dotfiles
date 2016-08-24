@@ -13,6 +13,7 @@ alias gfc="git add -A :/ && git commit -m 'no comment '" #git fast commit
 alias gc="git checkout "
 function gcg(){ git checkout $( git branch | grep $1 | pyp 'pp[0]' ) } # git checkout grep branch
 alias gcb="git checkout -b"
+alias gcd='git checkout develop'
 alias gm="git merge"
 
 alias gb="git branch"

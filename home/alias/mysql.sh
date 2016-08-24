@@ -1,4 +1,3 @@
-echo "db: $db tb: $tb"
 function mysql_db() { mysql $db $1; }
 alias my="m"
 alias mdg="mysql -e 'show databases;' |grep"

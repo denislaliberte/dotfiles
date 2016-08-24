@@ -8,7 +8,6 @@ export daily_log=$mf/$date--daily-log.md
 function line_note() {wc -l $note  | awk {'print $1'} }
 function date_note(){date +'%Y-%m-%d %H:%M'}
 function hn(){ echo $note && history |tail -1 | tee -a  $note }
-c
 function resume(){  resume_header | tee $s/resume.md  && grep -n '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | sed 's/:  / |  /g'| tee -a $s/resume.md }
 alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
