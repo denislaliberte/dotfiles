@@ -6,5 +6,6 @@ GTAGS
 drush.sh
 gitignore-*
 *.ignore
+*ignore.*
 *_local.py
 *.swp

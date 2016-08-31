@@ -46,12 +46,12 @@ function cd()
 
 function lsgrep()
 {
-  ls $2 | grep "$1"
+  ls $2 | grep -i "$1"
 }
 
 function shellaliasgrep()
 {
-  grep -r "$*" ~/alias
+  grep -ni "$*" ~/alias/*
 }
 
 function history_grep()

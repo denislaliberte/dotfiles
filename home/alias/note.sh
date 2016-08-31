@@ -1,4 +1,3 @@
-project_directory="$notes_folder/projects/$(git_root)"
 export notes_folder=$HOME/Sites/notes.local/
 month=$(date +%m)
 year=$(date +%Y)
@@ -9,7 +8,6 @@ export daily_log=$mf/$date--daily-log.md
 function line_note() {wc -l $note  | awk {'print $1'} }
 function date_note(){date +'%Y-%m-%d %H:%M'}
 function hn(){ echo $note && history |tail -1 | tee -a  $note }
-c
 function resume(){  resume_header | tee $s/resume.md  && grep -n '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | sed 's/:  / |  /g'| tee -a $s/resume.md }
 alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
@@ -25,7 +23,6 @@ function gac { git add -A :/;git_commit_note " $task $1 " }
 alias cn="cat $note" 
 alias cng="cat $note |grep -n"
 alias vng="vn $(g ls-files -m)"
-alias n="vim $note"
 alias gcm="git_commit_note $1"
 alias cv="cat $var"
 alias vg="cat $var |grep"

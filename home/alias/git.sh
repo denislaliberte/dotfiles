@@ -1,57 +1,78 @@
 ## git ##
-alias Gac="git add -u;git commit -m"
-alias Gcm="git checkout master"
-alias Gconf='git config --global color.ui true;git config --global user.name "Denis Laliberté",git config core.fileMode false'
-alias gbm="git branch -m"
-alias Gds="git diff;git status;git branch -v"
-alias gpM="git push origin master"
-alias Gpm="gpM"
-alias gA="git add -A :/"
-alias gPd="git push devel"
-alias gPo="git push origin"
-alias gPp="git push prod"
-alias gPs="git checkout stage && git push origin stage && git push stage stage"
-alias gaU="git add -u :/"
-alias gacp="git add -A :/; git commit -m 'no comment ';git push" #git add commit push (no comment)
-alias gau="git add -u ."
-alias gbg="git branch |grep"
+alias g="git"
+
+alias gcl="git clone "
+alias gp="git pull"
+alias gpu="git push"
+
+alias gs="git status -sb"
+alias ga="git add"
+function gag(){ git add $( git_ls_grep $1 ) }
+alias gfc="git add -A :/ && git commit -m 'no comment '" #git fast commit
+
+alias gc="git checkout "
+function gcg(){ git checkout $( git branch | grep $1 | pyp 'pp[0]' ) } # git checkout grep branch
+alias gcb="git checkout -b"
+alias gcd='git checkout develop'
+alias gm="git merge"
+
+alias gb="git branch"
+alias gbanm="git branch --all --no-merged"
+alias gbd="git branch -D"
+
+alias gl="git log"
+alias gbl="git blame"
+alias gbnm="git branch --no-merged"
+
+alias gd="git diff"
+alias gdb="git_diff_branch"
+function git_diff_branch(){ echo  $(head -1 branch.ignore);git diff $(head -1 branch.ignore) ; git diff --name-only $(head -1 branch.ignore) | tee path.ignore }
+function gdg() { git diff $( git_ls_grep $1) }
+alias gsh="git show"
+
+alias gf="git fetch"
+alias gfa="git fetch --all"
+
+alias grv="git remote -v"
+
+alias gsp="git stash pop"
+alias gst="git stash"
+
+alias gls="git ls-files"
+alias glg="git_ls_grep"
+function git_ls_grep() { git ls-files | grep -i $1 | tee path.ignore }
+function vglg() { vim -O $( git_ls_grep $1) }
+function gcglg() {git checkout $(git_ls_grep $1) }
+alias glm="git ls-files -m"
+function vglm() {vim -O $(git ls-files -m) $@ }
+
+function gbg(){ git branch |grep $1 | tee branch.ignore }
+function gmg(){ git merge $( git branch | grep $1 | pyp 'pp[0]' ) } # git merge grep branch
+
+alias gpo="git push origin"
+function gpob() {git push origin $( git rev-parse --abbrev-ref HEAD) } # git push origin current branch
+alias gau="git add -u :/"
 alias gbs="git branch --set-upstream-to="
 alias gbv="git branch -v"
-alias gco="git config"
+alias gce="git config -e"
+alias gcue="git config user.email"
+alias gceg="git config -e --global"
 alias gdt="git difftool"
 alias gdn="git-diff-name"
-alias gf="git flow"
-alias gff="git flow feature"
-alias gfff="git flow feature finish"
-alias gfs="git flow feature start"
 alias ghc="hub create" #git hub create
-alias gi="git init"
 alias gig="echo 'cp ~/gitignore/'| pbcopy && ls ~/gitignore |grep -i"
 alias grr="git remote remove"
 alias gra="git remote add"
 alias gre="git reset"
-alias gsta="git_stats generate"
-alias gsw="git-sweep preview && git-sweep"
-alias gu="git-up"
 alias hc="hub clone"
 alias hcr="hub create"
-alias gls="got list"
-alias glt="got list -t"
-alias gcd="got cd"
-alias goa="got add"
-alias gos="got status"
-alias gosq="got status -q"
-alias gps="git checkout stage && git pull origin master && git pull origin stage" # git pull stage
-alias gpm="git checkout master && git pull origin master && git pull devel master" # git pull master
-alias gpp="git checkout prod && git pull origin prod" # git pull prod
-alias gmsm="git checkout master && git merge stage" # git merge stage in master
-alias gmps="git checkout stage && git merge prod" # git merge prod in stage
-alias gmsm="git checkout master && git merge stage" # git merge stage in master
-alias gdss="gpp && gps && gmps" # git downstream prod to stage
-alias gdsm="gps && gpm && gmsm" # git downstream stage to master
-alias gri="git rebase -i"
 alias gbn="git rev-parse --abbrev-ref HEAD" # git branch name
-alias glf="git log --follow -p"
+alias glf="git ls-files"
+alias glfg="git ls-files | grep"
 git-diff-name() { git diff $1 --name-only | cat }
-alias glps="git log --format='%h %an -- %s' prod..stage"
 alias glsh="git log --format='%h %an -- %s'" # git log short
+function git_status_grep() { git status | grep $1  | pyp 'w[-1]'; }
+alias gsgr=git_status_grep
+function vim_git_status_grep() { vim -O $(git status | grep $1  | pyp 'w[-1]'); }
+alias vgsgr=vim_git_status_grep
+alias gtl='git tag --list'
