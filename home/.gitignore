@@ -9,3 +9,4 @@ gitignore-*
 *ignore.*
 *_local.py
 *toto*
+*.orig

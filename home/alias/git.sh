@@ -1,8 +1,7 @@
 ## git ##
-alias g="git"
 
 alias gcl="git clone "
-alias gp="git pull"
+alias gpul="git pull"
 alias gpu="git push"
 
 alias gs="git status -sb"
@@ -25,8 +24,6 @@ alias gbl="git blame"
 alias gbnm="git branch --no-merged"
 
 alias gd="git diff"
-alias gdb="git_diff_branch"
-function git_diff_branch(){ echo  $(head -1 branch.ignore);git diff $(head -1 branch.ignore) ; git diff --name-only $(head -1 branch.ignore) | tee path.ignore }
 function gdg() { git diff $( git_ls_grep $1) }
 alias gsh="git show"
 
@@ -40,7 +37,7 @@ alias gst="git stash"
 
 alias gls="git ls-files"
 alias glg="git_ls_grep"
-function git_ls_grep() { git ls-files | grep -i $1 | tee path.ignore }
+function git_ls_grep() { git ls-files | grep -i $1  }
 function vglg() { vim -O $( git_ls_grep $1) }
 function gcglg() {git checkout $(git_ls_grep $1) }
 alias glm="git ls-files -m"
@@ -71,8 +68,4 @@ alias glf="git ls-files"
 alias glfg="git ls-files | grep"
 git-diff-name() { git diff $1 --name-only | cat }
 alias glsh="git log --format='%h %an -- %s'" # git log short
-function git_status_grep() { git status | grep $1  | pyp 'w[-1]'; }
-alias gsgr=git_status_grep
-function vim_git_status_grep() { vim -O $(git status | grep $1  | pyp 'w[-1]'); }
-alias vgsgr=vim_git_status_grep
 alias gtl='git tag --list'
