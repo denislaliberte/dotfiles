@@ -48,6 +48,7 @@ function gmg(){ git merge $( git branch | grep $1 | pyp 'pp[0]' ) } # git merge 
 
 alias gpo="git push origin"
 function gpob() {git push origin $( git rev-parse --abbrev-ref HEAD) } # git push origin current branch
+function gpuob() {git pull origin $( git rev-parse --abbrev-ref HEAD) } # git push origin current branch
 alias gau="git add -u :/"
 alias gbs="git branch --set-upstream-to="
 alias gbv="git branch -v"

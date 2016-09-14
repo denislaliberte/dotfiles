@@ -8,5 +8,5 @@ gitignore-*
 *.ignore
 *ignore.*
 *_local.py
-*toto*
 *.orig
+*.swp

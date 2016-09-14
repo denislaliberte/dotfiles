@@ -36,6 +36,11 @@ source $ZSH/oh-my-zsh.sh
     source ~/.note.sh
  fi
 
+ if [ -f ~/.sobriquet.sh ]; then
+    source ~/.sobriquet.sh
+ fi
+
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="/usr/local/rvm/bin:$PATH" # Add RVM to PATH for scripting
 
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -58,7 +63,7 @@ export PATH=$PATH:$GOPATH/bin
 source $HOME/ansible-desktop/.env
 
 export CLICOLOR=1
-export ws="$HOME/_workspace"
+export ws="$HOME/_workspace/"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 export WORKON_ROME=~/Envs
