@@ -1,2 +1,2 @@
 alias rj='r.js'
-alias jsb="js-beautify"
+alias jsb="js-beautify -o"

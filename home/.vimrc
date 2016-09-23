@@ -96,7 +96,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
-autocmd BufEnter *.md set spell
+set nospell
+
 
 let g:languagetool_jar='/home/dlaliberte/.vim/LanguageTool-3.4/languagetool-commandline.jar'
 
