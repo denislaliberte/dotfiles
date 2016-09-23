@@ -40,26 +40,21 @@ source $ZSH/oh-my-zsh.sh
     source ~/.sobriquet.sh
  fi
 
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-export PATH="/usr/local/rvm/bin:$PATH" # Add RVM to PATH for scripting
 
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export PATH="$PATH/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 
 bindkey -v
 
-export PATH=/usr/texbin:/usr/local/bin:$PATH
 
 # pip should only run if there is a virtualenv currently activated
 #export PIP_REQUIRE_VIRTUALENV=true
 # cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
+export PATH=/usr/texbin:/usr/local/bin:$PATH
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 source $HOME/ansible-desktop/.env
 
 export CLICOLOR=1
@@ -72,4 +67,7 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source $HOME/note.sh
 source /home/dlaliberte/.homesick/repos/homeshick/homeshick.sh
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH=$PATH:$GOPATH/bin
+export PATH="$HOME/.rvm/bin:$PATH"
+export PATH="/usr/local/rvm/bin:$PATH" # Add RVM to PATH for scripting
