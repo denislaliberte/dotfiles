@@ -62,8 +62,6 @@ alias dag="drushaliasgrep" # search this file
 alias duu="drush user-login --uri=" # get the reset password link for the user 1 usage: duu http://host.local uli
 alias duy="drush updatedb -y" # run the hook_update fucntions
 alias dwl="drush watchdog-list --fields=date,message"
-function pywatch_drush(){ find $1 -iname "*.module" -o -iname "*.inc" -o -iname "*.php" -o -iname "*.js" |xargs pywatch ~/scripts/drush-cc-all.sh }
-alias pywd="pywatch_drush"
 
 ## drush features - Export and import configuration ##
 alias dfl="drush features-list" # get the list of all features and their state

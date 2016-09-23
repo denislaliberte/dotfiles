@@ -7,7 +7,8 @@ alias gpu="git push"
 alias gs="git status -sb"
 alias ga="git add"
 function gag(){ git add $( git_ls_grep $1 ) }
-alias gfc="git add -A :/ && git commit -m 'no comment '" #git fast commit
+alias gfc=git_fast_commit
+function git_fast_commit(){ git add -A :/ && git commit -m 'no comment ' }
 
 alias gc="git checkout "
 function gcg(){ git checkout $( git branch | grep $1 | pyp fe ) } # git checkout grep branch
@@ -31,6 +32,7 @@ alias gf="git fetch"
 alias gfa="git fetch --all"
 
 alias grv="git remote -v"
+alias grpo="git remote prune origin"
 
 alias gsp="git stash pop"
 alias gst="git stash"
@@ -58,15 +60,16 @@ alias gceg="git config -e --global"
 alias gdt="git difftool"
 alias gdn="git-diff-name"
 alias ghc="hub create" #git hub create
-alias gig="echo 'cp ~/gitignore/'| pbcopy && ls ~/gitignore |grep -i"
 alias grr="git remote remove"
 alias gra="git remote add"
 alias gre="git reset"
 alias hc="hub clone"
 alias hcr="hub create"
-alias gbn="git rev-parse --abbrev-ref HEAD" # git branch name
+alias gbn=git_branch_name
+function git_branch_name() { git rev-parse --abbrev-ref HEAD }
 alias glf="git ls-files"
 alias glfg="git ls-files | grep"
 git-diff-name() { git diff $1 --name-only | cat }
-alias glsh="git log --format='%h %an -- %s'" # git log short
+alias glsh=git_log_short
+function git_log_short() { git log --format='%h %an -- %s' }
 alias gtl='git tag --list'

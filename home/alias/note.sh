@@ -18,7 +18,6 @@ function vim_daily() { arg=$(echo " $(pwd) $@" |sed 's/.Users.TP1.Sites.notes.lo
 function tolog(){  grep -n '^0\|^## ' $daily }
 alias dl='daily_log'
 function daily_log()  {  echo "0 | $(date +'%m/%d/%Y | %H:%M') | $@"  >> $daily }
-alias gdno="git diff |grep \"^+\|^- \|++\" | tee -a $note"
 function gac { git add -A :/;git_commit_note " $task $1 " }
 alias cn="cat $note" 
 alias cng="cat $note |grep -n"
