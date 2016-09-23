@@ -19,7 +19,7 @@ alias va="vim_alias"
 alias vh="vim_hc"
 alias wg="wget"
 alias wh="which"
-function whh(){ which $(which $1 |pyp 'w[-1]') | pyp 'pp[1:-1]|p'}
+function whh(){ which $(which $1 |pyp wl) | pyp 'pp[1:-1]|p'}
 alias uz="unzip"
 alias e="echo"
 alias fd="find"

@@ -10,7 +10,7 @@ function gag(){ git add $( git_ls_grep $1 ) }
 alias gfc="git add -A :/ && git commit -m 'no comment '" #git fast commit
 
 alias gc="git checkout "
-function gcg(){ git checkout $( git branch | grep $1 | pyp 'pp[0]' ) } # git checkout grep branch
+function gcg(){ git checkout $( git branch | grep $1 | pyp fe ) } # git checkout grep branch
 alias gcb="git checkout -b"
 alias gcd='git checkout develop'
 alias gm="git merge"
@@ -44,7 +44,7 @@ alias glm="git ls-files -m"
 function vglm() {vim -O $(git ls-files -m) $@ }
 
 function gbg(){ git branch |grep $1 | tee branch.ignore }
-function gmg(){ git merge $( git branch | grep $1 | pyp 'pp[0]' ) } # git merge grep branch
+function gmg(){ git merge $( git branch | grep $1 | pyp fe ) } # git merge grep branch
 
 alias gpo="git push origin"
 function gpob() {git push origin $( git rev-parse --abbrev-ref HEAD) } # git push origin current branch
