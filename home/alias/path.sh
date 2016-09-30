@@ -19,6 +19,8 @@ function git_diff_branch(){ echo  $(head -1 branch.ignore);git diff $(head -1 br
 alias glgp="git_ls_grep_path"
 function git_ls_grep_path() { git ls-files | grep -i $1 | tee "path${2:-1}.ignore"}
 alias gsg=git_status_grep
-function git_status_grep() { git status -sb | pyp 'pp[1:] |w[-1]' |  grep ${1:-.}  |tee "path${2:-1}.ignore" }
+function git_status_grep() { git status -sb | pyp 'pp[1:] | w[-1]' |  grep ${1:-.}  |tee "path${2:-1}.ignore" }
 alias ap=add_path
 function add_path() {echo "$1 " | tee -a "path${2:-1}.ignore" }
+alias tp=tee_path
+function tee_path() { tee -a "path${2:-1}.ignore" }
