@@ -47,8 +47,12 @@ function vglm() {vim -O $(git ls-files -m) $@ }
 function gmg(){ git merge $( git branch | grep $1 | pyp fe ) } # git merge grep branch
 
 alias gpo="git push origin"
-function gpob() {git push origin $( git rev-parse --abbrev-ref HEAD) } # git push origin current branch
-function gpuob() {git pull origin $( git rev-parse --abbrev-ref HEAD) } # git pull origin current branch
+alias gpcb="git_pull_current_branch"
+alias pull="git_pull_current_branch"
+function git_push_current_branch() {git push origin $( git rev-parse --abbrev-ref HEAD) }
+alias gpsb="git_push_current_branch"
+alias push="git_push_current_branch"
+function git_pull_current_branch() {git pull origin $( git rev-parse --abbrev-ref HEAD) }
 alias gau="git add -u :/"
 alias gbs="git branch --set-upstream-to="
 alias gbv="git branch -v"
