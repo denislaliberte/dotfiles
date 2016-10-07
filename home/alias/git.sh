@@ -16,11 +16,10 @@ alias gcb="git checkout -b"
 alias gcd='git checkout develop'
 alias gm="git merge"
 
-alias gb="git branch"
 alias gbanm="git branch --all --no-merged"
 alias gbd="git branch -D"
 
-alias gl="git log"
+alias gl="git log --oneline "
 alias gbl="git blame"
 alias gbnm="git branch --no-merged"
 
@@ -45,7 +44,6 @@ function gcglg() {git checkout $(git_ls_grep $1) }
 alias glm="git ls-files -m"
 function vglm() {vim -O $(git ls-files -m) $@ }
 
-function gbg(){ git branch |grep $1 | tee branch.ignore }
 function gmg(){ git merge $( git branch | grep $1 | pyp fe ) } # git merge grep branch
 
 alias gpo="git push origin"

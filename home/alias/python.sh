@@ -1,4 +1,5 @@
 alias py="python"
+alias pc="python -c" # execute python command
 alias fl="fab list"
 alias pys="python -m SimpleHTTPServer 8000"
 alias pyw="pywatch"
