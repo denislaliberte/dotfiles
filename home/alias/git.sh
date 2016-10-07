@@ -6,6 +6,10 @@ alias gf="git fetch"
 alias gfa="git fetch --all"
 alias grv="git remote -v"
 alias grpo="git remote prune origin"
+alias gpul="git pull"
+alias gpu="git push"
+alias grr="git remote remove"
+alias gra="git remote add"
 
 ## git information
 alias gs="git status -sb"
@@ -19,9 +23,8 @@ alias glfg="git ls-files | grep"
 
 ## git commit
 alias ga="git add"
+alias gau="git add -u :/"
 
-alias gpul="git pull"
-alias gpu="git push"
 
 ## git branch
 alias gc="git checkout "
@@ -31,28 +34,24 @@ alias gm="git merge"
 alias gbanm="git branch --all --no-merged"
 alias gbnm="git branch --no-merged"
 alias gbd="git branch -d"
+alias gbs="git branch --set-upstream-to="
+alias gbv="git branch -v"
 
 ## git hub
 alias ghc="hub create" #git hub create
 alias hc="hub clone"
 alias hcr="hub create"
 
-
-alias gsp="git stash pop"
-alias gst="git stash"
-alias gau="git add -u :/"
-alias gbs="git branch --set-upstream-to="
-alias gbv="git branch -v"
+## git config
 alias gce="git config -e"
 alias gcue="git config user.email"
 alias gceg="git config -e --global"
+
+## git misc
+alias gsp="git stash pop"
+alias gst="git stash"
 alias gdt="git difftool"
-alias gdn="git-diff-name"
-alias grr="git remote remove"
-alias gra="git remote add"
 alias gre="git reset"
-
-
 alias gtl='git tag --list'
 
 ## git function
@@ -78,6 +77,7 @@ alias push="git_push_current_branch"
 function git_pull_current_branch() {git pull origin $( git rev-parse --abbrev-ref HEAD) }
 alias gbn=git_branch_name
 function git_branch_name() { git rev-parse --abbrev-ref HEAD }
+alias gdn="git-diff-name"
 git-diff-name() { git diff $1 --name-only | cat }
 alias glsh=git_log_short
 function git_log_short() { git log --format='%h %an -- %s' }

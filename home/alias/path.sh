@@ -1,3 +1,5 @@
+alias path="cat path*"
+
 alias gp=grep_recursive_case_insensitive_path
 function grep_recursive_case_insensitive_path() { np=$(next_path path); grep -nri $1 ; grep -lri $1 | sort | tee -a $np;  echo "_____$1_____$np" >> $np;select_path_name $np }
 alias vp='vim_path'
@@ -32,3 +34,5 @@ function add_path() {echo "$1 " | tee -a "path${2:-1}.ignore" }
 alias tp=tee_path
 function tee_path() { tee -a "path${2:-1}.ignore" }
 function next_path() { i=1; while [[ -e "$1$i.ignore" ]] ; do let i++; done ; echo "$1$i.ignore"  }
+alias mp=merge_path
+function merge_path() { cat path*.ignore | sort | uniq > temp.ignore; rm path*ignore; mv temp.ignore path1.ignore; select_path }
