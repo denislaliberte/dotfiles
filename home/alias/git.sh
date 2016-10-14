@@ -25,7 +25,6 @@ alias glfg="git ls-files | grep"
 alias ga="git add"
 alias gau="git add -u :/"
 
-
 ## git branch
 alias gc="git checkout "
 alias gcb="git checkout -b"
@@ -57,14 +56,15 @@ alias gtl='git tag --list'
 ## git function
 alias gfc=git_fast_commit
 function git_fast_commit(){ git add -A :/ && git commit -m 'no comment ' }
-alias gag="git_alias_grep"
-function git_alias_grep(){ git add $( git_ls_grep $1 ) }
+
 alias gcg=git_checkout_grep_branch
 function git_checkout_grep_branch(){ git checkout $( git branch | grep $1 | pyp fe ) }
+
 function gdg() { git diff $( git_ls_grep $1) }
+
 alias glg="git_ls_grep"
 function git_ls_grep() { git ls-files | grep -i $1  }
-function vglg() { vim -O $( git_ls_grep $1) }
+
 function gcglg() {git checkout $(git_ls_grep $1) }
 alias glm="git ls-files -m"
 function vglm() {vim -O $(git ls-files -m) $@ }
@@ -77,8 +77,8 @@ alias push="git_push_current_branch"
 function git_pull_current_branch() {git pull origin $( git rev-parse --abbrev-ref HEAD) }
 alias gbn=git_branch_name
 function git_branch_name() { git rev-parse --abbrev-ref HEAD }
-alias gdn="git-diff-name"
-git-diff-name() { git diff $1 --name-only | cat }
+alias gdn=git_diff_name
+function git_diff_name() { git diff $1 --name-only | cat }
 alias glsh=git_log_short
 function git_log_short() { git log --format='%h %an -- %s' }
 

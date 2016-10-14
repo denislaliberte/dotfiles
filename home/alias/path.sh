@@ -1,4 +1,6 @@
-alias path="cat path*"
+
+alias lp=list_path
+function list_path(){ for path_file in path*.ignore; do cat ${path_file} | pyp 'pp'; done}
 
 alias gp=grep_recursive_case_insensitive_path
 function grep_recursive_case_insensitive_path() { np=$(next_path path); grep -nri $1 ; grep -lri $1 | sort | tee -a $np;  echo "_____$1_____$np" >> $np;select_path_name $np }
