@@ -26,7 +26,7 @@ description=$2
 task_name=$task-$(echo $description | sed 's/ /-/g')
 shelf="$project_directory/$year/$month/"
 task_shelf="$project_directory/$year/$month/$date_start--$task"
-branche="new-$task_name"
+branche="feature/$task_name"
 note="$project_directory/$year/$month/$date_start--$task_name.md"
 
 if [ -f $note ]; then
