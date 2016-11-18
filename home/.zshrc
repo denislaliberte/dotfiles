@@ -71,3 +71,4 @@ export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.rvm/bin:$PATH"
 export PATH="/usr/local/rvm/bin:$PATH" # Add RVM to PATH for scripting
+export EDITOR='vim'
