@@ -3,7 +3,7 @@ alias lp=list_path
 function list_path(){ for path_file in .ignore/path*.txt; do echo "## ${path_file}";cat ${path_file} | pyp 'pp'; done}
 
 alias gp=grep_recursive_case_insensitive_path
-function grep_recursive_case_insensitive_path() { np=$(next_path .ignore/path); grep -nri $1 * ; grep -lri $1 * | sort | tee -a $np;  echo "_____$1_____$np" >> $np;select_path_name $np }
+function grep_recursive_case_insensitive_path() { np=$(next_path .ignore/path); grep -nri $1 ${2:-*} ; grep -lri $1 ${2:-*}  | sort | tee -a $np;  echo "_____$1_____$np" >> $np;select_path_name $np }
 alias vp='vim_path'
 function vim_path() { vim -O $(select_path ${1:-0} ${2:-1} p) ${@:3} }
 alias sp='select_path'
@@ -15,11 +15,11 @@ function select_path_list() { cat ".ignore/path$2.txt" | pyp "[pp[i] for i in ($
 alias spg='select_path_grep'
 function select_path_grep() { select_path_index : ${2:-1} $3 | grep -i $1}
 alias pp='pop_path'
-function pop_path() { head -${1:-1} ".ignore/path${2:-1}.txt";sed -i "1,${1:-1}d" ".ignore/path${2:-1}.txt"; select_path }
+function pop_path() { head -${1:-1} ".ignore/path${2:-1}.txt";sed -i.ignore "1,${1:-1}d" ".ignore/path${2:-1}.txt"; select_path }
 alias rp='rotate_path'
-function rotate_path() { head -${1:-1} ".ignore/path${2:-1}.txt" | tee -a ".ignore/path${2:-1}.txt" ;sed -i "1,${1:-1}d" ".ignore/path${2:-1}.txt"; select_path : ${2:-1} pp}
+function rotate_path() { head -${1:-1} ".ignore/path${2:-1}.txt" | tee -a ".ignore/path${2:-1}.txt" ;sed -i.ignore "1,${1:-1}d" ".ignore/path${2:-1}.txt"; select_path : ${2:-1} pp}
 alias rrp='reverse_rotate_path'
-function reverse_rotate_path() { last=$(tail -n 1 ".ignore/path${2:-1}.txt" ) ; sed -i "1i$last" ".ignore/path${2:-1}.txt" ; let TRUNCATE_SIZE="${#last} + 1"; truncate -s -"$TRUNCATE_SIZE" ".ignore/path${2:-1}.txt" ;echo $last; select_path : ${2:-1} pp }
+function reverse_rotate_path() { last=$(tail -n 1 ".ignore/path${2:-1}.txt" ) ; sed -i.ignore "1i$last" ".ignore/path${2:-1}.txt" ; let TRUNCATE_SIZE="${#last} + 1"; truncate -s -"$TRUNCATE_SIZE" ".ignore/path${2:-1}.txt" ;echo $last; select_path : ${2:-1} pp }
 alias hp='head_path'
 function head_path() {head -3 ".ignore/path${2:-1}.txt"}
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-source $HOME/note.sh
+source $HOME/alias/note.sh
 
 function project_directory() { echo "$note_workspace/$(git_root)"; }
 
@@ -77,4 +77,4 @@ echo "git checkout on $branche"
 git checkout $main_branch && git checkout -b $branche
 
 source $var
-source ~/note.sh
+source ~/alias/note.sh

@@ -10,14 +10,14 @@ alias np="new_project";
 function new_project() { mkdir -p $(project_directory)  && touch "$(project_directory)/var.sh" && echo $(project_directory); }
 
 alias sv="source_var";
-function source_var(){ var="$note_workspace/$(git_root)/var.sh" && echo "source $var" && source $var  && source ~/note.sh source; }
+function source_var(){ var="$note_workspace/$(git_root)/var.sh" && echo "source $var" && source $var  && source ~/alias/note.sh source; }
 
-alias nt="$HOME/newtask.sh";
+alias nt="$HOME/scripts/newtask.sh";
 
 function vn(){ vim $note -O $@; }
 function en(){ echo $note && echo "\n  $* " | tee -a  $note; }
 function tdn(){ echo $note && echo "__todo__    |  $*  | **status**  | **détails**   " | tee -a  $note; }
-function qn(){ echo $note && echo "__question__ |  $*  | **réponse**  | **détails**    " | tee -a  $note; }
+function qn(){ echo $note && echo "__question__ |  $* ?  | **réponse**  | **détails**    " | tee -a  $note; }
 
 function todo(){ clear && resume | grep 'plus tard' && echo '\n\n todo \n' ;grep \*  $s/resume.md | grep -v 'plus tard'; }
 alias tn="tail $note";
@@ -32,15 +32,14 @@ export mf=$notes_folder/$year/$month # month folder
 date=$(date +%Y-week-%V )
 export daily=$mf/$date--daily.md
 export daily_log=$mf/$date--daily-log.md
-function date_note(){date +'%Y-%m-%d %H:%M'}
+function date_note(){ date +'%Y-%m-%d %H:%M' }
 function hn(){ echo $note && history |tail -1 | tee -a  $note }
-function resume(){  resume_header | tee $s/resume.md  && grep -n '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | 
-ed 's/:  / |  /g'| tee -a $s/resume.md }
+function resume(){  resume_header | tee $s/resume.md  && grep -n '_question_\|_todo_\|_git_commit_\|_google_search_'  $note  | sed 's/__/  /g' | sed 's/:  / |  /g'| tee -a $s/resume.md }
+function resume_header() { echo "type | budy | status " }
 alias ngg="cat $note |grep -n '__search_google__\|]('"
 alias nga="cat $note |grep -n '^__\|---'" 
 alias lig="cat $note |grep -n ']('" 
-function git_commit_note() { git commit -m $1 && git log -1 --format="$(date +'%Y-%m-%d--%H-%M') | $task | git |  %h  %s" >> $note  &&  git log -
- --format="$(date +'%A | %H:%M') | $task | git |  %h  %s" >> $daily_log  &&  vim $note }
+function git_commit_note() { git commit -m $1 && git log -1 --format="$(date +'%Y-%m-%d--%H-%M') | $task | git |  %h  %s" >> $note  &&  git log --format="$(date +'%A | %H:%M') | $task | git |  %h  %s" >> $daily_log  &&  vim $note }
 function daily() { daily_log $@  && arg=$(echo " $(pwd) $@" |sed 's/.Users.TP1.Sites.notes.local.//g'  | sed 's/.Users.TP1/\~/g'); echo "$(date +'%A | %H:%M') | $task | daily note | $arg" >>  $daily_log && vim $daily} 
 function vim_daily() { arg=$(echo " $(pwd) $@" |sed 's/.Users.TP1.Sites.notes.local.//g'  | sed 's/.Users.TP1/\~/g'); echo "$(date +'%A | %H:%M') | $task | daily note | $arg" >>  $daily_log  &&  vim -O $daily $@ }
 function tolog(){  grep -n '^0\|^## ' $daily }
