@@ -55,7 +55,12 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 export PATH=/usr/texbin:/usr/local/bin:$PATH
 export GOPATH=$HOME/go
-source $HOME/ansible-desktop/.env
+
+
+if [ -f $HOME/ansible-desktop/.env ]; then
+  source $HOME/ansible-desktop/.env
+fi
+
 
 export CLICOLOR=1
 export ws="$HOME/_workspace/"
@@ -71,3 +76,4 @@ export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.rvm/bin:$PATH"
 export PATH="/usr/local/rvm/bin:$PATH" # Add RVM to PATH for scripting
+export EDITOR='vim'
