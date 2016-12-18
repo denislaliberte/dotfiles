@@ -72,6 +72,8 @@ function gmg(){ git merge $( git branch | grep $1 | pyp fe ) } # git merge grep 
 alias gpcb="git_pull_current_branch"
 alias pull="git_pull_current_branch"
 function git_push_current_branch() {git push origin $( git rev-parse --abbrev-ref HEAD) }
+function git_log_current_branch() {git log --oneline origin/$( git_branch_name )..$( git_branch_name ) }
+function git_diff_current_branch() {git diff origin/$( git_branch_name )..$( git_branch_name ) }
 alias gpsb="git_push_current_branch"
 alias push="git_push_current_branch"
 function git_pull_current_branch() {git pull origin $( git rev-parse --abbrev-ref HEAD) }

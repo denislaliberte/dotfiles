@@ -1,0 +1,16 @@
+spring rake test
+git diff
+write failling test
+passing test
+git diff
+pronto run --index
+spring rake test
+refactor
+spring rake test
+reset_tools
+git add -A :/
+git commit
+git_log_current_branch
+git_diff_current_branch
+git rebase -i HEAD~10
+checklist tdd
