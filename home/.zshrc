@@ -65,12 +65,8 @@ fi
 export CLICOLOR=1
 export ws="$HOME/_workspace/"
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 export WORKON_ROME=~/Envs
 source /usr/local/bin/virtualenvwrapper.sh
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-source $HOME/note.sh
-source /home/dlaliberte/.homesick/repos/homeshick/homeshick.sh
 
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=$PATH:$GOPATH/bin
