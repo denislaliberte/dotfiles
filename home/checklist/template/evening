@@ -7,4 +7,5 @@ Check email
 Check callendar
 Check trello
 stop toggl
-sudo shutdown -r +5
+sudo shutdown -r +1
+checklist morning

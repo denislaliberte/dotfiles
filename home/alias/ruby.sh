@@ -17,4 +17,6 @@ alias rs="rails server"
 alias rsp="rails server -p"
 alias ru="rvm use"
 alias rudev="rvm use ruby-2.2.0@dev"
-alias re="ruby -e"
+alias rb="ruby -e"
+alias srt=spring_rake_test
+function spring_rake_test(){ spring rake test TEST=$(select_path $1 $2) }

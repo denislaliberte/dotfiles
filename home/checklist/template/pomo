@@ -1,5 +1,5 @@
 "Start pomo"
-osascript -e 'quit app "SLACK"'
+"Close Slack"
 open https://trello.com/b/so3uJL01/kanban
 "Check toggl"
 checklist tdd

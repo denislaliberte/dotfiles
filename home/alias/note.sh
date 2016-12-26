@@ -16,10 +16,12 @@ alias nt="$HOME/scripts/newtask.sh";
 
 function vn(){ vim $note -O $@; }
 function en(){ echo $note && echo "\n  $* " | tee -a  $note; }
-function tdn(){ echo $note && echo "__todo__    |  $*  | **status**  | **détails**   " | tee -a  $note; }
-function qn(){ echo $note && echo "__question__ |  $* ?  | **réponse**  | **détails**    " | tee -a  $note; }
+function tdn(){ echo $note && echo "__todo__    |  $*  | **status**" | tee -a  $note; }
+function qn(){ echo $note && echo "__question__ |  $* ?  | **réponse**" | tee -a  $note; }
 
 function todo(){ clear && resume | grep 'plus tard' && echo '\n\n todo \n' ;grep \*  $s/resume.md | grep -v 'plus tard'; }
+alias vtd=vim_todo
+function vim_todo() { vim +$1 $note;todo | grep todo | tail -8 }
 alias tn="tail $note";
 alias ta="tee -a $note";
 alias vv="vim -O $var $note";

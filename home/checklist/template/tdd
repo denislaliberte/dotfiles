@@ -1,18 +1,10 @@
-add_tools
 todo # last in > first out
 spring rake test
-git diff
 write failling test
-passing test
-git diff
+make the test pass
+refactor
 pronto run --index
 spring rake test
-refactor
-spring rake test
-reset_tools
-git add -A :/
-git commit
-git_log_current_branch
-git_diff_current_branch
+commit
 git rebase -i HEAD~10
 checklist tdd

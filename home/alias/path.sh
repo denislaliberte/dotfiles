@@ -1,6 +1,8 @@
 
 alias lp=list_path
 function list_path(){ for path_file in .ignore/path*.txt; do echo "## ${path_file}";cat ${path_file} | pyp 'pp'; done}
+alias lpg=list_path_grep
+function list_path_grep() { list_path | grep $@}
 
 alias gp=grep_recursive_case_insensitive_path
 function grep_recursive_case_insensitive_path() { np=$(next_path .ignore/path); grep -nri $1 ${2:-*} ; grep -lri $1 ${2:-*}  | sort | tee -a $np;  echo "_____$1_____$np" >> $np;select_path_name $np }
@@ -22,7 +24,8 @@ alias rrp='reverse_rotate_path'
 function reverse_rotate_path() { last=$(tail -n 1 ".ignore/path${2:-1}.txt" ) ; sed -i.ignore "1i$last" ".ignore/path${2:-1}.txt" ; let TRUNCATE_SIZE="${#last} + 1"; truncate -s -"$TRUNCATE_SIZE" ".ignore/path${2:-1}.txt" ;echo $last; select_path : ${2:-1} pp }
 alias hp='head_path'
 function head_path() {head -3 ".ignore/path${2:-1}.txt"}
-
+alias gdp=git_diff_path
+function git_diff_path() { git diff $(select_path $1 $2)}
 alias gdb="git_diff_branch"
 function git_diff_branch(){ echo  $(head -1 branch.txt);git diff $(head -1 branch.txt) ; git diff --name-only $(head -1 branch.txt) | tee ".ignore/path${2:-1}.txt" }
 
