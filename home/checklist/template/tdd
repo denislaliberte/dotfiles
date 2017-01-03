@@ -5,6 +5,7 @@ make the test pass
 refactor
 pronto run --index
 spring rake test
-commit
+git add -A
+git commit
 git rebase -i HEAD~10
 checklist tdd

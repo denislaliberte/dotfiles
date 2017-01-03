@@ -63,10 +63,10 @@ fi
 
 
 export CLICOLOR=1
-export ws="$HOME/_workspace/"
+export ws="$HOME/workspace/"
 
-export WORKON_ROME=~/Envs
-source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/Envs
+#source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=$PATH:$GOPATH/bin

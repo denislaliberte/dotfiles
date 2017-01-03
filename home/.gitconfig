@@ -38,3 +38,5 @@
   trustExitCode = false
 	path = /usr/bin/kdiff3
 	trustExitCode = false
+[commit]
+  template = ~/.gitmessage

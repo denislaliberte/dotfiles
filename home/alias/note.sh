@@ -1,6 +1,6 @@
 echo "note : $note var : $var";
 
-export note_workspace="$HOME/_workspace/notes.local/projects"
+export note_workspace="$HOME/workspace/notes.local/projects"
 
 ## Utils
 function git_root() { basename $(git rev-parse --show-toplevel); }
@@ -19,9 +19,9 @@ function en(){ echo $note && echo "\n  $* " | tee -a  $note; }
 function tdn(){ echo $note && echo "__todo__    |  $*  | **status**" | tee -a  $note; }
 function qn(){ echo $note && echo "__question__ |  $* ?  | **réponse**" | tee -a  $note; }
 
-function todo(){ clear && resume | grep 'plus tard' && echo '\n\n todo \n' ;grep \*  $s/resume.md | grep -v 'plus tard'; }
+function todo(){ clear && resume | grep 'plus tard\|later' && echo '\n\n todo \n' ;grep \*  $s/resume.md | grep -v 'plus tard\|later'; }
 alias vtd=vim_todo
-function vim_todo() { vim +$1 $note;todo | grep todo | tail -8 }
+function vim_todo() { vim +$1 $note;todo | grep 'question\|todo' | tail -8 }
 alias tn="tail $note";
 alias ta="tee -a $note";
 alias vv="vim -O $var $note";
