@@ -19,9 +19,10 @@ function en(){ echo $note && echo "\n  $* " | tee -a  $note; }
 function tdn(){ echo $note && echo "__todo__    |  $*  | **status**" | tee -a  $note; }
 function qn(){ echo $note && echo "__question__ |  $* ?  | **réponse**" | tee -a  $note; }
 
-function todo(){ clear && resume | grep 'plus tard\|later' && echo '\n\n todo \n' ;grep \*  $s/resume.md | grep -v 'plus tard\|later'; }
+function todo(){ clear && resume | grep 'plus tard\|later' && echo '\n\n todo \n'; grep \* $s/resume.md | wc -l ;grep \*  $s/resume.md | grep -v 'plus tard\|later'; }
 alias vtd=vim_todo
 function vim_todo() { vim +$1 $note;todo | grep 'question\|todo' | tail -8 }
+function last_todo() { todo | tail -1 | pyp 'p.split("|")[2]' }
 alias tn="tail $note";
 alias ta="tee -a $note";
 alias vv="vim -O $var $note";
@@ -47,7 +48,7 @@ function vim_daily() { arg=$(echo " $(pwd) $@" |sed 's/.Users.TP1.Sites.notes.lo
 function tolog(){  grep -n '^0\|^## ' $daily }
 alias dl='daily_log'
 function daily_log()  {  echo "0 | $(date +'%m/%d/%Y | %H:%M') | $@"  >> $daily }
-function gac { git add -A :/;git_commit_note " $task $1 " }
+function gac { git add -A :/;git_commit_note "$task : $1 " }
 alias cn="cat $note" 
 alias cng="cat $note |grep -n"
 alias vng="vn $(g ls-files -m)"

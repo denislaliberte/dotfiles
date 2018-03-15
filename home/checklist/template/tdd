@@ -1,11 +1,14 @@
-todo # last in > first out
+todo
 spring rake test
-write failling test
-make the test pass
+red
+green
 refactor
+todo
 pronto run --index
 spring rake test
 git add -A
 git commit
 git rebase -i HEAD~10
+checklist merge
 checklist tdd
+checklist break

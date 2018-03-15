@@ -48,7 +48,8 @@ alias gceg="git config -e --global"
 
 ## git misc
 alias gsp="git stash pop"
-alias gst="git stash"
+alias gst="git stash save -u $1"
+alias gsl="git stash list | cat"
 alias gdt="git difftool"
 alias gre="git reset"
 alias gtl='git tag --list'
@@ -82,5 +83,7 @@ function git_branch_name() { git rev-parse --abbrev-ref HEAD }
 alias gdn=git_diff_name
 function git_diff_name() { git diff $1 --name-only | cat }
 alias glsh=git_log_short
-function git_log_short() { git log --format='%h %an -- %s' }
+function git_log_short() { git log --format='%h %an -- %s' ${1:-HEAD} | tee >(wc -l) |cat  | head -30 }
 
+alias grih=git_rebase_i_head
+function git_rebase_i_head() {git rebase -i HEAD~$1 }

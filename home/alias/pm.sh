@@ -15,7 +15,6 @@ alias bU="brew upgrade"
 alias bud="brew update;brew doctor"
 alias bd="brew doctor"
 alias ai="awm_install" # alfred workflow manager - awm
-alias aws="awm search"
 alias ainf="awm info"
 alias ni="npm_install"
 function npm_install() { package_log npm "-g install $1"}

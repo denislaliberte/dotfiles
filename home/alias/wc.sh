@@ -1,0 +1,1 @@
+alias wcl='wc -l'
