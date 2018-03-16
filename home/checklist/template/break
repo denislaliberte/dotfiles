@@ -1,6 +1,8 @@
-"note complete pomo"
-open -a slack
-"start pomo pause timer"
-"pause"
-"clear browser tables"
+todo
+note complete pomo
+slack
+checklist longbreak
+clear browser tables
+start pomo pause timer
 checklist pomo
+checklist evening
