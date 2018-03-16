@@ -73,3 +73,4 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.rvm/bin:$PATH"
 export PATH="/usr/local/rvm/bin:$PATH" # Add RVM to PATH for scripting
 export EDITOR='vim'
+eval "$(rbenv init -)"

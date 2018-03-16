@@ -74,6 +74,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'bigfish/vim-js-context-coloring'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'easymotion/vim-easymotion'
+Plug 'elixir-lang/vim-elixir'
 
 call plug#end()
 
