@@ -26,7 +26,7 @@ description=$2
 task_name=$task-$(echo $description | sed 's/ /-/g')
 shelf="$project_directory/$year/$month/"
 task_shelf="$project_directory/$year/$month/$date_start--$task"
-branche="feature/$task_name"
+branche="pricing/$task_name"
 note="$project_directory/$year/$month/$date_start--$task_name.md"
 
 if [ -f $note ]; then
@@ -59,12 +59,8 @@ fi
 
 if [ ! -f $note ]; then
 echo "create project template "
-echo "# $task $description $date_start
-
-<!-- shelf : $task_shelf -->
-
-
-  " > $note
+echo "[WIP][pricing] $task $description" > $note
+cat $HOME/.gitmessage >> $note
 fi
 
 echo "create tash shelf $task_shelf"
@@ -78,3 +74,7 @@ git checkout $main_branch && git checkout -b $branche
 
 source $var
 source ~/alias/note.sh
+
+vim $note
+git stash
+git commit --allow-empty

@@ -13,12 +13,14 @@ alias hp='head_path'
 function head_path() {head -3 ".ignore/path${2:-1}.txt"}
 alias spgs=show_path_git_status
 function show_path_git_status() { git status -sb |pyp 'pp[1:] | w[-1]' > .ignore/git_status.txt ; select_path | grep -Ef .ignore/git_status.txt }
+alias spdm=show_path_git_diff_master
+function show_path_git_diff_master() { git diff master --name-only |pyp 'pp[1:] | w[-1]' > .ignore/git_status.txt ; select_path | grep -Ef .ignore/git_status.txt }
 
 #use path
 alias vp='vim_path'
 function vim_path() { vim -O $(select_path ${1:-0} ${2:-1} p) ${@:3} }
 alias gdp=git_diff_path
-function git_diff_path() { git diff $(select_path $1 $2)}
+function git_diff_path() { git diff $(select_path $1 $2) $3}
 alias prgp=pronto_run_grep_path
 function pronto_run_grep_path(){ pronto run | grep -Ef .ignore/path1.txt }
 alias srtp=spring_rake_test_path
@@ -29,16 +31,18 @@ alias berat=bundle_exec_rake_all_test
 function bundle_exec_rake_all_test(){ pronto_run_grep_path; bundle exec rake test }
 alias gcp=git_checkout_path
 function git_checkout_path() { git checkout $(select_path $1) }
+function git_blame_path(){ git blame $(select_path $1)}
+alias gbp=git_blame_path
 
 # add path
 alias gp=grep_recursive_case_insensitive_path
 function grep_recursive_case_insensitive_path() { np=$(next_path .ignore/path); grep -nri $1 ${2:-*} ; grep -lri $1 ${2:-*}  | sort >> $np;  echo "_____$1_____$np" >> $np;select_path_name $np }
-alias gdnp=git_diff_name_path
-function git_diff_name_path(){ np=$(next_path .ignore/path); echo "_____$1_${2:-.}____$np" > $np;git_diff_name $1 | grep -i ${2:-.}  >> $np; select_path_name $np  }
 alias glgp="git_ls_grep_path"
 function git_ls_grep_path() { np=$(next_path .ignore/path); echo "_____$1_____$np" > $np;git ls-files | grep -i $1 >> $np; select_path_name $np}
 alias gsg=git_status_grep
 function git_status_grep() { np=$(next_path .ignore/path); git status -sb | pyp 'pp[1:] | w[-1]' |  grep -i ${1:-.} >> $np; echo "_____git_status_grep_$1_____$np" >> $np; select_path_name $np}
+alias gdnp=git_diff_name_path
+function git_diff_name_path(){ np=$(next_path .ignore/path); git diff ${1:-master} --name-only | grep -i ${2:-.}  >> $np; echo "_____git_diff_${1:-master}_$2____$np" >> $np; select_path_name $np }
 alias ap=add_path
 function add_path() {echo "$1 " | tee -a ".ignore/path${2:-1}.txt" }
 alias gdb="git_diff_branch"

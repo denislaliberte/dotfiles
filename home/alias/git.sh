@@ -58,6 +58,11 @@ alias gtl='git tag --list'
 alias gfc=git_fast_commit
 function git_fast_commit(){ git add -A :/ && git commit -m 'no comment ' }
 
+function git_commit_fixup(){ git commit -a --fixup HEAD; git_log_short master..HEAD }
+alias fu=git_commit_fixup
+function git_commit_fixup_note() {git commit -a --fixup :/note; git_log_short master..HEAD }
+alias fun=git_commit_fixup_note
+
 alias gcg=git_checkout_grep_branch
 function git_checkout_grep_branch(){ git checkout $( git branch | grep $1 | pyp fe ) }
 
@@ -72,7 +77,7 @@ function vglm() {vim -O $(git ls-files -m) $@ }
 function gmg(){ git merge $( git branch | grep $1 | pyp fe ) } # git merge grep branch
 alias gpcb="git_pull_current_branch"
 alias pull="git_pull_current_branch"
-function git_push_current_branch() {git push origin $( git rev-parse --abbrev-ref HEAD) }
+function git_push_current_branch() {echo "git push origin $( git rev-parse --abbrev-ref HEAD) --force # be careful with the --force";git_log_short master..HEAD; git push origin $( git rev-parse --abbrev-ref HEAD); open_github_shopify_compare }
 function git_log_current_branch() {git log --oneline origin/$( git_branch_name )..$( git_branch_name ) }
 function git_diff_current_branch() {git diff origin/$( git_branch_name )..$( git_branch_name ) }
 alias gpsb="git_push_current_branch"
@@ -83,7 +88,8 @@ function git_branch_name() { git rev-parse --abbrev-ref HEAD }
 alias gdn=git_diff_name
 function git_diff_name() { git diff $1 --name-only | cat }
 alias glsh=git_log_short
-function git_log_short() { git log --format='%h %an -- %s' ${1:-HEAD} | tee >(wc -l) |cat  | head -30 }
+function git_log_short() { git log --format='%h %s' ${1:-HEAD} | tee >(wc -l) |cat  | head -30 } # name of the author is %an
+alias glmh='git_log_short master..HEAD'
 
 alias grih=git_rebase_i_head
 function git_rebase_i_head() {git rebase -i HEAD~$1 }

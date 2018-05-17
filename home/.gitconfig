@@ -1,13 +1,13 @@
 [user]
   name = Denis Laliberte
-	email = denis.laliberte@gmail.com
+  email = denis.laliberte@gmail.com
 [color]
   ui = true
 [core]
   excludesfile = ~/.gitignore
   autocrlf = false
   editor = vim
-	filemode = false
+  filemode = false
 [filter "hawser"]
   clean = git hawser clean %f
   smudge = git hawser smudge %f
@@ -16,10 +16,8 @@
   all = true
 [diff]
   tool = kdiff3
-	guitool = kdiff3
 [merge]
   tool = kdiff3
-	tool = kdiff3
 [difftool]
   prompt = false
 [filter "lfs"]
@@ -31,12 +29,10 @@
 [mergetool "kdiff3"]
   path = /usr/bin/kdiff3
   trustExitCode = false
-	path = /usr/bin/kdiff3
-	trustExitCode = false
 [difftool "kdiff3"]
   path = /usr/bin/kdiff3
   trustExitCode = false
-	path = /usr/bin/kdiff3
-	trustExitCode = false
 [commit]
   template = ~/.gitmessage
+[rebase]
+	autosquash = true

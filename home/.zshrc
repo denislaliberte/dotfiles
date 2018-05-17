@@ -1,5 +1,6 @@
 ZSH=~/.oh-my-zsh
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="dracula"
 HIST_STAMPS="yyy-mm-dd"
 plugins=(atom brew brew-cask composer copydir gitfast laravel osx history)
 source $ZSH/oh-my-zsh.sh
@@ -73,8 +74,8 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.rvm/bin:$PATH"
 export PATH="/usr/local/rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR='vim'
-eval "$(rbenv init -)"
 
 fuck () {
     TF_PYTHONIOENCODING=$PYTHONIOENCODING;
@@ -89,3 +90,5 @@ fuck () {
     test -n "$TF_CMD" && print -s $TF_CMD
 }
         
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
