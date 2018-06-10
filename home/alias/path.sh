@@ -2,6 +2,8 @@
 # show path
 alias lp=list_path
 function list_path(){ for path_file in .ignore/path*.txt; do echo "## ${path_file}";cat ${path_file} | pyp 'pp'; done}
+alias lt=list_test
+function list_test(){ list_path_grep test.rb }
 alias lpg=list_path_grep
 function list_path_grep() { list_path | grep $@}
 alias sp='select_path'
@@ -11,25 +13,17 @@ alias spl='select_path_list'
 function select_path_list() { cat ".ignore/path$2.txt" | pyp "[pp[i] for i in ($1)]|$3"}
 alias hp='head_path'
 function head_path() {head -3 ".ignore/path${2:-1}.txt"}
-alias spgs=show_path_git_status
-function show_path_git_status() { git status -sb |pyp 'pp[1:] | w[-1]' > .ignore/git_status.txt ; select_path | grep -Ef .ignore/git_status.txt }
+alias gs=show_path_git_status
+function show_path_git_status() { git status -sb; echo '###'; git status -sb |pyp 'pp[1:] | w[-1]' > .ignore/git_status.txt ; select_path | grep -Ef .ignore/git_status.txt; cat .ignore/git_status.txt | grep -vEf .ignore/path1.txt }
 alias spdm=show_path_git_diff_master
-function show_path_git_diff_master() { git diff master --name-only |pyp 'pp[1:] | w[-1]' > .ignore/git_status.txt ; select_path | grep -Ef .ignore/git_status.txt }
+function show_path_git_diff_master() { git diff origin/master --name-only |pyp 'pp[1:] | w[-1]' > .ignore/git_status.txt ; select_path | grep -Ef .ignore/git_status.txt }
 
 #use path
 alias vp='vim_path'
-function vim_path() { vim -O $(select_path ${1:-0} ${2:-1} p) ${@:3} }
+function vim_path() { vim -O $(select_path ${1:-:} ${2:-1} p) ${@:3} }
 alias gdp=git_diff_path
 function git_diff_path() { git diff $(select_path $1 $2) $3}
-alias prgp=pronto_run_grep_path
-function pronto_run_grep_path(){ pronto run | grep -Ef .ignore/path1.txt }
-alias srtp=spring_rake_test_path
-function spring_rake_test_path() { pronto_run_grep_path; spring_rake_test $1 }
-alias srat=spring_rake_all_test
-function spring_rake_all_test(){ pronto_run_grep_path; spring rake test }
-alias berat=bundle_exec_rake_all_test
-function bundle_exec_rake_all_test(){ pronto_run_grep_path; bundle exec rake test }
-alias gcp=git_checkout_path
+alias gckp=git_checkout_path
 function git_checkout_path() { git checkout $(select_path $1) }
 function git_blame_path(){ git blame $(select_path $1)}
 alias gbp=git_blame_path
@@ -42,7 +36,7 @@ function git_ls_grep_path() { np=$(next_path .ignore/path); echo "_____$1_____$n
 alias gsg=git_status_grep
 function git_status_grep() { np=$(next_path .ignore/path); git status -sb | pyp 'pp[1:] | w[-1]' |  grep -i ${1:-.} >> $np; echo "_____git_status_grep_$1_____$np" >> $np; select_path_name $np}
 alias gdnp=git_diff_name_path
-function git_diff_name_path(){ np=$(next_path .ignore/path); git diff ${1:-master} --name-only | grep -i ${2:-.}  >> $np; echo "_____git_diff_${1:-master}_$2____$np" >> $np; select_path_name $np }
+function git_diff_name_path(){ np=$(next_path .ignore/path); git diff ${1:-origin/master} --name-only | grep -i ${2:-.}  >> $np; echo "_____git_diff_${1:-origin/master}_$2____$np" >> $np; select_path_name $np }
 alias ap=add_path
 function add_path() {echo "$1 " | tee -a ".ignore/path${2:-1}.txt" }
 alias gdb="git_diff_branch"

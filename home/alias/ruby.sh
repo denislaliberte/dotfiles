@@ -21,9 +21,7 @@ alias ru="rvm use"
 alias rudev="rvm use ruby-2.2.0@dev"
 alias rb="ruby -e"
 alias srt=spring_rake_test
-function spring_rake_test(){ spring rake test TEST=$(select_path $1 $2) && pronto run --index }
 alias brt=bundle_rake_test
-function bundle_rake_test(){ pronto run --index && select_path $1 $2 && bundle exec rake test TEST=$(select_path $1 $2) TESTOPTS='--verbose' }
 alias srls='bundle exec spring rails'
 alias srails='spring rails'
 alias srake='spring rake'

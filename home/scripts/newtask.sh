@@ -5,8 +5,8 @@ function project_directory() { echo "$note_workspace/$(git_root)"; }
 
 project_directory="$(project_directory)"
 
-if [ "x$1" == "x" ] || [ "x$2" == "x" ]; then
-  echo "Usage: ${0} task description"
+if [ "x$1" == "x" ]; then
+  echo "Usage: ${0} task"
   exit 0
 fi
 
@@ -21,11 +21,10 @@ source $project_directory/var.sh
 date_start=$(date +%Y-%m-%d)
 month=$(date +%m)
 year=$(date +%Y)
-task=$1
-description=$2
-task_name=$task-$(echo $description | sed 's/ /-/g')
+description="$@"
+task_name=$(echo $description | sed 's/ /-/g')
 shelf="$project_directory/$year/$month/"
-task_shelf="$project_directory/$year/$month/$date_start--$task"
+task_shelf="$project_directory/$year/$month/$date_start--$task_name"
 branche="pricing/$task_name"
 note="$project_directory/$year/$month/$date_start--$task_name.md"
 
@@ -34,10 +33,9 @@ if [ -f $note ]; then
   exit 0
 fi
 
-echo "Create task variables $task $description"
+echo "Create task variables $task_name"
 echo "
-### $task $description
-export task=$task
+### $description
 export task_name=$task_name
 export date_start=$date_start
 export branche=$branche
@@ -59,7 +57,7 @@ fi
 
 if [ ! -f $note ]; then
 echo "create project template "
-echo "[WIP][pricing] $task $description" > $note
+echo "[WIP][pricing] $description" > $note
 cat $HOME/.gitmessage >> $note
 fi
 

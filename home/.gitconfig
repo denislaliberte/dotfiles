@@ -30,9 +30,12 @@
   path = /usr/bin/kdiff3
   trustExitCode = false
 [difftool "kdiff3"]
-  path = /usr/bin/kdiff3
+  path = /usr/local/bin/kdiff3
   trustExitCode = false
 [commit]
   template = ~/.gitmessage
 [rebase]
 	autosquash = true
+[alias]
+	context = blame
+	ctx = blame

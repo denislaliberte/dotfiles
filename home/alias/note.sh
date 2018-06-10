@@ -58,3 +58,5 @@ alias vg="cat $var |grep"
 alias vgt="grep $task $var"
 alias fm="file_map"
 export sc="$HOME/scripts"
+function grep_var(){ grep ${1:-export} $var }
+alias gv=grep_var
