@@ -118,3 +118,7 @@ function git_log_author(){ git log --author=Denis.Laliberte --all --format='%h %
 alias gla=git_log_author
 
 
+function git_root() { basename $(git rev-parse --show-toplevel); }
+
+function git_log_all(){git log --all  --format='%h %f' | grep $@ }
+alias glal=git_log_all

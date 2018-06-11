@@ -1,50 +1,20 @@
-##commande de bases
-alias gis="gisele"
-alias cpr="cp -r"
-alias t3="tree -L 3"
-alias t2="tree -L 2"
-alias s="source"
+alias ag=alias_grep # find an alias  -  ex. `ag git.commit`  ->  return all git commit alias
+function alias_grep(){ grep  -ni "$*" ~/alias/* }
+
+alias va=vim_alias # edit an alias file  -  ex. `va git`  ->  `vim ~/alias/git.sh` to quickly and an alias
+function vim_alias(){ vim ~/alias/$1.sh }
+
 alias sz="source ~/.zshrc"
-alias ag="shellaliasgrep" #alias grep
-alias c="cd"
-alias clr="clear && pwd"
-alias ch="chmod"
-alias ic="ifconfig"
-alias mkd="mkdir"
-alias o="open"
-alias open="echo '##### use o #####' && open"
-alias p="pwd"
-alias rmr="sudo rm -r"
-alias va="vim_alias"
-alias vh="vim_hc"
-alias wg="wget"
-alias wh="which"
-function whh(){ which $(which $1 |pyp wl) | pyp 'pp[1:-1]|p'}
-alias uz="unzip"
-alias e="echo"
-alias fd="find"
-alias tw="tee >(wc -l)"
-function hosts(){ sudo echo " 127.0.0.1 $1" >> /etc/hosts }
-export www=~/Sites/
-export w=~/Sites/
-export etc=~/Sites/_etc
-export gol=$w/tp1/tp1-gitolite-admin/conf/gitolite.conf
-export gg=~/.gitgot
 
-#echo "$ ag || va"
-alias k="keep"
-function keep() { tee  ~/.keep | tee >(wc -l) | head -40}
-alias vk="vim -O ~/.keep"
-alias kp="keep_print"
-function keep_print() { cat ~/.keep }
-alias kf='keep_files'
-function keep_files() { cat ~/.keep | awk -F ':' '{print $1}' |sort |uniq }
-alias c2s=command2script
-function command2script() {echo "$(fc -ln -1)" | tee -a script.ignore }
-alias t=tail
-alias h=head
-alias rmd=rmdir
-alias md5=md5sum
-function quit(){ osascript -e \'quit app \"$1\"\'}
+alias wh=which_definition # return the definition of a function with an alias  -  ex. `wh wh`  ->  return `which $(which $1 |pyp wl) | pyp 'pp[1:-1]|p'`
+function which_definition(){ which $(which $1 |pyp wl) | pyp 'pp[1:-1]|p'}
 
+function history_grep() { fc -l 1 | grep $* }
+function h5() { history_grep $1 | tail -5 }
+function h15() { history_grep $1 | tail -15 }
+function h33() { history_grep $1 | tail -33 }
+
+function frequent_used_command_grep(){history| grep $1 |awk '{print $3}' | awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -30 }
+
+function frequent_used_command(){ history |awk '{print $2}'| pyp "len(p) > 2" | awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -rn|head -100 | pyp "int(w[0]) > 30" }
 

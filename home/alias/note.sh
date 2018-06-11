@@ -1,16 +1,12 @@
-echo "note : $note var : $var";
+echo "note : $note";
 
 export note_workspace="$HOME/workspace/notes.local/projects"
 
 ## Utils
-function git_root() { basename $(git rev-parse --show-toplevel); }
 function project_directory() { echo "$note_workspace/$(git_root)"; }
 
 alias np="new_project";
-function new_project() { mkdir -p $(project_directory)  && touch "$(project_directory)/var.sh" && echo $(project_directory); }
-
-alias sv="source_var";
-function source_var(){ var="$note_workspace/$(git_root)/var.sh" && echo "source $var" && source $var  && source ~/alias/note.sh source; }
+function new_project() { mkdir -p $(project_directory)  && touch var_path  && echo $(project_directory); }
 
 alias nt="$HOME/scripts/newtask.sh";
 
@@ -25,7 +21,6 @@ function vim_todo() { vim +$1 $note;todo | grep 'question\|todo' | tail -8 }
 function last_todo() { todo | tail -1 | pyp 'p.split("|")[2]' }
 alias tn="tail $note";
 alias ta="tee -a $note";
-function vv(){ vim $var -O $@;}
 
 
 export notes_folder=$HOME/Sites/notes.local/
@@ -53,10 +48,5 @@ alias cn="cat $note"
 alias cng="cat $note |grep -n"
 alias vng="vn $(g ls-files -m)"
 alias gcm="git_commit_note $1"
-alias cv="cat $var"
-alias vg="cat $var |grep"
-alias vgt="grep $task $var"
 alias fm="file_map"
 export sc="$HOME/scripts"
-function grep_var(){ grep ${1:-export} $var }
-alias gv=grep_var

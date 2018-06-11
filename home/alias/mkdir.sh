@@ -1,0 +1,1 @@
+alias mkd="mkdir"
