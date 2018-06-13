@@ -2,8 +2,8 @@
 # show path
 alias lp=list_path
 function list_path(){ for path_file in .ignore/path*.txt; do echo "## ${path_file}";cat ${path_file} | pyp 'pp'; done}
-alias lt=list_test # usage lt; return list of test
-function list_test(){ list_path| grep test.rb | grep ${1:-.} }
+alias lt=list_test # ex. `$ lt`  ->  return list of test in .ignore/path*.txt txt
+function list_test(){ list_path| grep test.rb | grep ${1:-test} }
 alias lpg=list_path_grep
 function list_path_grep() { list_path | grep $@}
 alias sp='select_path'

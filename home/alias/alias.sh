@@ -7,7 +7,7 @@ function vim_alias(){ vim ~/alias/$1.sh }
 alias sz="source ~/.zshrc"
 
 alias wh=which_definition # return the definition of a function with an alias  -  ex. `wh wh`  ->  return `which $(which $1 |pyp wl) | pyp 'pp[1:-1]|p'`
-function which_definition(){ which $(which $1 |pyp wl) | pyp 'pp[1:-1]|p'}
+function which_definition(){which $1; which $(which $1 |pyp wl) | pyp 'pp[1:-1]|p'}
 
 function history_grep() { fc -l 1 | grep $* }
 function h5() { history_grep $1 | tail -5 }

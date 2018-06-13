@@ -1,5 +1,8 @@
-#!/bin/bash
+#!/bin/sh
+
 source $HOME/alias/note.sh
+
+function git_root() { basename $(git rev-parse --show-toplevel); }
 
 function project_directory() { echo "$note_workspace/$(git_root)"; }
 
