@@ -20,7 +20,7 @@ function devclone(){ dev clone Shopify/${1:-shopify}; git checkout origin/master
 alias dcs="dev cd shopify"
 alias dcp="dev cd partners"
 alias dci="dev cd identity"
-alias dup="dev up"
+alias u="dev up" # old dup # Install and start everything necessary for an app to run.
 function dev_test(){ dev test $(select_path $1 ${3:-1}) -n ${2:-/test/} }
 alias dt=dev_test
 alias dta="dev test"

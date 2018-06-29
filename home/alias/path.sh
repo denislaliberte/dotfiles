@@ -2,9 +2,9 @@
 # show path
 alias lp=list_path
 function list_path(){ for path_file in .ignore/path*.txt; do echo "## ${path_file}";cat ${path_file} | pyp 'pp'; done}
-alias lt=list_test # ex. `$ lt`  ->  return list of test in .ignore/path*.txt txt
+alias lt=list_test # ex. `$ lt`  ->  return list of test in .ignore/path*.txt
 function list_test(){ list_path| grep test.rb | grep ${1:-test} }
-alias lpg=list_path_grep
+alias lg=list_path_grep # old lpg # ex.  `$ lg example`  ->  return all path that match example in .ignore/path*.txt
 function list_path_grep() { list_path | grep $@}
 alias sp='select_path'
 function select_path() { ([[ $1 =~ ',' ]] && select_path_list $1 ${2:-1} ${3:-pp} ) || select_path_index ${1:-:} ${2:-1} ${3:-pp}  }
@@ -30,7 +30,7 @@ alias gbp=git_blame_path
 # add path
 alias gp=grep_recursive_case_insensitive_path
 function grep_recursive_case_insensitive_path() { np=$(next_path .ignore/path); grep -nri $1 ${2:-*} ; grep -lri $1 ${2:-*}  | sort >> $np;  echo "_____$1_____$np" >> $np;select_path_name $np }
-alias glgp="git_ls_grep_path"
+alias gl="git_ls_grep_path" #   previously glgp #  `$ gl example`  ->  send all file path from the git index in the .ignore/path*.txt file
 function git_ls_grep_path() { np=$(next_path .ignore/path); echo "_____$1_____$np" > $np;git ls-files | grep -i $1 >> $np; select_path_name $np}
 alias gsg=git_status_grep
 function git_status_grep() { np=$(next_path .ignore/path);git_status_files |  grep -i ${1:-.} >> $np; echo "_____git_status_grep_$1_____$np" >> $np; select_path_name $np}
@@ -46,13 +46,13 @@ function git_checkout_path(){git checkout $(select_path_index $1 ${2:-1})}
 # modify path
 alias pp='pop_path'
 function pop_path() { head -${1:-1} ".ignore/path${2:-1}.txt";sed -i.ignore "1,${1:-1}d" ".ignore/path${2:-1}.txt"; select_path }
-alias rp='rotate_path'
+alias rop='rotate_path'
 function rotate_path() { head -${1:-1} ".ignore/path${2:-1}.txt" | tee -a ".ignore/path${2:-1}.txt" ;sed -i.ignore "1,${1:-1}d" ".ignore/path${2:-1}.txt"; select_path : ${2:-1} pp}
 alias rrp='reverse_rotate_path'
 function reverse_rotate_path() { last=$(tail -n 1 ".ignore/path${2:-1}.txt" ) ; sed -i.ignore "1i$last" ".ignore/path${2:-1}.txt" ; let TRUNCATE_SIZE="${#last} + 1"; truncate -s -"$TRUNCATE_SIZE" ".ignore/path${2:-1}.txt" ;echo $last; select_path : ${2:-1} pp }
 alias mp=merge_path
 function merge_path() { cat .ignore/path*.txt | LC_ALL=C  sort | uniq | grep -v ignore > temp.txt; rm .ignore/path*txt; mv temp.txt .ignore/path1.txt; select_path }
-alias rmp=rm_path
+alias rp=rm_path # previously rop # ex.  `$ rp`  ->  remove all file .ignore/path*.txt
 function rm_path() { rm .ignore/path${1:-*}.txt }
 
 

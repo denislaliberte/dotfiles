@@ -17,7 +17,7 @@ function gac() { git add -A :/; git commit -m $@ }
 
 ## git information
 alias gs="git status -sb"
-alias gl="git log --oneline "
+alias glo="git log --oneline "
 alias gbl="git blame"
 alias gd="git diff"
 alias gdm="git diff origin/master"
