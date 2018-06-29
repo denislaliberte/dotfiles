@@ -39,6 +39,10 @@ function git_diff_name_path(){ np=$(next_path .ignore/path); git diff ${1:-origi
 alias gdb="git_diff_branch"
 
 
+alias gcp=git_checkout_path
+function git_checkout_path(){git checkout $(select_path_index $1 ${2:-1})}
+
+
 # modify path
 alias pp='pop_path'
 function pop_path() { head -${1:-1} ".ignore/path${2:-1}.txt";sed -i.ignore "1,${1:-1}d" ".ignore/path${2:-1}.txt"; select_path }

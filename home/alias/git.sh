@@ -3,7 +3,6 @@
 export om="origin/master"
 
 ## git remote
-alias gcl="git clone "
 alias gf="git fetch"
 alias gfa="git fetch --all"
 alias gfm="git fetch origin master"
@@ -13,6 +12,8 @@ alias grpo="git remote prune origin"
 alias gpul="git pull"
 alias gpu="git push"
 alias grr="git remote remove"
+
+function gac() { git add -A :/; git commit -m $@ }
 
 ## git information
 alias gs="git status -sb"
@@ -25,13 +26,13 @@ alias gls="git ls-files"
 alias glf="git ls-files"
 alias glfg="git ls-files | grep"
 
-## git commit
 alias cmt="git commit"
 alias amd="git commit --amend"
+alias uane=update_amend_no_edit
+function update_amend_no_edit(){ git add -u :/; git commit --amend --no-edit}
 alias ga="git add"
 alias gau="git add -u :/"
 
-## git branch
 alias gc="git checkout "
 alias gcb="git checkout -b"
 alias gcd='git checkout develop'
@@ -104,9 +105,6 @@ alias fu=git_commit_fixup
 
 alias gsc=git_show_commits
 function git_show_commits(){ git show $(cat .ignore/git_commits.txt | pyp "pp[${1:-0}]|w[0]")}
-
-
-
 alias gr="git rebase"
 alias grc="git rebase --continue"
 alias gra="git rebase --abort"
@@ -114,20 +112,14 @@ alias grih=git_rebase_i_head
 function git_rebase_i_head(){ git rebase -i HEAD~${1:-2} }
 alias gro=git_rebase_origin
 function git_rebase_origin(){ git fetch origin ${1:-master}; git rebase origin/${1:-master}}
-alias gcp="git cherry-pick"
 function number_of_commit(){ git shortlog -s -n  --no-merges | grep -i denis.laliberte }
 function score(){  git log --author="Denis Laliberte" --pretty=tformat: --numstat --no-merges $1 | awk '{inserted+=$1; deleted+=$2; delta+=$1-$2; ratio=deleted/inserted} END {printf "Commit stats:\n- Lines added (total)....  %s\n- Lines deleted (total)..  %s\n- Total lines (delta)....  %s\n- Add./Del. ratio (1:n)..  1 : %s\n", inserted, deleted, delta, ratio }' -}
 
 function score_all() {number_of_commit;echo application; score $a; echo test; score $t; echo all; score }
-
 function code_churn(){ echo "churn of last ${2:-15000} commits"; git show --format='%cr' HEAD~${2:-15000} | tee;  git log --all -n ${2:-15000} -M -C --name-only | grep -E $1 | sort | uniq -c | sort |  tail -10}
-
-function git_log_author(){ git log --author=Denis.Laliberte --all --format='%h %f' }
+function git_log_author(){ git log --author=Denis.Laliberte --all --format='%h %f'  | grep $@}
 alias gla=git_log_author
-
-
 function git_root() { basename $(git rev-parse --show-toplevel); }
-
 function git_log_all(){ git log --all  --format='%h %f' | grep $@ }
 alias glal=git_log_all
 

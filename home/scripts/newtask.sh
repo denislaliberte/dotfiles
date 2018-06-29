@@ -1,4 +1,9 @@
-#!/bin/sh
+#!/bin/zsh
+
+if [ "x$1" = "x" ]; then
+  echo "Usage: ${0} task"
+  exit 0
+fi
 
 source $HOME/alias/note.sh
 
@@ -7,11 +12,6 @@ function git_root() { basename $(git rev-parse --show-toplevel); }
 function project_directory() { echo "$note_workspace/$(git_root)"; }
 
 project_directory="$(project_directory)"
-
-if [ "x$1" == "x" ]; then
-  echo "Usage: ${0} task"
-  exit 0
-fi
 
 var=$project_directory/var.sh
 if [ ! -f $var ]; then
@@ -40,16 +40,10 @@ echo "Create task variables $task_name"
 echo "
 ### $description
 export task_name=$task_name
-export date_start=$date_start
 export branche=$branche
-export b=$branche
-export month=$month
 export shelf=$shelf
 export task_shelf=$task_shelf
 export note=$note
-export note_log=$note_log
-export s=$task_shelf
-export r=$task_shelf/resume.md
 export n=$note
 " >> $var
 
@@ -60,7 +54,7 @@ fi
 
 if [ ! -f $note ]; then
 echo "create project template "
-echo "[WIP][pricing] $description" > $note
+echo "[pricing] $description" > $note
 cat $HOME/.gitmessage >> $note
 fi
 
