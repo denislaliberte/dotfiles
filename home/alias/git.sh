@@ -1,4 +1,4 @@
-alias uane=update_amend_no_edit
+alias ane=update_amend_no_edit
 function update_amend_no_edit(){ git add -u :/; git commit --amend --no-edit}
 function gac() { git add -A :/; git commit -m $@ }
 alias gfc=git_fast_commit
@@ -7,33 +7,25 @@ function git_commit_fixup_rebase(){ git commit -a --fixup HEAD;git_rebase_i_head
 alias fur=git_commit_fixup_rebase
 function git_commit_fixup_note(){ git commit -a --fixup :/note; git_log_short origin/master..HEAD }
 alias fun=git_commit_fixup_note
-alias gcg=git_checkout_grep_branch
-function git_checkout_grep_branch(){ git checkout $( git branch | grep $1 | pyp fe ) }
 function gdg() { git diff $( git_ls_grep $1) }
 alias glg="git_ls_grep"
 function git_ls_grep() { git ls-files | grep -i $1  }
-function gmg(){ git merge $( git branch | grep $1 | pyp fe ) } # git merge grep branch
 alias gpcb="git_pull_current_branch"
 alias pull="git_pull_current_branch"
-function git_push_current_branch(){ echo "git push origin $( git rev-parse --abbrev-ref HEAD) --force # be careful with the --force"; dev_style; git_log_short origin/master..HEAD; git push origin $( git rev-parse --abbrev-ref HEAD); open_github_shopify_compare }
 function git_log_current_branch() { git log --oneline origin/$( git_branch_name )..$( git_branch_name ) }
 function git_diff_current_branch() { git diff origin/$( git_branch_name )..$( git_branch_name ) }
+alias p=git_push_current_branch
 alias gpsb="git_push_current_branch"
-alias push="git_push_current_branch"
+function git_push_current_branch(){ echo "git push origin $( git rev-parse --abbrev-ref HEAD) --force # be careful with the --force"; dev_style; git_log_short origin/master..HEAD; git push origin $( git rev-parse --abbrev-ref HEAD); dev open pr; }
+alias push="deprecated p"
 function git_pull_current_branch() { git pull origin $( git rev-parse --abbrev-ref HEAD) }
 alias gbn=git_branch_name
 function git_branch_name() { git rev-parse --abbrev-ref HEAD }
 alias gdn=git_diff_name
 function git_diff_name() { git diff $1 --name-only | cat }
 alias glsh=git_log_short
-function git_log_short(){ git log --format='%h %f' ${1:-HEAD} | tee >(wc -l) |cat  | head -30 }
+function git_log_short(){ git log --format='%h %ar %f' ${1:-HEAD} | tee >(wc -l) |cat  | head -30 }
 function git_log_master(){ git_log_short origin/master..${1:-HEAD} }
-alias glm='git_log_master_save'
-function git_log_master_save(){ git_log_master; git_log_master | pyp 'pp[:-1]|p' > .ignore/git_commits.txt; cat .ignore/git_commits.txt | pyp 'pp';echo '$ gsc i' }
-function git_commit_fixup(){ git commit -a --fixup HEAD; git_log_master_save }
-alias fu=git_commit_fixup
-alias gsc=git_show_commits
-function git_show_commits(){ git show $(cat .ignore/git_commits.txt | pyp "pp[${1:-0}]|w[0]")}
 alias grih=git_rebase_i_head
 function git_rebase_i_head(){ git rebase -i HEAD~${1:-2} }
 alias gro=git_rebase_origin
@@ -49,7 +41,6 @@ function git_log_all(){ git log --all  --format='%h %f' | grep $@ }
 alias glal=git_log_all
 export om="origin/master"
 alias gfm="git fetch origin master"
-alias gs="git status -sb"
 alias gd="git diff"
 alias gdm="git diff origin/master"
 alias gsh="git show"
@@ -59,18 +50,10 @@ alias ga="git add"
 alias gau="git add -u :/"
 alias gc="git checkout "
 alias gcb="git checkout -b"
-alias gcd='git checkout develop'
 alias gm="git merge"
-alias gbanm="git branch --all --no-merged"
-alias gbnm="git branch --no-merged"
 alias gbd="git branch -d"
-alias gbs="git branch --set-upstream-to="
-alias gbv="git branch -v"
 alias gce="git config -e"
 alias gceg="git config -e --global"
-alias gsp="git stash pop"
-alias gst="git stash save -u $1"
-alias gsl="git stash list | cat"
 alias gdt="git difftool"
 alias gre="git reset"
 alias gtl='git tag --list'

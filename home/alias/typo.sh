@@ -29,3 +29,4 @@ alias van="echo 'va' && va"
 alias gP="gpu"
 alias gPm="Gpm"
 alias gh='hg'
+alias svp=spv

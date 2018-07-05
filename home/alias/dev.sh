@@ -21,8 +21,11 @@ alias dcs="dev cd shopify"
 alias dcp="dev cd partners"
 alias dci="dev cd identity"
 alias u="dev up" # old dup # Install and start everything necessary for an app to run.
-function dev_test(){ dev test $(select_path $1 ${3:-1}) -n ${2:-/test/} }
-alias dt=dev_test
+
+alias dt=select_path_dev_test
+alias spdt=select_path_dev_test
+function select_path_dev_test(){ dev test $(select_path $1 ${3:-1}) -n ${2:-/test/} }
+
 alias dta="dev test"
 function dev_server(){ dev open internal; dev server}
 alias ds=dev_server

@@ -1,13 +1,12 @@
-Terminal workbench
+dotfiles
 ==================
 
-Vous trouverez ici les fichier de configuration, scripts, et alias qui constitue
-mon environnement de travail.
 
 Installation
 --------
+```
 $ gem install homesick
-$ homesick clone DenisLaliberte/homesick_castle
+$ homesick clone DenisLaliberte/dotfiles
+```
 
 [ homesick ](https://github.com/technicalpickles/homesick)
-

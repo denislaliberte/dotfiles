@@ -5,3 +5,7 @@ function hub_issue() {  hub issue -a denislaliberte -f '%i  |  %U  |  %l  |  %t%
 alias ghc="hub create" #git hub create
 alias hc="hub clone"
 alias hcr="hub create"
+alias hl=hub_label
+function hub_label() { hub issue labels --color | grep ${1:-pricing} }
+alias hic=hub_issue_create # ex. `hic pricing/features,pricing/bogo denislaliberte` -> will create a issue with the labels and the assigne, edit with vim and open in the browser
+function hub_issue_create() {  hub issue create -o --edit -a ${2:-denislaliberte} -l ${1:-pricing/features} }
