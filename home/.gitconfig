@@ -4,7 +4,6 @@
 [color]
   ui = true
 [core]
-  excludesfile = ~/.gitignore
   autocrlf = false
   editor = vim
   filemode = false

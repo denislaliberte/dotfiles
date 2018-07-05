@@ -1,9 +1,0 @@
-.ignore/git_status.txt
-.ignore/path1.txt
-.ignore/path2.txt
-.ignore/path3.txt
-.ignore/path4.txt
-.ignore/path5.txt
-home/alias/path.sh
-home/functions/cs.sh
-home/functions/saved_path.sh
