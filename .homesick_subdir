@@ -2,3 +2,4 @@
 workspace
 checklist
 checklist/template
+.config/git
