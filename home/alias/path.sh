@@ -2,6 +2,7 @@ alias sph=saved_path_help
 function saved_path_help(){
   echo '
     $ sph vim -> show help line that match the regex /vim/
+    $ spgl models ->  save all path in the git ls-files that match /models/
     $ sp -> show saved path indexed
     $ spv 1 -> edit the saved path at the index 1 with vim
     $ spt -> show saved path that match /test/ indexed
@@ -50,9 +51,11 @@ function git_blame_path(){ git blame $(select_path $1)}
 alias gbp=git_blame_path
 alias gp=grep_recursive_case_insensitive_path
 function grep_recursive_case_insensitive_path() { np=$(next_path .ignore/path); grep -nri $1 ${2:-*} ; grep -lri $1 ${2:-*}  | sort >> $np;  echo "_____$1_____$np" >> $np;select_path_name $np }
-alias gl="git_ls_grep_path" #   previously glgp #  `$ gl example`  ->  send all file path from the git index in the .ignore/path*.txt file
+
+alias gl=save_path_git_ls
+alias spgl=save_path_git_ls
 alias glgp="deprecated gl"
-function git_ls_grep_path() { np=$(next_path .ignore/path); echo "_____$1_____$np" > $np;git ls-files | grep -i $1 >> $np; select_path_name $np}
+function save_path_git_ls() { np=$(next_path .ignore/path); echo "_____$1_____$np" > $np;git ls-files | grep -i $1 >> $np; select_path_name $np}
 
 function git_status_files() {  git status -sb |pyp 'pp[1:] | w[-1]' }
 alias gsg=git_status_grep # capture all changed file path in git to the next .ignore/pathN.txt file
