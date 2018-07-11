@@ -13,6 +13,8 @@ alias nt="$HOME/scripts/newtask.sh";
 function vn(){ vim $note -O $@; }
 function en(){ echo $note && echo "- $*" | tee -a  $note; }
 function tdn(){ echo $note && echo "- [ ]  $*" | tee -a  $note; }
+# tdnc command -> add ToDo to Note with a Command to check
+function tdnc(){ echo $note && echo "- [ ] check \$ $*" | tee -a  $note; }
 function qn(){ echo $note && echo "- Q. $* ? | A." | tee -a  $note; }
 
 alias t=todo # return todo and open questions from notes
@@ -23,13 +25,6 @@ alias vt=vim_todo
 alias vtd="deprecated vt"
 function vim_todo(){ vim +$1 $note;todo | tail -8 }
 
-alias cn=execute_command_from_note
-function execute_command_from_note(){ command=$(sed "$1!d" $note | sed -n -e 's/^.*\$//p') ;  echo $command; eval $command}
-alias cnl=command_note_list # ex. `cnl` -> return all line with command identified with $ in the note file
-function command_note_list() { grep -n '\$' $note | grep ${1:-.} | grep '\$' }
-
-alias cl=command_last #execute the last command of the $note file
-function command_last() {  command_note_list | tail -1 | sed -n -e 's/^.*\$//p';  $( command_note_list | tail -1 | sed -n -e 's/^.*\$//p' ) }
 
 function last_todo(){ todo | tail -1 | pyp 'p.split("|")[2]' }
 alias tn="tail $note";

@@ -55,11 +55,10 @@ call matchadd('ColorColumn', '\%81v', 100)
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/syntastic'
-Plug 'plasticboy/vim-markdown',  {'rtp': 'vim/'}
+"Plug 'plasticboy/vim-markdown',  {'rtp': 'vim/'}
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 Plug 'itspriddle/vim-jquery'

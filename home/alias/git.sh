@@ -1,10 +1,13 @@
 alias ane=update_amend_no_edit
 function update_amend_no_edit(){ git add -u :/; git commit --amend --no-edit}
+
 function gac() { git add -A :/; git commit -m $@ }
 alias gfc=git_fast_commit
 function git_fast_commit(){ git add -A :/ && git commit -m 'no comment ' }
-function git_commit_fixup_rebase(){ git commit -a --fixup HEAD;git_rebase_i_head }
+
 alias fur=git_commit_fixup_rebase
+function git_commit_fixup_rebase(){ git commit -a --fixup HEAD;git_rebase_i_head ${1:-2} }
+
 function git_commit_fixup_note(){ git commit -a --fixup :/note; git_log_short origin/master..HEAD }
 alias fun=git_commit_fixup_note
 function gdg() { git diff $( git_ls_grep $1) }
@@ -24,7 +27,7 @@ function git_branch_name() { git rev-parse --abbrev-ref HEAD }
 alias gdn=git_diff_name
 function git_diff_name() { git diff $1 --name-only | cat }
 alias glsh=git_log_short
-function git_log_short(){ git log --format='%h %ar %f' ${1:-HEAD} | tee >(wc -l) |cat  | head -30 }
+function git_log_short(){ git log --format='%h  "%ar"  %f' ${1:-HEAD} | tee >(wc -l) |cat  | head -30 }
 function git_log_master(){ git_log_short origin/master..${1:-HEAD} }
 alias grih=git_rebase_i_head
 function git_rebase_i_head(){ git rebase -i HEAD~${1:-2} }
