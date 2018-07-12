@@ -12,7 +12,6 @@ alias bl="brew list"
 alias bs="brew search"
 alias bu="brew update"
 alias bU="brew upgrade"
-alias bud="brew update;brew doctor"
 alias bd="brew doctor"
 alias ai="awm_install" # alfred workflow manager - awm
 alias ainf="awm info"
@@ -25,7 +24,3 @@ alias pi="pip_install"
 alias pis="pip search"
 function my_gem_install { package_log gem "install $1"}
 alias mgi="my_gem_install"
-# add alias to go get
-# add alias tu hub clone
-# add set -v to package manager files#echo "## gem install 'git_stats'        ## " && gem install 'git_stats'
-## todo add alias to apm package manager

@@ -2,7 +2,7 @@ ZSH=~/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="dracula"
 HIST_STAMPS="yyy-mm-dd"
-plugins=(atom brew brew-cask composer copydir gitfast laravel osx history)
+plugins=(atom brew brew-cask copydir gitfast laravel osx history)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
