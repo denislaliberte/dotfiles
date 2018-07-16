@@ -1,5 +1,5 @@
 # can -> git Commit Ammend No edit
-function update_amend_no_edit(){
+function can(){
   git add -u :/
   git commit --amend --no-edit
 }

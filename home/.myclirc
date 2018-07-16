@@ -116,6 +116,7 @@ Token.Toolbar.Arg.Text = nobold
 # Favorite queries.
 [favorite_queries]
 pr = describe price_rules
+us = use shopify_dev_shard_0
 
 # DNS to call by -d option
 [alias_dsn]

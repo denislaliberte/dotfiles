@@ -22,7 +22,7 @@ alias dcp="dev cd partners"
 alias dci="dev cd identity"
 alias u="dev up" # old dup # Install and start everything necessary for an app to run.
 
-alias dt=select_path_dev_test
+alias dt="deprecated spt"
 
 alias dta="dev test"
 function dev_server(){ dev open internal; dev server}

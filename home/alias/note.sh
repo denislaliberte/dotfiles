@@ -1,12 +1,4 @@
-echo "note : $note";
 
-export note_workspace="$HOME/workspace/notes.local/projects"
-
-## Utils
-function project_directory(){ echo "$note_workspace/$(git_root)"; }
-
-alias np="new_project";
-function new_project(){ mkdir -p $(project_directory)  && touch var_path  && echo $(project_directory); }
 
 alias nt="$HOME/scripts/newtask.sh";
 

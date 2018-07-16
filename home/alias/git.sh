@@ -1,4 +1,4 @@
-alias ane="deprecate can"
+alias ane="deprecated can"
 alias push="deprecated p"
 alias gac="deprecated  ca"
 alias gfc="deprecated cf"
@@ -25,7 +25,7 @@ function git_log_short(){ git log --format='%h  "%ar"  %f' ${1:-HEAD} | tee >(wc
 function git_log_master(){ git_log_short origin/master..${1:-HEAD} }
 alias grih=git_rebase_i_head
 function git_rebase_i_head(){ git rebase -i HEAD~${1:-2} }
-alias gro=git_rebase_origin
+alias gro='deprecated ro'
 function number_of_commit(){ git shortlog -s -n  --no-merges | grep -i denis.laliberte }
 function git_log_author(){ git log --author=Denis.Laliberte --all --format='%h %f'  | grep $@}
 alias gla=git_log_author
