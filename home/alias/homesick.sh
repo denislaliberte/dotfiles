@@ -1,4 +1,4 @@
-
+alias hs=homesick
 alias hd="homesick diff hc"
 alias hlh="homesick link hc"
 alias hph="homesick pull hc"
