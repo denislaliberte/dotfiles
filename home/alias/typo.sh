@@ -22,10 +22,6 @@ alias gdanm="echo 'gbanm' && gbanm"
 #tgz
 #srdb cli
 #mds
-alias a="echo 'ag' && ag"
-alias ca="echo 'va' && va"
-alias vas="echo 'va' && va"
-alias van="echo 'va' && va"
 alias gP="gpu"
 alias gPm="Gpm"
 alias gh='hg'

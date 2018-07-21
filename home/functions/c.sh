@@ -33,3 +33,11 @@ function cfn(){
   git commit -a --fixup :/note
   git_log_short origin/master..HEAD
 }
+
+# glm -> Git Log Master
+function glm(){
+  git_log_master ${1:-HEAD}
+  git_log_master ${1:-HEAD} | pyp 'pp[:-1]|p' > .ignore/commits.txt
+  cat .ignore/commits.txt | pyp 'pp'
+  echo '$ gsc i' 
+}

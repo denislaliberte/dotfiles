@@ -72,11 +72,22 @@ function spgs() { np=$(next_path .ignore/path);git_status_files |  grep -i ${1:-
 function git_status_files() {  git status -sb |pyp 'pp[1:] | w[-1]' }
 
 # sps -> Show all Path with git Status
-function sps() { git status -sb; echo '###'; git_status_files > .ignore/git_status.txt ; select_path | grep -Ef .ignore/git_status.txt }
+function sps() {
+  git status -sb
+  echo '###'
+  git_status_files > .ignore/git_status.txt
+  select_path | grep -Ef .ignore/git_status.txt
+}
 
 
 # spd 1 1 master -> Select the Path at index 1 of the file 1 and git Diff it with master
 function spd() { git diff $(select_path $1 $2) $3}
+
+# spdv 1 1 master -> Select the Path at index 1 of the file 1 git Diff then edit it with Vim
+function spdv() {
+  git diff $(select_path $1 $2) $3
+  vim -O $(select_path ${1:-:} ${2:-1} p) ${@:4}
+}
 
 
 # spgb -> Select Path at index 1 and Git Blame it
@@ -120,4 +131,4 @@ alias lpg="deprecated spg"
 alias lg="deprecated spg"
 alias vp='deprecated spv'
 alias glgp="deprecated gl"
-alias gdnp='deprecated spgbd'
+alias gdnp='deprecated spdn'

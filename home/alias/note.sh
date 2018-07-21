@@ -1,16 +1,15 @@
 
 
-alias nt="$HOME/scripts/newtask.sh";
+alias nt="$HOME/scripts/newtask.sh"
 
-function vn(){ vim $note -O $@; }
-function en(){ echo $note && echo "- $*" | tee -a  $note; }
-function tdn(){ echo $note && echo "- [ ]  $*" | tee -a  $note; }
+function vn(){ vim $note -O $@ }
+function en(){ echo $note ; echo "- $*" | tee -a  $note }
+function tdn(){ echo $note ; echo "- [ ]  $*" | tee -a  $note }
 # tdnc command -> add ToDo to Note with a Command to check
-function tdnc(){ echo $note && echo "- [ ] check \$ $*" | tee -a  $note; }
-function qn(){ echo $note && echo "- Q. $* ? | A." | tee -a  $note; }
+function tdnc(){ echo $note ; echo "- [ ] check \$ $*" | tee -a  $note }
+function qn(){ echo $note ; echo "- Q. $* ? | A." | tee -a  $note }
 
-alias t=todo # return todo and open questions from notes
-function todo(){ grep -n LATER $note; grep -E -n '\- Q.*A.$|\- \[ \]' $note | grep -v LATER | grep -E '\- Q.*A.$|\- \[ \]' }
+alias todo='deprecated t'
 alias ct=check_todo
 function check_todo() { vim "+ normal $1gg@d" $note; todo |tail -8 }
 alias vt=vim_todo
@@ -19,8 +18,8 @@ function vim_todo(){ vim +$1 $note;todo | tail -8 }
 
 
 function last_todo(){ todo | tail -1 | pyp 'p.split("|")[2]' }
-alias tn="tail $note";
-alias ta="tee -a $note";
+alias tn="tail $note"
+alias ta="tee -a $note"
 
 export notes_folder=$HOME/Sites/notes.local/
 

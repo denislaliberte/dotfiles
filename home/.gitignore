@@ -10,3 +10,4 @@ gitignore-*
 *_local.py
 *.orig
 *.swp
+.pomo
