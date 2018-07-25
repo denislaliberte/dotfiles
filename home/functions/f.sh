@@ -16,7 +16,11 @@ function fg(){
 alias fgp=functions_grep
 function functions_grep(){ grep  -ni "$*" ~/functions/* }
 
-# vf git  ->  Vim ~/Functions/git.sh
-function vf(){ vim -O ~/functions/$1.sh; source ~/functions/$1.sh }
+alias vf="deprecated ef"
+# ef git -> Edit Function file for git
+function ef(){
+  vim -O ~/functions/$1.sh
+  source ~/functions/$1.sh
+}
 
 function deprecated(){ echo "DEPRECATED : use $*"}
