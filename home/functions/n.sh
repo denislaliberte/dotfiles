@@ -8,6 +8,7 @@ alias vn='deprecated en'
 function ne(){
   vim $note -O $@
 }
+
 # na this is a message -> Note Add "this is a message"
 function na(){
   echo $note 

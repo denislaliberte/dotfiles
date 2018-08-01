@@ -1,7 +1,11 @@
 # command note
 
 # cn 105 -> execute Command at line 105 in the Note log
-function cn(){ command=$(sed "$1!d" $note | sed -n -e 's/^.*\$//p') ;  echo $command; eval $command}
+function cn(){
+  command=$(sed "$1!d" $note | sed -n -e 's/^.*\$//p')
+  echo $command
+  eval $command
+}
 
 # cnl -> List all Command in Note log
 # cnl test -> List all Command that match /test/ in Note log
