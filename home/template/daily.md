@@ -21,4 +21,10 @@ Only from memory
 
 *Objective*
 
+1.
+2.
+3.
+
+*todo*
+
 *Blocker*
