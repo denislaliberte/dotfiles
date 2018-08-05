@@ -4,11 +4,11 @@
 
 ### Personal note
 Only from memory
-*yesterday*
-
 *Weekly objective*
 
 *today single most imporant objective*
+
+*yesterday*
 
 *todo list*
 

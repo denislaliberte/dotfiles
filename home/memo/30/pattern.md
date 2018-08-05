@@ -25,7 +25,7 @@
 - Mesure cycle time
 - Use Kaban board for the daily
 - Every team member move theire own task
-- Calculate wkeekly number of task
+- Calculate weekly number of task
 - Capture all the work in progress on the board
 - Focus on one project at a time
 - break task in smaller task, about 3-4 day of work
