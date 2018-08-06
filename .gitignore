@@ -2,5 +2,9 @@ shop.md
 auto.md
 home/memo/*/auto/
 home/memo/*/shop/
+home/memo/*/a/
+home/memo/*/s/
 home/memo/*/*/auto/
 home/memo/*/*/shop/
+home/memo/*/*/a/
+home/memo/*/*/s/
