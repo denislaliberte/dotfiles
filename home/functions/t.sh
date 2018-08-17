@@ -6,12 +6,12 @@ alias todo='deprecated t'
 function t(){
   todo=${1:-$note}
   grep -n LATER $todo
-  grep -E -n '\- Q.*A.$|\- \[ \]' $todo \
+  grep -n '\- Q.*A.$\|\[ \]' $todo \
     | grep -v LATER \
-    | grep -E '\- Q.*A.$|\- \[ \]'
+    | grep '\- Q.*A.$\|\[ \]'
 }
 
-alias tdn='deprecated tan'
+alias tdn='tan'
 # tan a thing to do -> Todo : Add '- [ ] a thing to do' to Note
 function tan(){
   ta $note $*
@@ -33,19 +33,19 @@ function ta() {
   echo "- [ ]  ${@:2}" | tee -a  $1
 }
 
-alias vtd="deprecated vt"
-alias vt="deprecated et"
+alias vtd="deprecated te"
+alias vt="deprecated te"
 # te 1 -> edit todo at line 1 in note file
 function te(){
   vim +$1 $note
-  todo | tail -8
+  t | tail -8
 }
 
 
 alias qn='deprecated qan'
 # qan  is this a question -> Question: Add '- Q. is this is a question ? A.' to Note
 function qan(){
-  qan $note $*
+  qa $note $*
 }
 
 # qa ~/note.md is this a question -> Question: Add '- Q. is this is a question ? A.' to ~/note.md 

@@ -30,7 +30,7 @@ function saved_path_index() { cat $1 | pyp "pp[:]"}
 alias sp=select_path
 function select_path() { ([[ $1 =~ ',' ]] && select_path_list $1 ${2:-1} ${3:-pp} ) || select_path_index ${1:-:} ${2:-1} ${3:-pp} }
 function select_path_index() { cat ".ignore/path$2.txt" | pyp "pp[$1]|w[0]|$3 "}
-function select_path_list() { cat ".ignore/path$2.txt" | pyp "[pp[i] for i in ($1)]|${3:-pp}"}
+function select_path_list() { cat ".ignore/path$2.txt" | pyp "[pp[i] for i in ($1)]|w[0]|${3:-pp}"}
 
 
 # spv 1 -> Select Path 1 and edit it with Vim

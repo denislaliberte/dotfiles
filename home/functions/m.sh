@@ -7,6 +7,12 @@ function em(){
   ${2:-vim} "$HOME/memo/$(date +%V)/${1:-readme}.md"
 }
 
+# emd -> Edit memo daily notes
+function emd() {
+  mkdir -p "$HOME/memo/$(date +%V)/s/"
+  ${2:-vim} "$HOME/memo/$(date +%V)/s/$(date +%d).md"
+}
+
 # es -> Edit Shop memo
 # es test -> Edit Shop Memo and test file
 function es(){
@@ -15,8 +21,9 @@ function es(){
 }
 
 # lm -> List Memo
+# lm 30 -> List Memo week 30
 function lm(){
-  tree "$HOME/memo/$(date +%V)/$1"
+  tree "$HOME/memo/${1:-$(date +%V)}"
 }
 
 # mlc -> Memo: List Comand in memo test

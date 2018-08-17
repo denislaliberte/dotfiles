@@ -3,7 +3,8 @@
 echo "note : $note";
 export note_workspace="$HOME/workspace/notes.local/projects"
 
-alias vn='deprecated en'
+alias vn='deprecated ne'
+alias en=ne
 # ne -> Note Edit
 function ne(){
   vim $note -O $@
