@@ -3,14 +3,14 @@
 # em -> Edit Memo
 # em memo -> Edit Memo ~/memo/memeo.md
 function em(){
-  mkdir -p "$HOME/memo/$(date +%V)/"
-  ${2:-vim} "$HOME/memo/$(date +%V)/${1:-readme}.md"
+  mkdir -p "$HOME/memo/$(date +%V)/$1"
+  rmdir "$HOME/memo/$(date +%V)/$1"
+  ${2:-vim} "$HOME/memo/$(date +%V)/${1:-s/week}.md"
 }
 
 # emd -> Edit memo daily notes
 function emd() {
-  mkdir -p "$HOME/memo/$(date +%V)/s/"
-  ${2:-vim} "$HOME/memo/$(date +%V)/s/$(date +%d).md"
+  em "s/$(date +%d)" ${1:-vim}
 }
 
 # es -> Edit Shop memo

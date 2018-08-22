@@ -16,7 +16,15 @@ function spa() {show_path_all | sort}
 function show_path_all(){ wc -l .ignore/path*.txt | q  'select c2,c1 from -'; grep -h .ignore .ignore/path*.txt }
 
 # spcm class -> Save Path where the file Content Match the regex /class/
-function spcm() { np=$(next_path .ignore/path); grep -nri $1 ${2:-*} ; grep -lri $1 ${2:-*}  | sort >> $np;  echo "$np # $0 $@" >> $np;saved_path_index $np }
+function spcm() {
+  np=$(next_path .ignore/path)
+  npc=$(next_path .ignore/path_content)
+  grep -nri $1 ${2:-*} >> $npc
+  grep -lri $1 ${2:-*}  | sort >> $np
+  echo "$np # $0 $@" >> $np
+  echo "$npc # $0 $@" >> $np
+  saved_path_index $np
+}
 
 # spdn  ->  Save Path from git branch Diff --Name-only origin/master
 # spdn test-branche  ->  Save Path from git branch Diff --Name-only test-branche
@@ -33,8 +41,10 @@ function select_path_index() { cat ".ignore/path$2.txt" | pyp "pp[$1]|w[0]|$3 "}
 function select_path_list() { cat ".ignore/path$2.txt" | pyp "[pp[i] for i in ($1)]|w[0]|${3:-pp}"}
 
 
-# spv 1 -> Select Path 1 and edit it with Vim
-function spv() { vim -O $(select_path ${1:-:} ${2:-1} p) ${@:3} }
+# spv -> alias for spe
+alias spv=spe
+# spe 1 -> Select Path 1 and edit it with Vim
+function spe() { vim -O $(select_path ${1:-:} ${2:-1} p) ${@:3} }
 
 # spm models -> Select Path that Match /models/ indexed
 function spm() {
@@ -53,7 +63,10 @@ function spma(){ show_saved_path | grep '\/app\/' | grep ${1:-app} }
 
 
 # spt 1 update -> Select Path 1 and run dev Test /update/ on it
-function spt(){ dev test $(select_path $1 ${3:-1}) -n "/${2:-test}/" }
+function spt(){  dev test $(select_path $1 ${3:-1} p) -n "/${2:-test}/" }
+
+# spet 0,1 update -> Select Path 0,1, edit them and run dev Test /update/ on the path that match test
+function spet(){ spv $@; dev test $(select_path $1 ${3:-1} p| grep test) -n "/${2:-test}/" }
 
 # sptrd 1 update -> Select Path at index 1  and run dev Test --Record-Deprecations /update/ on it
 function sptrd() { dev test --record-deprecations $(select_path $1 ${3:-1}) -n "/${2:-test}/" }
@@ -103,7 +116,7 @@ function rm_path() { rm .ignore/path${1:-*}.txt }
 
 # mp -> merge path; take the content of all path file, sort and uniq
 function mp() {
-  cat .ignore/path*.txt | sed 's/path..txt/path1.txt/g'| LC_ALL=C  sort | uniq  > temp.txt;
+  cat .ignore/path*.txt | grep -v ':' | sed 's/path..txt/path1.txt/g'| LC_ALL=C  sort | uniq  > temp.txt;
   rm .ignore/path*txt;
   mv temp.txt .ignore/path1.txt;
   select_path

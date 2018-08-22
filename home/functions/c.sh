@@ -13,7 +13,7 @@ function cnc(){
 # cam -> git Commit add All and Message
 function cam() {
   git add -A :/
-  git commit -m $@
+  git commit -m "$@"
 }
 
 # cfr -> git Commit Fixup Rebase the last two commits
