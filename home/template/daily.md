@@ -3,15 +3,11 @@
 
 ## Weekly objective
 
-## Today objective
-
-## reflection
-
 ## Yesterday
 
-## Blocker
-
 ## Priorities
+
+## Blocker
 
 ### at 11:00
 
