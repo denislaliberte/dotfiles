@@ -10,14 +10,7 @@ function em(){
 
 # emd -> Edit memo daily notes
 function emd() {
-  em "s/$(date +%d)" ${1:-vim}
-}
-
-# es -> Edit Shop memo
-# es test -> Edit Shop Memo and test file
-function es(){
-  mkdir -p "$HOME/memo/$(date +%V)/"
-  ${2:-vim} -O "$HOME/memo/$(date +%V)/shop.md" "$HOME/memo/$(date +%V)/${1:-readme}.md"
+  em "s/$(date +%d)$2" ${1:-vim}
 }
 
 # lm -> List Memo

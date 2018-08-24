@@ -6,9 +6,9 @@ alias todo='deprecated t'
 function t(){
   todo=${1:-$note}
   grep -n LATER $todo
-  grep -n '\- Q.*A.$\|\[ \]' $todo \
+  grep -n '##\|\- Q.*A.$\|\[ \]' $todo \
     | grep -v LATER \
-    | grep '\- Q.*A.$\|\[ \]'
+    | grep '##\|\- Q.*A.$\|\[ \]'
 }
 
 alias tdn='tan'

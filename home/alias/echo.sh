@@ -1,1 +1,1 @@
-alias e="echo"
+alias ec=echo
