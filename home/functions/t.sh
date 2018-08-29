@@ -35,8 +35,9 @@ function ta() {
 
 alias vtd="deprecated te"
 alias vt="deprecated te"
+alias te=et
 # te 1 -> edit todo at line 1 in note file
-function te(){
+function et(){
   vim +$1 $note
   t | tail -8
 }

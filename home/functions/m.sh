@@ -1,23 +1,22 @@
 # memo
+export mq="$HOME/memo/$(ruby -e 'require "date"; w=DateTime.now.strftime("%W").to_i; puts "Q#{(w/13)+1}"')"
 
 # em -> Edit Memo
 # em memo -> Edit Memo ~/memo/memeo.md
 function em(){
-  mkdir -p "$HOME/memo/$(date +%V)/$1"
-  rmdir "$HOME/memo/$(date +%V)/$1"
-  ${2:-vim} "$HOME/memo/$(date +%V)/${1:-s/week}.md"
-}
-
-# emd -> Edit memo daily notes
-function emd() {
-  em "s/$(date +%d)$2" ${1:-vim}
+  grep -ri $1 $HOME/memo | less
+  mkdir -p "$mq/$1"
+  ${2:-vim} "$mq/${1:-s/readme}.md"
+  wc -l $mq/*.md | sort -r | pyp 's[0] + s[5]' | less
 }
 
 # lm -> List Memo
-# lm 30 -> List Memo week 30
 function lm(){
-  tree "$HOME/memo/${1:-$(date +%V)}"
+  wc -l $mq/*.md | sort -r | pyp 's[0] + s[5]' | less
+  grep '##' $mq/*.md | pyp 's[5]' | less
 }
+
+
 
 # mlc -> Memo: List Comand in memo test
 function mlc() {
@@ -30,5 +29,3 @@ function mec () {
   echo $command
   eval $command
 }
-
-

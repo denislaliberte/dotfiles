@@ -43,8 +43,9 @@ function select_path_list() { cat ".ignore/path$2.txt" | pyp "[pp[i] for i in ($
 
 # spv -> alias for spe
 alias spv=spe
-# spe 1 -> Select Path 1 and edit it with Vim
-function spe() { vim -O $(select_path ${1:-:} ${2:-1} p) ${@:3} }
+alias spe=ep
+# ep 1 -> Edit file at Path 1
+function ep() { vim -o $(select_path ${1:-:} ${2:-1} p) ${@:3} }
 
 # spm models -> Select Path that Match /models/ indexed
 function spm() {
@@ -99,7 +100,7 @@ function spd() { git diff $(select_path $1 $2) $3}
 # spdv 1 1 master -> Select the Path at index 1 of the file 1 git Diff then edit it with Vim
 function spdv() {
   git diff $(select_path $1 $2) $3
-  vim -O $(select_path ${1:-:} ${2:-1} p) ${@:4}
+  vim -o  $(select_path ${1:-:} ${2:-1} p) ${@:4}
 }
 
 

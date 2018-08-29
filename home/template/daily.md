@@ -1,19 +1,16 @@
 # date
 
+## Next milestone
 
-## Weekly objective
+## Week objective
 
 ## Today objective
-
-## reflection
 
 ## Yesterday
 
 ## Blocker
 
 ## Priorities
-
-### at 11:00
 
 ## log
 
