@@ -1,14 +1,40 @@
 # todo
 
 alias todo='deprecated t'
-# t -> return todo and question from $note
-# t ~/memo/* -> return todo and question from ~/memo
+# t -> return Todo and question from $note
+# t 10 -> return 10 Todo and question from $note
+# t 10 ~/memo/* -> return Todo and question from ~/memo
 function t(){
-  todo=${1:-$note}
-  grep -n LATER $todo
-  grep -n '##\|\- Q.*A.$\|\[ \]' $todo \
-    | grep -v LATER \
-    | grep '##\|\- Q.*A.$\|\[ \]'
+  todo=${2:-$note}
+  grep -n 'LATER' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT'
+  grep -n '^# ' $todo | grep -v LATER | tail -n 1
+  grep -n '^## ' $todo |  grep -v LATER | tail -n 1
+  grep -n '^### ' $todo |  grep -v LATER | tail -n 1
+  grep -n '^#### ' $todo |  grep -v LATER | tail -n 1
+  grep -n '^##### ' $todo |  grep -v LATER | tail -n 1
+  grep -n 'NEXT' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT'
+  grep -n '\- Q.*A.$\|\[ \]' $todo \
+    | grep -v 'LATER\|NEXT' \
+    | grep '\- Q.*A.$\|\[ \]' \
+    | tail "-${1:-3}"
+}
+
+# tf -> return Todo and question First in first out from $note
+# tf 10 -> return 10 Todo and question  First in first out from $note
+# tf 10 ~/memo/* -> return Todo and question First in first out from ~/memo
+function tf(){
+  todo=${2:-$note}
+  grep -n '^# ' $todo | grep -v LATER | head -n 1
+  grep -n '^## ' $todo |  grep -v LATER | head -n 1
+  grep -n '^### ' $todo |  grep -v LATER | head -n 1
+  grep -n '^#### ' $todo |  grep -v LATER | head -n 1
+  grep -n '^##### ' $todo |  grep -v LATER | head -n 1
+  grep -n '\- Q.*A.$\|\[ \]' $todo \
+    | grep -v 'LATER\|NEXT' \
+    | grep '\- Q.*A.$\|\[ \]' \
+    | head "-${1:-3}"
+  echo 'next task count:'
+  grep -n 'LATER' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT' | wc -l
 }
 
 alias tdn='tan'

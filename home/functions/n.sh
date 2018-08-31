@@ -40,3 +40,9 @@ function np(){
 function project_directory(){
   echo "$note_workspace/$(git_root)"
 }
+
+
+# nrt -> Note: Run Test and save rerun command to note
+function nrt() {
+  dev test $@ | grep Rerun | pyp "p.replace('Rerun:', '- [ ] Rerun: $ ')" | tee -a $note
+}

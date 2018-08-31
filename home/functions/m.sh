@@ -4,8 +4,7 @@ export mq="$HOME/memo/$(ruby -e 'require "date"; w=DateTime.now.strftime("%W").t
 # em -> Edit Memo
 # em memo -> Edit Memo ~/memo/memeo.md
 function em(){
-  grep -ri $1 $HOME/memo | less
-  mkdir -p "$mq/$1"
+  {grep -rni $1 $mq; grep -rni $1 $q } | tee -a "$mq/${1:-s/readme}.md"
   ${2:-vim} "$mq/${1:-s/readme}.md"
   wc -l $mq/*.md | sort -r | pyp 's[0] + s[5]' | less
 }
@@ -29,3 +28,10 @@ function mec () {
   echo $command
   eval $command
 }
+
+function morning() {
+  mkdir -p $d
+  cp -n ~/template/morning.md $d/braindump.md
+  vim $d/braindump.md
+}
+echo "'morning"

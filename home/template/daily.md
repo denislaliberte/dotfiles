@@ -1,40 +1,46 @@
-# date
+## _day_ dd
 
-## Next milestone
+- Today priority:
 
-## Week objective
-
-## Yesterday
-
-## Priorities
-
-## Blocker
-
-## log
-
-### 9:00 analysis and programming
-- [ ] 
+## _day_ 9:00 analysis and programming
+- [ ] $ dcs;t
 - [ ] 
 - [ ] 
 - [ ] 
 
-### 11:00 Social
-- [ ] check notification
-  * [ ] https://github.com/notifications
-  * [ ] https://github.com/orgs/Shopify/projects/195?card_filter_query=assignee%3Adenislaliberte
-  * [ ] https://inbox.google.com/u/0/
-  * [ ] https://calendar.google.com/calendar/r/week
+## _day_ 11:00 Social
 - [ ] daily
+  * [ ] [calendar] review next 36 hour of meeting agendas
+  * [ ] [inbox] Empty
+  * [ ] [gh-notification], [auto-issue] [pr]
+  * [ ] publish on slack, standup
+```
+    Yesterday
+    ---------
+    -
+
+    todo
+    ----
+    1.
+    2.
+    3.
+
+    Blocker
+    -------
+    -
+
+```
 - lunch
--
+- [ ] review next two days meetings agenda in [calendar]
+- [ ] 
 
-
-### 14:30 Code review and pairing
+## _day_ 14:30 Code review and pairing
+set slack status : Focus; Slack only between 11am-3pm; For time sensitive matters please use email.
 - [ ] 
 - [ ] 
 - [ ] 
-- [ ] 
+- [ ] [pr]
 
-### 17:00 personnal
-- computer shutting down
 
+## _day_ 17:00 personnal
+- [ ] computer shutting down
