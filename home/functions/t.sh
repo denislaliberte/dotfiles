@@ -1,14 +1,16 @@
 # todo
 
 alias todo='deprecated t'
-# t -> return todo and question from $note
-# t ~/memo/* -> return todo and question from ~/memo
+# t -> return Todo and question from $note
+# t 10 -> return 10 Todo and question from $note
+# t 10 ~/memo/* -> return Todo and question from ~/memo
 function t(){
-  todo=${1:-$note}
-  grep -n LATER $todo
+  todo=${2:-$note}
+  grep -n LATER $todo | tail "-${1:-2}" | grep LATER
   grep -n '##\|\- Q.*A.$\|\[ \]' $todo \
     | grep -v LATER \
-    | grep '##\|\- Q.*A.$\|\[ \]'
+    | grep '##\|\- Q.*A.$\|\[ \]' \
+    | tail "-${1:-3}"
 }
 
 alias tdn='tan'

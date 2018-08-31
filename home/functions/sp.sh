@@ -19,11 +19,12 @@ function show_path_all(){ wc -l .ignore/path*.txt | q  'select c2,c1 from -'; gr
 function spcm() {
   np=$(next_path .ignore/path)
   npc=$(next_path .ignore/path_content)
-  grep -nri $1 ${2:-*} >> $npc
+  grep -nri $1 ${2:-*} | pyp "'- [ ] spcm $1 $2 || ' + p" >> $npc
   grep -lri $1 ${2:-*}  | sort >> $np
   echo "$np # $0 $@" >> $np
   echo "$npc # $0 $@" >> $np
   saved_path_index $np
+  vim -o $npc $note
 }
 
 # spdn  ->  Save Path from git branch Diff --Name-only origin/master
@@ -43,7 +44,7 @@ function select_path_list() { cat ".ignore/path$2.txt" | pyp "[pp[i] for i in ($
 
 # spv -> alias for spe
 alias spv=spe
-alias spe=ep
+alias spe='deprecated ep'
 # ep 1 -> Edit file at Path 1
 function ep() { vim -o $(select_path ${1:-:} ${2:-1} p) ${@:3} }
 

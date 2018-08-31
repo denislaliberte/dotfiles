@@ -1,6 +1,7 @@
 # {{week}} {{month}}
 
 
+- [ ] review $q/readme.md
 - [ ] Update stakeholders
 - [ ] Provide a weekly update in Unicorn see https://vault.shopify.com/gsd#using-unicorn-for-gsdas_projects_writing-project-updates
 - [ ] Update project brief
@@ -40,5 +41,6 @@ Objective:
 Objective: 
 
 - [ ] plan week objective meeting for monday.
+- [ ] review $q/readme.md and capture everything left from this week
 
 
