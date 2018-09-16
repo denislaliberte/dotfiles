@@ -8,6 +8,7 @@ function sppm() {
   echo "$np # $0 $@" > $np;
   git ls-files | grep -i $1 >> $np;
   saved_path_index $np
+  vim -o $np $note
 }
 function next_path() { i=1; while [[ -e "$1$i.txt" ]] ; do let i++; done ; echo "$1$i.txt"  }
 

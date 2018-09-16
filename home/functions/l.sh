@@ -6,9 +6,10 @@ export aq="$y/$(ruby -e 'require "date"; w=DateTime.now.strftime("%W").to_i; put
 export nq="$y/$(ruby -e 'require "date"; w=(Date.today + 90).to_datetime.strftime("%W").to_i; puts "Q#{(w/13)+1}"')"
 export w=$q/weeks/$(date +%W)
 export aw=$q/automatic/weeks/$(date +%W)
-export nw="$y/quarters/$(ruby -e 'require "date"; w=(Date.today + 7).to_datetime.strftime("%W").to_i; puts "#{(w/13)+1}/w#{w}"')"
+export nw="$y/quarters/$(ruby -e 'require "date"; w=(Date.today + 7).to_datetime.strftime("%W").to_i; puts "#{(w/13)+1}/weeks/#{w}"')"
 export d=$w/$(date +%d)
 export n=$w/readme.md
+export r=$w/review
 export note=$w/readme.md
 
 # el -> Edit logbook

@@ -8,7 +8,6 @@ alias bi="brew_install"
 function brew_install() { package_log brew "install $1" }
 function brew_cask_install() { package_log brew "cask install $1" }
 alias bif="brew info"
-alias bl="brew list"
 alias bs="brew search"
 alias bu="brew update"
 alias bU="brew upgrade"

@@ -25,7 +25,6 @@ function cfr(){
 # cf -> git Commit Fixup
 function cf(){
   git commit -a --fixup HEAD
-  git_log_master_save
 }
 
 # cfn -> git Commit Fixup last Note commit
@@ -36,8 +35,8 @@ function cfn(){
 
 # glm -> Git Log Master
 function glm(){
-  git_log_master ${1:-HEAD}
-  git_log_master ${1:-HEAD} | pyp 'pp[:-1]|p' > .ignore/commits.txt
+  git_log_short ${1:-origin/master}..${2:-HEAD}
+  git_log_short ${1:-origin/master}..${2:-HEAD} | pyp 'pp[:-1]|p' > .ignore/commits.txt
   cat .ignore/commits.txt | pyp 'pp'
   echo '$ gsc i' 
 }

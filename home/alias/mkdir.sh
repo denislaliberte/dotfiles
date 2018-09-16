@@ -1,1 +1,1 @@
-alias mkd="mkdir"
+alias mk="mkdir"

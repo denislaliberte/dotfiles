@@ -1,46 +1,43 @@
-## _day_ dd
+## _day_, _month_ _dd_ || priority:
 
-- Today priority:
 
-## _day_ 9:00 analysis and programming
+### _day_ 9:00 analysis and programming
 - [ ] $ dcs;t
 - [ ] 
 - [ ] 
 - [ ] 
 
-## _day_ 11:00 Social
+### _day_ 11:00 Social
 - [ ] daily
-  * [ ] [calendar] review next 36 hour of meeting agendas
   * [ ] [inbox] Empty
-  * [ ] [gh-notification], [auto-issue] [pr]
+  * [ ] [gh_notification], [gh_auto_issue] [gh_pr]
   * [ ] publish on slack, standup
 ```
-    Yesterday
-    ---------
-    -
+Yesterday
+---------
+-
 
-    todo
-    ----
-    1.
-    2.
-    3.
+todo
+----
+1.
+2.
+3.
 
-    Blocker
-    -------
-    -
-
+Blocker
+-------
+-
 ```
+- [ ] [calendar] review next 36 hour of meeting agendas
 - lunch
-- [ ] review next two days meetings agenda in [calendar]
 - [ ] 
 
-## _day_ 14:30 Code review and pairing
+### _day_ 14:30 Code review and pairing
 set slack status : Focus; Slack only between 11am-3pm; For time sensitive matters please use email.
-- [ ] 
-- [ ] 
-- [ ] 
 - [ ] [pr]
+- [ ] 
+- [ ] 
+- [ ] 
 
-
-## _day_ 17:00 personnal
+### _day_ 17:00 personnal
+- [ ] review inbox
 - [ ] computer shutting down

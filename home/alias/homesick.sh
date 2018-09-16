@@ -6,3 +6,5 @@ alias hst="homesick track"
 alias hP="homesick push hc"
 alias hcd="homesick cd"
 alias hch="homesick cd hc"
+alias hsg=homesick_grep
+function homesick_grep() { grep -r $1 ~/.homesick }

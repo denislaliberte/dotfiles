@@ -1,7 +1,6 @@
 > Good morning
-
 > Write 10 lines minimum each morning, enough just to make sure the mind is empty.
-
+--------------------------------------------------------------------------------
 
 
 

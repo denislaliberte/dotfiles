@@ -1,10 +1,10 @@
 # todo
 
-alias todo='deprecated t'
-# t -> return Todo and question from $note
-# t 10 -> return 10 Todo and question from $note
-# t 10 ~/memo/* -> return Todo and question from ~/memo
-function t(){
+alias todo='deprecated tl'
+# tl -> return Todo and question from $note Last in first out 
+# tl 10 -> return 10 Todo and question from $note Last in first out
+# tl 10 ~/memo/* -> return Todo and question from ~/memo Last in first out
+function tl(){
   todo=${2:-$note}
   grep -n 'LATER' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT'
   grep -n '^# ' $todo | grep -v LATER | tail -n 1
@@ -14,7 +14,7 @@ function t(){
   grep -n '^##### ' $todo |  grep -v LATER | tail -n 1
   grep -n 'NEXT' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT'
   grep -n '\- Q.*A.$\|\[ \]' $todo \
-    | grep -v 'LATER\|NEXT' \
+    | grep -v 'LATER\|NEXT\|>>' \
     | grep '\- Q.*A.$\|\[ \]' \
     | tail "-${1:-3}"
 }
@@ -37,9 +37,9 @@ function tf(){
   grep -n 'LATER' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT' | wc -l
 }
 
-alias tdn='tan'
+alias tdn='t'
 # tan a thing to do -> Todo : Add '- [ ] a thing to do' to Note
-function tan(){
+function t(){
   ta $note $*
 }
 
@@ -65,7 +65,6 @@ alias te=et
 # te 1 -> edit todo at line 1 in note file
 function et(){
   vim +$1 $note
-  t | tail -8
 }
 
 

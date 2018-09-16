@@ -60,16 +60,20 @@ Objective:
 - [ ] [gtd-review-1]
 - [ ] see review in 7 habits of highly effective people
 
+## Waiting for
+
+## Someday list
+
 
 Link
 ----
 [inbox]: https://inbox.google.com/u/0/
-[gh-notification]: https://github.com/notifications
-[auto-issue]: https://github.com/orgs/Shopify/projects/195?card_filter_query=label%3Apricing%2Fauto+type%3Aissue#card-12237503
 [calendar]: https://calendar.google.com/calendar/r/week
-[pr]: https://github.com/pulls?q=is%3Aopen+is%3Apr+review-requested%3Adenislaliberte+archived%3Afalse+sort%3Aupdated-desc
+[gh-notification]: https://github.com/notifications
+[gh-auto-issue]: https://github.com/orgs/Shopify/projects/195?card_filter_query=label%3Apricing%2Fauto+type%3Aissue#card-12237503
+[gh-pr]: https://github.com/pulls?q=is%3Aopen+is%3Apr+review-requested%3Adenislaliberte+archived%3Afalse+sort%3Aupdated-desc
 [gtd-review]: https://gettingthingsdone.com/wp-content/uploads/2014/10/Weekly_Review_Checklist.pdf
 [gtd-review-1]: https://lifehacker.com/5908816/the-weekly-review-how-one-hour-can-save-you-a-weeks-worth-of-hassle-and-headache
 [gtd-review-2]: https://lifehacker.com/335269/practicing-simplified-gtd
-[inbox]: https://inbox.google.com/u/0/
-[gh-notification]: https://github.com/notifications
+
+## Todo In tray

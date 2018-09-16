@@ -11,13 +11,10 @@ function git_ls_grep() { git ls-files | grep -i $1  }
 alias gpcb="git_pull_current_branch"
 alias pull="git_pull_current_branch"
 
-function git_log_current_branch() { git log --oneline origin/$( git_branch_name )..$( git_branch_name ) }
 function git_diff_current_branch() { git diff origin/$( git_branch_name )..$( git_branch_name ) }
 
 function git_pull_current_branch() { git pull origin $( git rev-parse --abbrev-ref HEAD) }
 
-alias gbn=git_branch_name
-function git_branch_name() { git rev-parse --abbrev-ref HEAD }
 alias gdn=git_diff_name
 function git_diff_name() { git diff $1 --name-only | cat }
 alias glsh=git_log_short
