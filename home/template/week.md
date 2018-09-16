@@ -30,7 +30,6 @@ Objective:
 - [ ] plan week objective meeting for monday.
 - [ ] review $q/readme.md and capture everything left from this week
 
-
 ## GTD Weekly Review
 
 ### get clear

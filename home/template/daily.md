@@ -6,6 +6,7 @@
 - [ ] 
 - [ ] 
 - [ ] 
+- [ ] [pr]
 
 ### _day_ 11:00 Social
 - [ ] daily
@@ -37,6 +38,7 @@ set slack status : Focus; Slack only between 11am-3pm; For time sensitive matter
 - [ ] 
 - [ ] 
 - [ ] 
+- [ ] $ dcs;t
 
 ### _day_ 17:00 personnal
 - [ ] review inbox
