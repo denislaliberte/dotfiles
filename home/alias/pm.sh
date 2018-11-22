@@ -1,7 +1,6 @@
 # package manager
 function package_log() { echo "$1 $2" >> ~/package_manager/$1.sh && eval "$1 $2" }
 function awm_install() { package_log awm "install $1"}
-alias b="brew"
 alias bci="brew_cask_install"
 alias bt="brew tap"
 alias bi="brew_install"

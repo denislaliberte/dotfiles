@@ -32,7 +32,7 @@ function select_branch_checkout() {
 # sbd 1 -> delete branch 1
 alias sbd=select_branch_delete
 function select_branch_delete() {
-  git branch -D  $(select_branch_index ${1:-0} | head -1)
+  git branch -D  $(select_branch_index ${1:-0} | head -1) | tee -a $w/readme.md
 }
 
 

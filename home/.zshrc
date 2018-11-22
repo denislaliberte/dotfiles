@@ -6,47 +6,26 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-#shell alias
- if [ -d ~/alias ]; then
-   for f in ~/alias/*
-   do
-         source $f
-  done
- fi
+if [ -d ~/alias ]; then
+  for f in ~/alias/*
+  do
+        source $f
+ done
+fi
 
- if [ -d ~/functions ]; then
-   for f in ~/functions/*
-     do source $f
-  done
- fi
+if [ -d ~/functions ]; then
+  for f in ~/functions/*
+    do source $f
+ done
+fi
 
- if [ -f ~/hc/shortcut.sh ]; then
-    source ~/hc/shortcut.sh
- fi
-
- if [ -f ~/hc/profile ]; then
-    source ~/hc/profile
- fi
-
- if [ -f ~/.profile ]; then
-    source ~/.profile
- fi
-
- if [ -f ~/.note.sh ]; then
-    source ~/.note.sh
- fi
-
- if [ -f ~/.sobriquet.sh ]; then
-    source ~/.sobriquet.sh
- fi
-
+if [ -f ~/.profile ]; then
+   source ~/.profile
+fi
 
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-
-
 bindkey -v
-
 
 # pip should only run if there is a virtualenv currently activated
 #export PIP_REQUIRE_VIRTUALENV=true
@@ -88,6 +67,6 @@ fuck () {
     export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
     test -n "$TF_CMD" && print -s $TF_CMD
 }
-        
+
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh

@@ -1,5 +1,8 @@
 _title_
 
+- commits:
+- files affected
+
 Github description
 ------------------
 
@@ -9,18 +12,14 @@ Github description
 this is a complex PR
 --------------------
 
-## note file
-- [ ] $ dev tophat _branch_
-- [ ] note branch, url and commit
-- [ ] export note=$q/review/_branch_.md
-
 ## discussion
-- [ ] $ open _url_
+- [ ] $ dev open pr
 - [ ] consider some review in person
 
 ## look at the code
-- [ ] $ git show _commit_..master
-- [ ] $ git show --name-only _commit_ | tee -a _note_
+- [ ] $ git log HEAD~_no_commits_..HEAD | tee -a $note
+- [ ] $ git diff --name-only HEAD~_no_commits_..HEAD | tee -a $note
+- [ ] $ git diff HEAD~_no_commits_..HEAD | tee -a $note
 
 ### app code
 - [ ] list all public method affected

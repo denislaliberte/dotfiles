@@ -1,12 +1,11 @@
 # logbook
 export lb=$HOME/Google\ Drive\ \(denis.laliberte@gmail.com\)/logbook
 export y=$lb/$(date +%Y)
-export q="$y/quarters/$(ruby -e 'require "date"; w=DateTime.now.strftime("%W").to_i; puts "#{(w/13)+1}"')"
-export aq="$y/$(ruby -e 'require "date"; w=DateTime.now.strftime("%W").to_i; puts "Q#{(w/13)+1}"')/automatic"
-export nq="$y/$(ruby -e 'require "date"; w=(Date.today + 90).to_datetime.strftime("%W").to_i; puts "Q#{(w/13)+1}"')"
+export quarter=$(ruby -e 'puts ((Time.now.month - 1) / 3) + 1')
+export q="$y/quarters/$quarter"
+export aq="$q/automatic"
 export w=$q/weeks/$(date +%W)
 export aw=$q/automatic/weeks/$(date +%W)
-export nw="$y/quarters/$(ruby -e 'require "date"; w=(Date.today + 7).to_datetime.strftime("%W").to_i; puts "#{(w/13)+1}/weeks/#{w}"')"
 export d=$w/$(date +%d)
 export n=$w/readme.md
 export r=$w/review
@@ -24,6 +23,17 @@ function el(){
 function eld() {
   mkdir -p $w
   vim -O $w/readme.md
+}
+
+
+# daily "This is today priority" -> call the Daily script with the priority add it to the week readme
+function daily() {
+  day=$(date +%A)
+  day_path=$w/$day.md
+  $HOME/scripts/daily.rb $@ | tee -a $day_path
+  sed -i "/$day/r $day_path" $w/readme.md
+  rm $day_path
+  vim $w/readme.md
 }
 
 # lw -> List LogBook

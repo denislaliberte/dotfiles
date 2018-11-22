@@ -1,0 +1,28 @@
+## <%= day %>, <%= date %> - <%= priority %>
+
+### <%= day %> 9:00 @analysis
+- [ ] 
+
+### <%= day %> 11:20 @social & @rh
+- daily
+  * [ ] [g_inbox] Empty
+  * [ ] [g_calendar] review next 36 hour of meeting agendas
+>>> geekbot daily #pricing-team-updates
+
+- lunch
+<% if wednesday? %>
+  - [ ] Writing a unicorn update from the weekly notes
+  - [ ] Preparing the roadmap discussion of the Thursday with leads and champions
+<% elsif thursday? %>
+  - [ ] Meetings to discuss roadmap with leads and champions.
+  - [ ] Mid week checkpoint on the kanban board.
+  - [ ] Prepare Agenda for next monday synch meeting.
+  <% if even_week? %>- [ ] open a [health_check] and followup with team mates.<% end %>
+<% end %>
+
+### <%= day %> 13:30 @collaboration
+- [ ] [gh_notification], [gh_auto_issue] [gh_pr]
+
+### <%= day %> 16:30 personnal
+- [ ] #review day
+- [ ] review #in_tray

@@ -2,6 +2,7 @@
 
 # dddu -> dev down dev up
 function dddu(){
+  breathe
   dev sv stop
   dev down
   nvm use 8.9.4
@@ -28,6 +29,7 @@ function trash_image() {
 }
 
 function reborn() {
+  open https://www.calm.com/breathe
   dev sv stop
   dev down
   trash_railgun

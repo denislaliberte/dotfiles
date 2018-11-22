@@ -14,7 +14,7 @@ function tl(){
   grep -n '^##### ' $todo |  grep -v LATER | tail -n 1
   grep -n 'NEXT' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT'
   grep -n '\- Q.*A.$\|\[ \]' $todo \
-    | grep -v 'LATER\|NEXT\|>>' \
+    | grep -v 'LATER\|NEXT' \
     | grep '\- Q.*A.$\|\[ \]' \
     | tail "-${1:-3}"
 }
@@ -29,16 +29,16 @@ function tf(){
   grep -n '^### ' $todo |  grep -v LATER | head -n 1
   grep -n '^#### ' $todo |  grep -v LATER | head -n 1
   grep -n '^##### ' $todo |  grep -v LATER | head -n 1
-  grep -n '\- Q.*A.$\|\[ \]' $todo \
+  grep -n '\[ \]' $todo \
     | grep -v 'LATER\|NEXT' \
-    | grep '\- Q.*A.$\|\[ \]' \
+    | grep '\[ \]' \
     | head "-${1:-3}"
   echo 'next task count:'
-  grep -n 'LATER' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT' | wc -l
+  grep -n 'LATER' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT\|>>' | wc -l
 }
 
 alias tdn='t'
-# tan a thing to do -> Todo : Add '- [ ] a thing to do' to Note
+# t a thing to do -> Todo : Add '- [ ] a thing to do' to Note
 function t(){
   ta $note $*
 }
@@ -88,3 +88,11 @@ function lc(){
   echo $note
   history | tail -1 | pyp '"- $" p' | tee -a  $note
 }
+
+# tan -> Test All Note
+function tan() {
+  breathe
+  dev test --include-branch-commits |  pyp "p.replace('Rerun: ', '- [ ] $ ').replace(': ', ' ')" | tee .ignore/test.txt
+  en .ignore/test.txt
+}
+

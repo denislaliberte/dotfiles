@@ -4,12 +4,15 @@ echo "note : $note";
 export note_workspace="$HOME/workspace/notes.local/projects"
 
 # enp -> Export Note Path
+# enp 25 features/asdf -> Export Note Path for the week 25 and the branch name features/asdf
 function enp() {
-  export shelf="$q/$(rn)/$(bn)/weeks/$(date +%W)"
+  branch=${2:-$(bn)}
+  export shelf="$q/$(rn)/$branch/weeks/${1:-$(date +%W)}"
   mkdir -p $shelf
   export s=$shelf
   export note=$shelf/readme.md
   export n=$note
+  echo "- work on: \$q/$(echo $n |  pyp 's[8:]|s'):1 branch: $branch" | tee -a $w/readme.md
 }
 
 alias vn='deprecated ne'
@@ -31,6 +34,15 @@ function spn(){
   echo $file_path
 }
 
+# un -> show Url in Note
+function un() {
+  tf | grep -o "http[^ ]*" | pyp 'pp'
+}
+
+# oun 1 -> Open Url in Note at Index 1
+function oun() {
+  open $(tf | grep -o "http[^ ]*" | pyp "pp[$1]")
+}
 
 # epn 33 -> Edit file Path at the line 33 of the Note file and the line number after the :
 function epn(){
@@ -41,9 +53,11 @@ function epn(){
   vim -o +$line_number $(cat .ignore/file_path_from_note.txt)
 }
 
-# pn -> Show Path from Notes
-function pn() {
-  cat $note | pyp 'pp' | grep '\/.*\..*:'
+# pnl -> show Path Notes List
+# pnl serializer -> show Path Notes List that match /serializer/
+# pnl serializer 10 -> show 10 Path Notes List that match /serializer/
+function pnl() {
+  cat $note | pyp 'pp' | grep ${1:-.}| grep '\[ \].*\/.*\..*:' | grep -v LATER | HEAD -${2:-5}
 }
 
 # np -> create a New Project directory and variables files 
@@ -62,3 +76,9 @@ function project_directory(){
 function nrt() {
   dev test $@ | grep Rerun | pyp "p.replace('Rerun:', '- [ ] Rerun: $ ')" | tee -a $note
 }
+
+# sn -> Summarize Notes
+function sn() {
+  cat ${1:-$n}|grep  '^#\|\[ \]\|\]:'
+}
+

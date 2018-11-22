@@ -15,6 +15,7 @@
   all = true
 [diff]
   tool = kdiff3
+	algorithm = patience
 [merge]
   tool = kdiff3
 [difftool]
@@ -35,3 +36,5 @@
 [alias]
 	context = blame
 	ctx = blame
+[protocol]
+	version = 2

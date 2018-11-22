@@ -1,4 +1,4 @@
-# can -> git Commit Ammend No edit
+# can -> git Commit Amend No edit
 function can(){
   git add -u :/
   git commit --amend --no-edit
@@ -14,6 +14,7 @@ function cnc(){
 function cam() {
   git add -A :/
   git commit -m "$@"
+  git log --format='%h  "%ar"  %f'  | head -1 | pyp "'  * [ ] LATER review commit: ' + p" | tee -a $n
 }
 
 # cfr -> git Commit Fixup Rebase the last two commits
