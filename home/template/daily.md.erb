@@ -1,28 +1,44 @@
-## <%= day %>, <%= date %> - <%= priority %>
+## <%= day %>, <%= date %> - <%= priority %> [ ]
 
-### <%= day %> 9:00 @analysis
-- [ ] 
+- [ ] daily --- url: https://shopify.slack.com/messages/DAMKCHD2L/convo/GEC900MV5-1543592048.001200/
+   >>>   #pricing-team-updates
 
-### <%= day %> 11:20 @social & @rh
+### <%= day %> 0830 @analysis [ ]
+- [ ]
+<% if monday? %>- [ ] 11:00 Weekly synch : Touch base with team members weekly<% end %>
+
+### <%= day %> 11:20 @social & @rh [ ] 
 - daily
   * [ ] [g_inbox] Empty
   * [ ] [g_calendar] review next 36 hour of meeting agendas
->>> geekbot daily #pricing-team-updates
 
 - lunch
-<% if wednesday? %>
-  - [ ] Writing a unicorn update from the weekly notes
-  - [ ] Preparing the roadmap discussion of the Thursday with leads and champions
+
+<% if monday? %>
+- [ ] review $q/readme.md
+- [ ] Review note: Keep track of project tasks in the kanban board
+<% elsif tuesday? %>
+- [ ] Review weekly note
+  * [ ] Make sure that all discussed issue are in the board
+  * [ ] Followup with teamates about missing issues
+  * [ ] Update project brief
+<% if even_week? %>- [ ] 1:1 with felix<% end %>
+<% elsif wednesday? %>
+- [ ] Writing a unicorn update from the weekly notes
+- [ ] Preparing the roadmap discussion of the Thursday with leads and champions
 <% elsif thursday? %>
-  - [ ] Meetings to discuss roadmap with leads and champions.
-  - [ ] Mid week checkpoint on the kanban board.
-  - [ ] Prepare Agenda for next monday synch meeting.
-  <% if even_week? %>- [ ] open a [health_check] and followup with team mates.<% end %>
+- [ ] Mid week checkpoint on the kanban board.
+- [ ] Prepare Agenda for next monday synch meeting.
+<% if even_week? %>- [ ] open a [health_check] and followup with team mates.<% end %>
+<% elsif friday? %>
+- [ ] Personnal weekly review.
+<% if even_week %>- [ ] 1:1 with Peter.<% end %>
+- [ ] review $q/readme.md and capture everything left from this week
 <% end %>
 
-### <%= day %> 13:30 @collaboration
-- [ ] [gh_notification], [gh_auto_issue] [gh_pr]
+### <%= day %> 13:30 @collaboration [ ]
+- [ ]
 
-### <%= day %> 16:30 personnal
+### <%= day %> 16:30 personnal [ ]
 - [ ] #review day
 - [ ] review #in_tray

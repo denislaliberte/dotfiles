@@ -4,9 +4,8 @@
 # sppm models ->  Save all Path where the Path Match /models/
 alias spgl='deprecated sppm'
 function sppm() {
-  np=$(next_path .ignore/path);
-  echo "$np # $0 $@" > $np;
-  git ls-files | grep -i $1 >> $np;
+  np='.ignore/path.txt'
+  git ls-files | grep -i $1 > $np;
   saved_path_index $np
   vim -o $np $note
 }
@@ -18,8 +17,8 @@ function show_path_all(){ wc -l .ignore/path*.txt | q  'select c2,c1 from -'; gr
 
 # spcm class -> Save Path where the file Content Match the regex /class/
 function spcm() {
-  np=$(next_path .ignore/path)
-  npc=$(next_path .ignore/path_content)
+  np='.ignore/path.txt'
+  npc='.ignore/path_content.txt'
   grep -nr $1 ${2:-*} | pyp "'- [ ] spcm $1 $2 || ' + p" >> $npc
   grep -lr $1 ${2:-*}  | sort >> $np
   echo "$np # $0 $@" >> $np
@@ -30,7 +29,7 @@ function spcm() {
 
 # spdn  ->  Save Path from git branch Diff --Name-only origin/master
 # spdn test-branche  ->  Save Path from git branch Diff --Name-only test-branche
-function spdn(){ np=$(next_path .ignore/path); git diff ${1:-origin/master} --name-only | grep -i ${2:-.}  >> $np; echo "$np # $0 $@"   >> $np; saved_path_index $np }
+function spdn(){ np='.ignore/path.txt'; git diff ${1:-origin/master} --name-only | grep -i ${2:-.}  > $np; echo "$np # $0 $@"   >> $np; saved_path_index $np }
 
 function saved_path_index() { cat $1 | pyp "pp[:]"}
 
@@ -38,9 +37,9 @@ function saved_path_index() { cat $1 | pyp "pp[:]"}
 # sp 1,4  -> select path at index 1 and 4
 # sp 2:4 2 -> select path at index 2, 3 and 4 of the file .ignore/path2.txt
 alias sp=select_path
-function select_path() { ([[ $1 =~ ',' ]] && select_path_list $1 ${2:-1} ${3:-pp} ) || select_path_index ${1:-:} ${2:-1} ${3:-pp} }
-function select_path_index() { cat ".ignore/path$2.txt" | pyp "pp[$1]|w[0]|$3 "}
-function select_path_list() { cat ".ignore/path$2.txt" | pyp "[pp[i] for i in ($1)]|w[0]|${3:-pp}"}
+function select_path() { ([[ $1 =~ ',' ]] && select_path_list $1 ${2:-pp} ) || select_path_index ${1:-:} ${3:-pp} }
+function select_path_index() { cat ".ignore/path.txt" | pyp "pp[$1]|w[0]|$2 "}
+function select_path_list() { cat ".ignore/path.txt" | pyp "[pp[i] for i in ($1)]|w[0]|${2:-pp}"}
 
 
 # spv -> alias for spe
@@ -80,11 +79,11 @@ function sptrd() { dev test --record-deprecations $(select_path $1 ${3:-1}) -n "
 function spga() {git add $(select_path $1 $2) }
 
 # spc 1 -> Select Path at index 1 and git Checkout on i on it
-function spc() { git checkout $(select_path_index $1 ${2:-1}) }
+function spc() { git checkout $(select_path_index $1 p) }
 
 
 # spgs -> Save Path that are in the Git Status
-function spgs() { np=$(next_path .ignore/path);git_status_files |  grep -i ${1:-.} >> $np; echo "$np # $0 $1"  >> $np; saved_path_index $np}
+function spgs() { np='.ignore/path.txt';git_status_files |  grep -i ${1:-.} >> $np; echo "$np # $0 $1"  >> $np; saved_path_index $np}
 function git_status_files() {  git status -sb |pyp 'pp[1:] | w[-1]' }
 
 # sps -> Show all Path with git Status

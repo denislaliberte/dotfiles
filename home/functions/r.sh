@@ -26,7 +26,7 @@ function r(){
   rb | tee -a $n
 }
 
-function review_diff(){ pyp '"   >>>     "+ p|p.replace("     +++ b/", " - [ ] ").replace("      def", "* [ ] def").replace("    test", " * [ ] test")' }
+function review_diff(){ pyp '"   >>>     "+ p|p.replace("     +++ b/", " - [ ] ").replace("      def ", "* [ ] def ").replace("    test", " * [ ] test")' }
 
 # rc 1 -> Review Commit at index 1
 function rc() {
@@ -36,7 +36,7 @@ function rc() {
 # rv -> review branch
 function rb() {
   {
-    git diff origin/master...HEAD | review_diff | grep '\[ \]'
+    git diff origin/master...HEAD | review_diff | grep --color=never '\[ \]'
     git diff origin/master...HEAD | review_diff
   }
 }

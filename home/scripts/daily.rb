@@ -8,6 +8,10 @@ def day
   Time.now.strftime('%A')
 end
 
+def even_week?
+  Time.now.strftime('%W').to_i.even?
+end
+
 def monday?
   day == 'Monday'
 end

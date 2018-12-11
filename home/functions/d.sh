@@ -1,4 +1,18 @@
 # dev
+# data
+
+# gdl 1 branch -> Get the Data in the note at the Line 1 with the key branch
+alias gdl=get.data.line
+function get.data.line() {
+  value=$(sed "$1!d" $note | pyp 'p.split("---")[1]' | yq r - $2)
+  if [ $value != null ]
+  then
+    echo $value
+  else
+    echo $3
+  fi
+}
+
 
 # dddu -> dev down dev up
 function dddu(){

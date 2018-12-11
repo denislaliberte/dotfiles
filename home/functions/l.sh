@@ -1,5 +1,5 @@
 # logbook
-export lb=$HOME/Google\ Drive\ \(denis.laliberte@gmail.com\)/logbook
+export lb=$HOME/gdrive_denis_laliberte_gmail_com/logbook
 export y=$lb/$(date +%Y)
 export quarter=$(ruby -e 'puts ((Time.now.month - 1) / 3) + 1')
 export q="$y/quarters/$quarter"
@@ -25,15 +25,22 @@ function eld() {
   vim -O $w/readme.md
 }
 
-
 # daily "This is today priority" -> call the Daily script with the priority add it to the week readme
 function daily() {
+  cd $w
   day=$(date +%A)
-  day_path=$w/$day.md
+  day_path=$day.md
+  date -v+8H +%H%M | pyp "'- [ ] Schedule shutdown to: ' +p" | tee -a $day_path
   $HOME/scripts/daily.rb $@ | tee -a $day_path
-  sed -i "/$day/r $day_path" $w/readme.md
+  sed -i bk "/$day/r $day_path" readme.md
   rm $day_path
   vim $w/readme.md
+}
+
+# weekly "this is the week priority" -> call the Weekly script
+function weekly() {
+  mkdir -p $w
+  $HOME/scripts/weekly.rb $@ | tee -a $w/readme.md
 }
 
 # lw -> List LogBook

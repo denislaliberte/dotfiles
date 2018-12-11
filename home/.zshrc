@@ -70,3 +70,5 @@ fuck () {
 
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+source $HOME/src/github.com/Shopify/xdev/alias.sh

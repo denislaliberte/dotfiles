@@ -1,3 +1,7 @@
+# c* -> Commit
+
+alias c='git commit'
+
 # can -> git Commit Amend No edit
 function can(){
   git add -u :/
@@ -25,7 +29,7 @@ function cfr(){
 
 # cf -> git Commit Fixup
 function cf(){
-  git commit -a --fixup HEAD
+  git commit -a --fixup ${1:-$(cat .ignore/commits.txt | pyp "pp[${1:-0}]|w[0]")}
 }
 
 # cfn -> git Commit Fixup last Note commit
@@ -40,4 +44,16 @@ function glm(){
   git_log_short ${1:-origin/master}..${2:-HEAD} | pyp 'pp[:-1]|p' > .ignore/commits.txt
   cat .ignore/commits.txt | pyp 'pp'
   echo '$ gsc i' 
+}
+
+# cl* -> CLean
+# cld -> git CLean Dry run
+function cld(){
+  git clean -nd
+  echo clf
+}
+
+# clf -> git Clean Force
+function clf(){
+  git clean -fd
 }

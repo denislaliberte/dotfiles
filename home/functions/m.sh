@@ -33,7 +33,3 @@ function morning() {
   cp -n ~/template/morning.md $d/braindump.md
   vim $d/braindump.md
 }
-
-echo
-echo "'morning"
-echo

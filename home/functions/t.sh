@@ -1,4 +1,4 @@
-# todo
+# t* -> todo
 
 alias todo='deprecated tl'
 # tl -> return Todo and question from $note Last in first out 
@@ -24,17 +24,12 @@ function tl(){
 # tf 10 ~/memo/* -> return Todo and question First in first out from ~/memo
 function tf(){
   todo=${2:-$note}
-  grep -n '^# ' $todo | grep -v LATER | head -n 1
-  grep -n '^## ' $todo |  grep -v LATER | head -n 1
-  grep -n '^### ' $todo |  grep -v LATER | head -n 1
-  grep -n '^#### ' $todo |  grep -v LATER | head -n 1
-  grep -n '^##### ' $todo |  grep -v LATER | head -n 1
   grep -n '\[ \]' $todo \
     | grep -v 'LATER\|NEXT' \
     | grep '\[ \]' \
-    | head "-${1:-3}"
+    | head "-${1:-9}"
   echo 'next task count:'
-  grep -n 'LATER' $todo | tail "-${1:-2}" | grep 'LATER\|NEXT\|>>' | wc -l
+  grep -n 'LATER' $todo | tail "-${1:-9}" | grep 'LATER\|NEXT\|>>' | wc -l
 }
 
 alias tdn='t'
@@ -59,13 +54,7 @@ function ta() {
   echo "- [ ]  ${@:2}" | tee -a  $1
 }
 
-alias vtd="deprecated te"
-alias vt="deprecated te"
-alias te=et
-# te 1 -> edit todo at line 1 in note file
-function et(){
-  vim +$1 $note
-}
+alias et='deprecated en'
 
 
 alias qn='deprecated qan'

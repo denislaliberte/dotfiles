@@ -7,4 +7,4 @@ alias hP="homesick push hc"
 alias hcd="homesick cd"
 alias hch="homesick cd hc"
 alias hsg=homesick_grep
-function homesick_grep() { grep -r $1 ~/.homesick }
+function homesick_grep() { grep -nr $1 ~/.homesick }

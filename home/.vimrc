@@ -12,6 +12,7 @@ set shiftwidth=2
 set autoindent
 set smartindent
 set number
+set smartcase
 
 "https://github.com/junegunn/vim-plug/wiki/faq#migrating-from-other-plugin-managers
 filetype on           " Enable filetype detection
@@ -89,7 +90,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop']
+"let g:syntastic_ruby_checkers = ['rubocop']
 "let g:syntastic_mode_map = {'mode': 'passive'}
 
 "utilssnip config

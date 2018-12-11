@@ -12,26 +12,19 @@ function enp() {
   export s=$shelf
   export note=$shelf/readme.md
   export n=$note
-  echo "- work on: \$q/$(echo $n |  pyp 's[8:]|s'):1 branch: $branch" | tee -a $w/readme.md
+  echo "- $(date +%H%m) $(pwd | pyp 's[5:7]|s') work on: \$q/$(echo $n |  pyp 's[8:]|s'):1 branch: $branch" | tee -a $w/readme.md
 }
 
-alias vn='deprecated ne'
-alias en=ne
-# ne -> Note Edit
-function ne(){
-  vim $note -O $@
+# en -> Edit Note
+alias en=edit.note
+function edit.note(){
+  vim +${1:-1} $note -O "${@:2}"
 }
 
 # na this is a message -> Note Add "this is a message"
 function na(){
   echo $note 
   echo "- $*" | tee -a  $note
-}
-
-# spn 33 -> show path from note
-function spn(){
-  file_path=$(cat $note | pyp "[pp[i] for i in ($1,)] |p.split(':')[0]|w[-1]")
-  echo $file_path
 }
 
 # un -> show Url in Note
@@ -44,21 +37,34 @@ function oun() {
   open $(tf | grep -o "http[^ ]*" | pyp "pp[$1]")
 }
 
-# epn 33 -> Edit file Path at the line 33 of the Note file and the line number after the :
+# epn 33 -> Edit file Path at the line 33 of the Note file
+# epn 33 34 -> Edit file Path at the line 33 and 34 of the Note file
 function epn(){
-  file_path=$(cat $note | pyp "[pp[i] for i in ($1,)] | p.split(':')[0] | w[-1] | '\n' .join(pp)")
-  first_index=$(echo $1 | pyp 'p.split(",")[0]')
-  line_number=$(cat $note | pyp "pp[$first_index]" | pyp 'p.split(":")[1]|w[0]')
-  echo $file_path > .ignore/file_path_from_note.txt
-  vim -o +$line_number $(cat .ignore/file_path_from_note.txt)
+  file_path=$(get.data.line $1 path)
+  line=$(get.data.line $1 line 1)
+  if [ "x$2" = x ]
+  then
+    vim -o +$line $file_path
+  else
+    file_path2=$(get.data.line $2 path)
+    line2=$(get.data.line $2 line 1)
+    vim -o +$line $file_path +$line2 $file_path2 
+  fi
 }
 
-# pnl -> show Path Notes List
-# pnl serializer -> show Path Notes List that match /serializer/
-# pnl serializer 10 -> show 10 Path Notes List that match /serializer/
-function pnl() {
-  cat $note | pyp 'pp' | grep ${1:-.}| grep '\[ \].*\/.*\..*:' | grep -v LATER | HEAD -${2:-5}
+# spn -> Show Path Notes
+# spn serializer -> Show Path Notes that match /serializer/
+# spn serializer 10 -> Show 10 Path Notes that match /serializer/
+function spn() {
+  grep -n ${1:-.} $note | grep '\[ \].*path:' | grep -v LATER | HEAD -${2:-5}
 }
+
+# spns 33 -> show path from note split only the path
+function spns(){
+  file_path=$(sed "$1!d" $note | pyp "p.split(':')[0]|w[-1]")
+  echo $file_path
+}
+
 
 # np -> create a New Project directory and variables files 
 function np(){
@@ -72,9 +78,15 @@ function project_directory(){
 }
 
 
-# nrt -> Note: Run Test and save rerun command to note
+# rst ->  Run and Sumarize Test
 function nrt() {
-  dev test $@ | grep Rerun | pyp "p.replace('Rerun:', '- [ ] Rerun: $ ')" | tee -a $note
+  dev test $@ | tee .ignore/test.txt
+  st
+}
+
+# st -> Sumarize Test to note file
+function st() {
+  grep 'Error\|Rerun\|#' .ignore/test.txt | pyp "p.replace('Rerun:', '- [ ] Rerun: --- cmd: ')" | tee -a $note
 }
 
 # sn -> Summarize Notes
