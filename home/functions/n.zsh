@@ -84,13 +84,6 @@ function spn() {
   grep -n ${1:-.} $note | grep '\[ \].*path:' | grep -v LATER | HEAD -${2:-15}
 }
 
-# spns 33 -> show path from note split only the path
-function spns(){
-  file_path=$(sed "$1!d" $note | pyp "p.split(':')[0]|w[-1]")
-  echo $file_path
-}
-
-
 # np -> create a New Project directory and variables files 
 function np(){
   mkdir -p $(project_directory)
@@ -101,7 +94,6 @@ function np(){
 function project_directory(){
   echo "$note_workspace/$(git_root)"
 }
-
 
 # rst ->  Run and Sumarize Test
 function nrt() {
@@ -118,4 +110,3 @@ function st() {
 function sn() {
   cat ${1:-$n}|grep  '^#\|\[ \]\|\]:'
 }
-

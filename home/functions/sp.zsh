@@ -46,19 +46,6 @@ function ep() { vim -o $(select_path ${1:-:} ${2:-1} p) ${@:3} }
 
 function show_saved_path(){ for path_file in .ignore/path*.txt; do echo "## ${path_file}";cat ${path_file} | pyp 'pp'; done}
 
-# spet 0,1 update -> Select Path 0,1, edit them and run dev Test /update/ on the path that match test
-function spet(){ spv $@; dev test $(select_path $1 ${3:-1} p| grep test) -n "/${2:-test}/" }
-
-# sptrd 1 update -> Select Path at index 1  and run dev Test --Record-Deprecations /update/ on it
-function sptrd() { dev test --record-deprecations $(select_path $1 ${3:-1}) -n "/${2:-test}/" }
-
-# spga 1 -> Select Path at the index 1 and Git Add it
-function spga() {git add $(select_path $1 $2) }
-
-# spc 1 -> Select Path at index 1 and git Checkout on i on it
-function spc() { git checkout $(select_path_index $1 p) }
-
-
 # spgs -> Save Path that are in the Git Status
 function spgs() { np='.ignore/path.txt';git_status_files |  grep -i ${1:-.} >> $np; echo "$np # $0 $1"  >> $np; saved_path_index $np}
 function git_status_files() {  git status -sb |pyp 'pp[1:] | w[-1]' }
@@ -70,57 +57,3 @@ function sps() {
   git_status_files > .ignore/git_status.txt
   select_path | grep -Ef .ignore/git_status.txt
 }
-
-
-# spd 1 1 master -> Select the Path at index 1 of the file 1 and git Diff it with master
-function spd() { git diff $(select_path $1 $2) $3}
-
-# spdv 1 1 master -> Select the Path at index 1 of the file 1 git Diff then edit it with Vim
-function spdv() {
-  git diff $(select_path $1 $2) $3
-  vim -o  $(select_path ${1:-:} ${2:-1} p) ${@:4}
-}
-
-
-# spgb -> Select Path at index 1 and Git Blame it
-function spgb(){ git blame $(select_path $1)}
-
-# sprm 1 -> Select Path and ReMove
-function sprm() { rm $(select_path $1 ${2:-1}) }
-
-# rp 2 -> remove paths file 2
-# rp -> remove all paths files
-alias rp=rm_path
-function rm_path() { rm .ignore/path${1:-*}.txt }
-
-# mp -> merge path; take the content of all path file, sort and uniq
-function mp() {
-  cat .ignore/path*.txt | grep -v ':' | sed 's/path..txt/path1.txt/g'| LC_ALL=C  sort | uniq  > temp.txt;
-  rm .ignore/path*txt;
-  mv temp.txt .ignore/path1.txt;
-  select_path
-}
-
-
-alias pp='pop_path'
-function pop_path() { head -${1:-1} ".ignore/path${2:-1}.txt";sed -i.ignore "1,${1:-1}d" ".ignore/path${2:-1}.txt"; select_path }
-
-alias rop='rotate_path'
-function rotate_path() { head -${1:-1} ".ignore/path${2:-1}.txt" | tee -a ".ignore/path${2:-1}.txt" ;sed -i.ignore "1,${1:-1}d" ".ignore/path${2:-1}.txt"; select_path : ${2:-1} pp}
-
-alias rrp='reverse_rotate_path'
-function reverse_rotate_path() { last=$(tail -n 1 ".ignore/path${2:-1}.txt" ) ; sed -i.ignore "1i$last" ".ignore/path${2:-1}.txt" ; let TRUNCATE_SIZE="${#last} + 1"; truncate -s -"$TRUNCATE_SIZE" ".ignore/path${2:-1}.txt" ;echo $last; select_path : ${2:-1} pp }
-
-
-alias gp='deprecated spcm'
-alias spgt='deprecated spmt'
-alias rmp="deprecated rp"
-alias spg='deprecated spm'
-alias lp='deprecated sp'
-alias gs="deprecated sps"
-alias lt="deprecated spt"
-alias lpg="deprecated spg"
-alias lg="deprecated spg"
-alias vp='deprecated spv'
-alias glgp="deprecated gl"
-alias gdnp='deprecated spdn'
