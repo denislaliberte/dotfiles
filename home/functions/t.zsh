@@ -87,7 +87,6 @@ function lc(){
 
 # tan -> Test All Note
 function tan() {
-  breathe
   dev test --include-branch-commits |  pyp "p.replace('Rerun: ', '- [ ] $ ').replace(': ', ' ')" | tee .ignore/test.txt
   en .ignore/test.txt
 }

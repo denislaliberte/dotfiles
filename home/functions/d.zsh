@@ -43,7 +43,6 @@ function trash_image() {
 }
 
 function reborn() {
-  open https://www.calm.com/breathe
   dev sv stop
   dev down
   trash_railgun

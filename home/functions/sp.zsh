@@ -41,39 +41,16 @@ function select_path() { ([[ $1 =~ ',' ]] && select_path_list $1 ${2:-pp} ) || s
 function select_path_index() { cat ".ignore/path.txt" | pyp "pp[$1]|w[0]|$2 "}
 function select_path_list() { cat ".ignore/path.txt" | pyp "[pp[i] for i in ($1)]|w[0]|${2:-pp}"}
 
-
-# spv -> alias for spe
-alias spv=spe
-alias spe='deprecated ep'
 # ep 1 -> Edit file at Path 1
 function ep() { vim -o $(select_path ${1:-:} ${2:-1} p) ${@:3} }
 
-# spm models -> Select Path that Match /models/ indexed
-function spm() {
-  select_path_index : ${2:-1} ${3:-pp} | grep -i $1
-}
-
-# spmt -> Select Path that Match /Test.rb/ indexed
-# spmt model -> Select Path that Match /Test.rb/ and /model/ indexed
-function spmt(){ show_saved_path | grep test.rb | grep ${1:-test} }
 function show_saved_path(){ for path_file in .ignore/path*.txt; do echo "## ${path_file}";cat ${path_file} | pyp 'pp'; done}
-
-# spma -> Select Path that Match /App\// indexed
-# spma controller -> Select Path that Match /App\// and /controller/ indexed
-function spma(){ show_saved_path | grep '\/app\/' | grep ${1:-app} }
-
-
-
-# spt 1 update -> Select Path 1 and run dev Test /update/ on it
-function spt(){  dev test $(select_path $1 ${3:-1} p) -n "/${2:-test}/" }
 
 # spet 0,1 update -> Select Path 0,1, edit them and run dev Test /update/ on the path that match test
 function spet(){ spv $@; dev test $(select_path $1 ${3:-1} p| grep test) -n "/${2:-test}/" }
 
 # sptrd 1 update -> Select Path at index 1  and run dev Test --Record-Deprecations /update/ on it
 function sptrd() { dev test --record-deprecations $(select_path $1 ${3:-1}) -n "/${2:-test}/" }
-
-
 
 # spga 1 -> Select Path at the index 1 and Git Add it
 function spga() {git add $(select_path $1 $2) }

@@ -13,6 +13,3 @@ alias scn=show.command.note
 function show.command.note() {
   grep -n '\[ \].* cmd: ' $note | grep ${1:-.} | grep -v LATER| grep 'cmd:'
 }
-
-# cl -> execute the Command in the Last line of the note log
-function cl() {  command_note_list | tail -1 | sed -n -e 's/^.*\$//p';  $( command_note_list | tail -1 | sed -n -e 's/^.*\$//p' ) }
