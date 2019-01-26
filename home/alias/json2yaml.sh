@@ -1,1 +1,0 @@
-function vjay(){ file_name=$(echo $1 | pyp se) ;json2yaml $file_name.json $file_name.yaml ; vim $file_name.yaml ; js-yaml $file_name.yaml ;yaml2json $file_name.yaml $file_name.json && cat $file_name.yaml && cat $file_name.json}
