@@ -27,14 +27,16 @@ function eld() {
 
 # daily "This is today priority" -> call the Daily script with the priority add it to the week readme
 function daily() {
-  cd $w
+  dev cd shopify
   day=$(date +%A)
-  day_path=$day.md
-  date -v+8H +%H%M | pyp "'- [ ] Schedule shutdown to: ' +p" | tee -a $day_path
+  day_path=.ignore/$day.md
+  echo "- [ ] $(date +%H%M) Schedule shutdown to: $(date -v+8H +%H%M)" | tee -a $day_path
+  git fetch origin master
+  git branch --no-merged origin/master | pyp 'p.replace("*", " ")|"- [ ] --- branch:" +p' | tee -a $day_path
   $HOME/scripts/daily.rb $@ | tee -a $day_path
-  sed -i bk "/$day/r $day_path" readme.md
+  sed -i bk "/$day/r $day_path" $w/readme.md
   rm $day_path
-  vim $w/readme.md
+  vim $w/readme.md -O $q/readme.md
 }
 
 # weekly "this is the week priority" -> call the Weekly script

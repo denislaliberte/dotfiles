@@ -21,7 +21,7 @@ alias glsh=git_log_short
 function git_log_short(){ git log --format='%h  "%ar"  %f' ${1:-HEAD} | tee >(wc -l) |cat  | head -30 }
 function git_log_master(){ git_log_short origin/master..${1:-HEAD} }
 alias grih=git_rebase_i_head
-function git_rebase_i_head(){ git rebase -i HEAD~${1:-2} }
+function git_rebase_i_head(){ git log --format='rebased commits: %h  "%ar"  %f' HEAD...HEAD~${1:-2} | tee -a $n; git rebase -i HEAD~${1:-2} }
 alias gro='deprecated ro'
 function number_of_commit(){ git shortlog -s -n  --no-merges | grep -i denis.laliberte }
 function git_log_author(){ git log --author=Denis.Laliberte --all --format='%h %f'  | grep $@}

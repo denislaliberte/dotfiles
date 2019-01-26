@@ -4,7 +4,6 @@ export var_workspace="$HOME/workspace/notes.local/projects"
 
 function var_path() { "$var_workspace/$(git_root)/var.sh" }
 
-alias vv='deprecated ev'
 # ev -> Edit Variable file with Vim
 function ev(){ vim $var -O $@ }
 

@@ -2,7 +2,7 @@
 
 # xcn 105 -> eXecute Command at line 105 in the Note log
 function xcn(){
-  command=$(sed "$1!d" ${2:-$note} | pyp 'p.split("---")[1]' | yq r - cmd)
+  command=$(get.data.line $1 cmd)
   echo $command
   eval $command
 }

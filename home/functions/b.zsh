@@ -5,29 +5,26 @@ function sbn(){
 }
 
 # cbn 1 -> Checkout to the Branch at line 1 of Note
-function cbn() {
-  branch=$(get.data.line $1 branch $note)
-  repo=$(get.data.line $1 repo $note)
-  if [ $repo != null ]
-  then
-    echo $repo
-    dev cd $repo
-  else
-    dev cd shopify
-  fi
+alias cbn=checkout.branch.note
+function checkout.branch.note() {
+  branch=$(get.data.line $1 branch master)
+  repo=$(get.data.line $1 repo shopify)
+  echo $repo
+  dev cd $repo
   echo $branch
-  git fetch origin $branch
   git checkout $branch
 }
 
 # nbn 1 -> create a New Branch from the name at line 1 of the Note file
 function nbn() {
   branch=$(get.data.line $1 branch)
+  repo=$(get.data.line $1 repo shopify)
+  echo $repo
+  dev cd $repo
   echo $branch
   git fetch origin master
   git checkout origin/master
   git checkout -b $branch
-  git push origin $branch
   enp
   cat ~/.gitmessage | tee -a $n
   en
@@ -35,7 +32,7 @@ function nbn() {
 
 # rbn 1 -> Review Branch in index one of Note file
 function rbn() {
-  branch=$(sed "$1!d" ${2:-$note} | pyp 'w[-1]')
+  branch=$(get.data.line $1 branch master)
   echo $branch
   r $branch
   echo $branch

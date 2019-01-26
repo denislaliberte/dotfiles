@@ -14,9 +14,9 @@ function get.data.line() {
 }
 
 
+
 # dddu -> dev down dev up
 function dddu(){
-  breathe
   dev sv stop
   dev down
   nvm use 8.9.4

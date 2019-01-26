@@ -10,15 +10,19 @@ function ro(){
 
 # rn -> git Remote Name
 function rn () {
-  git remote -v | pyp "d[1].split(':')[1]|pp[0]"
+  remote=$(git remote -v)
+  if [ "X$remote" = "X" ]; then
+    echo "local"
+  else
+    echo $remote | pyp "d[1].split(':')[1]|pp[0]"
+  fi
 }
 
 # r features/awesome-features # Review features
 function r(){
-  breathe
   git fetch origin $1
   git fetch origin master
-  dev tophat $1
+  git checkout $1
   enp
   echo $n
   ~/scripts/review.rb $1 | tee -a $n

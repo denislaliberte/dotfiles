@@ -1,4 +1,4 @@
-### hotel:
+### hotel: Novotel
 
 hotel local name: 
 address local:

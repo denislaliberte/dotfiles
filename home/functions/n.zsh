@@ -21,6 +21,12 @@ function edit.note(){
   vim +${1:-1} $note -O "${@:2}"
 }
 
+# eqn -> Edit Quarter Note
+alias eqn=edit.quarter.note
+function edit.quarter.note(){
+  vim +${1:-1} $note -O $q/readme.md
+}
+
 # na this is a message -> Note Add "this is a message"
 function na(){
   echo $note 
@@ -48,15 +54,34 @@ function epn(){
   else
     file_path2=$(get.data.line $2 path)
     line2=$(get.data.line $2 line 1)
-    vim -o +$line $file_path +$line2 $file_path2 
+    vim -o +$line $file_path +"vsp +$line2 $file_path2" ${@:3}
   fi
+  vim +$1 $note
+}
+
+# bpn 1 -> Blame file Path at line 1 of the Note file
+alias bpn=blame.path.note
+function blame.path.note(){
+  file_path=$(get.data.line $1 path)
+  line=$(get.data.line $1 line 1)
+  git blame --abbrev=10 -s $file_path > .ignore/blame.txt
+  echo >> .ignore/blame.txt
+  cat .ignore/blame.txt |  pyp "w[0]|pp.uniq()|p| p != '00000000000'" | xargs git show --format='COMMIT %s %an --- commit: %h' --name-only | pyp '"  * [ ] --- path: " + p | p.replace("--- path: COMMIT", "")' >> .ignore/blame.txt
+  vim -o +$line .ignore/blame.txt +"vsp +$1 $note"
+}
+
+# gscn 1 -> Git Show Commit on Note file at line 1
+function gscn() {
+  commit=$(get.data.line $1 commit)
+  git show $commit | pyp '"   >>>     "+ p|p.replace("     +++ b/", " - [ ] ").replace("      def", "* [ ] def").replace("    test", " * [ ] test")' >> .ignore/diff.txt
+  vim -o +$1 $note  .ignore/diff.txt
 }
 
 # spn -> Show Path Notes
 # spn serializer -> Show Path Notes that match /serializer/
 # spn serializer 10 -> Show 10 Path Notes that match /serializer/
 function spn() {
-  grep -n ${1:-.} $note | grep '\[ \].*path:' | grep -v LATER | HEAD -${2:-5}
+  grep -n ${1:-.} $note | grep '\[ \].*path:' | grep -v LATER | HEAD -${2:-15}
 }
 
 # spns 33 -> show path from note split only the path
