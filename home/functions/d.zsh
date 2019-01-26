@@ -13,8 +13,6 @@ function get.data.line() {
   fi
 }
 
-
-
 # dddu -> dev down dev up
 function dddu(){
   dev sv stop

@@ -45,12 +45,6 @@ function weekly() {
   $HOME/scripts/weekly.rb $@ | tee -a $w/readme.md
 }
 
-# lw -> List LogBook
-# lw 30 -> List LogBook week 30
-function lw(){
-  tree "$q/w${1:-$(date +%W)}"
-}
-
 # llc -> Logbook: List Comand in logbook test
 function llc() {
   grep -n '\$' "$w/${1:-readme}.md"  | grep ${2:-.} | grep '\$'
@@ -62,5 +56,3 @@ function lec () {
   echo $command
   eval $command
 }
-
-

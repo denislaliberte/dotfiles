@@ -28,12 +28,6 @@ function cam() {
   git show HEAD | review_diff | tee -a $n
 }
 
-# cfr -> git Commit Fixup Rebase the last two commits
-function cfr(){
-  git commit -a --fixup HEAD
-  git_rebase_i_head ${1:-2}
-}
-
 # cf -> git Commit Fixup
 function cf(){
   git commit -a --fixup $(cat .ignore/commits.txt | pyp "pp[${1:-0}]|w[0]")
@@ -53,16 +47,4 @@ function glm(){
   git_log_short ${1:-origin/master}..${2:-HEAD} | pyp 'pp[:-1]|p' > .ignore/commits.txt
   cat .ignore/commits.txt | pyp 'pp'
   echo '$ gsc i' 
-}
-
-# cl* -> CLean
-# cld -> git CLean Dry run
-function cld(){
-  git clean -nd
-  echo clf
-}
-
-# clf -> git Clean Force
-function clf(){
-  git clean -fd
 }
