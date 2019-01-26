@@ -28,7 +28,6 @@ function tf(){
   grep -n 'LATER' $todo | grep 'LATER\|NEXT\|>>' | wc -l
 }
 
-alias tdn='t'
 # t a thing to do -> Todo : Add '- [ ] a thing to do' to Note
 alias t=todo.add
 function todo.add(){
@@ -46,38 +45,12 @@ function todo.add.path() {
   ta $note "--- { path: $1, line: $line }"
 }
 
-
-
-
-# tam test a thing to do -> Todo : Add '- [ ] a thing to do' to ~/memo/test.md
-function tam(){
-  ta $HOME/memo/$1.md ${@:2}
-}
-
 # ta ~/note.md this is a note -> Todo: Add '- [ ] this is a note' to ~/note.md 
 function ta() {
   echo $1
   echo "- [ ]  ${@:2}" | tee -a  $1
   todo.last
 }
-
-alias et='en'
-
-
-alias qn='deprecated qan'
-# qan  is this a question -> Question: Add '- Q. is this is a question ? A.' to Note
-function qan(){
-  qa $note $*
-}
-
-# qa ~/note.md is this a question -> Question: Add '- Q. is this is a question ? A.' to ~/note.md 
-function qa(){
-  echo $1
-  echo "- Q. ${@:2} ? | A." | tee -a  $1
-}
-
-# tm -> return todo and question from ~/memo
-function tm() { t ~/memo/* }
 
 # lc -> take the Last Command from history and put it to the note file
 function lc(){
@@ -90,4 +63,3 @@ function tan() {
   dev test --include-branch-commits |  pyp "p.replace('Rerun: ', '- [ ] $ ').replace(': ', ' ')" | tee .ignore/test.txt
   en .ignore/test.txt
 }
-
