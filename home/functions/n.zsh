@@ -59,6 +59,13 @@ function epn(){
   vim +$1 $note
 }
 
+# tpn 33 -> Test file Path at the line 33 of Note file
+alias tpn=test.path.note
+function test.path.note() {
+  file_path=$(get.data.line $1 path)
+  dev test $file_path
+}
+
 # bpn 1 -> Blame file Path at line 1 of the Note file
 alias bpn=blame.path.note
 function blame.path.note(){
@@ -68,6 +75,17 @@ function blame.path.note(){
   echo >> .ignore/blame.txt
   cat .ignore/blame.txt |  pyp "w[0]|pp.uniq()|p| p != '00000000000'" | xargs git show --format='COMMIT %s %an --- commit: %h' --name-only | pyp '"  * [ ] --- path: " + p | p.replace("--- path: COMMIT", "")' >> .ignore/blame.txt
   vim -o +$line .ignore/blame.txt +"vsp +$1 $note"
+}
+
+# dpn 1 -> Diff file Path at line 1 of the Note file
+alias dpn=diff.path.note
+function diff.path.note(){
+  file_path=$(get.data.line $1 path)
+  line=$(get.data.line $1 line 1)
+  git diff $om $file_path > .ignore/diff.txt
+  echo >> .ignore/diff.txt
+  vim -o +$line .ignore/diff.txt +"vsp +$line $file_path"
+  vim +$1 $note
 }
 
 # gscn 1 -> Git Show Commit on Note file at line 1
@@ -81,7 +99,7 @@ function gscn() {
 # spn serializer -> Show Path Notes that match /serializer/
 # spn serializer 10 -> Show 10 Path Notes that match /serializer/
 function spn() {
-  grep -n ${1:-.} $note | grep '\[ \].*path:' | grep -v LATER | HEAD -${2:-15}
+  grep -n ${1:-.} $note | grep '\[ \]' | grep 'path:' | grep -v LATER | HEAD -${2:-15}
 }
 
 # np -> create a New Project directory and variables files 

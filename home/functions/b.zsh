@@ -1,7 +1,7 @@
 # sbn -> show Branch in Note
 # sbn 5 -> show the first five Branch in Note
 function sbn(){
-  grep -n '\[ \].*branch:' $note | head -${1:-3} | grep -v LATER
+  grep -n '\[ \].*branch:' $note  | grep -v LATER | grep ${1:-branch}
 }
 
 # cbn 1 -> Checkout to the Branch at line 1 of Note

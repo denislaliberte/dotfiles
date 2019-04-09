@@ -19,9 +19,9 @@ filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
-"====[ Make the 81st column stand out ]====================
+"====[ Make the 121st column stand out ]====================
 highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%121v', 100)
 
 "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
     exec "set listchars=tab:\uB7\uB7,trail:\uB7,nbsp:~"

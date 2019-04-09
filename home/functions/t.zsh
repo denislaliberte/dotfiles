@@ -45,6 +45,13 @@ function todo.add.path() {
   ta $note "--- { path: $1, line: $line }"
 }
 
+# tc dev test -> Todo add cmd '- [ ] --- { cmd: "dev test" }'
+alias tc=todo.add.cmd
+function todo.add.cmd() {
+  ta $note "--- { cmd: \"$@\" }"
+}
+
+
 # ta ~/note.md this is a note -> Todo: Add '- [ ] this is a note' to ~/note.md 
 function ta() {
   echo $1

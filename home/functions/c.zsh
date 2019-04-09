@@ -25,7 +25,8 @@ function cam() {
   git add -A :/
   git commit -m "$@"
   git log --format='%h  "%ar"  %f'  | head -1 | pyp "'  * [ ] LATER review commit: ' + p" | tee -a $n
-  git show HEAD | review_diff | tee -a $n
+  git show HEAD | review_diff >  .ignore/commit.txt
+  vim -o .ignore/commit.txt +"vsp $note"
 }
 
 # cf -> git Commit Fixup

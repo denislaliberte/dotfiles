@@ -2,12 +2,13 @@
 # save path in text file
 
 # sppm models ->  Save all Path where the Path Match /models/
-alias spgl='deprecated sppm'
 function sppm() {
   np='.ignore/path.txt'
+  npc='.ignore/path_content.txt'
   git ls-files | grep -i $1 > $np;
+  git ls-files | grep -i $1 | pyp '"  * [ ] --- path: " + p' > $npc;
   saved_path_index $np
-  vim -o $np $note
+  vim -o $npc $note
 }
 function next_path() { i=1; while [[ -e "$1$i.txt" ]] ; do let i++; done ; echo "$1$i.txt"  }
 
@@ -19,8 +20,8 @@ function show_path_all(){ wc -l .ignore/path*.txt | q  'select c2,c1 from -'; gr
 function spcm() {
   np='.ignore/path.txt'
   npc='.ignore/path_content.txt'
-  grep -nr $1 ${2:-*} | pyp "'- [ ] spcm $1 $2 || ' + p" >> $npc
-  grep -lr $1 ${2:-*}  | sort >> $np
+  grep -nr $1 ${2:-*} | pyp "p.split(':')| '  * [ ] ' + ':'.join(p[2:]).strip() + ' --- { path: ' +p[0] + ', line: ' +  p[1] + ' }'"  > $npc
+  grep -lr $1 ${2:-*}  | sort > $np
   echo "$np # $0 $@" >> $np
   echo "$npc # $0 $@" >> $np
   saved_path_index $np
@@ -29,7 +30,16 @@ function spcm() {
 
 # spdn  ->  Save Path from git branch Diff --Name-only origin/master
 # spdn test-branche  ->  Save Path from git branch Diff --Name-only test-branche
-function spdn(){ np='.ignore/path.txt'; git diff ${1:-origin/master} --name-only | grep -i ${2:-.}  > $np; echo "$np # $0 $@"   >> $np; saved_path_index $np }
+function spdn(){
+  np='.ignore/path.txt';
+  npc='.ignore/path_content.txt'
+  git diff ${1:-origin/master} --name-only | grep -i ${2:-.}  > $np;
+  git diff ${1:-origin/master} --name-only | grep -i ${2:-.} | pyp "'  * [ ]  --- { path: %s }' %(p) "  > $npc;
+  echo "$np # $0 $@"   >> $np;
+  echo "$npc # $0 $@" >> $np
+  saved_path_index $np
+  vim -o $npc $note
+}
 
 function saved_path_index() { cat $1 | pyp "pp[:]"}
 
