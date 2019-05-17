@@ -28,34 +28,32 @@ function tf(){
   grep -n 'LATER' $todo | grep 'LATER\|NEXT\|>>' | wc -l
 }
 
-# t a thing to do -> Todo : Add '- [ ] a thing to do' to Note
-alias t=todo.add
-function todo.add(){
-  ta $note $*
-}
-
 # tp path/to/file.rb 13 -> Todo add Path '- [ ] { path: path/to/file.rb, line: 13 }'
 alias tp=todo.add.path
 function todo.add.path() {
+  echo "todo.add.path $1 $2"
   if [ "$2x" = "x" ]; then
     line=1
   else
     line=$2
   fi
-  ta $note "--- { path: $1, line: $line }"
+  echo "  * [ ] --- { path: $1, line: $line }" | tee -a $note
+  todo.last
 }
 
 # tc dev test -> Todo add cmd '- [ ] --- { cmd: "dev test" }'
 alias tc=todo.add.cmd
 function todo.add.cmd() {
-  ta $note "--- { cmd: \"$@\" }"
+  echo "todo.add.cmd $@"
+  echo "  * [ ] --- { cmd: \"$@\" }" | tee -a $note
+  todo.last
 }
 
-
 # ta ~/note.md this is a note -> Todo: Add '- [ ] this is a note' to ~/note.md 
-function ta() {
-  echo $1
-  echo "- [ ]  ${@:2}" | tee -a  $1
+alias ta=todo.add
+function todo.add() {
+  echo "todo.add ${@:1} | $note"
+  echo "- [ ]  ${@:1}" | tee -a  $note
   todo.last
 }
 

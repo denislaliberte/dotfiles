@@ -13,6 +13,7 @@ function checkout.branch.note() {
   dev cd $repo
   echo $branch
   git checkout $branch
+  dev open pr
 }
 
 # nbn 1 -> create a New Branch from the name at line 1 of the Note file
@@ -44,3 +45,11 @@ function git_branch_name() {
   git rev-parse --abbrev-ref HEAD
 }
 
+# dbn 2 -> Delete the Branch in the Note file at line 2
+alias dbn=delete.branch.note
+function delete.branch.note() {
+  branch=$(get.data.line $1 branch)
+  echo "Delete $branch"
+  git branch -D $branch | tee -a $w/readme.md
+  en $1
+}

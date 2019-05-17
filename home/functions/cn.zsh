@@ -4,7 +4,10 @@
 function xcn(){
   command=$(get.data.line $1 cmd)
   echo $command
-  eval $command
+  eval $command | tee .ignore/cmd.txt
+  cat .ignore/cmd.txt | pyp 'len(c) >= 3 | c[1].isdigit()  | "  * [ ] --- { path: %s, line: %s }" %(c[0], c[1]) | pp.sort() | p' | tee -a .ignore/cmd.txt
+  cat .ignore/cmd.txt | pyp "'Rerun' in p | p.split('dev test')[1].split('--seed')[0]| '  * [ ] --- { cmd: \"dev test %s\" }' % p" | tee -a .ignore/cmd.txt
+  vim .ignore/cmd.txt +"vsp +$1 $note"
 }
 
 # scn -> Show  all Command in Note log

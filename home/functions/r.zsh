@@ -3,6 +3,8 @@
 # ro -> git Rebase Origin master
 # ro test -> git Rebase Origin Test
 function ro(){
+  current_branch=$( git rev-parse --abbrev-ref HEAD)
+  echo "git push origin $current_branch --force # be careful with the --force"
   branch=${1:-master}
   git fetch origin $branch
   git rebase origin/$branch
@@ -37,7 +39,7 @@ function rc() {
   git show $(cat .ignore/commits.txt | pyp "pp[${1:-0}]|w[0]") | review_diff
 }
 
-# rv -> review branch
+# rb -> review branch
 function rb() {
   {
     git diff origin/master...HEAD | review_diff | grep --color=never '\[ \]'

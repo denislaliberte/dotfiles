@@ -21,12 +21,14 @@ function cnc(){
 }
 
 # cam -> git Commit add All and Message
-function cam() {
+alias cam=commit.all.message
+function commit.all.message() {
   git add -A :/
-  git commit -m "$@"
+  git commit --allow-empty -m "$@"
   git log --format='%h  "%ar"  %f'  | head -1 | pyp "'  * [ ] LATER review commit: ' + p" | tee -a $n
   git show HEAD | review_diff >  .ignore/commit.txt
   vim -o .ignore/commit.txt +"vsp $note"
+  git.log.master
 }
 
 # cf -> git Commit Fixup
@@ -43,7 +45,8 @@ function cfn(){
 }
 
 # glm -> Git Log Master
-function glm(){
+alias glm=git.log.master
+function git.log.master(){
   git_log_short ${1:-origin/master}..${2:-HEAD}
   git_log_short ${1:-origin/master}..${2:-HEAD} | pyp 'pp[:-1]|p' > .ignore/commits.txt
   cat .ignore/commits.txt | pyp 'pp'

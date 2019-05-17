@@ -59,11 +59,28 @@ function epn(){
   vim +$1 $note
 }
 
+# cpn 33 -> git Checkout file where the Path is at the line 33 of the Note file
+alias cpn=checkout.path.note
+function checkout.path.note(){
+  file_path=$(get.data.line $1 path)
+  git diff $file_path > .ignore/diff.txt
+  git checkout $file_path
+  echo "checkout $file_path"
+  echo 'ignore/diff.txt'
+  cat .ignore/diff.txt
+}
+
 # tpn 33 -> Test file Path at the line 33 of Note file
 alias tpn=test.path.note
 function test.path.note() {
   file_path=$(get.data.line $1 path)
-  dev test $file_path
+  line=$(get.data.line $1 line)
+  echo "dev test $file_path"
+  dev test $file_path | tee .ignore/test.txt
+  cat .ignore/test.txt | pyp 'len(c) >= 3 | c[1].isdigit()  | "  * [ ] --- { path: %s, line: %s }" %(c[0], c[1]) | p.replace("\#", "#") | pp.sort() | p' | tee -a .ignore/test.txt
+
+  cat .ignore/test.txt | pyp "'Rerun' in p | p.split('dev test')[1].split('--seed')[0]| '  * [ ] --- { cmd: \"dev test %s\" }' % p" | tee -a .ignore/test.txt
+  vim -o .ignore/test.txt +"sp +$1 $note" $file_path
 }
 
 # bpn 1 -> Blame file Path at line 1 of the Note file
@@ -98,8 +115,9 @@ function gscn() {
 # spn -> Show Path Notes
 # spn serializer -> Show Path Notes that match /serializer/
 # spn serializer 10 -> Show 10 Path Notes that match /serializer/
-function spn() {
-  grep -n ${1:-.} $note | grep '\[ \]' | grep 'path:' | grep -v LATER | HEAD -${2:-15}
+alias spn=show.path.notes
+function show.path.notes() {
+  grep -in ${1:-.} $note | grep '\[ \]' | grep 'path:' | grep -v LATER | HEAD -${2:-15} | grep -i ${1:-.}
 }
 
 # np -> create a New Project directory and variables files 
@@ -127,4 +145,18 @@ function st() {
 # sn -> Summarize Notes
 function sn() {
   cat ${1:-$n}|grep  '^#\|\[ \]\|\]:'
+}
+
+# cn -> Commit Note
+alias cn=commit.note
+function commit.note(){
+  echo "commit.note $@ --- note: $note"
+  message="[pricing] ${@:2} $( sed -n "$1p" $note | sed 's/[^a-zA-Z0-9 ]//g' )"
+  echo "--- message: $message"
+  git add -A :/
+  git commit -m $message
+  git log --format='%h  "%ar"  %f'  | head -1 | pyp "'  * [ ] LATER review commit: ' + p" | tee -a $n
+  git show HEAD | review_diff >  .ignore/commit.txt
+  vim .ignore/commit.txt +"vsp +$1 $note"
+  git.log.master
 }
