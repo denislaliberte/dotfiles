@@ -59,6 +59,14 @@ function epn(){
   vim +$1 $note
 }
 
+
+# epnn 33 -> Edit file Path at the line 33 of the Note file with the Note file at the same line
+function epnn(){
+  file_path=$(get.data.line $1 path)
+  line=$(get.data.line $1 line 1)
+  vim -o +$1 $note +"vsp +$line $file_path" ${@:2}
+}
+
 # cpn 33 -> git Checkout file where the Path is at the line 33 of the Note file
 alias cpn=checkout.path.note
 function checkout.path.note(){
@@ -67,7 +75,8 @@ function checkout.path.note(){
   git checkout $file_path
   echo "checkout $file_path"
   echo 'ignore/diff.txt'
-  cat .ignore/diff.txt
+  cat .ignore/diff.txt | tee -a $note
+  vim +$1 $note
 }
 
 # tpn 33 -> Test file Path at the line 33 of Note file
@@ -80,7 +89,8 @@ function test.path.note() {
   cat .ignore/test.txt | pyp 'len(c) >= 3 | c[1].isdigit()  | "  * [ ] --- { path: %s, line: %s }" %(c[0], c[1]) | p.replace("\#", "#") | pp.sort() | p' | tee -a .ignore/test.txt
 
   cat .ignore/test.txt | pyp "'Rerun' in p | p.split('dev test')[1].split('--seed')[0]| '  * [ ] --- { cmd: \"dev test %s\" }' % p" | tee -a .ignore/test.txt
-  vim -o .ignore/test.txt +"sp +$1 $note" $file_path
+  vim -o .ignore/test.txt $file_path
+  vim -o .ignore/test.txt +"vsp +$1 $note"
 }
 
 # bpn 1 -> Blame file Path at line 1 of the Note file
@@ -151,10 +161,10 @@ function sn() {
 alias cn=commit.note
 function commit.note(){
   echo "commit.note $@ --- note: $note"
-  message="[pricing] ${@:2} $( sed -n "$1p" $note | sed 's/[^a-zA-Z0-9 ]//g' )"
+  message="${@:2} $( sed -n "$1p" $note | sed 's/[^a-zA-Z0-9 ]//g' )"
   echo "--- message: $message"
   git add -A :/
-  git commit -m $message
+  git commit --allow-empty -m $message
   git log --format='%h  "%ar"  %f'  | head -1 | pyp "'  * [ ] LATER review commit: ' + p" | tee -a $n
   git show HEAD | review_diff >  .ignore/commit.txt
   vim .ignore/commit.txt +"vsp +$1 $note"

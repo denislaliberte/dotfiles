@@ -1,5 +1,6 @@
 # t* -> todo
 
+
 alias todo='deprecated tl'
 # tl -> return Todo and question from $note Last in first out 
 # tl 10 -> return 10 Todo and question from $note Last in first out
@@ -66,5 +67,7 @@ function lc(){
 # tan -> Test All Note
 function tan() {
   dev test --include-branch-commits |  pyp "p.replace('Rerun: ', '- [ ] $ ').replace(': ', ' ')" | tee .ignore/test.txt
-  en .ignore/test.txt
+  vim $note -O .ignore/test.txt
 }
+
+alias testit=~/src/github.com/denislaliberte/testit/testit.rb
