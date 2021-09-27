@@ -7,4 +7,5 @@ function p(){
   git_log_short origin/master..HEAD
   dev_style
   git push origin $current_branch
+  echo "git push origin $current_branch --force # be careful with the --force"
 }

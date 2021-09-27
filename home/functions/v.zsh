@@ -1,5 +1,4 @@
 # variables
-echo "var : $var"
 export var_workspace="$HOME/workspace/notes.local/projects"
 
 function var_path() { "$var_workspace/$(git_root)/var.sh" }

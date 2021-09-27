@@ -2,6 +2,8 @@ ZSH=~/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="dracula"
 HIST_STAMPS="yyy-mm-dd"
+plugins=(you-should-use $plugins)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -72,3 +74,11 @@ fuck () {
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
 source $HOME/src/github.com/Shopify/xdev/alias.sh
+if [ -e /Users/denislaliberte/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/denislaliberte/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+
+export YSU_HARDCORE=0
+
+preexec(){ [ $1 != $2 ] && print -r "$1        ->      $2" }
+

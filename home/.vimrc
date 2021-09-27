@@ -9,8 +9,8 @@ set backspace=indent,eol,start
 set expandtab
 set tabstop=2
 set shiftwidth=2
-set autoindent
-set smartindent
+"set autoindent
+"set smartindent
 set number
 set smartcase
 
@@ -68,6 +68,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 "Plug 'vim-ruby/vim-ruby'
 Plug 'ingydotnet/yaml-vim'
+Plug 'rust-lang/rust.vim'
 "Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'

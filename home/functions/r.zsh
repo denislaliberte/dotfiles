@@ -16,7 +16,7 @@ function rn () {
   if [ "X$remote" = "X" ]; then
     echo "local"
   else
-    echo $remote | pyp "d[1].split(':')[1]|pp[0]"
+    echo $remote | pyp  "pp[0]|s[3]+ '/' +s[4]|d[0]"
   fi
 }
 

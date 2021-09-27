@@ -4,7 +4,7 @@
 # gdl 1 branch -> Get the Data in the note at the Line 1 with the key branch
 alias gdl=get.data.line
 function get.data.line() {
-  value=$(sed "$1!d" $note | pyp 'p.split("---")[1]' | yq r - $2)
+  value=$(sed "$1!d" $note | pyp 'p.split(" --- ")[1]' | yq r - $2)
   if [ $value != null ]
   then
     echo $value
@@ -77,11 +77,5 @@ function devclone(){
   git branch -D master
 }
 
-function dev_server(){
-  dev open internal
-  dev server
-}
-
-alias ds=dev_server
 function dev_style(){ dev style --include-branch-commits }
 alias stl=dev_style
