@@ -1,1 +1,0 @@
-alias sob='sobriquet add'

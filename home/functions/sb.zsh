@@ -3,7 +3,7 @@
 # sbh vim -> show help line that match the regex /vim/
 alias sbh=saved_branch_help
 function saved_branch_help(){
-  grep '^\#' ~/functions/sb.sh | grep ${1:-.} | grep '\->'
+  grep '^\#' ~/functions/sb.zsh | grep ${1:-.} | grep '\->'
 }
 
 # sb 1 -> select saved branch at index 1

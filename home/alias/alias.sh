@@ -1,11 +1,11 @@
 
 # ag git.commit -> return all alias that match the regex /git.commit/
-alias ag=alias_grep
+alias agr=alias_grep
 function alias_grep(){ grep  -ni "$*" ~/alias/* }
 
 # va git -> edit ~/alias/git.sh file with vim
 alias va=vim_alias
-function vim_alias(){ vim ~/alias/$1.sh }
+function vim_alias(){ echo "vim ~/alias/$1.sh"; vim ~/alias/$1.sh }
 
 alias sz="source ~/.zshrc"
 

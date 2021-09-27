@@ -5,6 +5,7 @@
 function sppm() {
   np='.ignore/path.txt'
   npc='.ignore/path_content.txt'
+  echo "- [ ] --- cmd: \"spcm $1 $2\"" > $npc
   git ls-files | grep -i $1 > $np;
   git ls-files | grep -i $1 | pyp '"  * [ ] --- { path: " + p +", line:1 }"' > $npc;
   saved_path_index $np
@@ -20,8 +21,9 @@ function show_path_all(){ wc -l .ignore/path*.txt | q  'select c2,c1 from -'; gr
 function spcm() {
   np='.ignore/path.txt'
   npc='.ignore/path_content.txt'
-  grep -nri $1 ${2:-*} | pyp "p.split(':')| '  * [ ] ' + ':'.join(p[2:]).strip() + ' --- { path: ' +p[0] + ', line: ' +  p[1] + ' }'"  > $npc
-  grep -lri $1 ${2:-*}  | sort > $np
+  echo "- [ ] --- cmd: \"spcm $1 $2\"" > $npc
+  ag --noheading --nocolor $1 ${2:-*} | pyp "p.split(':')| '  * [ ] ' + ':'.join(p[2:]).strip() + ' --- { path: ' +p[0] + ', line: ' +  p[1] + ' }'"  >> $npc
+  ag -l --nocolor $1 ${2:-*}  | sort > $np
   echo "$np # $0 $@" >> $np
   echo "$npc # $0 $@" >> $np
   saved_path_index $np
@@ -33,8 +35,9 @@ function spcm() {
 function spdn(){
   np='.ignore/path.txt';
   npc='.ignore/path_content.txt'
+  echo "- [ ] --- cmd: spdn" > $npc
   git diff ${1:-origin/master} --name-only | grep -i ${2:-.}  > $np;
-  git diff ${1:-origin/master} --name-only | grep -i ${2:-.} | pyp "'  * [ ]  --- { path: %s, line: 1 }' %(p) "  > $npc;
+  git diff ${1:-origin/master} --name-only | grep -i ${2:-.} | pyp "'  * [ ]  --- { path: %s, line: 1 }' %(p) "  >> $npc;
   echo "$np # $0 $@"   >> $np;
   echo "$npc # $0 $@" >> $np
   saved_path_index $np

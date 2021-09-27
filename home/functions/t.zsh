@@ -32,7 +32,6 @@ function tf(){
 # tp path/to/file.rb 13 -> Todo add Path '- [ ] { path: path/to/file.rb, line: 13 }'
 alias tp=todo.add.path
 function todo.add.path() {
-  echo "todo.add.path $1 $2"
   if [ "$2x" = "x" ]; then
     line=1
   else
@@ -66,8 +65,9 @@ function lc(){
 
 # tan -> Test All Note
 function tan() {
-  dev test --include-branch-commits |  pyp "p.replace('Rerun: ', '- [ ] $ ').replace(': ', ' ')" | tee .ignore/test.txt
+  dev test --include-branch-commits | tee .ignore/test.txt
+  cat .ignore/test.txt | pyp 'len(c) >= 3 | c[1].isdigit()| "* [ ] --- { path: %s, line: %s }" %(c[0], c[1]) | p.replace("\#", "#") | pp.sort() | p' | tee -a .ignore/test.txt
+  cat .ignore/test.txt | pyp "'Rerun' in p | p.split('dev test')[1].split('--seed')[0]| '* [ ] --- { cmd: \"dev test %s\" }' % p" | tee -a .ignore/test.txt
   vim $note -O .ignore/test.txt
 }
 
-alias testit=~/src/github.com/denislaliberte/testit/testit.rb

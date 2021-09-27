@@ -1,13 +1,10 @@
 # Note
 
-echo "note : $note";
-export note_workspace="$HOME/workspace/notes.local/projects"
-
 # enp -> Export Note Path
 # enp 25 features/asdf -> Export Note Path for the week 25 and the branch name features/asdf
 function enp() {
   branch=${2:-$(bn)}
-  export shelf="$q/$(rn)/$branch/weeks/${1:-$(date +%W)}"
+  export shelf="$q/$(rn)/$branch/"
   mkdir -p $shelf
   export s=$shelf
   export note=$shelf/readme.md
@@ -45,23 +42,26 @@ function oun() {
 
 # epn 33 -> Edit file Path at the line 33 of the Note file
 # epn 33 34 -> Edit file Path at the line 33 and 34 of the Note file
-function epn(){
+alias epn=edit_path_note
+function edit_path_note(){
   file_path=$(get.data.line $1 path)
   line=$(get.data.line $1 line 1)
   if [ "x$2" = x ]
   then
     vim -o +$line $file_path
+    vim +$1 $note
   else
     file_path2=$(get.data.line $2 path)
     line2=$(get.data.line $2 line 1)
     vim -o +$line $file_path +"vsp +$line2 $file_path2" ${@:3}
+    vim +$2 $note
   fi
-  vim +$1 $note
 }
 
 
 # epnn 33 -> Edit file Path at the line 33 of the Note file with the Note file at the same line
-function epnn(){
+alias epnn=edit_path_note_and_note_file
+function edit_path_note_and_note_file(){
   file_path=$(get.data.line $1 path)
   line=$(get.data.line $1 line 1)
   vim -o +$1 $note +"vsp +$line $file_path" ${@:2}
@@ -93,6 +93,21 @@ function test.path.note() {
   vim -o .ignore/test.txt +"vsp +$1 $note"
 }
 
+alias etpn=edit.test.path.note
+function edit.test.path.note(){
+  file_path=$(get.data.line $1 path)
+  line=$(get.data.line $1 line 1)
+  file_path2=$(get.data.line $2 path)
+  line2=$(get.data.line $2 line 1)
+
+  dev test $file_path2 | tee .ignore/test.txt
+
+  cat .ignore/test.txt | pyp 'len(c) >= 3 | c[1].isdigit()  | "  * [ ] --- { path: %s, line: %s }" %(c[0], c[1]) | p.replace("\#", "#") | pp.sort() | p' | tee -a .ignore/test.txt
+  cat .ignore/test.txt | pyp "'Rerun' in p | p.split('dev test')[1].split('--seed')[0]| '  * [ ] --- { cmd: \"dev test %s\" }' % p" | tee -a .ignore/test.txt
+
+  vim -o +$line $file_path +"vsp +$line2 $file_path2" .ignore/test.txt
+}
+
 # bpn 1 -> Blame file Path at line 1 of the Note file
 alias bpn=blame.path.note
 function blame.path.note(){
@@ -112,7 +127,7 @@ function diff.path.note(){
   git diff $om $file_path > .ignore/diff.txt
   echo >> .ignore/diff.txt
   vim -o +$line .ignore/diff.txt +"vsp +$line $file_path"
-  vim +$1 $note
+  vim +$1 $note -o .ignore/diff.txt
 }
 
 # gscn 1 -> Git Show Commit on Note file at line 1
@@ -161,7 +176,7 @@ function sn() {
 alias cn=commit.note
 function commit.note(){
   echo "commit.note $@ --- note: $note"
-  message="${@:2} $( sed -n "$1p" $note | sed 's/[^a-zA-Z0-9 ]//g' )"
+  message="${@:2} $( sed -n "$1p" $note | pyp 'p.split("]")[-1]' )"
   echo "--- message: $message"
   git add -A :/
   git commit --allow-empty -m $message

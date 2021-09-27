@@ -1,7 +1,6 @@
 alias ane="deprecated can"
 alias push="deprecated p"
 alias gac="deprecated  cam"
-alias gfc="deprecated cf"
 alias fur="deprecated cfr"
 alias fun="deprecated cfn"
 
@@ -18,7 +17,7 @@ function git_pull_current_branch() { git pull origin $( git rev-parse --abbrev-r
 alias gdn=git_diff_name
 function git_diff_name() { git diff $1 --name-only | cat }
 alias glsh=git_log_short
-function git_log_short(){ git log --format='%h  "%ar"  %f' ${1:-HEAD} | tee >(wc -l) |cat  | head -30 }
+function git_log_short(){ git log --format='%h %s %n   %ar' ${1:-HEAD} |cat  | head -30 }
 function git_log_master(){ git_log_short origin/master..${1:-HEAD} }
 alias grih=git_rebase_i_head
 function git_rebase_i_head(){ git log --format='rebased commits: %h  "%ar"  %f' HEAD...HEAD~${1:-2} | tee -a $n; git rebase -i HEAD~${1:-2} }
@@ -31,6 +30,7 @@ function git_log_all(){ git log --all  --format='%h %f' | grep $@ }
 alias glal=git_log_all
 export om="origin/master"
 alias gfm="git fetch origin master"
+alias gfo="git fetch origin"
 alias gd="git diff"
 alias gdm="git diff origin/master"
 alias gsh="git show"
@@ -39,6 +39,8 @@ alias amd="git commit --amend"
 alias ga="git add"
 alias gau="git add -u :/"
 alias gc="git checkout "
+alias gfc=git_fetch_checkout
+function git_fetch_checkout() { git fetch origin $1; git checkout $1}
 alias gcb="git checkout -b"
 alias gm="git merge"
 alias gbd="git branch -d"
@@ -50,5 +52,6 @@ alias gre="git reset"
 alias gtl='git tag --list'
 alias gr="git rebase"
 alias grc="git rebase --continue"
+alias grs="git rebase --skip"
 alias gra="git rebase --abort"
 alias gcpc="git cherry-pick --continue"

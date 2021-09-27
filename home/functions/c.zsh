@@ -10,14 +10,14 @@ function git.commit(){
 function can(){
   git add -u :/
   git commit --amend --no-edit
-  git show HEAD | review_diff | tee -a $n
+  git show HEAD | review_diff | tee -a $note
 }
 
 # cnc -> git Commit fast No Comment
 function cnc(){
   git add -A :/
   git commit -m 'no comment '
-  git show HEAD | review_diff | tee -a $n
+  git show HEAD | review_diff | tee -a $note
 }
 
 # cam -> git Commit add All and Message
@@ -25,7 +25,7 @@ alias cam=commit.all.message
 function commit.all.message() {
   git add -A :/
   git commit --allow-empty -m "$@"
-  git log --format='%h  "%ar"  %f'  | head -1 | pyp "'  * [ ] LATER review commit: ' + p" | tee -a $n
+  git log --format='%h  "%ar"  %f'  | head -1 | pyp "'  * [ ] LATER review commit: ' + p" | tee -a $note
   git show HEAD | review_diff >  .ignore/commit.txt
   vim -o .ignore/commit.txt +"vsp $note"
   git.log.master
@@ -41,14 +41,14 @@ function cf(){
 function cfn(){
   git commit -a --fixup :/note
   git_log_short origin/master..HEAD
-  git show HEAD | review_diff | tee -a $n
+  git show HEAD | review_diff | tee -a $note
 }
 
 # glm -> Git Log Master
 alias glm=git.log.master
 function git.log.master(){
   git_log_short ${1:-origin/master}..${2:-HEAD}
-  git_log_short ${1:-origin/master}..${2:-HEAD} | pyp 'pp[:-1]|p' > .ignore/commits.txt
+  git_log_short ${1:-origin/master}..${2:-HEAD} > .ignore/commits.txt
   cat .ignore/commits.txt | pyp 'pp'
   echo '$ gsc i' 
 }
