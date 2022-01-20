@@ -4,6 +4,9 @@ alias gac="deprecated  cam"
 alias fur="deprecated cfr"
 alias fun="deprecated cfn"
 
+
+alias gus="git status"
+
 alias glg="git_ls_grep"
 function git_ls_grep() { git ls-files | grep -i $1  }
 
@@ -17,7 +20,7 @@ function git_pull_current_branch() { git pull origin $( git rev-parse --abbrev-r
 alias gdn=git_diff_name
 function git_diff_name() { git diff $1 --name-only | cat }
 alias glsh=git_log_short
-function git_log_short(){ git log --format='%h %s %n   %ar' ${1:-HEAD} |cat  | head -30 }
+function git_log_short(){ git log --format='%h >>>>>    %ar >>>>>      %s' ${1:-HEAD} |cat  | head -30 }
 function git_log_master(){ git_log_short origin/master..${1:-HEAD} }
 alias grih=git_rebase_i_head
 function git_rebase_i_head(){ git log --format='rebased commits: %h  "%ar"  %f' HEAD...HEAD~${1:-2} | tee -a $n; git rebase -i HEAD~${1:-2} }
@@ -36,6 +39,7 @@ alias gdm="git diff origin/master"
 alias gsh="git show"
 alias cmt="git commit"
 alias amd="git commit --amend"
+alias cane="git commit --amend --no-edit"
 alias ga="git add"
 alias gau="git add -u :/"
 alias gc="git checkout "
@@ -54,4 +58,5 @@ alias gr="git rebase"
 alias grc="git rebase --continue"
 alias grs="git rebase --skip"
 alias gra="git rebase --abort"
-alias gcpc="git cherry-pick --continue"
+alias pckc="git cherry-pick --continue"
+alias pck="git cherry-pick"

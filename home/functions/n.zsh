@@ -4,24 +4,27 @@
 # enp 25 features/asdf -> Export Note Path for the week 25 and the branch name features/asdf
 function enp() {
   branch=${2:-$(bn)}
-  export shelf="$q/$(rn)/$branch/"
+  export shelf=".ignore/$branch"
   mkdir -p $shelf
   export s=$shelf
   export note=$shelf/readme.md
   export n=$note
-  echo "- $(date +%H%m) $(pwd | pyp 's[5:7]|s') work on: \$q/$(echo $n |  pyp 's[8:]|s'):1 branch: $branch" | tee -a $w/readme.md
+}
+
+# envim -> Edit Note vim
+alias envim=edit_note_vim
+function edit_note_vim(){
+  vim +${1:-1} $note -O "${@:2}"
 }
 
 # en -> Edit Note
 alias en=edit.note
 function edit.note(){
-  vim +${1:-1} $note -O "${@:2}"
-}
-
-# eqn -> Edit Quarter Note
-alias eqn=edit.quarter.note
-function edit.quarter.note(){
-  vim +${1:-1} $note -O $q/readme.md
+  code --goto "$note:${1:-1}"
+  if [ "x$2" != x ]
+  then
+    code $2
+  fi
 }
 
 # na this is a message -> Note Add "this is a message"
@@ -40,13 +43,13 @@ function oun() {
   open $(tf | grep -o "http[^ ]*" | pyp "pp[$1]")
 }
 
-# epn 33 -> Edit file Path at the line 33 of the Note file
-# epn 33 34 -> Edit file Path at the line 33 and 34 of the Note file
-alias epn=edit_path_note
-function edit_path_note(){
+# epnv 33 -> Edit file Path at the line 33 of the Note file with vim
+# epnv 33 34 -> Edit file Path at the line 33 and 34 of the Note file with vim
+alias epnv=edit_path_note_vim
+function edit_path_note_vim(){
   file_path=$(get.data.line $1 path)
   line=$(get.data.line $1 line 1)
-  if [ "x$2" = x ]
+  if [ "x$2" != x ]
   then
     vim -o +$line $file_path
     vim +$1 $note
@@ -55,6 +58,24 @@ function edit_path_note(){
     line2=$(get.data.line $2 line 1)
     vim -o +$line $file_path +"vsp +$line2 $file_path2" ${@:3}
     vim +$2 $note
+  fi
+}
+
+# epn 33 -> Edit file Path at the line 33 of the Note file
+# epn 33 34 -> Edit file Path at the line 33 and 34 of the Note file
+alias epn=edit_path_note
+function edit_path_note(){
+  code --goto "$note:$1"
+
+  file_path=$(get.data.line $1 path)
+  line=$(get.data.line $1 line 1)
+
+  code --goto "$file_path:$line"
+  if [ "x$2" != x ]
+  then
+    file_path2=$(get.data.line $2 path)
+    line2=$(get.data.line $2 line 1)
+    code --goto "$file_path2:$line2"
   fi
 }
 

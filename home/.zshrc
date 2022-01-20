@@ -1,12 +1,9 @@
 ZSH=~/.oh-my-zsh
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="dracula"
+ZSH_THEME="robbyrussell"
 HIST_STAMPS="yyy-mm-dd"
 plugins=(you-should-use $plugins)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
 
 if [ -d ~/alias ]; then
   for f in ~/alias/*
@@ -29,25 +26,16 @@ fi
 
 bindkey -v
 
-# pip should only run if there is a virtualenv currently activated
-#export PIP_REQUIRE_VIRTUALENV=true
-# cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 export PATH=/usr/texbin:/usr/local/bin:$PATH
 export GOPATH=$HOME/go
 
 
-if [ -f $HOME/ansible-desktop/.env ]; then
-  source $HOME/ansible-desktop/.env
-fi
-
-
 export CLICOLOR=1
 export ws="$HOME/workspace/"
 
 export WORKON_HOME=~/Envs
-#source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=$PATH:$GOPATH/bin
@@ -57,22 +45,16 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR='vim'
 
-fuck () {
-    TF_PYTHONIOENCODING=$PYTHONIOENCODING;
-    export TF_ALIAS=fuck;
-    export TF_HISTORY="$(fc -ln -10)";
-    export PYTHONIOENCODING=utf-8;
-    TF_CMD=$(
-        thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
-    ) && eval $TF_CMD;
-    unset TF_HISTORY;
-    export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
-    test -n "$TF_CMD" && print -s $TF_CMD
-}
-
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
 export YSU_HARDCORE=0
 
 preexec(){ [ $1 != $2 ] && print -r "$1        ->      $2" }
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+
+export GOPATH=$HOME/go
+if [ -e /Users/denis/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/denis/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)

@@ -30,6 +30,19 @@ function spcm() {
   vim -o $npc $note
 }
 
+# spcmnt class -> Save Path where the file Content Match the regex /class/ and Filter
+function spcmf {
+  np='.ignore/path.txt'
+  npc='.ignore/path_content.txt'
+  echo "- [ ] --- cmd: \"spcmf $1 $2 $3\"" > $npc
+  ag --noheading --nocolor $1 ${2:-*} | pyp "p.split(':')| '  * [ ] ' + ':'.join(p[2:]).strip() + ' --- { path: ' +p[0] + ', line: ' +  p[1] + ' }'" | grep -v $3 >> $npc
+  ag -l --nocolor $1 ${2:-*} | grep -v $3 | sort > $np
+  echo "$np # $0 $@" >> $np
+  echo "$npc # $0 $@" >> $np
+  saved_path_index $np
+  vim -o $npc $note
+}
+
 # spdn  ->  Save Path from git branch Diff --Name-only origin/master
 # spdn test-branche  ->  Save Path from git branch Diff --Name-only test-branche
 function spdn(){

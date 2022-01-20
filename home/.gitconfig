@@ -5,9 +5,10 @@
   ui = true
 [core]
   autocrlf = false
-  editor = vim
+	editor = code --wait
   filemode = false
 	commitGraph = true
+	excludesfile = /Users/denis/.gitignore
 [filter "hawser"]
   clean = git hawser clean %f
   smudge = git hawser smudge %f
@@ -15,10 +16,10 @@
 [git-up "fetch"]
   all = true
 [diff]
-  tool = kdiff3
+	tool = vscode
 	algorithm = patience
 [merge]
-  tool = kdiff3
+	tool = vscode
 [difftool]
   prompt = false
 [filter "lfs"]
@@ -51,3 +52,7 @@
 	helper = store --file /opt/dev/var/private/git_credential_store
 [pull]
 	rebase = false
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE

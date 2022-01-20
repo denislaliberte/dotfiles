@@ -45,10 +45,9 @@ function cfn(){
 }
 
 # glm -> Git Log Master
-alias glm=git.log.master
-function git.log.master(){
-  git_log_short ${1:-origin/master}..${2:-HEAD}
-  git_log_short ${1:-origin/master}..${2:-HEAD} > .ignore/commits.txt
+alias glm=git.log.main
+function git.log.main(){
+  git_log_short ${1:-origin/main}..${2:-HEAD} > .ignore/commits.txt
   cat .ignore/commits.txt | pyp 'pp'
   echo '$ gsc i' 
 }
